@@ -1,0 +1,321 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 20, 2018 at 03:04 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `orendaventures`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consumable_admin_rfq`
+--
+
+CREATE TABLE `consumable_admin_rfq` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `consumable_name` varchar(255) NOT NULL,
+  `rfq_ids` text NOT NULL,
+  `cons_quantity` int(11) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `admin_final_price` varchar(255) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consumable_assigned_suppliers`
+--
+
+CREATE TABLE `consumable_assigned_suppliers` (
+  `id` int(11) NOT NULL,
+  `admin_rfq_id` int(11) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `supplier_price` int(11) NOT NULL,
+  `admin_price` varchar(255) NOT NULL,
+  `supplier_status` enum('A','H','R') NOT NULL DEFAULT 'H' COMMENT 'A:Accept,R:Reject,H:Hold',
+  `admin_status` enum('A','H','R') NOT NULL DEFAULT 'H' COMMENT 'A:Accept,R:Reject,H:Hold',
+  `request_supplier_date` date NOT NULL,
+  `admin_accepted_date` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consumable_customer_rfq`
+--
+
+CREATE TABLE `consumable_customer_rfq` (
+  `id` int(11) NOT NULL,
+  `cons_category_id` int(11) NOT NULL,
+  `cons_type_id` int(11) NOT NULL,
+  `cons_brand_id` int(11) NOT NULL,
+  `cons_name_id` int(11) NOT NULL,
+  `cons_quantity` int(11) NOT NULL,
+  `cons_freq` varchar(255) NOT NULL,
+  `rfq_status` enum('Y','W') NOT NULL DEFAULT 'W' COMMENT 'Y: Rfq Generated,W : Waiting',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `customer_id` int(11) NOT NULL,
+  `consumable_buying_price` int(11) NOT NULL,
+  `quote_price_by_admin` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `consumable_customer_rfq`
+--
+
+INSERT INTO `consumable_customer_rfq` (`id`, `cons_category_id`, `cons_type_id`, `cons_brand_id`, `cons_name_id`, `cons_quantity`, `cons_freq`, `rfq_status`, `created_date`, `customer_id`, `consumable_buying_price`, `quote_price_by_admin`) VALUES
+(1, 1, 1, 1, 1, 100, '', 'Y', '2018-10-20 07:51:29', 1, 0, ''),
+(2, 1, 1, 1, 1, 100, '', 'Y', '2018-10-20 07:52:32', 1, 0, ''),
+(3, 1, 1, 1, 1, 7, 'Monthly', 'Y', '2018-10-20 07:53:10', 1, 0, ''),
+(4, 1, 2, 2, 1, 10, 'Qtrly', 'Y', '2018-10-20 07:57:16', 1, 0, ''),
+(5, 1, 1, 1, 1, 7, 'Monthly', 'W', '2018-10-20 07:58:47', 1, 0, ''),
+(6, 1, 1, 1, 2, 10, 'Qtrly', 'W', '2018-10-20 07:59:29', 1, 0, ''),
+(7, 3, 2, 2, 3, 2, 'Monthly', 'W', '2018-10-20 08:00:48', 1, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_consumables_brand`
+--
+
+CREATE TABLE `mst_consumables_brand` (
+  `id` int(11) NOT NULL,
+  `consumable_brand` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_consumables_brand`
+--
+
+INSERT INTO `mst_consumables_brand` (`id`, `consumable_brand`) VALUES
+(1, 'consumablebrand1'),
+(2, 'consumablebrand2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_consumables_category`
+--
+
+CREATE TABLE `mst_consumables_category` (
+  `id` int(11) NOT NULL,
+  `consumable_category` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_consumables_category`
+--
+
+INSERT INTO `mst_consumables_category` (`id`, `consumable_category`) VALUES
+(1, 'category1'),
+(2, 'consumablecategory1'),
+(3, 'consumablecategory2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_consumables_name`
+--
+
+CREATE TABLE `mst_consumables_name` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `unit` varchar(255) NOT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_consumables_name`
+--
+
+INSERT INTO `mst_consumables_name` (`id`, `name`, `unit`, `created_on`) VALUES
+(1, 'Consumable Name', 'Lit', '2018-10-12 05:41:23'),
+(2, 'Consumable Name 1', 'Lit', '2018-10-12 05:42:33'),
+(3, 'Consumable Name 2', 'Gal', '2018-10-12 05:42:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_consumables_quantity`
+--
+
+CREATE TABLE `mst_consumables_quantity` (
+  `id` int(11) NOT NULL,
+  `consumable_qty` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_consumables_quantity`
+--
+
+INSERT INTO `mst_consumables_quantity` (`id`, `consumable_qty`) VALUES
+(1, 1),
+(2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_consumables_type`
+--
+
+CREATE TABLE `mst_consumables_type` (
+  `id` int(11) NOT NULL,
+  `consumable_type` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_consumables_type`
+--
+
+INSERT INTO `mst_consumables_type` (`id`, `consumable_type`) VALUES
+(1, 'consumabletype1'),
+(2, 'consumabletype2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_consumables_unit`
+--
+
+CREATE TABLE `mst_consumables_unit` (
+  `id` int(11) NOT NULL,
+  `unit` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_consumables_unit`
+--
+
+INSERT INTO `mst_consumables_unit` (`id`, `unit`) VALUES
+(1, 'unit1'),
+(2, 'unit2');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `consumable_admin_rfq`
+--
+ALTER TABLE `consumable_admin_rfq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `consumable_assigned_suppliers`
+--
+ALTER TABLE `consumable_assigned_suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `consumable_customer_rfq`
+--
+ALTER TABLE `consumable_customer_rfq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_consumables_brand`
+--
+ALTER TABLE `mst_consumables_brand`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_consumables_category`
+--
+ALTER TABLE `mst_consumables_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_consumables_name`
+--
+ALTER TABLE `mst_consumables_name`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_consumables_quantity`
+--
+ALTER TABLE `mst_consumables_quantity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_consumables_type`
+--
+ALTER TABLE `mst_consumables_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_consumables_unit`
+--
+ALTER TABLE `mst_consumables_unit`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `consumable_admin_rfq`
+--
+ALTER TABLE `consumable_admin_rfq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `consumable_assigned_suppliers`
+--
+ALTER TABLE `consumable_assigned_suppliers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `consumable_customer_rfq`
+--
+ALTER TABLE `consumable_customer_rfq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `mst_consumables_brand`
+--
+ALTER TABLE `mst_consumables_brand`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_consumables_category`
+--
+ALTER TABLE `mst_consumables_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `mst_consumables_name`
+--
+ALTER TABLE `mst_consumables_name`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `mst_consumables_quantity`
+--
+ALTER TABLE `mst_consumables_quantity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_consumables_type`
+--
+ALTER TABLE `mst_consumables_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_consumables_unit`
+--
+ALTER TABLE `mst_consumables_unit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;

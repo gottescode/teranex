@@ -1,0 +1,7 @@
+ALTER TABLE `remote_application_consultant_request_programmer` ADD `admin_accept_status` ENUM('Y','N') NOT NULL DEFAULT 'N' AFTER `customer_accept_status`;
+
+ALTER TABLE `remote_application_rfq` ADD `user_type` INT NOT NULL AFTER `customer_user_id`;
+
+ALTER TABLE `snapshots_subscription_purchase` ADD `user_type` INT NOT NULL AFTER `user_id`;
+
+ALTER TABLE `teranex_paid_feedback` ADD `user_id` INT NOT NULL AFTER `tpf_id`;

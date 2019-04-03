@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Teranex</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="custom.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-ex" role="navigation">
+            <!-- <div class="container-fluid"> -->
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                <a class="navbar-brand" href="index.php" style="padding:0px; margin-bottom:10px;"><img src="images/logo1o.jpg" class="img-responsive"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="col-sm-3 right-icon">
+                    <div class="row">
+                        <!-- <div class="btn-group"> -->
+                        <!-- <a href="index.php" aria-haspopup="true" aria-expanded="false" title="Home"><img src="images/home-icon.jpg" width="23" height="21"></a> -->
+                        <!-- </div> -->
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Help"><img src="images/help.jpg" width="23" height="21"></a>
+                            <ul class="dropdown-menu" style=" min-width:160px;">
+                                <li><a href="#">Quotations</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Track order"><img src="images/truck.jpg" width="27" height="21"></a>
+                            <ul class="dropdown-menu" style=" min-width:160px;">
+                                <li><a href="#">Track Order</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Cart"><img src="images/shoping.jpg" width="27" height="21"></a>
+                            <ul class="dropdown-menu" style="margin-left:-90px; min-width:160px;">
+                                <li><a href="#">My Cart (0)</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sign in"><img src="images/user.jpg" width="17" height="21"></a>
+                            <ul class="dropdown-menu" style="margin-left:-110px; min-width:160px;">
+                                <li><a href="sign_in.php">Sign in</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Links"><img src="images/lins.jpg" width="17" height="21"></a>
+                            <ul class="dropdown-menu" style="margin-left:-130px; min-width:160px;">
+                                <b style="padding-left:15px;">My Teranex</b>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Payment Options</a></li>
+                                <li><a href="#">Refer & Earn</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <ul class="nav navbar-nav navbar-nav-ex">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <h5><a href="machines.php">Machines</a></h5>
+                                        <li class="divider"></li>
+                                        <li><a href="new_machines.php">New Machines</a></li>
+                                        <li><a href="pre_owned_machines.php">Pre-Owned Machines</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="toolings.php">Toolings</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Press Punch Tools </a>
+                                        </li>
+                                        <li><a href="coming_soon.php">Bending Tools</a></li>
+                                        <li><a href="coming_soon.php">Drilling Tools</a></li>
+                                        <li><a href="coming_soon.php">Cutting Tools</a></li>
+                                        <li><a href="coming_soon.php">Laser Cutting Tools</a></li>
+                                        <li><a href="coming_soon.php">Welding Tools</a></li>
+                                        <li><a href="coming_soon.php">Handheld Tools</a></li>
+                                        <li><a href="coming_soon.php">Laser Welding Tools</a></li>
+                                        <li><a href="coming_soon.php">Power Tools</a></li>
+                                        <li><a href="coming_soon.php">Powder Coating Tools</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="spare_parts.php">Spare Parts</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Service Parts</a></li>
+                                        <li><a href="coming_soon.php">Consumables</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span>
+					 </a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="col-sm-3" style="margin-left:0px;">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="programming.php">Programming</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">CAD / CAM Drawing</a></li>
+                                        <li><a href="coming_soon.php">Process Engineering</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="service_support.php">Service Support</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Warranty Support</a></li>
+                                        <li><a href="coming_soon.php">Annual Maintenance Contract</a></li>
+                                        <li><a href="coming_soon.php">Machine Repair</a></li>
+                                        <li><a href="coming_soon.php">Machine Installation</a></li>
+                                        <li><a href="coming_soon.php">Preventive Maintenance</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="application_support.php">Application Support</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Efficiency Enhancement</a></li>
+                                        <li><a href="coming_soon.php">Product Quality Improvement</a></li>
+                                        <li><a href="coming_soon.php">First Part Production</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="consulting.php">Consulting</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Business Development</a></li>
+                                        <li><a href="coming_soon.php">Process Engineering</a></li>
+                                        <li><a href="coming_soon.php">Product Development</a></li>
+                                        <li><a href="coming_soon.php">Project Engineering</a></li>
+                                        <li><a href="coming_soon.php">System Engineering</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3" style="margin-left:0px;">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5>Live Trainings</h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="trainings.php">CAD / CAM</a> </li>
+                                        <li><a href="trainings.php">Machine Operations</a> </li>
+                                        <li><a href="trainings.php">Maintenance</a> </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="services_live_events.php">Live Events</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Open House</a></li>
+                                        <li><a href="coming_soon.php">Machine Auction</a></li>
+                                        <li><a href="coming_soon.php">Panel Discussion</a></li>
+                                        <li><a href="coming_soon.php">Product Launch</a></li>
+                                        <li><a href="coming_soon.php">Technology Seminar</a></li>
+                                        <li><a href="coming_soon.php">Trade Show</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="excess_capacity_utilization.php">Excess Capacity Utilization</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Add Available Capacities</a></li>
+                                        <li><a href="coming_soon.php">Request for Capacities</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="collective_buying.php">Group Buying</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="coming_soon.php">Group Buying Request</a></li>
+                                        <li><a href="coming_soon.php">Promotional Scheme</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li>
+                                            <h5><a href="contract_manufacturing.php">Contract Manufacturing</a></h5>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="">Contract Manufacturing</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sourcing <span class="caret"></span></a>
+                        <!-- <ul class="dropdown-menu"> -->
+                        <!-- <li><a href="consultants.php">Consultants</a></li> -->
+                        <!-- <li><a href="programmers.php">Programmers</a></li> -->
+                        <!-- <li><a href="service_enggs.php">Service Engineers</a></li> -->
+                        <!-- <li><a href="app_enggs.php">Application Engineers</a></li> -->
+                        <!-- <li><a href="trainers.php">Trainers</a></li> -->
+                        <!-- <li><a href="suppliers.php">Suppliers</a></li> -->
+                        <!-- <li><a href="coming_soon.php">Distributors</a></li> -->
+                        <!-- <li><a href="coming_soon.php">Manufacturers</a></li> -->
+                        <!-- </ul> -->
+                    </li>
+                    <li><a href="forum_front.php">Forum</a></li>
+                </ul>
+                <form class="navbar-form navbar-right navbar-nav-ex">
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <input type="text" class="form-control form-control-ser" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-link ser-icon"> <span class="glyphicon glyphicon-search" ></span></button>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+            <!-- </div> -->
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="about.php"><img src="images/banner.jpg" width="100%"></a>
+            </div>
+            <div class="item">
+                <a href="about.php"><img src="images/banner1.jpg" width="100%"></a>
+            </div>
+            <div class="item">
+                <a href="about.php"><img src="images/banner2.jpg" width="100%"></a>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+      </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="container">
+        <center>
+            <h1> Welcome to Teranex </h1>
+            <p class="p">At TERANEX, we provide intelligent manufacturing solutions in the field of machine tools. </p>
+        </center>
+    </div>
+    <div class="container">
+        <div class="col-sm-12">
+            <hr class="hr">
+        </div>
+    </div>
+    <div class="container sq-tiles">
+        <div class="col-sm-12">
+            <center>
+                <h1>Products</h1>
+            </center>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/pro-1.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Machines</h3>
+                <p>Discover the comprehensive range of sheet metal fabrication machines covering the entire cycle of sheet metal working.
+                </p>
+                <span class="lern"><a href="new_machines.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/pro-2.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Spare</h3>
+                <p>Find non-refurbished or refurbished and certified pre-owned machines, offered by selected sales partners.
+                </p>
+                <span class="lern"><a href="pre_owned_machines.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/pro-3.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Toolings</h3>
+                <p>Count on immediate delivery for the replacement of any damaged component from our global logistics network.
+                </p>
+                <span class="lern"><a href="spare_parts.php">Learn more...</a></span>
+            </div>
+        </div>
+        <!-- </div>
+         </div> -->
+    </div>
+    <!-- </div> -->
+    </br>
+    </br>
+    <div><img src="images/big-banner2.jpg" width="100%"></div>
+    <div class="container sq-tiles">
+        <div class="col-sm-12">
+            <center>
+                <h1>Services</h1>
+            </center>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/Application_support.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Virtual Application</h3>
+                <p>In order to exploit the full potential of your machines, TERANEX offers practical training courses to cover all the aspects of designing, programming..
+                </p>
+                <span class="lern"><a href="trainings.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser6.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Remote Service</h3>
+                <p>Boost performance of your machine with TERANEX designing and programming of laser, punching, punch-laser, bending, marking and welding.
+                </p>
+                <span class="lern"><a href="Programming.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser4.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Online Training</h3>
+                <p>Count on our application specialists around the world who know how to harness the flexibility and the economic efficiency of your machine in every phase of your operations.
+                </p>
+                <span class="lern"><a href="application_support.php">Learn more...</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="container sq-tiles">
+        <div class="col-sm-12">
+            <center>
+                <h1>Sourcing</h1>
+            </center>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/Group_buying.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Collective Buying</h3>
+                <p>Used machines are a cost effective way to enter the industry</p>
+                <span class="lern"><a href="trainings.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser3.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Digital Manufacturing</h3>
+                <p>Spare parts are an essential part of the daily use of machines.</p>
+                <span class="lern"><a href="Programming.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser5.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Cloud Programming</h3>
+                <p>Spare parts are an essential part of the daily use of machines.</p>
+                <span class="lern"><a href="application_support.php">Learn more...</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="container sq-tiles">
+        <div class="col-sm-12">
+            <center>
+                <h1>Forum</h1>
+            </center>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser1.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Collaboration Board</h3>
+                <p>Used machines are a cost effective way to enter the industry.</p>
+                <span class="lern"><a href="trainings.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/expert.jpg" width="100%">
+            <div class="box-cont">
+                <h3>EXpert Connect</h3>
+                <p>Used machines are a cost effective way to enter the industry</p>
+                <span class="lern"><a href="Programming.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser2.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Live Events</h3>
+                <p>Used machines are a cost effective way to enter the industry</p>
+                <span class="lern"><a href="application_support.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/knowledge-center.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Knowledge Center</h3>
+                <p>Spare parts are an essential part of the daily use of machines.</p>
+                <span class="lern"><a href="application_support.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/user-communities.jpg" width="100%">
+            <div class="box-cont">
+                <h3>User Communities</h3>
+                <p>Spare parts are an essential part of the daily use of machines.</p>
+                <span class="lern"><a href="application_support.php">Learn more...</a></span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ser5.jpg" width="100%">
+            <div class="box-cont">
+                <h3>Working Groups</h3>
+                <p>Spare parts are an essential part of the daily use of machines.</p>
+                <span class="lern"><a href="application_support.php">Learn more...</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-12">
+            <hr class="hr">
+        </div>
+    </div>
+    <div class="container">
+        <center>
+            <h1 class="tera-news">Teranex News</h1>
+        </center>
+        <div class="col-sm-6">
+            <h3>Blechexpo exhibition</h3>
+            <p> Blechexpo exhibition will be held from 7th to 10th November 2017 in Stuttgart, Germany.
+            </p>
+            <span class="lern"><a href="http://www.blechexpo-messe.de/en" target="_blank">Learn more...</a></span>
+        </div>
+        <div class="col-sm-6">
+            <h3>Imtex exhibition</h3>
+            <p> Imtex exhibition will be held from Imtex Bangalore 25th to 30th January 2018 in Bangalore India.</p>
+            <span class="lern"><a href="https://www.imtex.in" target="_blank">Learn more...</a></span>
+        </div>
+    </div>
+    </br>
+    </br>
+    <div class="container-fluid footer-bars">
+        <div class="container">
+            <div class="col-sm-3 link">
+                <h4>Company</h4>
+                <a href="about.php">About Us</a>
+                <a href="contact.php">Contact Us</a>
+                <a href="team.php">Team</a>
+            </div>
+            <div class="col-sm-3 link">
+                <h4>Community</h4>
+                <a href="events.php">Events </a>
+                <a href="forum.php">Forums</a>
+                <a href="news.php">News</a>
+            </div>
+            <div class="col-sm-3 link">
+                <h4>Policies</h4>
+                <a href="returns-cancellations.php">Returns & Cancellations </a>
+                <a href="terms-conditions.php">T&C of Sales & Service</a>
+                <a href="terms-use.php">Terms of Use </a>
+            </div>
+            <div class="col-sm-3">
+                <h4>Policies</h4>
+                <a href=""><img src="images/f-icon1.jpg" width="45" height="43"></a><a href=""><img src="images/t-icon.jpg" width="39" height="43"></a><a href=""><img src="images/rss-icon.jpg" width="39" height="43"></a><a href=""><img src="images/gp-icon.jpg" width="39" height="43"></a>
+                <a
+                    href=""><img src="images/in-icon.jpg" width="39" height="43"></a><a href=""><img src="images/y-icon.jpg" width="39" height="43"></a>
+                    <h4>Newsletter</h4>
+                    <form class="form-inline" name="footernews" id="footernews" method="post" action="">
+                        <div class="form-group">
+                            <input type="text" class="form-control newsl" style="width:60%" id="NewsletterEmail" name="NewsletterEmail" placeholder="Enter your email...">
+                            <input type="submit" name="newsletter" id="newsletter" class="btn btn-default newsl-btn" value="Submit" />
+                        </div>
+                    </form>
+            </div>
+            <div class="clearfix"></div>
+            <hr style=" border-color:#FFF">
+            <span class="links">
+      &copy; <a href="index.php">Teranex</a>  |  <a href="coming_soon.php">Sitemap</a> |  <a href="coming_soon.php">Feedback</a>  |  <a href="disclaimer.php">Disclaimer</a>  |  <a href="coming_soon.php">FAQs</a>  |  <a href="privacy-statement.php">Privacy</a>
+      </span>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function() {
+         	$("#footernews").submit(function(e){
+         		e.preventDefault();		
+         		if($("#NewsletterEmail").val() == "")
+         		{
+         			alert("Email is required");
+         			return false;
+         		}
+         		if($("#NewsletterEmail").val() != "")
+         		{
+         			var b = $("#NewsletterEmail").val();
+         			var atpos=b.indexOf("@");
+         			var dotpos=b.lastIndexOf(".");
+         			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=b.length)
+         			{
+         			  alert("Not a valid e-mail address");
+         			  return false;
+         			}
+         		}
+         			var email = $('#NewsletterEmail').val();
+         			var varData = 'email=' + email;
+         			$.ajax({
+         				type: "POST",
+         				url:'subscribe.php',
+         				data: varData,
+         				success: function(result){
+         						if (jQuery.trim(result) == 'Pass'){
+         							alert ("Subscribed successfully. Thank you!");
+         						}
+         						else if (jQuery.trim(result) == 'AlreadyThere'){
+         							alert ("This email id is already subscribed with us.");
+         						}
+         						else
+         						{
+         							alert ("There was problem while subscribing. Please try again later.");						
+         						}
+         				}
+         			});
+         		});
+         });
+    </script>
+    <script type='text/javascript' data-cfasync='false'>
+        window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '12712eb2-bd28-412b-ab46-e9786b41e6ab', f: true }); done = true; } }; })();
+    </script>
+</body>
+
+</html>

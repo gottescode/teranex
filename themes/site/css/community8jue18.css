@@ -1,0 +1,103 @@
+.table-responsive {
+	float: left;
+    width: 100%;}
+.tbl-community tr td:first-child{
+	width: 650px;
+}
+.tbl-community tr td:first-child h3, 
+.tbl-community tr th:first-child h3, 
+.tbl-community tr td:first-child h4, 
+.tbl-community tr th:first-child h4 {
+	text-align:left;
+}
+.tbl-community tr td:first-child h4, 
+.tbl-community tr th:first-child h4 {
+	font-size: 16px;
+}
+.tbl-community tr td h3,.tbl-community tr th h3{
+    font-size: 18px;
+    margin: 0;
+    line-height: 22px;
+	text-align:center;
+}
+.tbl-community tr td,.tbl-community tr th{
+	text-align: center;
+    vertical-align: middle!important;
+}
+.tbl-community tr td a img{
+	margin: 10px;
+}
+.tbl-community>thead{
+	background: #445268;
+}
+.tbl-community>thead>tr>th h3{color:#fff;}
+.tbl-community>thead>tr>th span h3{margin-right: 50px;}
+.tbl-community>thead>tr>th {
+    vertical-align: bottom;
+    border-top:0!important;
+    border-bottom:0!important;
+    border-left:0!important;
+    border-right: 0!important;
+}
+.tbl-community>tbody>tr>td {
+    border-top:0!important;
+    border-bottom: 1px solid #ddd!important;
+    border-left:0!important;
+    border-right: 0!important;
+}
+.table-striped.tbl-community>tbody>tr:nth-of-type(even) {
+    background-color: #f9f9f9!important;
+}
+.table-striped.tbl-community>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f900!important;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f900;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #f9f9f900!important;
+}
+.tbl-community span{float:right;}
+#myPager{
+	margin-bottom: 0;
+}
+.tbl-community {
+    margin: 0;
+}
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+.pager {
+    padding-left: 0;
+    margin: 0;
+    text-align: center;
+    list-style: none;
+}
+@media screen and (max-width:420px){
+	.tbl-community tr td:first-child{
+		max-width: 250px;
+		min-width: 0;
+		overflow-y: hidden;
+	}
+}
+.pager li>a, #myPager.pager li>span {
+    display: inline-block;
+    padding: 1px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+}
+
+@media (min-width:421px) and (max-width:1023px){
+	.tbl-community tr td:first-child {
+		width: 300px;
+	}
+}
+@media (min-width:1024px) and (max-width:1214px){
+	.tbl-community tr td:first-child {
+		width: 400px;
+	}
+}

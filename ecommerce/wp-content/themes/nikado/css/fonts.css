@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'AvenirNextLTPro-Regular';
+  src:url('fonts/AvenirNextLTPro-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ciutadella';
+  src:url('fonts/Ciutadella-Rounded-Light-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Lt';
+  src:url('fonts/HelveticaNeueLTStd-Lt.otf') format('truetype');
+}

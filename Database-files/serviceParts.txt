@@ -1,0 +1,284 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 20, 2018 at 03:01 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `orendaventures`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_part_brand`
+--
+
+CREATE TABLE `mst_service_part_brand` (
+  `id` int(11) NOT NULL,
+  `servicepart_brand` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_service_part_brand`
+--
+
+INSERT INTO `mst_service_part_brand` (`id`, `servicepart_brand`) VALUES
+(1, 'spbrand1'),
+(2, 'spbrand2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_part_category`
+--
+
+CREATE TABLE `mst_service_part_category` (
+  `id` int(11) NOT NULL,
+  `servicepart_category` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_service_part_category`
+--
+
+INSERT INTO `mst_service_part_category` (`id`, `servicepart_category`) VALUES
+(1, 'spcategory1'),
+(2, 'spcategory2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_part_name`
+--
+
+CREATE TABLE `mst_service_part_name` (
+  `id` int(11) NOT NULL,
+  `servicepart_name` varchar(255) NOT NULL,
+  `unit` varchar(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_service_part_name`
+--
+
+INSERT INTO `mst_service_part_name` (`id`, `servicepart_name`, `unit`) VALUES
+(1, 'spname1', 'LIT'),
+(2, 'spname2', 'LIT');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_part_qty`
+--
+
+CREATE TABLE `mst_service_part_qty` (
+  `id` int(11) NOT NULL,
+  `serviceQty` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_part_type`
+--
+
+CREATE TABLE `mst_service_part_type` (
+  `id` int(11) NOT NULL,
+  `servicepart_type` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_service_part_type`
+--
+
+INSERT INTO `mst_service_part_type` (`id`, `servicepart_type`) VALUES
+(1, 'sptype1'),
+(2, 'sptype2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_part_unit`
+--
+
+CREATE TABLE `mst_service_part_unit` (
+  `id` int(11) NOT NULL,
+  `servicepart_unit` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_service_part_unit`
+--
+
+INSERT INTO `mst_service_part_unit` (`id`, `servicepart_unit`) VALUES
+(1, 'spunit1'),
+(2, 'spunit2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_service_type`
+--
+
+CREATE TABLE `mst_service_type` (
+  `id` int(10) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `publish` enum('Y','N') NOT NULL DEFAULT 'Y'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_service_type`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_parts_admin_rfq`
+--
+
+CREATE TABLE `service_parts_admin_rfq` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `service_parts_name` varchar(255) NOT NULL,
+  `rfq_ids` text NOT NULL,
+  `service_quantity` int(11) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `admin_final_price` varchar(255) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service_parts_admin_rfq`
+--
+
+INSERT INTO `service_parts_admin_rfq` (`id`, `title`, `service_parts_name`, `rfq_ids`, `service_quantity`, `supplier_id`, `admin_final_price`, `createdAt`) VALUES
+(1, 'spname1', 'spname1', '5, 4', 7, 2, '7000', '2018-10-19 14:06:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_parts_assigned_suppliers`
+--
+
+CREATE TABLE `service_parts_assigned_suppliers` (
+  `id` int(11) NOT NULL,
+  `admin_rfq_id` int(11) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `supplier_price` int(11) NOT NULL,
+  `admin_price` varchar(255) NOT NULL,
+  `supplier_status` enum('A','H','R') NOT NULL DEFAULT 'H' COMMENT 'A:Accept,R:Reject,H:Hold',
+  `admin_status` enum('A','H','R') NOT NULL DEFAULT 'H' COMMENT 'A:Accept,R:Reject,H:Hold',
+  `request_supplier_date` date NOT NULL,
+  `admin_accepted_date` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service_parts_assigned_suppliers`
+--
+
+INSERT INTO `service_parts_assigned_suppliers` (`id`, `admin_rfq_id`, `supplier_id`, `supplier_price`, `admin_price`, `supplier_status`, `admin_status`, `request_supplier_date`, `admin_accepted_date`) VALUES
+(1, 1, 2, 1230, '7000', 'A', 'A', '2018-10-19', '2018-10-19 19:36:47'),
+(2, 1, 13, 0, '', 'H', 'H', '2018-10-19', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_parts_customer_rfq`
+--
+
+CREATE TABLE `service_parts_customer_rfq` (
+  `id` int(11) NOT NULL,
+  `service_category_id` int(11) NOT NULL,
+  `service_type_id` int(11) NOT NULL,
+  `service_brand_id` int(11) NOT NULL,
+  `service_name_id` int(11) NOT NULL,
+  `service_quantity` int(11) NOT NULL,
+  `cons_freq` varchar(255) NOT NULL,
+  `rfq_status` enum('Y','W') NOT NULL DEFAULT 'W' COMMENT 'Y: Rfq Generated,W : Waiting',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `customer_id` int(11) NOT NULL,
+  `quote_price_by_admin` varchar(50) NOT NULL,
+  `servicepart_buying_price` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service_parts_customer_rfq`
+--
+
+INSERT INTO `service_parts_customer_rfq` (`id`, `service_category_id`, `service_type_id`, `service_brand_id`, `service_name_id`, `service_quantity`, `cons_freq`, `rfq_status`, `created_date`, `customer_id`, `quote_price_by_admin`, `servicepart_buying_price`) VALUES
+(1, 1, 1, 1, 1, 5, 'Yearly', 'W', '2018-10-19 12:55:37', 1, '0', 0),
+(2, 1, 1, 1, 1, 2, 'Weekly', 'W', '2018-10-19 12:56:35', 1, '0', 0),
+(3, 1, 1, 1, 1, 2, 'Weekly', 'W', '2018-10-19 12:56:49', 1, '0', 0),
+(4, 1, 1, 1, 1, 5, 'Weekly', 'Y', '2018-10-19 12:56:49', 1, '5000', 0),
+(5, 1, 1, 1, 1, 2, 'Weekly', 'Y', '2018-10-19 12:56:49', 1, '2000', 0),
+(6, 0, 0, 0, 0, 2, '', 'W', '2018-10-20 12:48:44', 1, '', 2),
+(7, 0, 0, 0, 0, 2, '', 'W', '2018-10-20 12:50:02', 1, '', 2),
+(8, 0, 0, 0, 0, 2, '', 'W', '2018-10-20 12:50:27', 1, '', 2),
+(9, 0, 0, 0, 0, 2, '', 'W', '2018-10-20 12:51:04', 1, '', 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `mst_service_part_name`
+--
+ALTER TABLE `mst_service_part_name`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_parts_admin_rfq`
+--
+ALTER TABLE `service_parts_admin_rfq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_parts_assigned_suppliers`
+--
+ALTER TABLE `service_parts_assigned_suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_parts_customer_rfq`
+--
+ALTER TABLE `service_parts_customer_rfq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `mst_service_part_name`
+--
+ALTER TABLE `mst_service_part_name`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `service_parts_admin_rfq`
+--
+ALTER TABLE `service_parts_admin_rfq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `service_parts_assigned_suppliers`
+--
+ALTER TABLE `service_parts_assigned_suppliers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `service_parts_customer_rfq`
+--
+ALTER TABLE `service_parts_customer_rfq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;

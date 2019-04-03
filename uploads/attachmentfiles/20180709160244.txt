@@ -1,0 +1,5 @@
+Backend Login URL :
+https://www.teranex.io/beta-V*SRJ!-452656-160616/loginbackend/login
+
+UserName: admin@admin.com
+Password: admin

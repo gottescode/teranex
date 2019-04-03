@@ -1,0 +1,43 @@
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #f9f9f9;
+}
+.consultant_speclti h3 a{
+	    font-family: 'Ciutadella';
+    color: #ff8a43;
+    font-size: 22px;
+    line-height: 28px;
+}
+ul.tab_h2 li {
+    padding: 0px 15px;
+}
+@media screen and (max-width:480px){
+	.pad-l-25{padding-left:25px}
+	.myprofile-bg img{margin-top: 30px; height:70px; width:70px;}
+	.myprofile-bg {
+		padding-top: 0px;
+		padding-bottom: 10px!important;
+	}
+	h1{
+		font-size: 30px;
+		margin: 0;
+		line-height: normal;}
+	.container.m-padd-0.padd-0 {
+		padding: 0!important;
+	}
+	ul.tab_h li a {
+		font-size: 13px;
+	}
+	ul.tab_h2 li {
+		padding: 0px;
+	}
+	.padd-l-r-15{padding:0 8px;}
+	.top-70 {
+		margin-top: 70px!important;
+		min-height: 450px;
+	}
+}

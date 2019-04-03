@@ -1,0 +1,5 @@
+[03-Nov-2017 06:04:42 UTC] PHP Warning:  readfile(../../teranex_img/3-CompLogo.10): failed to open stream: No such file or directory in /home/teranex17/public_html/image.php on line 3
+[03-Nov-2017 06:24:46 UTC] PHP Warning:  readfile(../../teranex_img/7-CompLogo.jpg): failed to open stream: No such file or directory in /home/teranex17/public_html/image.php on line 3
+[03-Nov-2017 06:24:46 UTC] PHP Notice:  Undefined index: img in /home/teranex17/public_html/image.php on line 3
+[03-Nov-2017 06:24:46 UTC] PHP Warning:  readfile(../../teranex_img/): failed to open stream: No such file or directory in /home/teranex17/public_html/image.php on line 3
+[03-Nov-2017 06:25:36 UTC] PHP Warning:  readfile(../../teranex_img/7-CompLogo.jpg): failed to open stream: No such file or directory in /home/teranex17/public_html/image.php on line 3

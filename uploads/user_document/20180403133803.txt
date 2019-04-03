@@ -1,0 +1,8 @@
+proile>
+
+
+             company details>      mandataery fields need to be know from sir
+
+            upload comapny documents> profile photo and comapny logo not fetch from background
+
+           add contact details> edit profile 

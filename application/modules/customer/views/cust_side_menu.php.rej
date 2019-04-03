@@ -1,0 +1,9 @@
+diff a/application/modules/customer/views/cust_side_menu.php b/application/modules/customer/views/cust_side_menu.php	(rejected hunks)
+@@ -88,6 +88,7 @@
+ 		
+ 		 	
+ =======
++		
+ 			
+ 	     <ul>
+ 		<li> 

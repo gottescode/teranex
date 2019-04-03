@@ -1,0 +1,347 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 20, 2018 at 03:03 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `orendaventures`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_brand`
+--
+
+CREATE TABLE `mst_sheet_metal_part_brand` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_brand` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_brand`
+--
+
+INSERT INTO `mst_sheet_metal_part_brand` (`id`, `sheetmetal_brand`) VALUES
+(1, 'smpbrand1'),
+(2, 'smpbrand2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_category`
+--
+
+CREATE TABLE `mst_sheet_metal_part_category` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_category` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_category`
+--
+
+INSERT INTO `mst_sheet_metal_part_category` (`id`, `sheetmetal_category`) VALUES
+(1, 'smpcategory1'),
+(2, 'smpcategory2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_name`
+--
+
+CREATE TABLE `mst_sheet_metal_part_name` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_name` varchar(255) NOT NULL,
+  `unit` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_name`
+--
+
+INSERT INTO `mst_sheet_metal_part_name` (`id`, `sheetmetal_name`, `unit`) VALUES
+(1, 'smpname1', 'Lit'),
+(2, 'smpname2', 'MM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_size`
+--
+
+CREATE TABLE `mst_sheet_metal_part_size` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_size` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_size`
+--
+
+INSERT INTO `mst_sheet_metal_part_size` (`id`, `sheetmetal_size`) VALUES
+(1, 'smpsize1'),
+(2, 'smpsize2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_thickness`
+--
+
+CREATE TABLE `mst_sheet_metal_part_thickness` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_thickness` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_thickness`
+--
+
+INSERT INTO `mst_sheet_metal_part_thickness` (`id`, `sheetmetal_thickness`) VALUES
+(1, 'smpthickness1'),
+(2, 'smpthickness2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_type`
+--
+
+CREATE TABLE `mst_sheet_metal_part_type` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_type` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_type`
+--
+
+INSERT INTO `mst_sheet_metal_part_type` (`id`, `sheetmetal_type`) VALUES
+(1, 'smptypename1'),
+(2, 'smptypename2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_sheet_metal_part_unit`
+--
+
+CREATE TABLE `mst_sheet_metal_part_unit` (
+  `id` int(11) NOT NULL,
+  `sheetmetal_unit` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_sheet_metal_part_unit`
+--
+
+INSERT INTO `mst_sheet_metal_part_unit` (`id`, `sheetmetal_unit`) VALUES
+(1, 'ltr'),
+(2, 'smpunitname1'),
+(3, 'smpunitname2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sheet_metal_admin_rfq`
+--
+
+CREATE TABLE `sheet_metal_admin_rfq` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `sheet_metal_name` varchar(255) NOT NULL,
+  `rfq_ids` text NOT NULL,
+  `sheet_quantity` int(11) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `admin_final_price` varchar(255) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sheet_metal_assigned_suppliers`
+--
+
+CREATE TABLE `sheet_metal_assigned_suppliers` (
+  `id` int(11) NOT NULL,
+  `admin_rfq_id` int(11) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `supplier_price` int(11) NOT NULL,
+  `admin_price` varchar(255) NOT NULL,
+  `supplier_status` enum('A','H','R') NOT NULL DEFAULT 'H' COMMENT 'A:Accept,R:Reject,H:Hold',
+  `admin_status` enum('A','H','R') NOT NULL DEFAULT 'H' COMMENT 'A:Accept,R:Reject,H:Hold',
+  `request_supplier_date` date NOT NULL,
+  `admin_accepted_date` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sheet_metal_customer_rfq`
+--
+
+CREATE TABLE `sheet_metal_customer_rfq` (
+  `id` int(11) NOT NULL,
+  `sheet_category_id` int(11) NOT NULL,
+  `sheet_type_id` int(11) NOT NULL,
+  `sheet_brand_id` int(11) NOT NULL,
+  `sheet_name_id` int(11) NOT NULL,
+  `sheet_quantity` int(11) NOT NULL,
+  `sheetmetal_thickness` int(11) NOT NULL,
+  `sheetmetal_size` int(11) NOT NULL,
+  `cons_freq` varchar(255) NOT NULL,
+  `rfq_status` enum('Y','W') NOT NULL DEFAULT 'W' COMMENT 'Y: Rfq Generated,W : Waiting',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `customer_id` int(11) NOT NULL,
+  `quote_price_by_admin` varchar(50) NOT NULL,
+  `sheetmetal_buying_price` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sheet_metal_customer_rfq`
+--
+
+INSERT INTO `sheet_metal_customer_rfq` (`id`, `sheet_category_id`, `sheet_type_id`, `sheet_brand_id`, `sheet_name_id`, `sheet_quantity`, `sheetmetal_thickness`, `sheetmetal_size`, `cons_freq`, `rfq_status`, `created_date`, `customer_id`, `quote_price_by_admin`, `sheetmetal_buying_price`) VALUES
+(1, 1, 1, 1, 1, 10, 1, 1, '', 'W', '2018-10-20 12:33:46', 1, '', 10),
+(2, 1, 1, 0, 1, 0, 1, 1, '', 'W', '2018-10-20 12:40:28', 0, '', 10);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `mst_sheet_metal_part_brand`
+--
+ALTER TABLE `mst_sheet_metal_part_brand`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_sheet_metal_part_category`
+--
+ALTER TABLE `mst_sheet_metal_part_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_sheet_metal_part_name`
+--
+ALTER TABLE `mst_sheet_metal_part_name`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_sheet_metal_part_size`
+--
+ALTER TABLE `mst_sheet_metal_part_size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_sheet_metal_part_thickness`
+--
+ALTER TABLE `mst_sheet_metal_part_thickness`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_sheet_metal_part_type`
+--
+ALTER TABLE `mst_sheet_metal_part_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_sheet_metal_part_unit`
+--
+ALTER TABLE `mst_sheet_metal_part_unit`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sheet_metal_admin_rfq`
+--
+ALTER TABLE `sheet_metal_admin_rfq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sheet_metal_assigned_suppliers`
+--
+ALTER TABLE `sheet_metal_assigned_suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sheet_metal_customer_rfq`
+--
+ALTER TABLE `sheet_metal_customer_rfq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_brand`
+--
+ALTER TABLE `mst_sheet_metal_part_brand`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_category`
+--
+ALTER TABLE `mst_sheet_metal_part_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_name`
+--
+ALTER TABLE `mst_sheet_metal_part_name`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_size`
+--
+ALTER TABLE `mst_sheet_metal_part_size`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_thickness`
+--
+ALTER TABLE `mst_sheet_metal_part_thickness`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_type`
+--
+ALTER TABLE `mst_sheet_metal_part_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mst_sheet_metal_part_unit`
+--
+ALTER TABLE `mst_sheet_metal_part_unit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `sheet_metal_admin_rfq`
+--
+ALTER TABLE `sheet_metal_admin_rfq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sheet_metal_assigned_suppliers`
+--
+ALTER TABLE `sheet_metal_assigned_suppliers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sheet_metal_customer_rfq`
+--
+ALTER TABLE `sheet_metal_customer_rfq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;

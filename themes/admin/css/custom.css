@@ -1,0 +1,99 @@
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side
+
+background-color: #396293
+
+} .skin-blue .sidebar a{
+
+color:#fff;
+
+}
+
+.padd-15{
+
+	padding: 15px;
+
+}
+
+span.star{
+
+	color: red;
+
+}
+
+em.invalid{
+
+	color: red;
+
+}
+
+
+
+.border_bot .form-group{
+
+    margin-bottom: 10px;
+
+}
+
+.border_bot .form_bor_bot{
+
+    display: block;
+
+    width: 100%;
+
+    height: 34px;
+
+    padding: 6px 12px;
+
+    font-size: 14px;
+
+    line-height: 1.42857143;
+
+    color: #555;
+
+    background-color: #fff;
+
+    background-image: none;
+
+    border-bottom: 1px solid #ccc;
+
+    border-top: none;
+
+    border-left: none;
+
+    border-right: none;
+
+}
+
+.border_bot .form_bor_bot:focus{
+
+     outline:none;
+
+    border-bottom: 1px solid #a5c049;
+
+    border-top: none;
+
+    border-left: none;
+
+    border-right: none;
+
+}
+
+.form_bor_bot::-moz-placeholder {
+
+  color: #ccc;
+
+  opacity: 1;
+
+}
+
+.form_bor_bot:-ms-input-placeholder {
+
+  color: #ccc;
+
+}
+
+.form_bor_bot::-webkit-input-placeholder {
+
+  color: #ccc;
+
+}

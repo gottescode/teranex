@@ -1,0 +1,1 @@
+ALTER TABLE `remote_application_rfq` ADD `order_status` VARCHAR(100) NOT NULL AFTER `nda_equired`;

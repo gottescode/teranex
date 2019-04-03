@@ -1,0 +1,1079 @@
+<?php $this->template->contentBegin(POS_TOP);?>
+<style>  
+
+@media (min-width: 1200px){
+	.container {
+    width: 1215px;
+}
+.sec-container{padding: 0 60px;}
+}
+.sec-container{background: #f9f9f9;}
+.sec-text-bg{background: #fff;}
+.slider .slide .slide-text {
+    padding-right: 0%;
+    padding-left: 0%;
+    width: 100%;
+    text-align: center;
+	position: absolute;
+    bottom: 0;
+}
+
+.slider {height: 530px;}
+.slider .slide .substrate {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0) 20%);
+}
+.slider .slide .substrate1 {
+   position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0) 33%);
+}
+.slider .slide .substrate2 {
+   position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0000008c;
+}
+/*.slide-text1 h1{padding-right: 7%;}
+.slide-text1 h2{padding-right: 7%;}
+.slide-text2 h1{padding-left: 5%;}
+.slide-text1{    
+	right: 7%;
+    width: 100%;
+    text-align: right;
+    position: absolute;
+    bottom: 25%;
+    left: 0%;}*/
+.slide-text2{    
+	left: 0;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 28%;
+    right: 0%;}
+	
+.slide-text2 h2{
+	padding-left: 0%;
+	font-family: Helvetica;
+}
+	
+.slide-text2 h2{text-align:center;}
+.ico-tiles p{padding-top: 10px;}
+.bg-primary {color: #fff; background-color: #353537;}
+.footer-bars {
+    background-color: #353537;
+    padding: 5px 0px;
+}
+h1 {
+    font-family: 'Ciutadella';
+    color: #000000;
+    font-size: 36px;
+    line-height: normal;
+    font-weight: 700;
+}
+h2{
+   font-family: 'Ciutadella';
+    color: #000000;
+    font-weight: bold;
+}
+.marketPlace-heading{margin-bottom:35px; font-size:16px;}
+
+.slide h1{
+	color:#fff;
+	font-size: 50px;
+    line-height: 74px;
+	font-family: Helvetica;
+	text-align:center;
+}
+	
+input#newsletter {
+    padding: 1px 12px;
+}
+@media screen and (min-width:768px){
+  .Marketplace {border-right:1px solid #a0a0a0; border-left:1px solid #a0a0a0;}
+}
+/*counter*/
+
+.counter {
+    padding: 20px 0;
+}
+span.counter-value {
+    text-align: center;
+    color: #191818;
+    margin: 0;
+	line-height: 40px;
+	/*font-size: 40px;*/
+	font-size: 39px;
+}
+.counter .text-center{margin:0; color: #191818;}
+.seprator1 {
+    margin: 10px auto;
+    width: 65%;
+    height: 2px;
+    background-color: #ff8a43;
+}
+/*End Counter*/
+
+/*testimonial*/
+.testimonial{background:#fff;}
+.testimonial .item{background: #f9f9f9;}
+.testimonial_subtitle{
+    font-size: 12px;
+	letter-spacing: 1px;
+}
+.controls.testimonial_control {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+}
+.testimonial .right {
+    float: right;
+}
+.testimonial .left {
+    float: left;
+}
+  .testimonial_btn {
+    background-color: #fff !important;
+}
+.testimonial_btn:focus,.testimonial_btn:active{border-color: #ff8a4300;}
+ .seprator {
+    height: 2px;
+    width: 56px;
+    background-color: #ff8a43;
+    margin: 7px 0 10px 0;
+}
+.testimonial-name{padding:25px 50px}
+.testimonial button {
+    background: #ff8a4300;
+	cursor: auto;
+}
+.testimonial-link {
+    position: absolute;
+    z-index: 999999999;
+    top: 54%;
+    left: 45%;
+}
+.testimonial-img{
+    width: 50px;
+    height: 50px;
+    background: #ffffff4a;
+    border-radius: 100%;
+}
+.testimonial-link:hover .testimonial-img{background: #3e3d3dc7;}
+
+
+/*End testimonial*/
+.text-heading {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    background: #00000094;
+    padding: 0;
+    margin: 0;
+}
+.h1tag{    
+	line-height: normal;
+    padding: 25px 0 0 30px;
+	font-size: 36px;}
+.ptag {
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.sec-img-heading{
+	width: 100%;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+}
+.sec-img-content{    
+	position: absolute;
+    top: 30%;
+    left: 5%;
+	}
+.sec-img-content h1{color:#000;}
+.sec-img-content a{padding: 10px 20px; border: 1px solid #ff8a43;}
+.sec-img-content p{
+	padding: 0px 0 15px;
+    color: #000;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.mar-30-0{margin:30px auto 0;}
+.h2-tag{    	
+	line-height: normal;    
+	font-weight: normal;
+    margin: 0;padding: 10px;}
+.gray-bg1{background:#f9f9f9;}
+.btn-see-more{background:#fff; color:#0e0e0f; border-radius: 0; border: 1px solid #ff8a43;}
+.btn-see-more:hover{background:#ff8a43; color:#fff; border-radius: 0;}
+.circle{
+	display: inline-block;
+	border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid;
+    border-top: 5px solid;
+    border-radius: 0%;
+    background: #fff;
+    color: #fff;
+	margin-right: 10px;
+	margin-bottom:5px;
+	margin-left: 4%;
+}
+.header-span{color:#fff;}
+@media screen and (max-width:480px){
+	.top-70 {
+		margin-top: 60px!important;
+		min-height: 550px;
+	}
+	.slide h1 {
+		color: #fff;
+		font-size: 36px;
+		line-height: 50px;
+		font-family: Helvetica;
+		text-align: center;
+		padding: 10px;
+	}
+	.slide-text2 {
+		left: 0;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: 10%;
+		right: 0%;
+	}
+}
+.mar-20-0 {
+    margin: 20px auto 0;
+}
+.mar-0-0-10{ margin: 0px auto 10px;}
+.mar-10-0-0{ margin: 10px auto 0px;}
+
+/* .linearrow img{height:550px;}
+.linearrow1 img{height:550px;} */
+.linearrow {
+    position: absolute;
+    left: 21%;
+    top: 165px;
+}
+.linearrow1 {
+    position: absolute;
+    right: 29%;
+    top: 166px;
+}
+.linearrow2 {
+    position: absolute;
+    left: 22%;
+    top: 74px;
+}
+.linearrow3 {
+	position: absolute;
+    right: 28%;
+    top: 68px;
+}
+.linearrow #line1 {
+	position: relative;
+       top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 190px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(-50deg);
+    -ms-transform: skew(-50deg); /* IE 9 */
+    -webkit-transform: skew(-50deg); /* Chrome, Safari, Opera */
+    transform: skew(-50deg); /* Standard syntax */
+}
+.linearrow #line2 {
+    position: relative;
+	top: 100px;
+    left: -28px;
+    width: 230px;
+    height: 0px;
+    display: block;
+	border-top: 3px solid #ff8a43;
+}
+.linearrow #line3 {
+	position: relative;
+       top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 190px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(50deg);
+    -webkit-transform: skew(50deg); /* Chrome, Safari, Opera */
+    transform: skew(50deg); /* Standard syntax */
+}
+.linearrow2 #line1 {
+	position: relative;
+       top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 190px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(-50deg);
+    -ms-transform: skew(-50deg); /* IE 9 */
+    -webkit-transform: skew(-50deg); /* Chrome, Safari, Opera */
+    transform: skew(-50deg); /* Standard syntax */
+}
+.linearrow2 #line2 {
+    position: relative;
+	top: 100px;
+    left: -28px;
+    width: 230px;
+    height: 0px;
+    display: block;
+	border-top: 3px solid #ff8a43;
+}
+.linearrow2 #line3 {
+	position: relative;
+       top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 190px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(50deg);
+    -webkit-transform: skew(50deg); /* Chrome, Safari, Opera */
+    transform: skew(50deg); /* Standard syntax */
+}
+.linearrow1 #line1 {
+    position: relative;
+    top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 196px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(-50deg);
+    -ms-transform: skew(-50deg);
+    -webkit-transform: skew(-50deg);
+    transform: skew(-45deg);
+}
+.linearrow1 #line2 {
+    position: relative;
+    top: 100px;
+    left: -13px;
+    width: 209px;
+    height: 0px;
+    display: block;
+    border-top: 3px solid #ff8a43;
+}
+.linearrow1 #line3 {
+    position: relative;
+    top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 196px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(50deg);
+    -webkit-transform: skew(50deg);
+    transform: skew(45deg);
+}
+.linearrow3 #line1 {
+    position: relative;
+    top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 196px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(-50deg);
+    -ms-transform: skew(-50deg);
+    -webkit-transform: skew(-50deg);
+    transform: skew(-45deg);
+}
+.linearrow3 #line2 {
+    position: relative;
+    top: 100px;
+    left: -13px;
+    width: 209px;
+    height: 0px;
+    display: block;
+    border-top: 3px solid #ff8a43;
+}
+.linearrow3 #line3 {
+    position: relative;
+    top: 100px;
+    left: 85px;
+    width: 5px;
+    height: 196px;
+    display: block;
+    background-color: #ff8a43;
+    transform: skew(50deg);
+    -webkit-transform: skew(50deg);
+    transform: skew(45deg);
+}
+/* .darow {
+    position: relative;
+    top: -50px;
+} */
+.darow img{    
+	height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.ico-tiles div >div h3 {
+    color: #0e0e0f;
+    font-size: 17px;
+}
+.media-sec a:hover .head2{background: #00000078;}
+.head2{
+	position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;}
+.head2 h2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #f9f9f9;
+    color: #000;
+}
+.pad-0-0-10 {
+    padding: 0px 0 10px;
+}
+center h1:after {
+    content: '';
+    display: block;
+    width: 360px;
+    height: 0;
+    margin: 5px auto 10px;
+    border-top: 1px solid #ff8a43;
+}
+.circelicon h3{font-size: 12px!important;}
+.circelicon h3:before{
+	border-top:none!important;
+	display: unset!important;
+}
+.circelicon a{
+	min-height: 80px!important;
+    width: 80px;
+    margin: 0 auto!important;
+    border: 1px solid #ff8a43;
+    padding: 20px;
+	padding-top: 10px!important;
+    border-radius: 100%;}
+.m1{
+	border-right: 1px solid;
+    border-top: 1px solid;
+    border-top-right-radius: 31%;
+    border-top-width: 0px;
+	}
+.m2{
+	border-left: 1px solid;
+    border-top: 1px solid;
+    border-top-left-radius: 31%;
+    border-top-width: 0px;
+	}
+.m3{
+	border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-bottom-right-radius: 31%;
+    border-bottom-width: 0px;
+	}
+.m4{
+	border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-bottom-left-radius: 31%;
+    border-bottom-width: 0px;
+	}
+.m1 a, .m2 a{    
+	position: relative;
+    top: -44px;}
+.m3 a, .m4 a{    
+	position: relative;
+    bottom: -44px;}
+</style> 
+<?php echo $this->template->contentEnd();?> 
+<div class="section container-fluid padd-0">
+        <div class="slider" slide-interval="30000">
+            <div class="slide active">
+                <div class="slide-img" img-src="<?php echo $theme_url?>/images/consumables.jpg"></div>
+				<div class="substrate2"></div>
+                <div class="slide-text2">
+                    <h1>TERANEX, an intelligent assistant</br>for all your machine needs</h1>
+					<h2>
+						<span class="header-span">
+							<span><span class="circle" style="margin: 0; margin-bottom: 5px; margin-right: 10px;"> </span> Accessible</span>
+							<span><span class="circle"> </span> affordable</span>
+							<span><span class="circle"> </span> convenient</span>
+						</span>
+					</h2>
+                   <!-- <p>For your page</p> -->
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-img" img-src="<?php echo $theme_url?>/images/dig-mfg1.png">
+				</div>
+                 <!-- <div class="substrate"></div> -->
+				 <div class="substrate2"></div>
+                <div class="slide-text2">
+                    <h1>At TERANEX, we match solutions</br>to our customer needs</h1>
+					<h2>
+						<span class="header-span">
+							<span><span class="circle" style="margin: 0; margin-bottom: 5px; margin-right: 10px;"> </span>research</span>
+							<span><span class="circle"> </span>analytics</span>
+							<span><span class="circle"> </span>consulting</span>
+						</span>
+					</h2>
+                   <!-- <p>For your page</p> -->
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-img" img-src="<?php echo $theme_url?>/images/used-machines222.jpg"></div>
+                 <!-- <div class="substrate"></div> -->
+				 <div class="substrate2"></div>
+                 <div class="slide-text2">
+                   <!--   <h1>TERANEX, a one stop for all your machine needs </h1> -->
+					<h1>TERANEX, an eco-system for all</br>your manufacturing needs</h1>
+                   <h2>
+					<span class="header-span">
+						<span><span class="circle" style="margin: 0; margin-bottom: 5px; margin-right: 10px;"> </span> open</span>
+						<span><span class="circle"> </span> transparent</span>
+						<span><span class="circle"> </span> distributed</span>
+					</span>
+					</h2>
+                 </div>
+            </div>
+          
+           <div class="slide-pre"></div>
+            <div class="slide-next"></div>
+        </div>
+</div>
+<section style="">
+<div class="container" style="background: #f9f9f9; position:relative;  margin-top: 30px;">
+	<center class="pad-0-0-10"><h1>Explore the Marketplace</h1></center>
+	<div class="col-sm-4 col-xs-12" style="padding-top:8%;">
+		<div class="ico-tiles">
+			<div class="row">
+			  <div class="col-sm-6 circelicon m1">
+				<a target="_blank" href="<?php echo site_url();?>machine" style="margin-left: 0!important;">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png" width="30px">
+					</div>
+					<h3>Machines1</h3>
+				</a>
+			  </div>
+			  <div class="col-sm-6 circelicon m2">
+				<a target="_blank" href="<?php echo site_url();?>machine" style="margin-right: 0!important;">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png" width="30px">
+					</div>
+					<h3>Machines2</h3>
+				</a>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-offset-3 col-sm-6 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>machine">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png">
+					</div>
+					<h3>Machines</h3>
+					<p>Used machines are a cost effective way to enter the industry.</p>
+				</a>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6 circelicon m3">
+				<a target="_blank" href="<?php echo site_url();?>machine" style="margin-left: 0!important;">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png" width="30px">
+					</div>
+					<h3>Machines3</h3>
+				</a>
+			  </div>
+			  <div class="col-sm-6 circelicon m4">
+				<a target="_blank" href="<?php echo site_url();?>machine" style="margin-right: 0!important;">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png" width="30px">
+					</div>
+					<h3>Machines4</h3>
+				</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="linearrow">
+		<img src="<?php echo $theme_url?>/images/return-arrow34.png" />
+	</div>
+	<div class="col-sm-4 col-xs-12">
+		<div class="ico-tiles">
+			<div class="row">
+			  <div class="col-sm-offset-1 col-sm-8 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>ecommerce/product-category/toolings/">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/wrench.png">
+				  </div>
+					   <h3>Toolings</h3>
+					   <p>Toolings are a the key to outstanding applications and superior part quality.</p>
+				</a>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-offset-1 col-sm-8 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>machine">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png">
+					</div>
+					<h3>Remote Services</h3>
+					<p>Used machines are a cost effective way to enter the industry.</p>
+				</a>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-offset-1 col-sm-8 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>ecommerce/product-category/spare-parts/">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/car-parts.png">
+				  </div>
+					   <h3>Spares</h3>
+					   <p>Spare parts are an essential part of the daily use of machines.</p>
+				</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="linearrow1">
+		<img src="<?php echo $theme_url?>/images/return-arrow34.png" />
+	</div>
+	<div class="col-sm-4 col-xs-12">
+		<div class="ico-tiles">
+			<div class="row">
+			  <div class="col-sm-offset-1 col-sm-8 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>remotetraining">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/eacadmy.png">
+				  </div>
+					   <h3>Remote training</h3>
+					   <p>Programming services take overload burden from your programming office.</p>
+				</a>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-offset-1 col-sm-8 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>remoteapplication/">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/training.png">
+				  </div>
+					   <h3>Remote Application Consulting</h3>
+					   <p>Subcontracting expands the product range to offer to your markets.</p>
+				</a>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-offset-1 col-sm-8 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>consultant">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/support.png">
+				  </div>
+					   <h3>Remote Machine Service</h3>
+					   <p>Remote technical service production.</p>
+				</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+<!--
+<section style="">
+<div class="container" style="background: #f9f9f9; padding-bottom: 20px;  position:relative;  margin-top: 30px;">
+	<center><h1>Explore the Marketplace</h1></center>
+	<div class="col-sm-12 col-xs-12">
+		<div class="ico-tiles">
+			<div class="row">
+			  <div class="col-sm-offset-4 col-sm-4 col-xs-12">
+				<a target="_blank" href="<?php echo site_url();?>machine">
+					<div>
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png">
+					</div>
+					<h3>Machines</h3>
+					<p>Used machines are a cost effective way to enter the industry.</p>
+				</a>
+			  </div>
+			</div>
+	<div class="row darow">
+		<img class="img-responsive" src="<?php echo $theme_url?>/images/return-arrow4.png" />
+	</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-xs-12">
+		<div class="ico-tiles">
+			<div class="row">
+			  <div class="col-sm-4">
+				<a target="_blank" href="<?php echo site_url();?>ecommerce/product-category/toolings/">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/wrench.png">
+				  </div>
+					   <h3>Toolings</h3>
+					   <p>Toolings are a the key to outstanding applications and superior part quality.</p>
+				</a>
+			  </div>
+			  <div class="col-sm-4">
+				<a target="_blank" href="<?php echo site_url();?>machine">
+					<div class="darrow">
+						<img src="<?php echo $theme_url?>/css/marketplace/machine.png">
+					</div>
+					<h3>Remote Services</h3>
+					<p>Used machines are a cost effective way to enter the industry.</p>
+				</a>
+			  </div>
+			  <div class="col-sm-4">
+				<a target="_blank" href="<?php echo site_url();?>ecommerce/product-category/spare-parts/">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/car-parts.png">
+				  </div>
+					   <h3>Spares</h3>
+					   <p>Spare parts are an essential part of the daily use of machines.</p>
+				</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-xs-12">
+		<div class="row darow">
+			<img class="img-responsive" src="<?php echo $theme_url?>/images/return-arrow4.png" />
+		</div>
+	</div>
+	<div class="col-sm-12 col-xs-12">
+		<div class="ico-tiles">
+			<div class="row">
+			  <div class="col-sm-4">
+				<a target="_blank" href="<?php echo site_url();?>remotetraining">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/eacadmy.png">
+				  </div>
+					   <h3>Remote training</h3>
+					   <p>Programming services take overload burden from your programming office.</p>
+				</a>
+			  </div>
+			  <div class="col-sm-4">
+				<a target="_blank" href="<?php echo site_url();?>remoteapplication/">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/training.png">
+				  </div>
+					   <h3>Remote Application consulting</h3>
+					   <p>Subcontracting expands the product range to offer to your markets.</p>
+				</a>
+			  </div>
+			  <div class="col-sm-4">
+				<a target="_blank" href="<?php echo site_url();?>consultant">
+				  <div>
+					<img src="<?php echo $theme_url?>/css/marketplace/support.png">
+				  </div>
+					   <h3>Remote Machine Service</h3>
+					   <p>Remote technical service production.</p>
+				</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+-->
+<section>
+    <div class="container padd-0">
+        <div class="col-sm-12 padd-0">
+           <h1 class="text-center">Market intelligence</h1>
+			<div class="row">
+			  <div class="col-sm-4 col-xs-12">
+				<div class="gray-bg1">
+				 <a target="_blank" href="<?php echo site_url();?>pages/commingsoon">
+				 <img src="<?php echo $theme_url?>/images/123.jpg" class="img-responsive">
+				 <h2 class="text-center h2-tag">Research</h2>
+				 </a>
+				</div>
+			  </div>
+			  <div class="col-sm-4 col-xs-12">
+				<div class="gray-bg1">
+				 <a target="_blank" href="<?php echo site_url();?>pages/commingsoon">
+				 <img src="<?php echo $theme_url?>/images/1234.jpg" class="img-responsive">
+				 <h2 class="text-center h2-tag">analytics</h2>
+				 </a>
+				</div>
+			  </div>
+			  <div class="col-sm-4 col-xs-12">
+				<div class="gray-bg1">
+				 <a target="_blank" href="<?php echo site_url();?>pages/commingsoon">
+				 <img src="<?php echo $theme_url?>/images/12435.jpg" class="img-responsive">
+				 <h2 class="text-center h2-tag">consulting</h2>
+				 </a>
+				</div>
+			  </div>
+			</div>
+		</div>
+    </div>
+</section>
+<section>
+    <div class="container padd-0">
+        <div class="col-sm-12 padd-0">
+           <h1 class="text-center">Collaboration</h1>
+			<div class="row">
+			  <div class="col-sm-4 col-xs-12">
+				<div class="gray-bg1">
+				 <a target="_blank" href="<?php echo site_url();?>community/forum">
+				 <img src="<?php echo $theme_url?>/images/comm3.jpg" class="img-responsive">
+				 <h2 class="text-center h2-tag">Focus Groups</h2>
+				 </a>
+				</div>
+			  </div>
+			  <div class="col-sm-4 col-xs-12">
+				<div class="gray-bg1">
+				 <a target="_blank" href="<?php echo site_url();?>groupbuying">
+				 <img src="<?php echo $theme_url?>/images/comm2.jpg" class="img-responsive">
+				 <h2 class="text-center h2-tag">Buyer Groups</h2>
+				 </a>
+				</div>
+			  </div>
+			  <div class="col-sm-4 col-xs-12">
+				<div class="gray-bg1">
+				 <a target="_blank" href="<?php echo site_url();?>pages/commingsoon">
+				 <img src="<?php echo $theme_url?>/images/exp11.jpg" class="img-responsive">
+				 <h2 class="text-center h2-tag">Xperts Connect</h2>
+				 </a>
+				</div>
+			  </div>
+			</div>
+		</div>
+    </div>
+</section>
+<section>
+<div class="container padd-0" style="margin-top:30px">
+<div class="counter"style="background: #f9f9f9;">
+<div id="counter" class="col-sm-12">
+<div class="col-sm-4 mar-20-0">
+	<center><span class="counter-value" data-count="1973">0</span></center>
+	<div class="seprator1"></div>
+	<h3 class="text-center">No. <span style="text-transform:lowercase">o</span>f users</h3>
+</div>
+<div class="col-sm-4 mar-20-0">
+	<center><span class="counter-value" data-count="73">0</span><span class="counter-value"> %</span></center>
+	<div class="seprator1"></div>
+	<h3 class="text-center">industry participation</h3>
+</div>
+<div class="col-sm-4 mar-20-0">
+	<center><span class="counter-value">$</span><span class="counter-value" data-count="150">1</span><span class="counter-value"> Million</span></center>
+	<div class="seprator1"></div>
+	<h3 class="text-center">transaction volume</h3>
+</div>
+</div>
+<div style="clear:both"></div>
+</div>
+</div>
+</section>
+<section>
+	<div class="container padd-0 media-sec" style="margin-top:30px;">
+			<div class="row">
+			  <div class="col-sm-6 col-xs-12">
+				<div class="gray-bg1" style="position: relative;">
+				 <a target="_blank" href="<?php echo site_url();?>mediacenter">
+				 <img src="<?php echo $theme_url?>/images/news3.jpg" class="img-responsive">
+				 <div class="head2">
+					<h2 class="text-center h2-tag">Media</h2>
+				 </div>
+				 </a>
+				</div>
+			  </div>
+			  <div class="col-sm-6 col-xs-12">
+				<div class="gray-bg1" style="position: relative;">
+				 <a target="_blank" href="<?php echo site_url();?>events">
+				 <img src="<?php echo $theme_url?>/images/liveStream11.jpg" class="img-responsive">
+				 <div class="head2">
+				 <h2 class="text-center h2-tag">Live Events</h2>
+				 </div>
+				 </a>
+				</div>
+			  </div>
+			</div>
+	</div>
+</section>
+<section class="testimonial">
+<div class="container padd-0">
+	<div class="row">
+		<div class="col-sm-12">
+        <h1 class="text-center">Testimonials</h1>
+        <!--  <div class="seprator"></div> -->
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+               <div class="item active">
+                   <div class="row">
+                    <div class="col-sm-6">
+						<div class="testimonial-name">
+                        <h4>Kiara Andreson</h4>
+                        <p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
+                        <span>Officeal All Star Cafe</span>
+                        </p>
+						<button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+						<p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+						<button style="border: none; float:right;"><i class="fa fa-quote-right testimonial_fa" aria-hidden="true"></i> </button><br>
+                    </div>
+                    </div>
+                    <div class="col-sm-6">
+                     <img src="<?php echo $theme_url?>/images/t1.jpg" class="img-responsive" height="auto">
+					  <a data-toggle="modal" data-target="#myModal" class="testimonial-link">
+						<span><img src="<?php echo $theme_url?>/images/play-button.png" class="img-responsive testimonial-img"></span>
+					  </a>
+                   </div>
+                 </div>
+              </div>
+               <div class="item">
+                   <div class="row">
+                    <div class="col-sm-6">
+						<div class="testimonial-name">
+							<h4><strong>Kiara Andreson</strong></h4>
+							<p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
+							<span>Officeal All Star Cafe</span>
+							</p>
+							<button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+							<p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+							<button style="border: none; float:right;"><i class="fa fa-quote-right testimonial_fa" aria-hidden="true"></i> </button><br>	
+						</div>	
+                    </div>
+                    <div class="col-sm-6">
+                     <img src="<?php echo $theme_url?>/images/t2.jpg" class="img-responsive" height="auto">
+					  <a data-toggle="modal" data-target="#myModal" class="testimonial-link">
+						<span><img src="<?php echo $theme_url?>/images/play-button.png" class="img-responsive testimonial-img"></span>
+					  </a>
+                   </div>
+                 </div>
+              </div>
+               <div class="item">
+                   <div class="row">
+                    <div class="col-sm-6">
+						<div class="testimonial-name">
+							<h4><strong>Kiara Andreson</strong></h4>
+							<p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
+							<span>Officeal All Star Cafe</span>
+							</p>
+							<button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+							<p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+							<button style="border: none; float:right;"><i class="fa fa-quote-right testimonial_fa" aria-hidden="true"></i> </button><br>	
+						</div>	
+                    </div>
+                    <div class="col-sm-6">
+                     <img src="<?php echo $theme_url?>/images/t3.jpg" class="img-responsive" height="auto">
+					  <a data-toggle="modal" data-target="#myModal" class="testimonial-link">
+						<span><img src="<?php echo $theme_url?>/images/play-button.png" class="img-responsive testimonial-img"></span>
+					  </a>
+                   </div>
+                 </div>
+              </div>
+               <div class="item">
+                   <div class="row">
+                    <div class="col-sm-6">
+						<div class="testimonial-name">
+							<h4><strong>Kiara Andreson</strong></h4>
+							<p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
+							<span>Officeal All Star Cafe</span>
+							</p>
+							<button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+							<p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+							<button style="border: none; float:right;"><i class="fa fa-quote-right testimonial_fa" aria-hidden="true"></i> </button><br>	
+						</div>	
+                    </div>
+                    <div class="col-sm-6">
+                     <img src="<?php echo $theme_url?>/images/t4.jpg" class="img-responsive" height="auto">
+					  <a data-toggle="modal" data-target="#myModal" class="testimonial-link">
+						<span><img src="<?php echo $theme_url?>/images/play-button.png" class="img-responsive testimonial-img"></span>
+					  </a>
+                   </div>
+                 </div>
+              </div>
+               <div class="item">
+                   <div class="row">
+                    <div class="col-sm-6">
+						<div class="testimonial-name">
+							<h4><strong>Kiara Andreson</strong></h4>
+							<p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
+							<span>Officeal All Star Cafe</span>
+							</p>
+							<button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+							<p class="testimonial_para">Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en.</p>
+							<button style="border: none; float:right;"><i class="fa fa-quote-right testimonial_fa" aria-hidden="true"></i> </button><br>	
+						</div>	
+                    </div>
+                    <div class="col-sm-6">
+                     <img src="<?php echo $theme_url?>/images/t5.jpg" class="img-responsive" height="auto">
+					  <a data-toggle="modal" data-target="#myModal" class="testimonial-link">
+						<span><img src="<?php echo $theme_url?>/images/play-button.png" class="img-responsive testimonial-img"></span>
+					  </a>
+                   </div>
+                 </div>
+              </div>
+            </div>
+            <div class="controls testimonial_control pull-right">
+                <a class="left fa fa-chevron-left btn btn-default testimonial_btn" href="#carousel-example-generic"
+                  data-slide="prev"></a>
+
+                <a class="right fa fa-chevron-right btn btn-default testimonial_btn" href="#carousel-example-generic"
+                  data-slide="next"></a>
+              </div>
+        </div>
+	</div>
+</div>
+</div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+			 <iframe id="cartoonVideo" width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" autoplay="true" allowfullscreen> </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<?php $this->template->contentBegin(POS_BOTTOM);?>
+<script  src="<?php echo $theme_url;?>/js/scrollheader.js"></script>
+
+<script type='text/javascript'>
+ var a = 0;
+$(window).scroll(function() {
+
+  var oTop = $('#counter').offset().top - window.innerHeight;
+  if (a == 0 && $(window).scrollTop() > oTop) {
+    $('.counter-value').each(function() {
+      var $this = $(this),
+        countTo = $this.attr('data-count');
+      $({
+        countNum: $this.text()
+      }).animate({
+          countNum: countTo
+        },
+
+        {
+
+          duration: 2000,
+          easing: 'swing',
+          step: function() {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function() {
+            $this.text(this.countNum);
+            //alert('finished');
+          }
+
+        });
+    });
+    a = 1;
+  }
+
+});
+</script>
+<?php echo $this->template->contentEnd(); ?> 

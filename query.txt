@@ -1,0 +1,26 @@
+/*** **DB QUERY ******/
+ALTER TABLE `course_enrollment` CHANGE `course_start_date` `course_start_date` DATE NOT NULL;
+ALTER TABLE `course_enrollment` CHANGE `course_start_time` `course_start_time` TIME NOT NULL;
+
+ALTER TABLE `course_enrollment` CHANGE `course_end_time` `course_end_time` TIME NOT NULL;
+
+
+////////////////   11/4/2018/////////////////
+ALTER TABLE `user_details` ADD `c_work_experiance` VARCHAR(100) NOT NULL AFTER `education`, ADD `c_job_profile` VARCHAR(250) NOT NULL AFTER `c_work_experiance`, ADD `c_key_specification` VARCHAR(200) NOT NULL AFTER `c_job_profile`, ADD `c_profile_summary` VARCHAR(250) NOT NULL AFTER `c_key_specification`;
+
+////////////////////17/4/2018/////////////////////
+ALTER TABLE `master_user` ADD `specific_interests` VARCHAR(75) NOT NULL AFTER `user_room`;
+
+///////////////////////////////    9/5/2018 ///////////////////////
+
+ALTER TABLE `remote_application_aggrement_request_programmer` ADD `number_of_hours` VARCHAR(20) NOT NULL AFTER `customer_accept_status`, ADD `lead_time` VARCHAR(20) NOT NULL AFTER `number_of_hours`, ADD `program_description` TEXT NOT NULL AFTER `lead_time`, ADD `sac_code` VARCHAR(20) NOT NULL AFTER `program_description`, ADD `tax_rate` INT(5) NOT NULL AFTER `sac_code`, ADD `sample_product_drawing` VARCHAR(150) NOT NULL AFTER `tax_rate`, ADD `supplier_program_code` INT NOT NULL AFTER `sample_product_drawing`, ADD `qoutation_date` DATETIME NOT NULL AFTER `supplier_program_code`;
+
+
+ALTER TABLE `remote_application_consultant_request_programmer` ADD `number_of_hours` VARCHAR(20) NOT NULL AFTER `customer_accept_status`, ADD `lead_time` VARCHAR(20) NOT NULL AFTER `number_of_hours`, ADD `program_description` TEXT NOT NULL AFTER `lead_time`, ADD `sac_code` VARCHAR(50) NOT NULL AFTER `program_description`, ADD `tax_rate` INT(5) NOT NULL AFTER `sac_code`, ADD `sample_product_drawing` VARCHAR(150) NOT NULL AFTER `tax_rate`, ADD `supplier_program_code` INT(11) NOT NULL AFTER `sample_product_drawing`, ADD `qoutation_date` DATETIME NOT NULL AFTER `supplier_program_code`;
+
+///////////////       21/5/2018  //////////////////////////
+ALTER TABLE `research_report` CHANGE `report_single_price` `report_single_price` INT(10) NOT NULL;
+
+ALTER TABLE `research_report` CHANGE `report_corporate_price` `report_corporate_price` INT(10) NOT NULL;
+
+

@@ -1,0 +1,12 @@
+/* header css */ 
+section{padding:0; float:left;width: 100%;}
+body{background:None;}
+
+.bg-primary {
+    color: #fff;
+    background-color: #337ab700;
+}
+.trans{display:block}
+.non-trans{display:none}
+.header-bradcome{margin-top:0px;} 
+/*end header */ 

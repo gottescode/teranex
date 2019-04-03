@@ -1,0 +1,1 @@
+ALTER TABLE `master_user` ADD `country_name` VARCHAR(25) NOT NULL AFTER `l_status`, ADD `accept_receive` ENUM('Y','N') NOT NULL DEFAULT 'N' AFTER `country_name`, ADD `accept_marketing` ENUM('Y','N') NOT NULL DEFAULT 'Y' AFTER `accept_receive`;

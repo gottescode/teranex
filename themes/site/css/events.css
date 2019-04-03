@@ -1,0 +1,217 @@
+.fc-day-grid-event .fc-content{
+    white-space:normal;
+}
+.fc-event{
+    border:none;
+}
+.fc-event span.fc-title{
+    color: #445268;
+}
+.fc-view, .fc-view>table{
+     box-shadow: 0 7px 22px rgba(19,19,19,.24);
+}
+.fc th{
+    padding: 10px;
+    background-color: #445268;
+    color: #fff;
+}
+.event-section {
+    max-height: 160px;
+    margin: 10px 0;
+	/*border-top: 1px solid;
+    border-bottom: 1px solid;*/
+    box-shadow: 0 7px 22px rgba(19,19,19,.24);
+}
+.event-img{    
+	height: 150px;
+}
+.event-cal{    
+	height: 110px;
+    margin: 0 auto;
+    padding: 5px;
+}
+.event-section a{text-decoration:none;}
+.event-heading{padding:0 20px}
+.event-section .event-list-bg {background: #376092;}
+.event-section h3:last-child {
+    text-align: center;
+    margin: 5px 0;
+	color:#fff;
+}
+.bdr-event-work {
+    /*border: 1px solid #ff8a43;*/
+    /*border-radius: 10px;*/
+    box-shadow: 0 7px 22px rgba(19,19,19,.24);
+    padding: 10px;
+	background:#fff;
+	margin-bottom:20px;
+	min-height: 289px;
+}
+.center { margin: 0 auto; text-align:center;}
+h4.center {margin: 10px 0; font-size: 16px;}
+@media screen and (max-width:480px){
+	.video-center {
+		margin: 0 auto;
+		width: 300px;
+	}
+	.event-section {
+		max-height: unset;
+		margin: 10px 0;
+		float: left;
+		border: 1px solid #000;
+	}
+	.event-img {
+		height: auto;
+	}
+	.event-section h3:last-child {
+		margin: 0;
+		padding: 10px;
+	}
+}
+.col-container {
+    display: table;
+    width: 100%;
+}
+.col {
+    display: table-cell;
+    padding: 10px;
+}
+@media (min-width:1024px) and (max-width:1100px){
+	.bdr-event-work{
+		height: 288px;
+	}
+}
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+	z-index:44;
+  }
+
+/* Using panels to display blog date  */
+.event_list .panel-danger>.panel-heading {
+    color: #ffffff;
+    background-color: #a5c049!important;
+    border-color: 1px solid #a5c049;
+}
+.event_list .panel.date {
+    margin: 0px;
+    width: 60px;
+    text-align: center;
+}
+
+.event_list .panel.date .month {
+    padding: 2px 0px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.event_list .panel.date .day {
+    padding: 3px 0px;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+.event_list .panel-danger {
+    border: 1px solid #a5c049;
+}
+.event_list .text-danger {
+    color: #a5c049;
+}
+.event_list .media-list .media .media-left, .event_list .media-list .media .media-heading{cursor:pointer;}
+
+/* End List Style*/
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+  }
+.fc button, .fc-button-group, .fc-time-grid .fc-event .fc-time span {
+    display: block;
+}
+.fc-content-skeleton table {
+    min-height: 80px;
+}
+.fc-basicDay-view .fc-content {
+    padding: 10px;
+}
+.fc-basicDay-view td.fc-event-container {
+    padding: 5px;
+}
+.fc-unthemed td.fc-today {
+    background: #fcf8e3;
+}
+/* End Calendar Style*/
+
+/*Start scrollbar style*/
+
+
+/* width */
+.panel::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+.panel::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+.panel::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+.panel::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+.list-scroll{overflow-y:auto; height:615px;}
+@media screen and (max-width:480px){
+	.list-scroll{overflow-y:auto; height:300px;}
+}
+.fc-unthemed td.fc-today {
+    background: #efefef !important;
+    height: 80px;
+}
+.fc tbody .fc-row .fc-content-skeleton tbody tr:last-child td {
+     padding-bottom: 0 !important;
+}
+/*.fc table{
+    box-shadow: 0 7px 22px rgba(19,19,19,.24);
+}*/
+/*.fc td, .fc th{
+    padding: 10px !important;
+}*/
+.fc-left h2{
+	font-size: 22px;
+}
+/*End scrollbar style*/
+/*Start Modal style*/
+
+.modal-content, .modal-footer  {
+    float: left;
+    width: 100%;
+}
+
+.eventList .form-group {
+    //width: 50%;
+}
+.eventList .form-group .placeholder {
+    z-index: -1;
+}
+/*End Modal style*/
+@media screen and (max-width: 1024px){
+	.event-img {
+    height: 200px;
+}
+.event-section {
+    max-height: 200px;
+    }
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px)  {
+	.container{
+		padding: 0;
+	}
+}

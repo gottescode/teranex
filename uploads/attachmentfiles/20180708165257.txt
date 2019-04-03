@@ -1,0 +1,48 @@
+Consultant API Call 
+Request URL : 
+	https://www.gotteswork.com/v1/api/freeLancerConsultantRequestList/5
+METHOD : GET
+Response :
+ {
+	"isSuccess": true,
+	"responseData": [
+	{
+				"topicDiscussion": "TEST 1",
+				"preferredDate": "2018-06-15",
+				"startTime": "2018-06-14T17:00:06Z",
+				"launchUrl": "https://zoom.us/s/186442802?zak=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjbGllbnQiLCJ1aWQiOiJKN09pWWZmOVNOS3gtZXYtNHQxenN3IiwiaXNzIjoid2ViIiwic3R5IjoxMDAsImNsdCI6MCwic3RrIjoiWEc3cF9VVmsyc3AyTE1WUzA1c2lLdnkwTGhuNW1EbzdSa21QWXNKMTVSTS5CZ1FnVjBSNVZGWkhha2hoYm1sclJYbExPVnBEYUdGNU9WaFlOVkJZU1U0NWJEQkFOVE14WlRZNU9UTXpaR05sWXpjM00yUmhaREprTldReE5UQmhOMlV3TWpSaE0ySXhZemRqTkRZMU4ySm1NalJoTkdJMU0yWmlZV1JpWkRFMU1ETmtOQUFNTTBOQ1FYVnZhVmxUTTNNOUFBIiwiZXhwIjoxNTI4OTc0NDM1LCJpYXQiOjE1Mjg5NjcyMzUsImFpZCI6InJzOWJrX2s4UzJ1SUJ2NURXYnVoUUEiLCJjaWQiOiIifQ.nalRvXfXcbNQCKKxMkjg4GTKhVqJyyVibKIbrdJsE8s",
+				"customerName": "Justin",
+				"customerEmail": "justin@gmail.com"
+	},
+	{
+				"topicDiscussion": "Test2",
+				"preferredDate": "2018-06-15",
+				"startTime": "2018-06-15T16:00:33Z",
+				"launchUrl": "https://zoom.us/s/121166422?zak=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjbGllbnQiLCJ1aWQiOiJKN09pWWZmOVNOS3gtZXYtNHQxenN3IiwiaXNzIjoid2ViIiwic3R5IjoxMDAsImNsdCI6MCwic3RrIjoiWEc3cF9VVmsyc3AyTE1WUzA1c2lLdnkwTGhuNW1EbzdSa21QWXNKMTVSTS5CZ1FnVjBSNVZGWkhha2hoYm1sclJYbExPVnBEYUdGNU9WaFlOVkJZU1U0NWJEQkFOVE14WlRZNU9UTXpaR05sWXpjM00yUmhaREprTldReE5UQmhOMlV3TWpSaE0ySXhZemRqTkRZMU4ySm1NalJoTkdJMU0yWmlZV1JpWkRFMU1ETmtOQUFNTTBOQ1FYVnZhVmxUTTNNOUFBIiwiZXhwIjoxNTI4OTc0NDU3LCJpYXQiOjE1Mjg5NjcyNTcsImFpZCI6InJzOWJrX2s4UzJ1SUJ2NURXYnVoUUEiLCJjaWQiOiIifQ.qGsfJnxd8J1de8EmxwNo2EmDOKN-g_HN3ARfxlVS1z4",
+				"customerName": "Krishna Joshi",
+				"customerEmail": "krishnajos@gmail.com"
+	}
+],
+}
+
+Response Json Details : 
+	customerName :  Name of the Customer.
+	customerEmail :  Email of the Customer.
+	launchUrl :  Launch Url for Consultant.
+=================================================================================================================
+Customer Freelancer Meeting List
+Request URL :
+	https://www.gotteswork.com/v1/api/freeLancerCustomerRequestList/16
+Method : GET 
+Response :
+{
+	"isSuccess": true,
+	"responseData": 
+					[{
+						"topicDiscussion": "Test2",
+						"startTime": "2018-06-15T16:00:33Z",
+						"joinUrl": "https://zoom.us/j/121166422",
+						"consultantName": "justi",
+						"consultantEmail": "justi@teranex.co"
+					}],
+}

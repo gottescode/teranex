@@ -1,0 +1,283 @@
+ul.machine_cat li a{padding-right:0px;}
+ul.machine_cat li {padding: 0 14px;}
+li.divider {margin: 0 1px 0 5px;}
+.padd-8 {
+    padding: 8px;
+}
+.used-machines-nav ul li:last-child{
+	display: none;
+}
+.used-machines-nav ul li:last-child(-1){
+	padding-right: 0 !important;
+}
+ul.machine_cat li a {
+    font-size: 16px;
+    font-family: 'AvenirNextLTPro-Regular';
+    display: inline-block;
+}
+.parent {
+    width: 100%;
+    margin-bottom: 0px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    display: inline-block;
+	cursor: pointer;
+}
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    transition: all 1.5s;
+    background-color: rgba(0,0,0,0.70);
+}
+.child p{
+	color: #fff;
+	line-height: 20px;
+}
+.parent:hover .child, .parent:focus .child {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.parent .child .child1 {
+    margin-top: 30px;
+    padding: 30px;
+}
+.parent:hover .child .child1, .parent:focus .child .child1 {
+    margin-top: 30px;
+    padding: 30px 80px;
+}
+.parent .child .child1 .child_p {
+    min-height: fit-content;
+}
+.parent:hover .child .child1 .child_p, .parent:focus .child .child1 .child_p{
+    min-height: 22px;
+}
+.parent:hover .child .child1 h1, .parent:focus .child .child1 h1{
+font-size: 30px;line-height: 50px !important;margin-bottom: 0;
+}
+.parent:hover .child .child1 p, .parent:focus .child .child1 p {
+    font-size: 14px;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+.parent .child .child1 .btn_orange{
+min-width: 60px;
+padding: 5px 5px;
+line-height: 1;
+}
+.parent:hover .child .child1 .btn_orange, .parent:focus .child .child1 .btn_orange{
+    padding: 5px 5px;
+    min-width: 60px;
+    display: inline-block;
+    /* padding: 6px 12px; */
+    margin-bottom: 0;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.parent:hover .child:before, .parent:focus .child:before {
+    display: block;
+}
+
+.parent:hover a, .parent:focus a {
+    /*display: block;*/
+}
+.child:hover:after, .child:hover:before{
+	background-color: rgba(0,0,0,0.70);
+}
+.child:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.70);
+}
+
+
+	.align>li{
+		text-align: right;
+		font-weight: 700;
+	}
+	.borderli{
+		border: none;
+	}
+	.backBorder{
+	   background: #ece8e8;
+	}
+	
+	hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    /*margin-left: 8.5%;
+    margin-right: 8.5%;*/
+    border-style: inset;
+    border-width: 1px;
+    border-color: #f9f9f9;
+} 
+ul.tab_h li {
+     /*padding: 0px 11px;*/ padding: 0px 2%;
+}
+.m_100{
+	margin-top: 100px;
+}
+button#showllist {
+    margin-top: 35px;
+    margin-bottom: 30px;
+    margin-left: 42px;
+    min-width: 87.33px;
+}
+ul.tab_h li a {font-size: 15px;}
+.softbx-bdr .checkbox{padding:0}
+.softbx-bdr ing{width:150px; margin:0 auto;}
+.softbx-bdr{    
+    cursor: pointer;
+	text-align: center;
+    border: 1px solid;
+    padding: 20px;
+}
+.table_nb>.table>tbody>tr>td, .table_nb>.table>tbody>tr>th, .table_nb>.table>tfoot>tr>td, .table_nb>.table>tfoot>tr>th, .table_nb>.table>thead>tr>td, .table_nb>.table>thead>tr>th {
+    border: none;
+}
+.technicalSpecifications>table>thead>tr>th {
+	border: none;
+}
+.technicalSpecifications .table-striped{margin-top: 0;}
+soft-list-item .btn:focus{
+  outline: none;
+}
+soft-list-item .modExample .btn{
+    margin: 4px 8px 4px 0;
+}
+.popover{z-index:1}
+.popover.right{
+	top:0!important;
+	width:250px; 
+	height:auto;
+}
+.popover.left{
+	left:-245px!important;
+	margin-left:-25px!important;
+	top:0!important;
+}
+.bx-viewport, .bx-viewport img{    
+	width: auto!important;
+    height: auto!important;
+    min-height: 218px;
+}
+.feature-this-month-bg p{text-align: justify;}
+.soft-list-item .checkbox, .used-machines-nav ul.machine_cat{text-align: center}
+.child1 h1 {
+    font-family: 'Ciutadella' !important;
+    color: #fff;
+}
+.parent .child .child1 p, .parent .child .child1 p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 5px;
+	float: left;
+}
+.M_align{
+		margin-top: 30px;
+	}
+.soft-list-item .soft-list-details img {
+    height: 150px;
+    width: 100%;
+}
+@media screen and (max-width:480px) {
+	.M_align {
+		margin-top: 16px;
+	}
+	ul.machine_cat li a {
+		font-size: 14px;
+	}
+	.container-fluid.used-machines-nav.fix_nav {
+		top: 57px;
+	}
+	.parent:hover .child .child1, .parent:focus .child .child1 {
+		margin-top: 30px;
+		padding: 30px;
+		padding-top: 45px;
+	}
+	.parent .child .child1 {
+		margin-top: 0px;
+	}
+	.parent .child .child1 h1 {
+		margin: 0;
+		font-family: 'Ciutadella' !important;
+		color: #fff;
+	}
+	.padd-8 {
+		padding: 8px 0;
+	}
+}
+@media (min-width:481px) and (max-width:1023px){
+	.M_align{
+		margin-top: 8px;
+	}
+	.parent:hover .child .child1 p, .parent:focus .child .child1 p {
+		font-size: 14px;
+		line-height: 15px;
+		margin-bottom: 5px;
+	}
+	.parent:hover .child .child1, .parent:focus .child .child1 {
+		margin-top: 30px;
+		padding: 30px;
+	}
+	.parent .child .child1 {
+		margin-top: 0px;
+	}
+}
+
+@media (min-width:1024px) and (max-width:1200px){
+	.M_align{
+		margin-top: 30px;
+	}
+	.parent .child .child1 {
+		margin-top: 30px;
+	}
+	.parent .child .child1 p, .parent .child .child1 p {
+		font-size: 16px;
+		line-height: normal;
+		margin-bottom: 5px;
+		letter-spacing: 2px;
+	}
+	.parent:hover .child .child1, .parent:focus .child .child1 {
+		margin-top: 30px;
+		padding: 40px;
+	}
+	.parent .child .child1 p, .parent .child .child1 p {
+		font-size: 16px;
+		line-height: normal;
+		margin-bottom: 5px;
+		float: left;
+	}
+	.parent:hover .child .child1 p, .parent:focus .child .child1 p {
+		font-size: 16px;
+		line-height: normal;
+		margin-bottom: 5px;
+		float: left;
+	}
+}
