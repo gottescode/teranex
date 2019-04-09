@@ -687,7 +687,7 @@ class Api extends API_Controller {
     public function updatePassword_post() {
         // get input data
         $data = $this->post();
-        //print_r($data);exit;
+
         $result = $this->customer_model->updatePasswords($data);
         if ($result) {
             $response = ["result" => $result, "message" => "Password updated successfully.!!!!"];

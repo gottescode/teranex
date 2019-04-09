@@ -7,7 +7,9 @@ class Dashboard extends BACKEND_Controller{
 	{ 
 		// Call the parent constructor
 		parent::__construct();
-	} 
+        $this->load->database();
+
+    }
 	// index page for this controller 
 	public function index(){
 		 $url = site_url()."/pages/api/signUpUserCount/";
@@ -22,6 +24,7 @@ class Dashboard extends BACKEND_Controller{
 			"receiptCount"=>$receiptCount['result']
 		);
 		$this->template->load("index",$arrayData);
+
 	}
         
         
@@ -30,7 +33,7 @@ class Dashboard extends BACKEND_Controller{
 		$user_id = $this->session->userdata('user_id');
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();
-	 
+
 			$pageData['uid'] = $user_id; 
 			$url = site_url()."dashboard/api/updateProfile";
 			$response =  apiCall($url, "post",$pageData);
@@ -47,20 +50,23 @@ class Dashboard extends BACKEND_Controller{
 		$this->template->load("profile",$arrayData);
 	}
 	public function changePassword() {
-		  $id = $this->session->userdata('user_id');
-		
-		if(isset($_POST['btnSubmit'])){
-			$pageData = $this->input->post();
-			$pageData['id'] = 1; 
-		//	print_r($pageData);exit;
-			$url = site_url()."dashboard/api/password";
-			$response =  apiCall($url, "post",$pageData);
-		 	//print_r($response);exit;
-			if($response){
-				setFlash("passwordSuccessMsg", $response['message']);
-			} 
-		}
-		$this->template->load("changepassword");
+        $id = $this->session->userdata('user_id');
+
+        if (isset($_POST['btnSubmit'])) {
+
+            $pageData = $this->input->post();
+
+            $newDate = date("Y-m-d");
+            $pageData['id'] = 1;
+            $pageData['newDate'] = $newDate;
+            $url = site_url() . "dashboard/api/password";
+            $response = apiCall($url, "post", $pageData);
+            if ($response) {
+                setFlash("passwordSuccessMsg", $response['message']);
+
+            }
+        }
+        $this->template->load("changepassword");
 	}
-	
+
 }

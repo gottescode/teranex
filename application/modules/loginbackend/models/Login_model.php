@@ -17,25 +17,31 @@ class Login_model extends CI_Model
 		//	get form values
 		$username = $this->input->post("username", true);
 		$password = $this->input->post("password", true);
-		
-		//$username= mysql_real_escape_string( $username ) ;
+        //$username= mysql_real_escape_string( $username ) ;
 		$password= md5($password);
-		
-		//	prepare query data
+        //	prepare query data
 		$strwhere = "a_email = '$username' AND BINARY a_password = BINARY '$password' ";
-		$select = "id, a_name,a_email,role_id";
-		
+		$select = "id, a_name,a_email,role_id,updated_at_password";
 		//	execute query
 		$user = $this->db_lib->fetchSingle('administrator', $strwhere, $select);
-  
-		return $user;
+        return $user;
 	}
-	
-	//	keep user logged in
-	//	use in login method
-	public function login($userId, $userName = null, $userEmail = null, $userProfilePic = null, $userRole = null, $session_id = null)
+
+
+    /**
+     * @param $userId
+     * @param null $userName
+     * @param null $userEmail
+     * @param null $userProfilePic
+     * @param null $userRole
+     * @param null $session_id
+     * @param $ipAddress
+     * @return bool
+     */
+	public function login($userId, $userName = null, $userEmail = null, $userProfilePic = null, $userRole = null, $session_id = null, $ipAddress)
 	{
 		$session= array("user_id" =>  $userId);
+
 		if(isset($userName))	
 			$session["user_name"] = $userName;
 			
@@ -47,8 +53,11 @@ class Login_model extends CI_Model
 			$session["role_id"] = $userRole;
 		if(isset($session_id))	
 			$session["session_id"] = $session_id;
-		
+
+        $session["ipAddr"] = $ipAddress;
+
 		$this->session->set_userdata($session);
+
 		return true;
 	}
 	
@@ -201,6 +210,8 @@ class Login_model extends CI_Model
 		}
 		return $result;
 	}
+
+
 }
 	
 ?>

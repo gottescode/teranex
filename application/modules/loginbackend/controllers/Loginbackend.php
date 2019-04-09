@@ -22,37 +22,54 @@ class Loginbackend extends BACKEND_Controller {
 			redirect("loginbackend/login");
 		}
 		else {
+
 			// redirect to dashboard
 			redirect("dashboard");
 		}
 	}
 	
 	// login method to enter in system
-	public function login()
-	{
+    public function login()
+    {
         // initialize template variables
-        $currentURL = current_url();
-		$this->template->theme = "admin";
-        if (strpos($currentURL, "loginbackend/login") != false) {
+        $this->template->theme = "admin";
+        // process data if form is submitted
+        if (isset($_POST["btnLogin"])) {
+            // do login
+            $result = $this->login_model->logincheck();
+            //	if record found make user as logged in user
+            if ($result != 0) {
+                // set login status
+                $this->login_model->login(
+                    $result["id"],
+                    $result["a_name"],
+                    null,
+                    null,
+                    null,
+                    null,
+                    $this->input->ip_address()
 
-            // process data if form is submitted
-            if (isset($_POST["btnLogin"])) {
-                // do login
-                $result = $this->login_model->logincheck();
+                );
+                $pass = $result["updated_at_password"];
+                $newDate = date("Y-m-d");
+                $date1 = date_create($pass);
+                $date2 = date_create($newDate);
+                $diff = date_diff($date1, $date2);
+                $days = $diff->format("%a");
+                $_SESSION["user_id"] = $result["id"];
 
-                //	if record found make user as logged in user
-                if ($result != 0) {
-                    // set login status
-                    $this->login_model->login($result["id"], $result["a_name"]);
-                    $ip= $this->input->ip_address();
-                    $this->session->set_userdata('ipAddress', $ip);
-                    // redirect to dashboard
-                    redirect("dashboard");
-                } else {
-                    //	set error message for indicating user not logged in
-                    setFlash("loginError", "Invalid username or password..!! Please try again..!!");
+
+                if ($days > 3) {
+                    setFlash("ErrorMsg", "your password has been expired change the password..!!");
                 }
-            }
+                        // redirect to dashboard
+                        redirect("dashboard");
+                }
+                else {
+                    //	set error message for indicating user not logged in
+                   setFlash("loginError", "Invalid username or password..!! Please try again..!!");
+                }
+        }
 
             // variables to pass on login page
             $arrData = array(
@@ -62,15 +79,13 @@ class Loginbackend extends BACKEND_Controller {
             );
             // load view page
             $this->load->view("login", $arrData);
-        }
-	}
-	
-	// logout method to exit from system
+    }
+
+    // logout method to exit from system
 	public function logout()
 	{
 		// unset login status
 		$this->login_model->logout();
-
 		// redirect to login method
 		redirect("loginbackend/login");
 	}

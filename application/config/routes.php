@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'site/home/newindex';
-
 $modules_path = APPPATH.'modules/';
 $modules = scandir($modules_path);
 

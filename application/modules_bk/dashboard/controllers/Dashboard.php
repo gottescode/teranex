@@ -46,8 +46,8 @@ class Dashboard extends BACKEND_Controller{
 	}
 	public function changePassword() {
 		  $id = $this->session->userdata('user_id');
-		
-		if(isset($_POST['btnSubmit'])){
+        if(isset($_POST['btnSubmit'])){
+
 			$pageData = $this->input->post();
 			$pageData['id'] = 1; 
 		//	print_r($pageData);exit;

@@ -2,7 +2,7 @@
 <style type="text/css">
 	.margin_10_top{
 		margin-top: 10px;
-	} 
+	}
 	.no_border{
 		border: none;
 	}
@@ -12,18 +12,18 @@
 	.profile_details>.nav-tabs>li{
 		/*width: 12.25%;*/
 	}
-</style> 
-<?php echo $this->template->contentEnd();	?> 
+</style>
+<?php echo $this->template->contentEnd();	?>
 <div class="container-fluid myprofile-bg dahboard-bg">
   <div class="container">
     <div class="col-sm-4 padd-0">
       <ul>
         <li class="myprofile">My Dashboard</li>
       </ul>
-	 
+
     </div>
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </div>
 <div class="welcome-j-bg">
   	<div class="container">
@@ -44,14 +44,14 @@
 
 <div class="">
   	<div class=" row-flex">
-	<!-- /.myprofile-bg dahboard-bg --> 
-		<?php   $this->load->view("cust_side_menu" ); ?> 
+	<!-- /.myprofile-bg dahboard-bg -->
+		<?php   $this->load->view("cust_side_menu" ); ?>
 		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-10 mar-20-btm">
 			<div class="profile_details">
 				<ul class="nav nav-tabs ">
 				    <li class="active"><a data-toggle="tab" href="#menu0">View Profile</a></li>
 				    <li><a data-toggle="tab" href="#menu1">Edit Profile</a></li>
-				    <li><a data-toggle="tab" href="#menu2">Company Details</a></li><!-- 
+				    <li><a data-toggle="tab" href="#menu2">Company Details</a></li><!--
 				    <li><a data-toggle="tab" href="#menu3">Company Docs</a></li> -->
 				    <li><a data-toggle="tab" href="#menu4">Other Files</a></li>
 				    <li><a data-toggle="tab" href="#menu5">Add Contact Details</a></li>
@@ -65,7 +65,7 @@
 				    <div id="menu0" class="tab-pane fade in active">
 				      	<h3>Profile</h3>
 				      	<div class="contact-right-text  ">
-					       	<br /> 
+					       	<br />
 							<div class="">
 							  	<div class="col-sm-6  white-bg ">
 									<div class="profile-left">
@@ -238,7 +238,7 @@
 												  <li class="col-sm-4 padd-0 <?php if($c==1){echo "active";}?>"> <a  href="#<?php if($j==1){echo "active";}?>" data-toggle="tab">Contact Details</a> </li>
 												<?php }?>
 											</ul>
-											
+
 											<div class="tab-content">
 												<?php if($customerContactList){ $c=1;
 												foreach($customerContactList as $rowContact){ ?>
@@ -250,17 +250,17 @@
 																<?php echo $rowContact['contact_person_name'];?>
 															</div>
 														  </div>
-													  
+
 														  <div class="form-group">
 															<label  class="col-sm-5 contact-label-text">Office Phone No</label>
 															<div class="col-sm-7 margin_10_top">
 															 <?php echo $rowContact['office_phone_no'];?>
 															</div>
 														  </div>
-													  
+
 														  <div class="form-group">
 															<label  class="col-sm-5 contact-label-text">Email</label>
-															<div class="col-sm-7 margin_10_top"> 
+															<div class="col-sm-7 margin_10_top">
 															   <?php echo $rowContact['email_id'];?>
 															</div>
 														  </div>
@@ -299,7 +299,7 @@
 												<li class="col-sm-4 padd-0 <?php if($j==1){echo "active";}?>"> <a  href="#<?=$rowCustomer['u_address_id']?>" data-toggle="tab">Address Details</a> </li>
 											<?php }?>
 											</ul>
-									   
+
 											<div class="tab-content">
 												<?php if($customerAddressList){$j=1;
 												foreach($customerAddressList as $rowCustomer){?>
@@ -391,10 +391,10 @@
 						</div>
 				    </div>
 				    <div id="menu1" class="tab-pane fade">
-				      
+
 				      	<div class="col-sm-12">
 				      		<h3>Edit Profile</h3>
-							<div class="border_bot col-md-12 col-sm-12 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;">   
+							<div class="border_bot col-md-12 col-sm-12 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;">
 								<form class="form" name="editprofile" id="editprofile" method="post" action="">
 									<div class="form-group">
 										<div class="col-sm-6">
@@ -418,7 +418,7 @@
 											<input type="email" class="form_bor_bot " id="u_email" name="u_email" placeholder="Email" value="<?php echo $customer_data['u_email']?>"/><span class="compulsary">*</span>
 										</div>
 									 	<div class="col-sm-6">
-											<input type="text" class="form_bor_bot " id="c_work_experiance" name="c_work_experiance" placeholder="Work Experince" value="<?php echo $customer_data['c_work_experiance']?>"/> 
+											<input type="text" class="form_bor_bot " id="c_work_experiance" name="c_work_experiance" placeholder="Work Experince" value="<?php echo $customer_data['c_work_experiance']?>"/>
 										</div>
 									</div>
 								 	<div class="clearfix"></div>
@@ -475,16 +475,16 @@
 							</div>
 						</div>
 						<div class="clearfix"></div><br/>
-						
+
 				    	<div class="col-md-12 col-sm-12 col-xs-12 ">
 				    		<h3>Change Password</h3>
-				    		<div class="border_bot col-md-4 col-sm-4 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:300px;"> 
+				    		<div class="border_bot col-md-4 col-sm-4 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:300px;">
 								<form class="form" name="changepassword" id="changepassword" method="post" action="">
 									<div class="form-group">
 										<input type="text" class="form_bor_bot" id="u_password" name="u_password" placeholder="Old Password " value="<? echo $user_data['u_password'];?>"  /><span class="compulsary">*</span>
 									</div><div class="clearfix"></div>
 									<div class="form-group">
-										<input type="text" class="form_bor_bot" id="newpassword" name="newpassword" placeholder="New Password" value="<? echo $user_data['newpassword'];?>"  /><span class="compulsary">*</span>	
+										<input type="text" class="form_bor_bot" id="newpassword" name="newpassword" placeholder="New Password" value="<? echo $user_data['newpassword'];?>"  /><span class="compulsary">*</span>
 						        	</div>
 						       	 	<div class="form-group">
 										<input type="text" class="form_bor_bot" id="conf_password" name="conf_password" placeholder="Confirm New Password" value="<? echo $user_data['conf_password'];?>"  /><span class="compulsary">*</span>
@@ -501,11 +501,11 @@
 				    <div id="menu2" class="tab-pane fade">
 				      <h3>Company Details</h3>
 				      	<div class="col-sm-6">
-					      	<div class="col-sm-12 border_bot supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;">   
+					      	<div class="col-sm-12 border_bot supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;">
 								<form class="form" name="company" id="company" method="post" action="">
 									<div class="form-group">
 										<select class="form_bor_bot" id="user_company_type" name="user_company_type">
-										 	<option value="">Select Company Type</option> 
+										 	<option value="">Select Company Type</option>
 											<option value="Patnership" <?php if($customer_data['user_company_type']=='Patnership'){echo "selected";}?>>Patnership</option>
 											<option value="Proprietorship" <?php if($customer_data['user_company_type']=='Proprietorship'){echo "selected";}?>>Proprietorship</option>
 											<option value="Private Limited" <?php if($customer_data['user_company_type']=='Private Limited'){echo "selected";}?>>Private Limited</option>
@@ -515,14 +515,14 @@
 									<div class="form-group">
 										<input type="text" class="form_bor_bot" id="user_company_name" name="user_company_name" placeholder="Company Commercial Name" value="<? echo $customer_data['user_company_name'];?>"  /><span class="compulsary">*</span>
 									</div><div class="clearfix"></div>
-								
+
 									<div class="form-group">
 										<input type="text" class="form_bor_bot alphaNumeric" id="user_gst_no" name="user_gst_no" placeholder="GSTIN Number" value="<? echo $customer_data['user_gst_no'];?>"  />
 									</div>
 									<div class="form-group">
 										<input type="text" class="form_bor_bot alphaNumeric" id="user_pan_no" name="user_pan_no" placeholder="PAN Number" value="<? echo $customer_data['user_pan_no'];?>"  />
 									</div><div class="clearfix"></div>
-								
+
 									<div class="form-group">
 										<input type="text" class="form_bor_bot" id="user_company_website" name="user_company_website" placeholder="Company Website"  value="<? echo $customer_data['user_company_website'];?>"  />
 									</div>
@@ -534,7 +534,7 @@
 							</div><div class="clearfix"></div>
 				      	</div>
 				      	<div class="col-sm-6">
-				      		<div class="border_bot supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;"> 
+				      		<div class="border_bot supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;">
 								<form class="form" name="company" id="upload_doc_form" method="post" action="" enctype="multipart/form-data">
 									<div class="form-group ">
 										<label class="col-sm-6">Company Logo <span class="red">*</span></label>
@@ -589,10 +589,10 @@
 				    </div> -->
 				    <div id="menu4" class="tab-pane fade">
 				    	<h3>Other Documents</h3>
-				    	<div class="col-sm-12"> 
+				    	<div class="col-sm-12">
 							<div class="col-sm-12 border_bot supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ;">
 								<form class="form" name="upload_otherdoc_form" id="upload_otherdoc_form" method="post" action="" enctype="multipart/form-data">
-										<div class="form-group"><!-- 
+										<div class="form-group"><!--
 											<label class="">File Name <span class="red">*</span></label> -->
 											<div class="col-sm-6">
 												<input type="text" name="file_name_text" id="file_name_text" class="form_bor_bot" placeholder="File Name" /><span class="compulsary">*</span>
@@ -642,7 +642,7 @@
 				    </div>
 				    <div id="menu5" class="tab-pane fade">
 				    	<h3>Contact Details</h3>
-				    	<div class="col-xs-12"> 
+				    	<div class="col-xs-12">
 							<div class="border_bot col-sm-12 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ">
 								<form class="form" name="contact" id="contact_form" method="post" action="">
 									<div class="form-group">
@@ -723,7 +723,7 @@
 				    </div>
 				    <div id="menu6" class="tab-pane fade">
 				    	<h3>Address</h3>
-				    	<div class="col-xs-12" >  
+				    	<div class="col-xs-12" >
 							<div class="border_bot col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height: ">
 								<form class="form" name="address" id="address" method="post" action="">
 									<div class="form-group">
@@ -752,8 +752,8 @@
 													foreach($countryList as $rowCountry){?>
 													<option value="<?=$rowCountry['id']?>" <?php if($rowCountry['id']==$country_id){ echo "selected";}?> ><?=$rowCountry['country_name']?></option>
 												<?php }}?>
-											</select><span class="compulsary">*</span>	
-										</div> 
+											</select><span class="compulsary">*</span>
+										</div>
 									</div><div class="clearfix"></div>
 									<div class="form-group">
 										<div class="col-sm-6">
@@ -763,11 +763,11 @@
 													foreach($stateList as $rowState){?>
 													<option value="<?=$rowState['sid']?>" <?php if($rowState['sid']==$customer_data['cust_branch_state']){ echo "selected";}?> ><?=$rowState['state_name']?></option>
 												<?php }}?>
-											</select>	<span class="compulsary">*</span>	
+											</select>	<span class="compulsary">*</span>
 										</div>
 										<div class="col-sm-6">
 											<select name="city" id="city_id" class="form_bor_bot">
-												<option value="">Select City</option> 
+												<option value="">Select City</option>
 													 <?php if($cityList){
 															foreach($cityList as $rowCity){?>
 															<option value="<?=$rowCity['id']?>" <?php if($rowCity['id']==$customer_data['cust_branch_city']){ echo "selected";}?> ><?=$rowCity['city_name']?></option>
@@ -794,7 +794,7 @@
 								</form>
 							</div>
 							<div class="clearfix"></div><br/>
-							<?php 
+							<?php
 							if(($customerAddressList))
 							{
 							?>
@@ -833,7 +833,7 @@
 				    <div id="menu7" class="tab-pane fade">
 				    	<h3>Bank Details</h3>
 				    	<div class="col-md-12 col-sm-12 col-xs-12 ">
-					    	<div class="border_bot col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:;"> 
+					    	<div class="border_bot col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:;">
 								<form class="form" name="bank" id="bank" method="post" action="">
 										<div class="form-group">
 											<div class="col-sm-6">
@@ -846,7 +846,7 @@
 										<div class="form-group">
 											<div class="col-sm-6">
 												<select class="form_bor_bot" id="user_account_type" name="user_account_type">
-													<option value="">Select Account Type</option>  
+													<option value="">Select Account Type</option>
 													<option value="S" <?php if($customer_data['user_account_type']=='S'){echo "selected";}?>>Saving Account</option>
 													<option value="C" <?php if($customer_data['user_account_type']=='C'){echo "selected";}?>>Current Account</option>
 												</select><span class="compulsary">*</span>
@@ -861,7 +861,7 @@
 											</div>
 											<div class="col-sm-6">
 												<select class="form_bor_bot" id="country_id" name="user_branch_country"  >
-													<option value="">Select Country</option> 
+													<option value="">Select Country</option>
 													<?php if($countryList){
 															foreach($countryList as $rowCountry){?>
 															<option value="<?=$rowCountry['id']?>" <?php if($rowCountry['id']==$country_id){ echo "selected";}?> ><?=$rowCountry['country_name']?></option>
@@ -877,11 +877,11 @@
 														foreach($stateList as $rowState){?>
 														<option value="<?=$rowState['sid']?>" <?php if($rowState['sid']==$customer_data['user_branch_state']){ echo "selected";}?> ><?=$rowState['state_name']?></option>
 													<?php }}?>
-												</select>	<span class="compulsary">*</span>	
+												</select>	<span class="compulsary">*</span>
 											</div>
 											<div class="col-sm-6">
 												<select name="user_branch_city" id="city_id" class="form_bor_bot">
-													<option value="">Select City</option> 
+													<option value="">Select City</option>
 														 <?php if($cityList){
 																foreach($cityList as $rowCity){?>
 																<option value="<?=$rowCity['id']?>" <?php if($rowCity['id']==$customer_data['user_branch_city']){ echo "selected";}?> ><?=$rowCity['city_name']?></option>
@@ -954,8 +954,8 @@
 								</form>
 							</div>
 							<div class="clearfix"></div><br/>
-							
-							<?php 
+
+							<?php
 							if($workList)
 							{
 							?>
@@ -974,8 +974,8 @@
 													<td><?php echo $rowWork['title'];?></td>
 													<td><?php echo $rowWork['exp_details'];?></td>
 													<td><?php echo date_dmy($rowWork['start_date']);?></td>
-													<td><?php if($rowWork['current_company']=='Y'){ echo "Current Working";}else{echo date_dmy($rowWork['end_date']);};?></td> 
-													<td>  
+													<td><?php if($rowWork['current_company']=='Y'){ echo "Current Working";}else{echo date_dmy($rowWork['end_date']);};?></td>
+													<td>
 														<a href="<?php echo site_url()?>customer/workExperinceDelete/<?=$rowWork['ued_id']?>"   >Delete</a> &nbsp; &nbsp;
 													</td>
 												</tr>
@@ -993,13 +993,13 @@
 				    <!-- <div id="menu9" class="tab-pane fade">
 				    	<h3>Change Password</h3>
 				    	<div class="col-md-12 col-sm-12 col-xs-12 ">
-				    		<div class="border_bot col-sm-offset-3 col-md-4 col-sm-4 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:300px;"> 
+				    		<div class="border_bot col-sm-offset-3 col-md-4 col-sm-4 col-xs-12 supplier-form" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:300px;">
 								<form class="form" name="changepassword" id="changepassword" method="post" action="">
 									<div class="form-group">
 										<input type="text" class="form_bor_bot" id="u_password" name="u_password" placeholder="Old Password " value="<? echo $user_data['u_password'];?>"  /><span class="compulsary">*</span>
 									</div><div class="clearfix"></div>
 									<div class="form-group">
-										<input type="text" class="form_bor_bot" id="newpassword" name="newpassword" placeholder="New Password" value="<? echo $user_data['newpassword'];?>"  /><span class="compulsary">*</span>	
+										<input type="text" class="form_bor_bot" id="newpassword" name="newpassword" placeholder="New Password" value="<? echo $user_data['newpassword'];?>"  /><span class="compulsary">*</span>
 						        	</div>
 						       	 	<div class="form-group">
 										<input type="text" class="form_bor_bot" id="conf_password" name="conf_password" placeholder="Confirm New Password" value="<? echo $user_data['conf_password'];?>"  /><span class="compulsary">*</span>
@@ -1028,20 +1028,20 @@
    });
 
 
-	jQuery('.numbersOnly').keyup(function () { 
+	jQuery('.numbersOnly').keyup(function () {
 	    this.value = this.value.replace(/[^0-9\.]/g,'');
 	});
-	jQuery('.lettersOnly').keyup(function () { 
+	jQuery('.lettersOnly').keyup(function () {
 	    this.value = this.value.replace(/[^A-Za-z\.]/g,'');
 	});
-	jQuery('.alphaNumeric').keyup(function () { 
+	jQuery('.alphaNumeric').keyup(function () {
 	    this.value = this.value.replace(/[^A-Za-z0-9\.]/g,'');
 	});
 	jQuery.validator.addMethod("valEmail", function(value, element) {
 	  return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@(?:\S{1,63})$/.test( value );
 	}, 'Please enter a valid email address');
 	$("#editprofile").validate({
-	   rules: {  
+	   rules: {
 					u_name:{
 						required:true
 					},
@@ -1059,7 +1059,7 @@
 						valEmail:true
 					},
 				},
-				messages: { 
+				messages: {
 					u_name:{
 						required:"Please enter full number"
 					},
@@ -1076,13 +1076,13 @@
 						required:"Please enter email id"
 					},
 				}
-			}); 
+			});
 </script>
 <!-- COMPANY DETAILS -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function() {
 $("#company").submit(function(){
-			
+
 	if($("#CompanyType").val() == "")
 	{
 		alert("Company Type is required");
@@ -1094,17 +1094,17 @@ $("#company").submit(function(){
 	});
 });
 
-jQuery('.numbersOnly').keyup(function () { 
+jQuery('.numbersOnly').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
 });
-jQuery('.lettersOnly').keyup(function () { 
+jQuery('.lettersOnly').keyup(function () {
     this.value = this.value.replace(/[^A-Za-z\.]/g,'');
 });
-jQuery('.alphaNumeric').keyup(function () { 
+jQuery('.alphaNumeric').keyup(function () {
     this.value = this.value.replace(/[^A-Za-z0-9\.]/g,'');
 });
 $("#company").validate({
-   rules: {  
+   rules: {
 				user_company_type:{
 					required:true
 				},
@@ -1112,7 +1112,7 @@ $("#company").validate({
 					required:true
 				},
 			},
-			messages: { 
+			messages: {
 				user_company_type:{
 					required:"Please select company type"
 				},
@@ -1120,12 +1120,12 @@ $("#company").validate({
 					required:"Please enter company commercial name"
 				},
 			}
-		}); 
+		});
 
 //COMPANY DOCUMENTS
 var CompanyLogo= '<?=$customer_data['user_company_logo']?>';
 $("#upload_doc_form").validate({
-   rules: {  
+   rules: {
 				CompanyLogo:{
 					required:true
 				},
@@ -1133,7 +1133,7 @@ $("#upload_doc_form").validate({
 					required:true
 				},
 			},
-			messages: { 
+			messages: {
 				CompanyLogo:{
 					required:"Please select company logo"
 				},
@@ -1141,12 +1141,12 @@ $("#upload_doc_form").validate({
 					required:"Please select user profile"
 				},
 			}
-		}); 
+		});
 </script>
 <!-- OTHER DOCUMENT -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function() {
-$("#company").submit(function(){ 
+$("#company").submit(function(){
 	if($("#Name").val() == "")
 	{
 		alert("File Name is required");
@@ -1159,7 +1159,7 @@ $("#company").submit(function(){
 });
 
 $("#upload_otherdoc_form").validate({
-   rules: {  
+   rules: {
 				file_name_text:{
 					required:true
 				},
@@ -1168,7 +1168,7 @@ $("#upload_otherdoc_form").validate({
 					 extension: "pdf|doc|docx|txt|png|jpg|jpeg"
 				},
 			},
-			messages: { 
+			messages: {
 				file_name_text:{
 					required:"Please enter file name"
 				},
@@ -1176,20 +1176,20 @@ $("#upload_otherdoc_form").validate({
 					required:"Please select file to upload"
 				},
 			}
-		}); 
+		});
 </script>
 
 <!-- CONTACT DETAILS -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function() {
 $("#contact").submit(function(){
-			
+
 	if($("#Name").val() == "")
 	{
 		alert("Contact Name is required");
 		return false;
 	}
-	
+
 	if($("#Email").val() != "")
 	{
 		var b = $("#Email").val();
@@ -1201,24 +1201,24 @@ $("#contact").submit(function(){
 		  return false;
 		}
 	}
-	
+
 	var yesno = confirm("Are you sure to save");
 	return yesno;
 	});
 });
 
 
-jQuery('.numbersOnly').keyup(function () { 
+jQuery('.numbersOnly').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
 });
-jQuery('.lettersOnly').keyup(function () { 
+jQuery('.lettersOnly').keyup(function () {
     this.value = this.value.replace(/[^A-Za-z\.]/g,'');
 });
 jQuery.validator.addMethod("valEmail", function(value, element) {
   return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@(?:\S{1,63})$/.test( value );
 }, 'Please enter a valid email address');
 $("#contact_form").validate({
-   rules: {  
+   rules: {
 				contact_person_name:{
 					required:true
 				},
@@ -1242,7 +1242,7 @@ $("#contact_form").validate({
 					required:true
 				},
 			},
-			messages: { 
+			messages: {
 				contact_person_name:{
 					required:"Please enter contact person name"
 				},
@@ -1265,15 +1265,15 @@ $("#contact_form").validate({
 					required:"Please enter mobile number"
 				},
 			}
-		}); 
+		});
 </script>
 
 <!-- ADDRESS -->
-<script src="<?=$theme_url?>/js/location.js"></script>  
+<script src="<?=$theme_url?>/js/location.js"></script>
 <script language="javascript" type="text/javascript">
 $(document).ready(function() {
 $("#address").submit(function(){
-			
+
 	if($("#AddressType").val() == "")
 	{
 		alert("Address Type is required");
@@ -1285,15 +1285,15 @@ $("#address").submit(function(){
 	});
 });
 
-jQuery('.numbersOnly').keyup(function () { 
+jQuery('.numbersOnly').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
 });
-jQuery('.lettersOnly').keyup(function () { 
+jQuery('.lettersOnly').keyup(function () {
     this.value = this.value.replace(/[^A-Za-z\.]/g,'');
 });
 
 $("#address").validate({
-   rules: {  
+   rules: {
 				address_type:{
 					required:true
 				},
@@ -1313,7 +1313,7 @@ $("#address").validate({
 					required:true
 				},
 			},
-			messages: { 
+			messages: {
 				address_type:{
 					required:"Please select address type"
 				},
@@ -1333,23 +1333,23 @@ $("#address").validate({
 					required:"Please enter zip/pin code"
 				},
 			}
-		}); 
+		});
 </script>
 
 <!-- BANK DETAILS -->
-<script src="<?=$theme_url?>/js/location.js"></script> 
-<script>  
-	jQuery('.numbersOnly').keyup(function () { 
+<script src="<?=$theme_url?>/js/location.js"></script>
+<script>
+	jQuery('.numbersOnly').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g,'');
 });
-jQuery('.lettersOnly').keyup(function () { 
+jQuery('.lettersOnly').keyup(function () {
     this.value = this.value.replace(/[^A-Za-z\.]/g,'');
 });
-jQuery('.alphaNumeric').keyup(function () { 
+jQuery('.alphaNumeric').keyup(function () {
     this.value = this.value.replace(/[^A-Za-z0-9\.]/g,'');
 });
 $("#bank").validate({
-   rules: {  
+   rules: {
 				user_account_number:{
 					required:true
 				},
@@ -1390,7 +1390,7 @@ $("#bank").validate({
 					required:true
 				},
 			},
-			messages: { 
+			messages: {
 				user_account_number:{
 					required:"Please enter account number"
 				},
@@ -1431,7 +1431,7 @@ $("#bank").validate({
 					required:"Please enter SWIFT code"
 				},
 			}
-		}); 
+		});
 		</script>
 
 <!-- WORK EXPERIENCE -->
@@ -1439,9 +1439,9 @@ $("#bank").validate({
 	$(function() {
                $("#sartDatepicker").datepicker({ dateFormat: "yy-mm-dd", maxDate: 0}).val()
                $("#endDatepicker").datepicker({ dateFormat: "yy-mm-dd", maxDate: 0}).val()
-       }); 
+       });
 	$("#workexperience").validate({
-	   rules: {  
+	   rules: {
 				title:{
 					required:true
 				},
@@ -1452,7 +1452,7 @@ $("#bank").validate({
 					required:true
 				},
 			},
-			messages: { 
+			messages: {
 				title:{
 					required:"Please enter title"
 				},
@@ -1463,9 +1463,8 @@ $("#bank").validate({
 					required:"Please select end date"
 				},
 			}
-		}); 
+		});
 		</script>
-<?php echo $this->template->contentEnd();	?> 
+<?php echo $this->template->contentEnd();	?>
 
 
-  

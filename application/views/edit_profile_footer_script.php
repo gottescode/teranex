@@ -109,7 +109,7 @@
                 let strVar="";
                 for(let i=0;i<list.length;i++){
                     strVar += "<li id='user_"+list[i].userId+"'>";
-                    strVar += "                                            <span style='text-transform: capitalize;'>"+list[i].firstName+" "+list[i].lastName+"<\/span>&nbsp;&nbsp;<span class=\"unblock\" style=\"color: #75aef3;cursor: pointer\" data-i='"+list[i].userId+"' data-g='"+list[i].group+"' >Unblock<\/span>";
+                    strVar += "<span style='text-transform: capitalize;'>"+list[i].firstName+" "+list[i].lastName+"<\/span>&nbsp;&nbsp;<span class=\"unblock\" style=\"color: #75aef3;cursor: pointer\" data-i='"+list[i].userId+"' data-g='"+list[i].group+"' >Unblock<\/span>";
                     strVar += "                                        <\/li>";
                 }
                 $("#blockList").html(strVar);

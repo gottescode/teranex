@@ -1,4 +1,4 @@
- 
+
 <div class="container-fluid myprofile-bg dahboard-bg">
   <div class="container">
     <div class="col-sm-4">
@@ -7,7 +7,7 @@
       </ul>
     </div>
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </div>
 <div class="welcome-j-bg">
   <div class="container">
@@ -23,17 +23,17 @@
       </ul>
     </div>
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </div>
 <!-- /.welcome-j-bg -->
 
 <div class="container">
   <div class="row row-flex">
-<?php   $this->load->view("cust_side_menu" ); ?> 
+<?php   $this->load->view("cust_side_menu" ); ?>
 
-<div class="col-md-10 col-sm-12 col-xs-12 supplier-form">   
+<div class="col-md-10 col-sm-12 col-xs-12 supplier-form">
 		<form class="form" name="changepassword" id="changepassword" method="post" action="">
-			 
+
 			<div class="form-group">
 				<div class="col-sm-6">
 					<label class="">Old Password <span class="red">*</span></label>
@@ -43,26 +43,26 @@
 			<div class="form-group">
 			     <div class="col-sm-6">
 					<label class="">New Password <span class="red">*</span></label>
-					<input type="text" class="form-control input-form" id="newpassword" name="new_password" placeholder="New Password" value="<? echo $user_data['newpassword'];?>"  />	        			
+					<input type="text" class="form-control input-form" id="newpassword" name="new_password" placeholder="New Password" value="<? echo $user_data['newpassword'];?>"  />
 	        	 </div>
 	        </div>
 	        <div class="form-group">
 			     <div class="col-sm-6">
 					<label class="">Confirm New Password <span class="red">*</span></label>
-					<input type="text" class="form-control input-form" id="conf_password" name="conf_password" placeholder="Confirm New Password" value="<? echo $user_data['conf_password'];?>"  />	        			
+					<input type="text" class="form-control input-form" id="conf_password" name="conf_password" placeholder="Confirm New Password" value="<? echo $user_data['conf_password'];?>"  />
 	        	 </div>
 	        </div>
-	        		
+
 			 <div class="clearfix"></div><br/>
 			<div class="form-group">
 			   <center><input type="submit" name="btnChangepassword" id="submit" class="btn btn-default submit-btn" value="Change Password" /></center>
 			</div>
 		</form>
-		
+
 </div>
 </div>
-<!-- /.row --> 
-	  
+<!-- /.row -->
+
 </div>
  <?php $this->template->contentBegin(POS_BOTTOM);?>
 <?php $this->template->contentBegin(POS_BOTTOM);?>
@@ -79,9 +79,9 @@ $("#changepassword").submit(function(){
 
 $(document).ready(function () {
  var submit =0;
-	$("#changepassword").validate({ 
-            rules: {   
-				
+	$("#changepassword").validate({
+            rules: {
+
 				u_password:{
                 	required: true
                 },
@@ -92,25 +92,25 @@ $(document).ready(function () {
                 	required: true,
                 	equalTo: "#newpassword",
                 },
-				
+
             },
-			messages: { 
-				
+			messages: {
+
 				u_password:{
                 	required: "Please enter Old Password"
-                }, 
+                },
 				newpassword:{
                 	required: "Please enter password"
                 },
 				conf_password:{
                 	required: "Re-enter your password"
-                },				
+                },
 			},
-			 
-	}); 
-	}); 
-	
+
+	});
+	});
+
 
 </script>
-<script src="<?=$theme_url;?>/js/captcha.js"></script> 
-<?php echo $this->template->contentEnd();	?> 
+<script src="<?=$theme_url;?>/js/captcha.js"></script>
+<?php echo $this->template->contentEnd();	?>

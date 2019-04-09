@@ -44,6 +44,7 @@ class Administrator_model extends CI_Model
 		$old_password = md5($data['old_password']);
 		$new_password = md5($data['new_password']);
 		$confirm_password = md5($data['confirm_password']);
+        $newDate = date("Y-m-d");
 		
 		// get user id
 		$id = $data['id'];
@@ -54,14 +55,25 @@ class Administrator_model extends CI_Model
 			// compare previous password
 			if($old_password == $result['a_password']){
 				// update password
-				$data = array('a_password' =>  $confirm_password );
-				$result = $this->db_lib->update($this->table, $data, 'id = '.$id);
-				return true;
+				$data = array('a_password' =>  $confirm_password ,'updated_at_password' => $newDate);
+                $result = $this->db_lib->update($this->table, $data, 'id = '.$id);
+
+                return true;
 			}
 		}
 		return false;
 	}
-	
+
+	public function getUserName($id){
+
+        $res=$this->db->get_where($this->table,["id"=>$id]);
+        $data=$res->row();
+        $data=array($data->updated_at_password,$data->a_email);
+
+        return $data->a_email;
+
+    }
+
 	public function updateAdminProfileData($sendData)
 	{ 
 		$id = $sendData['uid'];
@@ -83,12 +95,12 @@ class Administrator_model extends CI_Model
 			else
 				return ( $file[1] );
 		} 
-		print_r($sendData);
+
 		$res = $this->db_lib->update($this->table, $sendData, 'id = '.$id);
 		 
 		return $res;
 	}
-	
+
 	public function getAdminData($id=1)
 	{
 		$result =  $this->db_lib->fetchSingle($this->table,'id='.$id,"uname,email_id");
@@ -105,7 +117,7 @@ class Administrator_model extends CI_Model
 		return $this->db_lib->fetchSingle($this->table, $strWhere,"");
 		
 	}
-	
+
 }
 	
 ?>
