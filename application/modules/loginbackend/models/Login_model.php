@@ -15,6 +15,7 @@ class Login_model extends CI_Model
 	public function logincheck()
 	{
 		//	get form values
+
 		$username = $this->input->post("username", true);
 		$password = $this->input->post("password", true);
         //$username= mysql_real_escape_string( $username ) ;
@@ -24,7 +25,8 @@ class Login_model extends CI_Model
 		$select = "id, a_name,a_email,role_id,updated_at_password";
 		//	execute query
 		$user = $this->db_lib->fetchSingle('administrator', $strwhere, $select);
-        return $user;
+		$data= array($username,$user);
+        return $data;
 	}
 
 
@@ -211,6 +213,22 @@ class Login_model extends CI_Model
 		return $result;
 	}
 
+	public function updateLoginAttempt($da)
+    {
+        $this->db->where('a_email', $da);
+        $this->db->set('login_status', 'login_status+1', FALSE);
+        $result = $this->db->update('administrator');
+
+
+    }
+    public function getloginattempt($da){
+
+        $res=$this->db->get_where($this->table,["a_email"=>$da]);
+        $data=$res->row();
+
+        return $data->login_status;
+
+    }
 
 }
 	

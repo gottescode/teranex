@@ -31,45 +31,54 @@ class Loginbackend extends BACKEND_Controller {
 	// login method to enter in system
     public function login()
     {
-        // initialize template variables
-        $this->template->theme = "admin";
-        // process data if form is submitted
-        if (isset($_POST["btnLogin"])) {
-            // do login
-            $result = $this->login_model->logincheck();
-            //	if record found make user as logged in user
-            if ($result != 0) {
-                // set login status
-                $this->login_model->login(
-                    $result["id"],
-                    $result["a_name"],
-                    null,
-                    null,
-                    null,
-                    null,
-                    $this->input->ip_address()
+        try {
+            // initialize template variables
+            $this->template->theme = "admin";
+            // process data if form is submitted
+       // try{
+            if (isset($_POST["btnLogin"])) {
+                // do login
+                $result = $this->login_model->logincheck();
 
-                );
-                $pass = $result["updated_at_password"];
-                $newDate = date("Y-m-d");
-                $date1 = date_create($pass);
-                $date2 = date_create($newDate);
-                $diff = date_diff($date1, $date2);
-                $days = $diff->format("%a");
-                $_SESSION["user_id"] = $result["id"];
+                //	if record found make user as logged in user
+                if ($result[1] != 0) {
+                    // set login status
+                    $this->login_model->login(
+                        $result[1]["id"],
+                        $result[1]["a_name"],
+                        null,
+                        null,
+                        null,
+                        null,
+                        $this->input->ip_address()
 
+                    );
+                    $pass = $result[1]["updated_at_password"];
+                    $newDate = date("Y-m-d");
+                    $date1 = date_create($pass);
+                    $date2 = date_create($newDate);
+                    $diff = date_diff($date1, $date2);
+                    $days = $diff->format("%a");
+                    if ($days > 3) {
+                        setFlash("ErrorMsg", "your password has been expired change the password..!!");
+                    }
+                    // redirect to dashboard
+                    redirect("dashboard");
+                } else {
+                    setFlash("loginError", "Invalid username or password..!! Please try again..!!");
 
-                if ($days > 3) {
-                    setFlash("ErrorMsg", "your password has been expired change the password..!!");
-                }
-                        // redirect to dashboard
-                        redirect("dashboard");
-                }
-                else {
+                    $da = $result[0];
+                    $loginAttempt = $this->login_model->getloginattempt($da);
+                    if ($loginAttempt > 5) {
+                        setFlash("loginError", "Your account has locked. Contact to authority");
+                    } else {
+                        $loginAttempt_update = $this->login_model->updateLoginAttempt($da);
+
+                    }
                     //	set error message for indicating user not logged in
-                   setFlash("loginError", "Invalid username or password..!! Please try again..!!");
+                    // setFlash("loginError", "Invalid username or password..!! Please try again..!!");
                 }
-        }
+            }
 
             // variables to pass on login page
             $arrData = array(
@@ -79,6 +88,9 @@ class Loginbackend extends BACKEND_Controller {
             );
             // load view page
             $this->load->view("login", $arrData);
+       }catch (Exception $e){
+            echo 'sdf';exit;
+        }
     }
 
     // logout method to exit from system

@@ -46,7 +46,7 @@
 											</tr>
 										</thead>
 							 			<tbody>
-										<?php 
+										<?php
 											if($videoRequestList >0){ $i=1;
 												foreach($videoRequestList['result'] as $row){
 												?>
@@ -64,15 +64,15 @@
 														<? } ?>
 													</td>
 													<td><?=$row['enquiry_date']; ?></td>
-													
+
 													<td>
 													<?php //if($row['supplier_id']==0){
 													?>
 													<a href="<?php echo site_url()."machine/admin/assignSupplier/".$row['mvr_id']; ?>" class="btn btn-xs btn-success "> Assign Engineer</a></td>
 													<?
 														//}else{Assigned
-													?>	
-														
+													?>
+
 													<?
 														//}
 													?>
@@ -95,11 +95,12 @@
 	
 	  
 <?php $this->template->contentBegin(POS_BOTTOM);?>
-	<script src="<?=$theme_url;?>/plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.min.js"></script> 
+ <link rel="stylesheet" href="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.css">
+	<!--<script src="<?/*=$theme_url;*/?>/plugins/datatables/jquery.dataTables.min.js"></script>-->
+	<script src="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-			$("#community_table").DataTable({ });	
-	}); 
+			$("#community_table").DataTable({ });
+	});
 	</script>
-<?php $this->template->contentEnd();	?> 
+<?php $this->template->contentEnd();	?>
