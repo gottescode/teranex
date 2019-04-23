@@ -5,12 +5,13 @@ class Machine_model extends CI_Model {
     // constructor of this class
     function __construct() {
         // call parent constructor
-			$this->machine_path="uploads/machine/";
+			$this->machine_path="./uploads/machine/";
 			$this->timestudy_path="uploads/machine_drawing_upload";
 			$this->machine_category="machine_category";
 			$this->load->library("file_manager");
 			define('RESIZEWIDTH', '1600');
 			define('RESIZEHIGHT', '900');
+        $this->load->helper(array('form', 'url'));
 			parent::__construct();
     }
 	public function findSingleMachineCategory($strWhere = 1) {
@@ -107,6 +108,7 @@ class Machine_model extends CI_Model {
 	
 		$arrData["created_date"] = date('Y-m-d'); 
 		$data1 = $this->file_manager->upload('machine_image', $this->machine_path, IMG_FORMAT,"",1);
+
 		if($data1[0])
 			$arrData["machine_image"] = $data1[1];
 			
@@ -183,21 +185,24 @@ class Machine_model extends CI_Model {
 	 * @param  get machine id
 	 * @return array of 
 	 */
-	public function createGallery($arrData) {
-		$data = $this->file_manager->multi_upload('photo_name', $this->machine_path, IMG_FORMAT,"",1);
-		$arData['photo_name']=$data;
-		$arData['md_id']=$arrData['md_id'];
-		foreach ($arData['photo_name'] as  $value) {
-			         	if($data[0])
-			         	    $arData['photo_name']=$value[1];
-			         	$result = $this->db_lib->insert("machine_photos",$arData);
-			    }
-		if ($result) {
-			return $result;
-		}
+    public function createGallery($arrData)
+    {
+        $data = $this->file_manager->multi_upload('photo_name', $this->machine_path, IMG_FORMAT, "", 1);
+        $data1 = $this->file_manager->scan($data);
+        $arData['photo_name'] = $data;
+        $arData['md_id'] = $arrData['md_id'];
+        foreach ($arData['photo_name'] as $value) {
+            if ($data[0])
+                $arData['photo_name'] = $value[1];
+            $result = $this->db_lib->insert("machine_photos", $arData);
+        }
+        if ($result) {
+            return $result;
+        }
         return false;
     }
-	public function findMultipleGalleryImages($strWhere) {
+
+    public function findMultipleGalleryImages($strWhere) {
 		return $this->db_lib->fetchMultiple('machine_photos', $strWhere);
 	}
 //	public function findUserProfileDetails($strWhere) {
@@ -249,10 +254,8 @@ class Machine_model extends CI_Model {
 	 * @param   post data
 	 * @return inserted id  
 	 */
-	public function machineTimeStudyInsert($data) { 
-		//print_r($data);exit;
+	public function machineTimeStudyInsert($data) {
 		$data1 = $this->file_manager->upload('drawing_upload', $this->timestudy_path, MIX_FORMAT,"");
-	
 		if($data1[0])
 			$data["drawing_upload"] = $data1[1];
 			

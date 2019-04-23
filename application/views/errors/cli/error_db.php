@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-echo "\nDatabase error: ",
-	$heading,
-	"\n\n",
-	$message,
-	"\n\n";
+echo "\nERROR: ",
+$heading,
+"404 Page Not Found",
+$message,
+"The page you requested was not found.";

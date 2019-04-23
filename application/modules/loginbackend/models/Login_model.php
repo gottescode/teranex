@@ -13,21 +13,20 @@ class Login_model extends CI_Model
 /*	-------------------- Begin Application Specific functions ------------------------------	*/	
 	// login method which interacts with database
 	public function logincheck()
-	{
-		//	get form values
+    {
+            //	get form values
+            $username = $this->input->post("username", true);
+            $password = $this->input->post("password", true);
+            $password = md5($password);
+            //$username= mysql_real_escape_string( $username ) ;
+            //	prepare query data
+            $strwhere = "a_email = '$username' AND BINARY a_password = BINARY '$password' ";
+            $select = "id, a_name,a_email,role_id,updated_at_password,login_status";
+            $user = $this->db_lib->fetchSingle('administrator', $strwhere, $select);
+            $data = array($username, $user);
+            return $data;
+    }
 
-		$username = $this->input->post("username", true);
-		$password = $this->input->post("password", true);
-        //$username= mysql_real_escape_string( $username ) ;
-		$password= md5($password);
-        //	prepare query data
-		$strwhere = "a_email = '$username' AND BINARY a_password = BINARY '$password' ";
-		$select = "id, a_name,a_email,role_id,updated_at_password";
-		//	execute query
-		$user = $this->db_lib->fetchSingle('administrator', $strwhere, $select);
-		$data= array($username,$user);
-        return $data;
-	}
 
 
     /**
@@ -162,11 +161,9 @@ class Login_model extends CI_Model
 		$old_password = md5($this->input->post('old_password'));
 		$new_password = md5($this->input->post('new_password'));
 		$confirm_password = md5($this->input->post('confirm_password'));
-		
-		// get user id
+        // get user id
 		$id = $this->application_model->getUserId();
-
-		// compare new and confirm password
+        // compare new and confirm password
 		if($new_password == $confirm_password){
 			$result = $this->db_lib->fetchSingle($this->table,'id='.$id);
 			// compare previous password
@@ -179,6 +176,13 @@ class Login_model extends CI_Model
 		}
 		return false;
 	}
+	public function updateLoginStatus($da)
+    {
+
+        $this->db->where('a_email', $da);
+        $this->db->set('login_status', '0', FALSE);
+        $result = $this->db->update('administrator');
+    }
 	// update login user Profile Data
 	public function updateAdminProfileData($sendData)
 	{ 
@@ -218,14 +222,10 @@ class Login_model extends CI_Model
         $this->db->where('a_email', $da);
         $this->db->set('login_status', 'login_status+1', FALSE);
         $result = $this->db->update('administrator');
-
-
     }
     public function getloginattempt($da){
-
         $res=$this->db->get_where($this->table,["a_email"=>$da]);
         $data=$res->row();
-
         return $data->login_status;
 
     }

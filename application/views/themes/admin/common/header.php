@@ -25,7 +25,8 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			<?php if($adminUserdata['profile_pic']!='')
-				{ 
+				{
+
 			?>
 			   <img src="<?=site_url().'uploads/prof_image/'.$adminUserdata['profile_pic'];?>" class="user-image" alt="User" style="float: left; width: 39px; height: 39px; border-radius: 66px;margin-right: 6px; margin-top: -9px;">
 

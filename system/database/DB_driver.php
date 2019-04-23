@@ -688,7 +688,8 @@ abstract class CI_DB_driver {
 				}
 
 				// Display errors
-				return $this->display_error(array('Error Number: '.$error['code'], $error['message'], $sql));
+				//return $this->display_error(array('Error Number: '.$error['code'], $error['message'], $sql));
+				return $this->display_error(array("Some Database Error"));
 			}
 
 			return FALSE;
@@ -1771,8 +1772,8 @@ abstract class CI_DB_driver {
 				if (strpos($call['file'], BASEPATH.'database') === FALSE && strpos($call['class'], 'Loader') === FALSE)
 				{
 					// Found it - use a relative path for safety
-					$message[] = 'Filename: '.str_replace(array(APPPATH, BASEPATH), '', $call['file']);
-					$message[] = 'Line Number: '.$call['line'];
+					//$message[] = 'Filename: '.str_replace(array(APPPATH, BASEPATH), '', $call['file']);
+					//$message[] = 'Line Number: '.$call['line'];
 					break;
 				}
 			}

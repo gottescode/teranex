@@ -54,11 +54,13 @@
 										<?php 
 										$i=1;
 											foreach($machineCatList as $row){ ?>
+
 											<tr>
 												<td><?=$i++;?></td>
 												<td><?=$row['catName'];?></td>
 												<td><?=$row['brandName'];?></td>
 												<td><?=$row['modelName'];?></td>
+
 												<td>
 													<a href="<?=site_url()."machine/admin/add_machineDetail_image/".$row['md_id']; ?>" class="btn  btn-xs btn-success">Add Images</a>
 												</td>

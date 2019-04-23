@@ -177,8 +177,10 @@ class Machine_model extends CI_Model {
 	 * @param  get machine id
 	 * @return array of 
 	 */
-	public function createGallery($arrData) {
+	public function createGallery() {
+	    print_r($arrData);die;
 		$data = $this->file_manager->multi_upload('photo_name', $this->machine_path, IMG_FORMAT,"",1);
+		//echo($data);die;
 		$arData['photo_name']=$data;
 		$arData['md_id']=$arrData['md_id'];
 		foreach ($arData['photo_name'] as  $value) {

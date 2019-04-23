@@ -20,3 +20,9 @@ $hook['pre_controller'][] = array(
 
 );
 
+/*$hook['post_controller_constructor'][] = array(
+    'class'    => 'HttpsResponse',
+    'function' => 'redirect_ssl',
+    'filename' => 'ssl.php',
+    'filepath' => 'hooks'
+);*/

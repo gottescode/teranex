@@ -19,71 +19,78 @@ class File_manager
 	public function __construct()
 	{
 		// get instance of codeigniter
+     //   $this->load->model("machine_model");
+
 		$this->CI = & get_instance();
 		
 		// load and initialize library
 		$this->CI->load->library('upload');
-		$this->CI->load->library('image_lib');  
+		$this->CI->load->library('image_lib');
+
 	}
+
+    /**
+     * @return CI_Controller
+     */
 	
 	//$allowedTypes format-  seperatedby pipe (|) eg. doc|txt|pdf
-	//	upload file
-	public function upload($fieldName, $filePath, $allowedTypes, $fileName = null,$resImage=0, $waterMarkImg=0)
-	{	
-	
-	
-		// get file attributes
-		$extension = explode(".",$_FILES[$fieldName]['name']);
-		$max = count($extension);
-		$fileExtension = ".".$extension[$max-1];   
-		
-		// assign file name
-		if(isset($fileName)){
-			$fileName = "$fileName_".date('YmdHis')."$fileExtension";
-		}
-		else{
-			$fileName = date('YmdHis')."$fileExtension";
-		}
+    //	upload file
 
-		// initialize array for library
-		$initialize = array(
-			'allowed_types' => $allowedTypes,
-			'upload_path' => $filePath,
-			'file_name' => $fileName
-		);
-		
-		// load and initialize library
-		$this->CI->upload->initialize($initialize);
-		
-		// upload file		
-		$upload = $this->CI->upload->do_upload($fieldName);
-		$data = array("upload_data"=>$this->CI->upload->data());
-		if($upload){
-			$data = $this->CI->upload->data();
-			$result = array(
-				"0" => true,
-				"1" => $data["file_name"]
-			);
-		}
-		else {
-			$result = array(
-				"0" => false,
-				"1" => $this->CI->upload->display_errors()	
-				// pass delimiters if want like display_errors('<div>', '</div>');
-			);
-		}
-		
-		if($upload){
-		 
-			if($resImage){
-				$this->resizeImage($data['full_path'],$data['file_name']);
-			}
-			if($waterMarkImg){
-				$this->waterMark($data['full_path']);
-			}
-		}
-		return $result;
-	}
+    public function upload($fieldName, $filePath, $allowedTypes, $fileName = null, $resImage = 0, $waterMarkImg = 0)
+    {
+        // get file attributes
+        $extension = explode(".", $_FILES[$fieldName]['name']);
+        $max = count($extension);
+        $fileExtension = "." . $extension[$max - 1];
+
+          // assign file name
+        if (isset($fileName)) {
+
+            $fileName = "$fileName" . date('YmdHis') . "$fileExtension";
+
+        } else {
+            $fileName = date('YmdHis') . "$fileExtension";
+        }
+
+          // initialize array for library
+        $initialize = array(
+            'allowed_types' => $allowedTypes,
+            'upload_path' => $filePath,
+            'file_name' => $fileName,
+
+        );
+
+          // load and initialize library
+        $this->CI->upload->initialize($initialize);
+
+         // upload file
+        $upload = $this->CI->upload->do_upload($fieldName);
+        $data = array("upload_data" => $this->CI->upload->data());
+        if ($upload) {
+            $data = $this->CI->upload->data();
+            $result = array(
+                "0" => true,
+                "1" => $data["file_name"]
+            );
+        } else {
+            $result = array(
+                "0" => false,
+                "1" => $this->CI->upload->display_errors()
+           // pass delimiters if want like display_errors('<div>', '</div>');
+            );
+        }
+
+        if ($upload) {
+            if ($resImage) {
+                $this->resizeImage($data['full_path'], $data['file_name']);
+            }
+            if ($waterMarkImg) {
+                $this->waterMark($data['full_path']);
+            }
+        }
+
+        return $result;
+    }
 	
 	// update file
 	public function update($fieldName, $filePath, $allowedTypes, $oldFileName,$resImage=0, $waterMarkImg=0)
@@ -118,21 +125,20 @@ class File_manager
 	
 	public function multi_upload($fieldName, $filePath, $allowedTypes, $fileName = null )
 	{
-		$result = array();
-		$count = count($_FILES[$fieldName]['name']);
+        $result = array();
+        $count = count($_FILES[$fieldName]['name']);
+        if($count > 0){
+            for($i=0; $i<$count; $i++){
+                $keys = array_keys($_FILES[$fieldName]);
+                foreach($keys as $key) {
+                    $_FILES["new_file"][$key] = $_FILES[$fieldName][$key][$i];
 
-		if($count > 0){
-			for($i=0; $i<$count; $i++){
-			
-				$keys = array_keys($_FILES[$fieldName]);
-				
-				foreach($keys as $key){
-					$_FILES["new_file"][$key] = $_FILES[$fieldName][$key][$i];
-				}
-				$result[] = $this->upload("new_file", $filePath, $allowedTypes, $fileName, $debug);
+                }
 
-			}
-		}
+                $result[] = $this->upload("new_file", $filePath, $allowedTypes, $fileName, $debug);
+            }
+
+        }
 		return $result;
 	}
 	
@@ -172,4 +178,28 @@ class File_manager
              return  $this->CI->image_lib->display_errors(); 
         }
 	}
+    public function scan($data)
+    {
+        if($data == '') {
+            throw new Exception('Filename is empty');
+        }
+        $cmdOutput = `clamscan ${$data}`;
+        //print_r($cmdOutput);exit();
+       // $cmdOutput = str_ireplace('----------- SCAN SUMMARY -----------', '', $cmdOutput);
+       // $cmdOutput = explode(PHP_EOL, $cmdOutput);
+       // $cmdOutput = array_splice($cmdOutput,3, -1);
+        //$mainArr = [];
+        foreach ($cmdOutput as $eachData) {
+            $mainArr[] = explode(': ', $eachData);
+        }
+        $ifectedFile=$mainArr[39][1];
+        if($ifectedFile ==0) {
+           return true;
+        }
+
+        else{
+            return false;
+        }
+
+    }
 }

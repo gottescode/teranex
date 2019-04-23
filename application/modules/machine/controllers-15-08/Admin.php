@@ -5,8 +5,8 @@ class Admin extends BACKEND_Controller {
     // constructor
     function __construct() {
         // parent constructor
-        parent::__construct(); 
-		
+        parent::__construct();
+
     }
 
 	public function index() {
@@ -165,7 +165,9 @@ class Admin extends BACKEND_Controller {
 	} 
 	////////////////         Machine gallery  ///////////////////////////
 	public function add_machineDetail_image($md_id) {
-				if(isset($_POST['btnSubmit'])){
+
+                if(isset($_POST['btnSubmit'])){
+
 						$pageData = $this->input->post();  
 						$url = site_url()."machine/api/createGallery";
 						$response =  apiCall($url, "post",$pageData);
@@ -188,7 +190,7 @@ class Admin extends BACKEND_Controller {
 		]; 					
 		$this->template->load('admin/machine/machine_gallary',$arrayData);
 	}
-	public function delete_gallary($id,$pid) { 
+	public function delete_gallary($id,$pid) {
 		$url = site_url()."/machine/api/delete_gallary/$id"; 
 		$response =  apiCall($url,"get");  
 		setFlash("dataMsgSuccess", $response['message']);

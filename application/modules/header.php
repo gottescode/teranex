@@ -25,9 +25,9 @@
                            <button type="submit" class="btn btn-link ser-icon"><span class="glyphicon glyphicon-search"> </span> </button>
                         </div>
                      </form>
-                     
+
                   </div> -->
-                  
+
                   	<ul class="nav navbar-nav navbar-nav-ex">
 	                    <li class="nav_search" style="padding-right: 10px;">
 	                           <form class="navbar-form menu-ico-mar">
@@ -49,7 +49,7 @@
 	                                    <li><a href="<?php echo site_url()?>groupbuying" target="_blank">Collective Buyers</a></li>
 	                                    <li><a href="<?php echo site_url();?>xpertconnect" target="_blank">Freelancer Groups</a></li>
 	                                    <li><a href="" target="_blank">Exchanges Groups</a></li>
-	                                   
+
 	                                 </ul>
 	                              </div>
 	                              <div class="col-sm-4 padd-0">
@@ -60,7 +60,7 @@
 	                                    <li><a href="<?php echo site_url()?>automation" target="_blank">Automation</a></li>
 	                                    <li><a href="<?php echo site_url();?>ecommerce/product-category/toolings/" target="_blank"> Toolings</a></li>
 	                                    <li><a href="<?php echo site_url()?>ecommerce/product-category/spare-parts" target="_blank">Spares</a></li>
-	                           
+
 	                                 </ul>
 	                              </div>
 	                              <div class="col-sm-4 padd-0">
@@ -71,8 +71,8 @@
 	                                    <li><a href="<?php echo site_url()?>remoteapplication" target="_blank">Remote Application Support</a></li>
 	                                    <li><a target="_blank" href="<?php echo site_url();?>eacademy">Remote Training Services</a></li>
 	                                    <li><a target="_blank" href="">Remote Monitoring & Consulting</a></li>
-	                                    
-	                                    
+
+
 	                                 </ul>
 	                              </div>
 	                           </div>
@@ -84,7 +84,7 @@
 	                           <li><a target="_blank" href="<?php echo site_url()?>remotetraining/online_courses">Learn</a></li>
 	                           <li><a target="_blank" href="">Design</a></li>
 	                           <li><a target="_blank" href="<?php echo site_url()?>digitalmanufacturing">Produce</a></li>
-	                          
+
 	                        </ul>
 	                    </li>
 	                    <!-- <li class="dropdown">
@@ -110,7 +110,7 @@
 	                                    <li><a href="<?php echo site_url()?>analytics" target="_blank">Monitoring</a></li>
 	                                    <li><a href="<?php echo site_url();?>events" target="_blank">Events</a></li>
 	                                    <li><a href="http://teranex.io/mediacenter/category/media/" target="_blank">Industry News</a></li>
-	                                   
+
 	                                 </ul>
 	                              </div>
 	                              <div class="col-sm-4 padd-0">
@@ -121,7 +121,7 @@
 	                                    <li><a href="<?php echo site_url()?>footer/ReportAbuse" target="_blank">Report Abuse</a></li>
 	                                    <li><a href="" target="_blank">Pay Later</a></li>
 	                                    <li><a href="<?php echo site_url()?>pages/getPaidForYourFeedback" target="_blank">Get Paid For Feedback</a></li>
-	                           
+
 	                                 </ul>
 	                              </div>
 	                              <div class="col-sm-4 padd-0">
@@ -132,8 +132,8 @@
 	                                    <li><a href="<?php echo site_url()?>footer/businessIdentity" target="_blank">Business Identity</a></li>
 	                                    <li><a target="_blank" href="<?php echo site_url();?>footer/inspectionService">Inspection Services</a></li>
 	                                    <li><a target="_blank" href="<?php echo site_url();?>footer/securePayment">Secure Payment</a></li>
-	                                    
-	                                    
+
+
 	                                 </ul>
 	                              </div>
 	                           </div>
@@ -160,7 +160,7 @@
 	                             <a target="_blank" href="https://www.youtube.com/channel/UCNaXBz5Nz7bqYmNnIrUJVTw"><i class="fa fa-youtube" aria-hidden="true"></i></a>
 	                             </div>
 	                          </li>
-	                          <li class="agreement"> 
+	                          <li class="agreement">
 	                             <div class="form-group" style="margin-bottom:5px">
 	                                <div class="checkbox">
 	                                   <label class="full-width pull-left">

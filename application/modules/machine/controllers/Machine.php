@@ -27,7 +27,6 @@ class Machine extends FRONTEND_Controller {
         }
         $url = site_url() . "/machine/api/findMachineListCategory/$catId/$machinUsed";
         $machineList = apiCall($url, "post", $pageData);
-        //print_r($machineList);exit;
         if (isset($_POST['searchName'])) {
             $pageData = $this->input->post();
             $url = site_url() . "/machine/api/findMachineListByName/$catId/$machinUsed";
@@ -232,15 +231,12 @@ class Machine extends FRONTEND_Controller {
          if (isset($_POST['btnRequestTimeStudy'])) {
             $user_id = $this->session->userdata('uid');
             $userType = $this->session->userdata('user_type');
-            //print_r($userType);exit;
             $pageData = $this->input->post();
             $pageData['machine_id'] = $mid;
             $pageData['customer_id'] = $user_id;
             $pageData['user_type'] = $userType;
-            //print_r($pageData);exit;
             $url = site_url() . "machine/api/machineTimeStudyInsert/";
             $response = apiCall($url, "post", $pageData);
-           // print_r( $response);exit;
             if ($response['result']) {
                 setFlash("dataMsgEnquirySuccess", $response['message']);
                 redirect("machine/machine/machine_details/$mid");
@@ -305,7 +301,6 @@ class Machine extends FRONTEND_Controller {
             $pageData['u_id'] = $user_id;
             $url = site_url() . "machine/api/machineEnquiryRequest/";
             $response = apiCall($url, "post", $pageData);
-            //print_r($response);exit;
             if ($response['result']) {
                 $transaction_type=24;
                 $this->user_log($transaction_type);   
@@ -318,9 +313,6 @@ class Machine extends FRONTEND_Controller {
         $url = site_url() . "machine/api/findSingleMachineDetailsFront/$mid";
         $machineDetails = apiCall($url, "get");
         $machine_software_list = explode( ",", $machineDetails['result']['machine_software_id']);
-
-        
-        //print_r($machine_software_list);die;
 
         $url = site_url() . "machine/api/findMultipleGalleryImages/$mid";
         $machineAllImages = apiCall($url, "get");
@@ -337,7 +329,6 @@ class Machine extends FRONTEND_Controller {
         $arrayData = array("machineID" => $mid, "machineDetails" => $machineDetails['result'], "machineAllImages" => $machineAllImages['result'],
             "softwareList" => $softwareList['result'],"UserProfileDetails"=>$UserProfileDetails['result'],
              "machine_software_list" => $machine_software_list);
-       // print_r($arrayData);die;
         $this->template->load("machine_details", $arrayData);
     }
 
@@ -346,15 +337,13 @@ class Machine extends FRONTEND_Controller {
     }
 
     public function user_log($data) {
-        //  echo 'hi';die;
-        //print_r($data);die;
+
         $pageData['transaction_type'] = $data;
         $pageData['uid'] = $this->session->userdata('uid');
 
-        //print_r($pageData);die;
         $url = site_url() . "/customer/api/insertUserLog";
         $response = apiCall($url, "post", $pageData);
-        //print_r($response);die;
+
     }
 
 }

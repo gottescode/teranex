@@ -10,6 +10,7 @@ class Api extends API_Controller {
         // parent constructor
         parent::__construct();
 		$this->load->model("machine_model");
+
     }
 		
 	public function findMultipleMachineCat_get($id=0) { 
@@ -472,11 +473,11 @@ class Api extends API_Controller {
 		}
 		$this->response($response, REST_Controller::HTTP_OK);
     }
-	
-	public function createGallery_post() {
-	$this->form_validation->set_rules('md_id', 'Machine Design ', 'trim|required');
-		 
-		 if ($this->form_validation->run() == FALSE) {
+
+
+    public function createGallery_post() {
+        $this->form_validation->set_rules('md_id', 'Machine Design ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
             $response = [
                 "result" => false,
                 'message' => validation_errors()
@@ -485,7 +486,8 @@ class Api extends API_Controller {
             return;
         } else {
             // get input data
-			$data = $this->post();  
+			$data = $this->post();
+
 			$page_id = $this->machine_model->createGallery($data);
 			if($page_id){
 				$response = [ "result" => $page_id, "message" => "Record inserted successfully." ];

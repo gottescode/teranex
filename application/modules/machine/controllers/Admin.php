@@ -75,7 +75,8 @@ class Admin extends BACKEND_Controller {
 	} 
 		
 /* =====================MACHINE DETAILS======================= */
-	public function machineList() {  
+	public function machineList() {
+
 		$url= site_url()."machine/api/machineDetailsMultiple";
 		$machineCatList = apiCall($url,"get");
 		$arrayData = [
@@ -183,8 +184,9 @@ class Admin extends BACKEND_Controller {
 	} 
 	////////////////         Machine gallery  ///////////////////////////
 	public function add_machineDetail_image($md_id) {
+       //var_dump($this->input->post());exit;
 				if(isset($_POST['btnSubmit'])){
-						$pageData = $this->input->post();  
+						$pageData = $this->input->post();
 						$url = site_url()."machine/api/createGallery";
 						$response =  apiCall($url, "post",$pageData);
 						if($response['result']){

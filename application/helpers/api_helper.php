@@ -37,7 +37,6 @@
 		$session_data = $CI->session->all_userdata();
 		
         $response = curl_exec($ch);
-
         //print_r($response); exit();
         curl_close($ch);
 		

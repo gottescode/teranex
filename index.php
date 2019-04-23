@@ -70,8 +70,8 @@
 switch (ENVIRONMENT)
 {
 	case 'development':
-        error_reporting(-1);
-        ini_set('display_errors',0);
+        error_reporting(E_ALL ^ E_NOTICE);
+        ini_set('display_errors',1);
 	break;
 
 	case 'testing':
@@ -334,6 +334,8 @@ if (!function_exists('apache_request_headers')) {
  *
  * And away we go...
  */
- 
+
+header('X-Frame-Options: deny');
+
 include_once './vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';

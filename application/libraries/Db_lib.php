@@ -24,9 +24,9 @@ class Db_lib {
  function loadBlank($table) {
  //initialize table name
  $this->table = $table;
-
  //get all column names from initialized table
  $strSql = "SELECT column_name, column_key FROM information_schema.columns WHERE table_name='{$this->table}'";
+
  $query = $this->CI->db->query($strSql);
  if ($query->num_rows() > 0) {
  foreach ($query->result_array() as $fieldName) {
@@ -62,7 +62,6 @@ class Db_lib {
 
  if ($query->num_rows() > 0)
  return $arrResult = $query->row_array();
-
  return 0;
  }
 

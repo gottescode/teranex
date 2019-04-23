@@ -95,8 +95,8 @@
 	
 	  
 <?php $this->template->contentBegin(POS_BOTTOM);?>
- <link rel="stylesheet" href="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.css">
-	<!--<script src="<?/*=$theme_url;*/?>/plugins/datatables/jquery.dataTables.min.js"></script>-->
+
+ 	<script src="<?=$theme_url;?>/plugins/datatables/jquery.dataTables.min.js"></script>
 	<script src="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {

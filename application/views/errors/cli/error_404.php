@@ -3,6 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 echo "\nERROR: ",
 	$heading,
-	"\n\n",
+	"404 Page Not Found",
 	$message,
-	"\n\n";
+	"The page you requested was not found.";

@@ -2,12 +2,13 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      
+
       <ol class="breadcrumb">
         <li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-home"></i>Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
-    </section> 
+    </section>
+
     <!-- Main content -->
     <section class="content">
       <!-- Info boxes -->
@@ -26,14 +27,14 @@
 						  <?php echo getFlash("dataMsgSuccess"); ?>
 						</div>
 				<?php	} ?>
-				<!-- /.col -->	
-                             
-				<div class="clearfix visible-sm-block"></div>  
-			</div> 
-			
-		</div>  
- 	</section> 
-</div> 
+				<!-- /.col -->
+
+				<div class="clearfix visible-sm-block"></div>
+			</div>
+
+		</div>
+ 	</section>
+</div>
 <?php $this->template->contentBegin(POS_BOTTOM);?>
 
-<?php $this->template->contentEnd();	?> 
+<?php $this->template->contentEnd();	?>

@@ -12,7 +12,7 @@ class Dashboard extends BACKEND_Controller{
     }
 	// index page for this controller 
 	public function index(){
-		 $url = site_url()."/pages/api/signUpUserCount/";
+        $url = site_url()."/pages/api/signUpUserCount/";
 		$signUpUserList =  apiCall($url, "get");  
 	 	 $url = site_url()."/user/api/receiptCount/";
 		$receiptCount =  apiCall($url, "get");  
@@ -29,7 +29,6 @@ class Dashboard extends BACKEND_Controller{
         
         
 	public function updateprofile() {
-		//echo "hi";exit;
 		$user_id = $this->session->userdata('user_id');
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();
