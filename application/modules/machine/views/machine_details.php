@@ -1,763 +1,331 @@
 <?php $this->template->contentBegin(POS_TOP); ?>
-<!-- <link href="<?php echo $theme_url ?>/css/jquery.bxslider.min.css" rel="stylesheet" type="text/css"> -->
-<link rel="stylesheet" type="text/css" href="<?php echo $theme_url; ?>/css/machine.css"/>
-<style type="text/css">
-    img{ max-width:100%;}
-    .inbox_people {
-        background: #f8f8f8 none repeat scroll 0 0;
-        float: left;
-        overflow: hidden;
-        /* width: 40%; */
-        border-right:1px solid #c4c4c4;
-    }
-    .inbox_msg {
-        border: 1px solid #c4c4c4;
-        clear: both;
-        overflow: hidden;
-        background: #fff;
-    }
-    .top_spac{ 
-        margin: 20px 0 0;
-    }
 
-    .recent_heading {
-        float: left; width:40%;
-    }
-    .srch_bar {
-        display: inline-block;
-        text-align: right;
-        width: 60%; padding:
-    }
-    .headind_srch{
-        padding:10px 29px 10px 20px; 
-        overflow:hidden; 
-        border-bottom:1px solid #c4c4c4;
-    }
-    .recent_heading h4 {
-        color: #05728f;
-        font-size: 21px;
-        margin: auto;
-    }
-    .srch_bar input{
-        border:1px solid #cdcdcd; 
-        /* border-width:0 0 1px 0;
-          width:80%; 
-          padding:2px 0 4px 6px; */
-        width: 85%;
-        padding: 6px;
-        background:none;
-    }
-    .srch_bar button{
-        padding: 5px;
-        margin: 0;
-        margin-left: -6px;
-    }
-    .srch_bar .input-group-addon button {
-        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-        border: medium none;
-        padding: 0;
-        color: #707070;
-        font-size: 18px;
-    }
-    .srch_bar .input-group-addon { margin: 0 0 0 -27px;}
-    .chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
-    .chat_ib h5 span{ font-size:11px; float:right;padding: 4px;}
-    .chat_ib p{ font-size:14px; color:#989898; margin:auto}
-    .chat_img {
-        float: left;
-        width: 11%;
-    }
-    .chat_ib {
-        float: left;
-        padding: 0 0 0 15px;
-        width: 88%;
-    }
-    .chat_people{ overflow:hidden; clear:both;}
-    .chat_list {
-        border-bottom: 1px solid #c4c4c4;
-        margin: 0;
-        /*padding: 18px 16px 10px;*/
-        padding: 15px;
-    }
-    .inbox_chat { height: 365px; overflow-y: scroll;}
-    .active_chat{ background:#ebebeb;}
-    .incoming_msg_img {
-        display: inline-block;
-        width: 8%;
-        float: left;
-    }
-    .incoming_msg_img img{
-        border-radius: 15px;
-    }
-    .received_msg {
-        display: inline-block;
-        padding: 0 0 0 10px;
-        vertical-align: top;
-        width: 92%;
-    }
-    .received_withd_msg p {
-        background: #ebebeb none repeat scroll 0 0;
-        border-radius: 3px;
-        color: #646464;
-        font-size: 14px;
-        margin: 0;
-        padding: 5px 10px 5px 12px;
-        width: 100%;
-    }
-    .time_date {
-        color: #747474;
-        display: block;
-        font-size: 10px;
-        margin: 0px 0 8px 0;
-    }
-    .received_withd_msg { width: 57%;}
-    .mesgs {
-        float: left;
-        padding: 10px 0px 0 10px;
-        width: 100%;
-    }
-
-    .sent_msg p {
-        background: #05728f none repeat scroll 0 0;
-        border-radius: 3px;
-        font-size: 14px;
-        margin: 0; color:#fff;
-        padding: 5px 10px 5px 12px;
-        width:100%;
-    }
-    .outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
-    .sent_msg {
-        float: right;
-        width: 46%;
-    }
-    .input_msg_write input {
-        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-        /*border: medium none;*/
-        color: #4c4c4c;
-        font-size: 15px;
-        min-height: 50px;
-        width: 100%;
-        border: 1px solid #c4c4c4;
-        /*border-radius: 25px;*/
-        padding: 0 10px;
-    }
-    .type_msg {/*border-top: 1px solid #c4c4c4;*/position: relative;}
-    .msg_send_btn {
-        background: #05728f none repeat scroll 0 0;
-        border: medium none;
-        border-radius: 50%;
-        color: #fff;
-        cursor: pointer;
-        font-size: 17px;
-        height: 33px;
-        position: absolute;
-        right: 8px;
-        top: 8px;
-        width: 33px;
-    }
-    .msg_send_btn:focus{
-        outline: none;
-    }
-    .input_msg_write input:focus{
-        outline: #a5c049;
-    }
-    .messaging { padding: 0 0 10px 0;}
-    .msg_history {
-        height: 250px;
-        overflow-y: auto;
-    }
-
-    .tab-content{
-        border: 0;
-    }
-    .nav-tabs>li.chat_list.active>a, .nav-tabs>li.chat_list.active>a:focus, .nav-tabs>li.chat_list.active>a:hover{
-        color: #555;
-        cursor: default;
-        background-color: transparent !important;
-        border: 0;
-        border-bottom-color: transparent;
-        padding: 0;
-    }
-    .nav>li.chat_list>a:focus, .nav>li.chat_list>a:hover {
-        text-decoration: none;
-        background-color: #eee0;
-        border:0;
-    }
-
-</style>
 <?php
 echo $this->template->contentEnd();
 $user_id = $this->session->userdata('uid');
 $machineID = $this->uri->segment(3);
 //print_r($product_id);exit;
-?> 
-<div class="cons-details">
-    <div class="container-fluid myprofile-bg dahboard-bg">
-        <div class="container">
-            <div class="col-sm-12 padd-0">
-                <span class="couns-heading">
-                    <h2><?php echo $machineDetails['modelName'] ?></h2>
-                    <p><?php echo $machineDetails['city_name'] ?> | <?php echo $machineDetails['state_name'] ?></p>
-                </span>
-            </div>
-        </div>
-    </div>
-    <!-- /.container --> 
+?>
 
-    <!-- /.myprofile-bg -->
-    <div class="container-fluid used-machines-nav">
-        <div class="container">
-            <div class="clearfix"></div>
-            <?php
-            // display messages
-            if (hasFlash("dataMsgEnquirySuccess")) {
-                ?>
-                <br><div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <?php echo getFlash("dataMsgEnquirySuccess"); ?>
-                </div>
-            <?php } ?>
-            <div class="clearfix"></div>
-            <div class="col-sm-12 padd-0">
-                <ul class="tab_h text-center">
-                    <li><a href="#at_glance" id="ag1">At a Glance</a></li> 
-                    <li>|</li> 
-                    <li><a href="#at_glance">Gallery</a></li>
-                    <li>|</li> 
-                    <li><a href="#machineHistory">Machine History</a> </li>
-                    <li>|</li>
-                    <li><a href="#time_Study">Time Study</a></li>
-                    <li>|</li>
-                    <li><a href="#machineHistory">Machine Services</a> </li>
-                    <li>|</li>
-                    <li><a href="#technical_spec">Machine Specifications</a></li>
-                    <li>|</li> 
-                    <li><a href="#Software">Software</a></li>
-                    <li>|</li>  
-                    <li><a href="#financesection">Finance</a></li>
-                    <li>|</li>  
-                    <li style="padding: 0;"><a href="#chatWithus">Chat With Us</a></li>
-                    <li>|</li>  
-                </ul>
-                <div class="clearfix"></div>
-                <hr/>
-            </div>
-        </div>
-        <!-- /.container --> 
-    </div>
-    <!-- /.myprofile-bg -->
-    <div class="feature-this-month-bg" id="desc">
-        <div class="container">
-            <div class="col-sm-12 padd-0">
-                <p class="rcomment readmore">
-                    <?php echo strhtmldecode($machineDetails['machine_description']) ?>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="detail_heading">
-        <div class="container">
-            <div class="col-sm-12 padd-0">
-                <div class="" id="at_glance">
-                    <div class="col-sm-6 padd-0 consu-table table_nb">
-                        <h2>At a Glance</h2>
-                        <?php //echo strhtmldecode($machineDetails['machine_at_a_glance'])  ?>
-                        <table class="table tbl-responsive " style="margin-top: -5px;">
-                            <tbody>
-                                <tr>
-                                    <th>Brand <span class="pull-right">:</span></th><td> <?php echo $machineDetails['brandName'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Model <span class="pull-right">:</span></th><td> <?php echo $machineDetails['modelName'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Type <span class="pull-right">:</span></th><td><?php echo $machineDetails['category_name'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Year <span class="pull-right">:</span></th><td><?php echo $machineDetails['year_production'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Condition <span class="pull-right">:</span></th><td> <?php echo $machineDetails['machine_condition'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Location <span class="pull-right">:</span></th><td> <?php echo $machineDetails['city_name'] . ", " . $machineDetails['state_name'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Seller <span class="pull-right">:</span></th><td><?php echo $machineDetails['seller_name'] ?></td>
-                                </tr>
-                                <tr>
-                                    <th style="padding-bottom:0;line-height:1;">Price <span class="pull-right">:</span></th>
-                                    <td style="padding-bottom:0;line-height:1;"><?php echo $machineDetails['price'] ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-sm-6 padd-0  consu-table" style="padding-top:0">
-                        <h2>Gallery</h2>
-                        <div>
-                            <!-- <ul class="bxslider">
-                            <?php
-                            if ($machineAllImages) {
-                                foreach ($machineAllImages as $rowMachine) {
-                                    if ($rowMachine['photo_name']) {
-                                        ?>                                                                           
-                                                                            <li><img src="<?php echo base_url() . "uploads/machine/" . $rowMachine['photo_name'] ?>" width="100%" style="min-height: 187px;"/></li>
-                                        <?php
-                                    }
-                                }
-                            }
-                            ?> 
-                            </ul> -->
-                            <ul id="slideshow">
-
-                                <?php
-                                if ($machineAllImages) {
-                                    foreach ($machineAllImages as $rowMachine) {
-                                        if ($rowMachine['photo_name']) {
-                                            ?>
-
-                                            <li><div class="gallery">
-                                                    <div class="galleryItem card">
-                                                        <img src="<?php echo base_url() . "uploads/machine/" . $rowMachine['photo_name'] ?>" width="100%" style="min-height: 187px;" class="card-img-top" data-text=""/>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li><div class="gallery">
-                                                    <div class="galleryItem card">
-                                                        <video controls class="pull-right videosize card-img-top">
-                                                            <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                                            <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                                            Your browser does not support the video tag.
-                                                        </video>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <?php
-                                        }
-                                    }
-                                }
-                                ?>
-                            </ul> 
-                            <div id="slide-counter"></div>
-
-                        </div>
-                    </div>
-
-                    <hr/>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="" id="machineHistory">
-                    <div class="col-sm-6 padd-8 consu-table" style="padding-top:0">
-                        <div class="" id="machine_history">
-                            <h2>Machine History</h2>
-                            <?php echo strhtmldecode($machineDetails['machine_history']) ?>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 padd-0 consu-table table_nb">
-                        <h2>Available Services</h2>
-                        <table class="table tbl-responsive " style="margin-top: -5px;">
-                            <tbody>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Remote Machine Service</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Remote Training</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Remote Application Support</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Deffered LC</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Warranty</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Installation & Commissioning</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;CAD/CAM Training</th>
-                                </tr>
-                                <tr>
-                                    <th><span class="service_avail"><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;&nbsp;Machine Operator Training</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="" id="technical_spec">
-                    <div class="pull-left full-width">
-                        <h2>Machine Specifications</h2> 
-                        <?php /* if($machineDetails['category_id'] == 13 || $machineDetails['category_id'] == 14 || $machineDetails['category_id'] == 15 ) { */ ?>
-                        <!-- FOR LASER MACHINE -->
-                        <div class="col-sm-12 technicalSpecifications padd-0">
-                            <div class="col-sm-3">
-                                <center><h3>Technical Data</h3></center>
-                                <?php echo strhtmldecode($machineDetails['technical_specification']) ?>
-                            </div>
-                            <div class="col-sm-6" style="padding-left: 0;">
-                                <center><h3>Standard Configuration</h3></center>
-                                <?php echo strhtmldecode($machineDetails['standard_specification']) ?>
-                            </div>
-                            <div class="col-sm-3 padd-0" >
-                                <center><h3>Additional Equipment</h3></center>
-                                <?php echo strhtmldecode($machineDetails['additional_equipment']) ?>
-                            </div>
-                        </div>
-                  
-                    </div><br/>
-                    <center class="pull-left full-width"><?php
-                        if ($user_id == '') {
-                            echo '<a href="" class="btn btn_orange " data-toggle="modal" data-target="#signinModal">Enquire</a>';
-                        } else {
-                            echo '<a href="" class="btn btn_orange" data-toggle="modal" data-target="#enquiremodal">Enquire</a>';
-                        }
-                        ?></center><div class="clearfix"></div><br/>
-                    <hr/><div class="clearfix"></div>
-                </div>  
-                <div class="clearfix"></div><br/>
-                <div class="" id="Software">
-                    <div class="pull-left full-width">
-                        <div class="col-sm-12 padd-0 sldsft">
-                            <div class="row">
-                                <div class="col-sm-1 myDIV"><h2 class="" style="transform:rotate(270deg);margin-top:100px;">Softwares</h2></div>
-                                <div class="col-sm-11">
-                                    <ul class="cadcam1">
-                                        <?php
-                                        if (isset($softwareList)) {
-
-                                            foreach ($softwareList as $key) {
-                                                  if (in_array($key['id'], $machine_software_list)) {
-                                                 
-                                                ?>
-                                                <li>
-                                                    <div style="margin: 8px;">
-                                                        <!-- <div class="softbx-bdr soft-list-details" data-toggle="popover" title="Software Name" data-content="Software Details"> -->
-                                                        <div class="softbx-bdr soft-list-details">
-                                                            <img src="<?php echo site_url() . "uploads/machine_software/" . $key['machine_image'] ?>" width="" height="" class="img-responsive" />
-
-                                                            <img src="http://www.teranex.io/beta-V*SRJ!-110918-230718/themes/site/images/logo20_old.jpg" alt=""/>
-                                                            <h3><?php echo $key['machine_name']; ?></h3>
-                                                        </div>
-                                                        <div class="checkbox text-center padd-0">
-<!--                                                            <label style="line-height: 22px;"><input type="checkbox" value="">Add to Machine</label>-->
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            <?php } }
-                                        }
-                                        ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div><hr/><div class="clearfix"></div>
-            </div>
-        
-            <div class="" id="financesection">
-                <div class="col-sm-6 consu-table" style="padding-top:0">
-                    <h2>Available Finance</h2>
-                    <div class="col-sm-12 padd-0 ">
-                        <a href="" data-toggle="modal" data-target="#loanrequire">
-                            <div class=" dad">
-                                <div class="son-1" style="background-image: url('<?php echo $theme_url ?>/images/financetype.jpg');"></div>
-                                <div class="son-text">
-                                    <h3>Require a Loan ? Let us help you..Click here..</h3>
-                                    <ul style="padding: 0 20px;">
-                                        <li>Flexible Payment</li>
-                                        <li>Machine as Collateral</li>
-                                        <li>Easy Documentation</li>
-                                        <li>LC Opening Facility</li>
-                                    </ul>                   
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 consu-table" style="padding-top:0">
-                    <h2>Available Insurance</h2>
-                    <div class="col-sm-12 padd-0">
-                        <a href="" data-toggle="modal" data-target="#insurancerequire">
-                            <div class=" dad">
-                                <div class="son-1" style="background-image: url('<?php echo $theme_url ?>/images/financetype.jpg');"></div>
-                                <div class="son-text">
-                                    <h3>Require an Insurance ? Let us help you..Click here..</h3>
-                                    <ul style="padding: 0 20px;">
-                                        <li>Flexible Payment</li>
-                                        <li>Machine as Collateral</li>
-                                        <li>Easy Documentation</li>
-                                        <li>LC Opening Facility</li>
-                                    </ul>                   
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-             <div class="" id="time_Study">
-                <div class="col-sm-12 consu-table" style="padding-top:0">
-                    <h2>Request for time Study</h2>
-                    <div class="col-sm-12 padd-0 ">
-                        
-                            <div class=" dad">
-                                <div class="son-1" style="background-image: url('<?php echo $theme_url ?>/images/financetype.jpg');"></div>
-                                <div class="son-text">
-                                    <?php if ($user_id == '') { ?>
-                                       <h3>Request for time Study ? Let us help you..<a href=""data-toggle="modal" data-target="#signinModal"> Click here..</a></h3>
-                                    <?php } else { ?>
-                                    <a href="" data-toggle="modal" data-target="#timestudy"><h3>Request for time Study ? Let us help you..Click here..</h3> </a> <?php } ?>        
-                                </div>
-                            </div>
-                       
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-         
-        </div>
-    </div> 
-    
+<section class="banner banner_image align-items-center">
     <div class="container">
-        <center><h2 style="margin: 0;">Chat with Us </h2></center>
-        <div class="col-xs-12 bg_white" style="padding-top: 0;">  
-            <div class="">
-                <h3 class=" text-center"></h3>
-                <div class="messaging">
-                    <div class="inbox_msg">
-                        <div class="col-sm-4 padd-0 inbox_people">
-                            <div class="headind_srch">
-                                <div class="recent_heading">
-                                    <h4>Recent</h4>
-                                </div>
-                             <div class="form-group">
-                                <div class="srch_bar">
-                                    <div class="stylish-input-group">
-                                        <input type="text" class="search-bar"  placeholder="Search" >
-                                        <!-- <span class="input-group-addon"> -->
-                                        <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                                        <!-- </span>  -->
-<!--                                        <br>    
-                                        <br> 
-                                         <a href="" class="btn btn_orange" data-toggle="modal" data-target="#Chatgroupmodal"><i class="fa fa-users" aria-hidden="true"></i></a>
--->
-
-                                    </div>
-
-                                </div>
-                             </div>
-                 
-                            <ul class="nav nav-tabs inbox_chat" id="msglisthistory">
-                            </ul>
-
-
-                            </div>
-                        </div>
-                        <div class="col-sm-8 padd-8">
-                            <div class="full-width pull-left mar-tb-20" id="chatWithus">
-                                <div class="pull-left full-width">
-                                    <!-- <center><h2 style="margin-top: 0;">Chat with Us </h2></center> -->
-                                    <div class="col-sm-12 padd-0">   
-                                        <form role="form" action="" id="videoconference" method="post" enctype="multipart/form-data">
-                                            <h3 class="vconf" style="margin-top: 0">What would you like to do?</h3>
-                                            <div class="form-group" style="margin-bottom:;">
-                                                <span class="col-sm-3 fg_span" ><input type="radio" value="T" name="video_chat" checked> Text chat</span>
-                                                <span class="col-sm-3 fg_span" ><input type="radio" value="V" name="video_chat"> Video chat </span>
-                                                <span class="col-sm-3 fg_span" ><input type="radio" value="B" name="video_chat"> Book a live demo</span>
-                                            </div> 
-                                            <div class="videobtn">
-                                                <?php if ($user_id == '') { ?>
-                                                    <input type="button"  data-toggle="modal" data-target="#signinModal" class="btn btn_orange pull-left" value="Submit"/> 
-                                                <?php } else { ?>
-                                                    <input type="submit" name="btnMachineVideo" class="btn btn_orange pull-left" value="Submit"/> 
-                                                    <input type="hidden" name="created_by" class="" value="<?php echo $machineDetails['created_by'];?>"/> 
-                                                <?php } ?> 
-                                            </div>
-                                        </form><div class="clearfix"></div><br/>
-                                    </div>
-                                </div>
-                                <div class="tab-content col-sm-12 padd-0">
-                                    <div id="home" class="tab-pane fade in active">
-                                        <div class="T chatbox" style="margin-top: 8px;">
-                                            <div class="messaging">
-                                                <div class="inbox_msg">
-                                                    <div class="mesgs">
-                                                        <div class="msg_history" id="msghistory">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            
-                                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                                        <?php
-                                        $user_id = $this->session->userdata('uid');
-                                        ?>
-                                        <input type="hidden" class="write_msg" value="<?php echo $user_id; ?>" id="userid" placeholder="Type a message" />
-                                        <input type="hidden" class="write_msg" value="<?php echo $machineID; ?>" id="machineId" placeholder="Type a message" />
-                                        <input type="text" class="write_msg" id="message"  placeholder="Type a message" />
-                                      
-
-                                        <?php
-                                        if ($user_id == '' || $user_id == null) {
-                                            ?>
-                                            <button class="msg_send_btn" type="button" data-toggle="modal" data-target="#signinModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                        <?php } else { ?>
-                                            <button class="msg_send_btn" onclick="chatingFunction(<?php echo $user_id; ?>,<?php echo $machineID; ?>)" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-<?php } ?>
-                                    </div>
-
-                                </div>
-                                            
-                                        </div>
-                                        <div class="V chatbox" style="display: none;">
-                                            <!--                                            <video controls class="pull-right videosize">
-                                                                                            <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                                                                            <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                                                                            Your browser does not support the video tag.
-                                                                                        </video>-->
-                                        </div>
-                                        <div class="B chatbox" style="display: none;">
-                                            <!--                                            <video controls class="pull-right videosize">
-                                                                                            <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                                                                            <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                                                                            Your browser does not support the video tag.
-                                                                                        </video>-->
-                                        </div>
-                                    </div>
-                                    <div id="menu1" class="tab-pane fade">
-                                        <div class="T chatbox" style="margin-top: 8px;">
-                                            <div class="messaging">
-                                                <div class="inbox_msg">
-                                                    <div class="mesgs">
-                                                        <div class="msg_history" id="msghistory">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                          
-                                        </div>
-                                 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- <div class="banner_text">
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever</p>
+                </div> -->
             </div>
-            <div class="clearfix"></div><br/>
         </div>
     </div>
-    
-<!--    <div style="background: #f9f9f9;">
-        <div class="container">
-            <div class="col-sm-12 padd-8">
-                <div class="full-width pull-left mar-tb-20" id="chatWithus">
-                    <div class="pull-left full-width">
-                        <center><h2 style="margin-top: 0;">Chat with Us </h2></center>
-                        <div class=" col-sm-4 padd-0">  
-                            <form role="form" action="" id="videoconference" method="post" enctype="multipart/form-data">
-                                <h3 class="vconf">What would you likes to do?</h3>
-                                <div class="form-group" style="margin-bottom:30px;">
-                                    <span class="fg_span" ><input type="radio" value="T" name="video_chat" checked> Text chat</span>
-                                    <span class="fg_span" ><input type="radio" value="V" name="video_chat"> Video chat </span>
-                                    <span class="fg_span" ><input type="radio" value="B" name=""> Book a live demo</span>
-                                </div> 
-                                <div class="videobtn">
-                                    <?php if ($user_id == '') { ?>
-                                        <input type="button"  data-toggle="modal" data-target="#signinModal" class="btn btn_orange pull-left" value="Submit"/> 
-                                    <?php } else { ?>
-                                        <input type="submit" name="btnMachineVideo" class="btn btn_orange pull-left" value="Submit" id="submitrequest" data-custom="<?php echo $this->session->userdata('uid'); ?>"/> 
-<?php } ?> 
-                                </div>
-                            </form>
-                        </div>
-                         <div class="col-sm-4 padd-0 inbox_people">
-                            <div class="headind_srch">
-                                <div class="recent_heading">
-                                    <h4>Recent</h4>
-                                </div>
-                             <div class="form-group">
-                                <div class="srch_bar">
-                                    <div class="stylish-input-group">
-                                        <input type="text" class="search-bar"  placeholder="Search" >
-                                         <span class="input-group-addon"> 
-                                        <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                                         </span>  
-                                        <br>    
-                                        <br> 
-                                         <a href="" class="btn btn_orange" data-toggle="modal" data-target="#Chatgroupmodal"><i class="fa fa-users" aria-hidden="true"></i></a>
+</section>
 
-
-                                    </div>
-
-                                </div>
-                             </div>
-                            
-                        
-                            <ul class="nav nav-tabs inbox_chat" id="msglisthistory">
-                            </ul>
-
-
-                            </div>
-                        </div>
-                        <div class="col-sm-4 padd-0">
-                            <div class="T chatbox" style="margin-top: 8px;">
-                                <div class="messaging">
-                                    <div class="inbox_msg">
-                                        <div class="mesgs">
-                                            <div class="msg_history" id="msghistory">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                                        <?php
-                                        $user_id = $this->session->userdata('uid');
-                                        ?>
-                                        <input type="hidden" class="write_msg" value="<?php echo $user_id; ?>" id="userid" placeholder="Type a message" />
-                                        <input type="hidden" class="write_msg" value="<?php echo $machineID; ?>" id="machineId" placeholder="Type a message" />
-                                        <input type="text" class="write_msg" id="message"  placeholder="Type a message" />
-                                        <input type="hidden" class="write_msg" id="type" value="1" />
-                                        <?php
-                                        if ($user_id == '' || $user_id == null) {
-                                            ?>
-                                            <button class="msg_send_btn" type="button" data-toggle="modal" data-target="#signinModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                        <?php } else { ?>
-                                            <button class="msg_send_btn" onclick="chatingFunction(<?php echo $user_id; ?>,<?php echo $machineID; ?>)" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-<?php } ?>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="V chatbox" style="display: none;">
-                                <video controls class="pull-right videosize">
-                                    <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                    <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="B chatbox" style="display: none;">
-                                <video controls class="pull-right videosize">
-                                    <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                    <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        </div>
+<section class="mrgn-top sticky-top" >
+    <div class="container ">
+        <div class="row">
+            <div class="col-12">
+                <div class="booking_box bx-shdw padd_all_50 white " id="video-call"  data-spy="affix" data-offset-top="197">
+                    <div class="child_menu_btm country_area">
+                        <h4 class="basic-head"><?php echo $machineDetails['modelName'] ?></h4>
+                        <p><?php echo $machineDetails['city_name'] ?>,<?php echo $machineDetails['state_name'] ?>  <?php echo $machineDetails['price'] ?></p>
                     </div>
+                    <div class="child_menu_btm em_payrs video-op ">
 
+                        <button class="green-btn">Enquire Now!</button>
+                        <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-video-camera" aria-hidden="true"></i></a>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
+</section>
+
+<section class="padd_tb_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="padd_all_50 bx-shdw glance according-height white">
+                    <h2 class="basic-head">At a Glance</h2>
+                    <div class="be_table mrgn-top">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Brand</td>
+                                <td><?php echo $machineDetails['brandName'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Model</td>
+                                <td><?php echo $machineDetails['modelName'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Type</td>
+                                <td><?php echo $machineDetails['category_name'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Year</td>
+                                <td><?php echo $machineDetails['year_production'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Condition</td>
+                                <td><?php echo $machineDetails['machine_condition'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Location</td>
+                                <td> <?php echo $machineDetails['city_name'] . ", " . $machineDetails['state_name'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Seller</td>
+                                <td><?php echo $machineDetails['seller_name'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td><?php echo $machineDetails['price'] ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="padd_all_50 bx-shdw strngth according-height white">
+                    <h2 class="basic-head">How Does It Run?</h2>
+                    <div class="ex-strngth mrgn-top">
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words.</p>
+                    </div>
+                    <div class="mrgn-top">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5">
+                                <div class="time-request">
+                                    <h4 class="basic-head">Request a Time Study</h4>
+                                    <button class="green-btn mar-25"href="" data-toggle="modal" data-target="#timestudy">Click Here</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-5">
+                                <div class="time-request">
+                                    <h4 class="basic-head">Book a Live Demo</h4>
+                                    <button class="green-btn mar-25">Click Here</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mrgn-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bx-shdw padd_all_50  white ">
+                    <div class="fifty">
+                        <h3 class="basic-head">Machine History</h3>
+                        <p class="mrgn-top"><?php echo strhtmldecode($machineDetails['machine_history']) ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mrgn-top bx-shdw downld-app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 white">
+                <div class="padd-left ">
+                    <div class="down-cntnt  our-app-txt loan-require ">
+                        <p>do you require a loan?</p>
+                        <p>let us help you?</p>
+                        <!-- <a href="" data-toggle="modal" data-target="#loanrequire">-->
+                        <button class="green-btn mar-25" data-toggle="modal" data-target="#loanrequire">Click Here</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 commut">
+                <div class="down-cntnt padd_all_50 app-box_child loan-require">
+                    <h3 class="basic-head white-color">Do You need Security?</h3>
+                    <h3 class="basic-head white-color">Smart Contract </h3>
+                    <button class="green-btn mar-25">Click Here</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class=" ">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_tb_50"><h2 class="basic-head">Machine Specifications</h2></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="padd_all_50 bx-shdw glance according-height white">
+                    <h2 class="basic-head">standard Configuration</h2>
+                    <div class="standrd_lisitng_page">
+                        <h4 class=" basic-head">Machine</h4>
+
+                            <?php echo strhtmldecode($machineDetails['standard_specification']) ?>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="padd_all_50 bx-shdw strngth according-height white">
+                    <h2 class="basic-head">How Does It Run?</h2>
+                    <div class="standrd_lisitng_page">
+                        <ul class="mrgn-top">
+                            <li>2 support tables on linear bearing</li>
+                            <li>4-axe back stop system(X,R,Z1,Z2)</li>
+                            <li>Hydraulic and hardended top tool clamping</li>
+                            <li>hydraulic bottom tool clamping</li>
+                            <li>CNC camber</li>
+                            <li>prepared for ACB</li>
+                            <li>lite working chamber</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="padd_tb_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="padd_all_50 bx-shdw glance according-height white">
+                    <h2 class="basic-head">Technical Data</h2>
+                    <div class="be_table mrgn-top agin">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td><?php echo strhtmldecode($machineDetails['technical_specification']) ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="padd_all_50 bx-shdw strngth according-height white">
+                    <h2 class="basic-head">All Services</h2>
+                    <div class="padd_tb_50">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                        <button class="green-btn mrgn-top">Learn More</button>
+                    </div>
+                    <div class="standrd_lisitng_page">
+                        <ul class="mrgn-top">
+                            <li>Standard Services</li>
+                            <li>Remote Services</li>
+                            <li>Trade Services</li>
+                            <li>Remote Machine Service</li>
+                            <li>Remote Training</li>
+                            <li>Remote Application Support</li>
+                            <li>Defferd LC</li>
+                            <li>Warranty</li>
+                            <li>Installation & Commissioning</li>
+                            <li>CAD/CAM Training</li>
+                            <li>Machine Operator Training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container" id="Software">
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_tb_50">
+                    <h3 class="basic-head">Softwares</h3>
+                </div>
+            </div>
+        </div>
+        <div class="padd_all_50 bx-shdw white">
+            <?php
+            if (isset($softwareList)) {
+
+                foreach ($softwareList as $key) {
+                    if (in_array($key['id'], $machine_software_list)) {
+
+                        ?>
+                        <div id="owl-four" class="owl-carousel owl-theme">
+
+                            <div class="item">
+                                <img src="<?php echo base_url() . "uploads/machine_software/" . $key['machine_image'] ?>" alt="img">
+                            </div>
+                            <div class="item">
+                                <img src="http://www.teranex.io/beta-V*SRJ!-110918-230718/themes/site/images/logo20_old.jpg" alt="img">
+                                <h3><?php echo $key['machine_name']; ?></h3>
+                            </div>
+
+                        </div>
+                    <?php } }
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
+<section class="mrgn-top">
+    <div class="container">
+        <div class="padd_all_50 bx-shdw white appointment">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="child">
+                        <div class="col-12">
+                            <h3 class="basic-head">Download Our App!</h3>
+                            <p class="mrgn-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                            <div class="lisitng mrgn-top">
+                                <ul>
+                                    <li>Machine Breakdown</li>
+                                    <li>Machine Maintenance</li>
+                                </ul>
+                                <ul>
+                                    <li>Application Support</li>
+                                    <li>Spare Parts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content mrgn-top">
+                        <h4 class="basic-head mar-rt-25">Get it now!</h4>
+                        <a href="#" class="mar-rt-25"><img src="<?php echo $theme_url?>/images/apple.png" alt="img"></a>
+                        <a href="#" class="mar-rt-25"><img src="<?php echo $theme_url?>/images/google.png" alt="img"></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="child center_lcs">
+                        <img src="<?php echo $theme_url?>/images/single_mobile.jpg" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="detail_heading">
+    <div class="container">
+        <div class="col-sm-12 padd-0">
+
+
+        </div>
+
+
+
+
+    </div>
 </div>
-</div> 
+
+
 
 <!-- Machine Enquiry modal  -->
 <div id="enquiremodal" class="modal fade" role="dialog">
@@ -770,7 +338,7 @@ $machineID = $this->uri->segment(3);
             </div>
             <div class="modal-body">
                 <div class="border_bot col-sm-offset-1 col-sm-10">
-                    <form class="form-horizontal" name="#" id="machine_enquiry" method="post" action=""> 
+                    <form class="form-horizontal" name="#" id="machine_enquiry" method="post" action="">
                         <div class="form-group ">
                             <input type="text" class="form_bor_bot" id="]" name="" value="<?php echo $machineDetails['brandName'] ?>" placeholder="Brand" >
                             <input type="hidden" class="form_bor_bot" id="brand" name="brand" value="<?php echo $machineDetails['brand_name'] ?>" placeholder="Brand" >
@@ -847,7 +415,7 @@ $machineID = $this->uri->segment(3);
             </div>
             <div class="modal-body">
                 <div class="border_bot col-sm-12">
-                    <form role="form" action="" id="timestudy" method="post" enctype="multipart/form-data"> 
+                    <form role="form" action="" id="timestudy" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Tell Us About Your Part</label>
                             <textarea type="text" name="description" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="6" ></textarea>
@@ -856,10 +424,10 @@ $machineID = $this->uri->segment(3);
                             <label>Upload Your Design</label>
                             <input type="file" class="" id="drawing_upload" name="drawing_upload" placeholder="Drawing upload"  />
                         </div>
-                         <div>
-                          <center><input type="submit" class="btn btn_orange" name ="btnRequestTimeStudy" value="Submit"></center>
+                        <div>
+                            <center><input type="submit" class="btn btn_orange" name ="btnRequestTimeStudy" value="Submit"></center>
                         </div>
-                        
+
                     </form>
                 </div>
                 <div class="clearfix"></div><br/>
@@ -909,133 +477,133 @@ $machineID = $this->uri->segment(3);
 </div>
 <?php $this->template->contentBegin(POS_BOTTOM); ?>
 
-                                                                        <!-- <script src="<?= $theme_url ?>/js/jquery.validate.min.js"></script>  --> 
+<!-- <script src="<?= $theme_url ?>/js/jquery.validate.min.js"></script>  -->
 <script src="<?= $theme_url ?>/js/jquery.bxslider.js"></script>
-<script src="<?= $theme_url ?>/js/jquery.flexisel.js"></script> 
+<script src="<?= $theme_url ?>/js/jquery.flexisel.js"></script>
 <script type="text/javascript">
-                                            $(document).ready(function () {
-                                            
-                                            });
-                                         
-                                            //                                                    document.getElementById("txt_username").onkeypress = function (event) {
-                                            //                                                        if (event.keyCode == 13 || event.which == 13) {
-                                            //                                                            alert("You are clicked");
-                                            //                                                        }
-                                            //                                                    };
+    $(document).ready(function () {
 
-                                            //                                                    function myFunction(userId, machineId, type) {
-                                            //                                                        $('#message').val();
-                                            //                                                        var msg = $('#message').val();
-                                            //                                                        var type = $("#type").val()
-                                            //                                                         chatingFunction(userId, machineId, type);
-                                            //                                                     }
+    });
 
-                                            //                                                     function getChatHistory()
-                                            //                                                        chatingFunction(userId, machineId, type);
-                                            //                                                    }
-                                            
-                                            
-                                            
-                                                        
-                    
-                                            function chatingFunction(userId, machineId)
-                                            {
-                                                var userId=userId;                                                 $('#message').val();
-                                                var machineId=machineId;                                                 $('#message').val();
-                                                var msg = $('#message').val();
-                                                var type = $("#type").val();
-                                                var chatType = $("#chatTypeId").val();
-                                              // alert(chatType);
-                                                var u_name = '<?php echo $this->session->userdata('u_name'); ?>';
-                                                var uid = '<?php echo $this->session->userdata('uid'); ?>';
-                                                var u_avatar = '<?php echo $this->session->userdata('u_avatar');  ?>';
-                                               
-                                              // alert(userId+''+chatType);
+    //                                                    document.getElementById("txt_username").onkeypress = function (event) {
+    //                                                        if (event.keyCode == 13 || event.which == 13) {
+    //                                                            alert("You are clicked");
+    //                                                        }
+    //                                                    };
 
-                                                if (msg != "") {
-                                                    $.ajax({
-                                                        type: 'POST',
-                                                       
-                                                        // data: "userId="+userId+",machineId="+machineId+",msg="+msg,
-                                                        data: {userId: userId, machineId: machineId, msg: msg, type: type,u_name: u_name,u_avatar: u_avatar,chatType: chatType},
-                                                        success: function (msg) {
-                                                            $("#message").val("");
-                                                            $.ajax({
-                                                                type: 'POST',
-                                                                url: "<?php echo base_url(); ?>customer/getChatUnique/",
-                                                                data: {userId: userId,chatType:chatType},
-                                                                success: function (msg) {
-                                                                    var data = JSON.stringify(msg);
-                                                                    var datapars = JSON.parse(data);
-                                                                    var msg = "";
-                                                                    var msgFrom = "";
-                                                                    var msgTo = "";
-                                                                    var created_at = "";
-                                                                    var htmlStr = "";
-                                                                 
-                                                                    $.each(datapars, function (eventindex, eventData) {
-                                                                        msg = eventData.message;
-                                                                        msgFrom = eventData.msg_from;
-                                                                        msgTo = eventData.msg_to;
-                                                                        created_at = eventData.created_at;
-                                                                        
-                                                                         // alert(msgFrom+''+userId);
-                                                                        if (msgFrom != userId)
-                                                                        {
-                                                                            htmlStr += "<div class='incoming_msg'>";
-                                                                            htmlStr += "<div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='stelmac admin'> </div>";
-                                                                            htmlStr += "<div class='received_msg'>";
-                                                                            htmlStr += "<div class='received_withd_msg'>";
-                                                                            htmlStr += "<p>" + msg + "</p>";
-                                                                            htmlStr += "<span class='time_date'>" + created_at + "</span></div>";
-                                                                            htmlStr += "</div>";
-                                                                            htmlStr += "</div>";
-                                                                        } else
-                                                                        {
-                                                                            htmlStr += "<div class='outgoing_msg'>";
-                                                                            htmlStr += "<div class='sent_msg'>";
-                                                                            htmlStr += "<p>" + msg + "</p>";
-                                                                            htmlStr += "<span class='time_date'>" + created_at + "</span> ";
-                                                                            htmlStr += "</div>";
-                                                                            htmlStr += "</div>";
-                                                                        }
-                                                                    });
-                                                                    $("#msghistory").html(htmlStr);
-                                                                },
-                                                                error: function (result)
-                                                                {
-                                                                    //alert("3232");
-                                                                },
-                                                                fail: (function (status) {
-                                                                    //alert("8888");
-                                                                }),
-                                                                beforeSend: function (d) {
-                                                                    //$('#div_result').html("<center><strong style='color:red'>Please Wait...<br><img height='25' width='120' src='<?php echo base_url(); ?>img/ajax-loader.gif' /></strong></center>");
-                                                                }
-                                                            });
-                                                        },
-                                                        error: function (result)
-                                                        {
-                                                            //alert("3232");
-                                                        },
-                                                        fail: (function (status) {
-                                                            //alert("8888");
-                                                        }),
-                                                        beforeSend: function (d) {
-                                                            //$('#div_result').html("<center><strong style='color:red'>Please Wait...<br><img height='25' width='120' src='<?php echo base_url(); ?>img/ajax-loader.gif' /></strong></center>");
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                            $(document).ready(function () {
-                                                // $(".chatbox").hide();
-                                                $('input[type="radio"]').click(function () {
-                                                    var inputValue = $(this).attr("value");
-                                                    var targetBox = $("." + inputValue);
-                                                    $(".chatbox").not(targetBox).hide();
-                                                    $(targetBox).show();
-                                                });
-                                            });
+    //                                                    function myFunction(userId, machineId, type) {
+    //                                                        $('#message').val();
+    //                                                        var msg = $('#message').val();
+    //                                                        var type = $("#type").val()
+    //                                                         chatingFunction(userId, machineId, type);
+    //                                                     }
+
+    //                                                     function getChatHistory()
+    //                                                        chatingFunction(userId, machineId, type);
+    //                                                    }
+
+
+
+
+
+    function chatingFunction(userId, machineId)
+    {
+        var userId=userId;                                                 $('#message').val();
+        var machineId=machineId;                                                 $('#message').val();
+        var msg = $('#message').val();
+        var type = $("#type").val();
+        var chatType = $("#chatTypeId").val();
+        // alert(chatType);
+        var u_name = '<?php echo $this->session->userdata('u_name'); ?>';
+        var uid = '<?php echo $this->session->userdata('uid'); ?>';
+        var u_avatar = '<?php echo $this->session->userdata('u_avatar');  ?>';
+
+        // alert(userId+''+chatType);
+
+        if (msg != "") {
+            $.ajax({
+                type: 'POST',
+
+                // data: "userId="+userId+",machineId="+machineId+",msg="+msg,
+                data: {userId: userId, machineId: machineId, msg: msg, type: type,u_name: u_name,u_avatar: u_avatar,chatType: chatType},
+                success: function (msg) {
+                    $("#message").val("");
+                    $.ajax({
+                        type: 'POST',
+                        url: "<?php echo base_url(); ?>customer/getChatUnique/",
+                        data: {userId: userId,chatType:chatType},
+                        success: function (msg) {
+                            var data = JSON.stringify(msg);
+                            var datapars = JSON.parse(data);
+                            var msg = "";
+                            var msgFrom = "";
+                            var msgTo = "";
+                            var created_at = "";
+                            var htmlStr = "";
+
+                            $.each(datapars, function (eventindex, eventData) {
+                                msg = eventData.message;
+                                msgFrom = eventData.msg_from;
+                                msgTo = eventData.msg_to;
+                                created_at = eventData.created_at;
+
+                                // alert(msgFrom+''+userId);
+                                if (msgFrom != userId)
+                                {
+                                    htmlStr += "<div class='incoming_msg'>";
+                                    htmlStr += "<div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='stelmac admin'> </div>";
+                                    htmlStr += "<div class='received_msg'>";
+                                    htmlStr += "<div class='received_withd_msg'>";
+                                    htmlStr += "<p>" + msg + "</p>";
+                                    htmlStr += "<span class='time_date'>" + created_at + "</span></div>";
+                                    htmlStr += "</div>";
+                                    htmlStr += "</div>";
+                                } else
+                                {
+                                    htmlStr += "<div class='outgoing_msg'>";
+                                    htmlStr += "<div class='sent_msg'>";
+                                    htmlStr += "<p>" + msg + "</p>";
+                                    htmlStr += "<span class='time_date'>" + created_at + "</span> ";
+                                    htmlStr += "</div>";
+                                    htmlStr += "</div>";
+                                }
+                            });
+                            $("#msghistory").html(htmlStr);
+                        },
+                        error: function (result)
+                        {
+                            //alert("3232");
+                        },
+                        fail: (function (status) {
+                            //alert("8888");
+                        }),
+                        beforeSend: function (d) {
+                            //$('#div_result').html("<center><strong style='color:red'>Please Wait...<br><img height='25' width='120' src='<?php echo base_url(); ?>img/ajax-loader.gif' /></strong></center>");
+                        }
+                    });
+                },
+                error: function (result)
+                {
+                    //alert("3232");
+                },
+                fail: (function (status) {
+                    //alert("8888");
+                }),
+                beforeSend: function (d) {
+                    //$('#div_result').html("<center><strong style='color:red'>Please Wait...<br><img height='25' width='120' src='<?php echo base_url(); ?>img/ajax-loader.gif' /></strong></center>");
+                }
+            });
+        }
+    }
+    $(document).ready(function () {
+        // $(".chatbox").hide();
+        $('input[type="radio"]').click(function () {
+            var inputValue = $(this).attr("value");
+            var targetBox = $("." + inputValue);
+            $(".chatbox").not(targetBox).hide();
+            $(targetBox).show();
+        });
+    });
 
 </script>
 <script language="javascript" type="text/javascript">
@@ -1048,9 +616,9 @@ $machineID = $this->uri->segment(3);
     });
     function toggleIcon(e) {
         $(e.target)
-                .prev('.panel-heading')
-                .find(".more-less")
-                .toggleClass('glyphicon-plus glyphicon-minus');
+            .prev('.panel-heading')
+            .find(".more-less")
+            .toggleClass('glyphicon-plus glyphicon-minus');
     }
 
     $('.panel-group').on('hidden.bs.collapse', toggleIcon);
@@ -1149,11 +717,7 @@ $machineID = $this->uri->segment(3);
         return this.optional(element) || /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(value);
     }, 'Please enter a valid email address');
 
-    // $('#loanrequire').on('hidden.bs.modal', function () {
-    //     $('#machine_enquiry').validate().resetForm();
-    //     $('.error').removeClass('error');
-    //     $(this).find('form').trigger('reset');
-    // });
+
     $('#enquiremodal').on('hidden.bs.modal', function () {
         $('#machine_enquiry').validate().resetForm();
         $('.error').removeClass('error');
@@ -1336,12 +900,12 @@ $machineID = $this->uri->segment(3);
     $(window).load(function () {
         $('.cadcam1').each(function () {
             $(this).flexisel({
-                
-               <?php $count=count($softwareList);
-               
+
+                <?php $count=count($softwareList);
+
                 $machine_count=$count-1;
-               
-               ?> 
+
+                ?>
                 visibleItems: <?php echo $machine_count; ?>,
                 itemsToScroll: 2,
                 autoPlay: {
@@ -1371,78 +935,8 @@ $machineID = $this->uri->segment(3);
     });
 
 </script>
-<script type="text/javascript">
-    $(function () {
-        $('body').append(`
-                <div class="galleryShadow"></div>
-                <div class="galleryModal">
-                  <i class="galleryIcon gIquit fa fa-times-circle"></i>
-                  <i class="galleryIcon gIleft fa fa-chevron-left"></i>
-                  <i class="galleryIcon gIright fa fa-chevron-right"></i>
-                  <div class="galleryContainer">
-                      <img src="">
-                  </div>  
-                </div>
-                `)
-        $('.gIquit').click(function () {
-            $('.galleryModal').css({'transform': 'scale(0)'})
-            $('.galleryShadow').fadeOut()
-        })
-        $('.gallery').on('click', '.galleryItem', function () {
-            galleryNavigate($(this), 'opened')
-            $('.galleryModal').css({'transform': 'scale(1)'})
-            $('.galleryShadow').fadeIn()
-        })
-        let galleryNav
-        let galleryNew
-        let galleryNewImg
-        let galleryNewText
-        $('.gIleft').click(function () {
-            galleryNew = $(galleryNav).prev()
-            galleryNavigate(galleryNew, 'last')
-        })
-        $('.gIright').click(function () {
-            galleryNew = $(galleryNav).next()
-            galleryNavigate(galleryNew, 'first')
-        })
-        function galleryNavigate(gData, direction) {
-            galleryNewImg = gData.children('img').attr('src')
-            if (typeof galleryNewImg !== "undefined") {
-                galleryNav = gData
-                $('.galleryModal img').attr('src', galleryNewImg)
-            } else {
-                gData = $('.galleryItem:' + direction)
-                galleryNav = gData
-                galleryNewImg = gData.children('img').attr('src')
-                $('.galleryModal img').attr('src', galleryNewImg)
-            }
-            galleryNewText = gData.children('img').attr('data-text')
-            if (typeof galleryNewText !== "undefined") {
-                $('.galleryModal .galleryContainer .galleryText').remove()
-                $('.galleryModal .galleryContainer').append('<div class="galleryText">' + galleryNewText + '</div>')
-            } else {
-                $('.galleryModal .galleryContainer .galleryText').remove()
-            }
-        }
-    });
-
-    $("#message").keyup(function (event) {
-        if (event.keyCode === 13) {
-            chatingFunction('<?php echo $user_id; ?>', '<?php echo $machineID; ?>');
-        }
-    });
-    // video chat onclick function
-
-    $("#submitrequest").click(function () {
-        var customAttr = $(this).attr("data-custom");
-        var radioBoxValue = $("input[name='video_chat']:checked").val();
-        if (radioBoxValue == "V") {
-
-            window.open("<?php echo site_url(); ?>/welcome/opentok", "_blank");
 
 
-        }
-    });
-</script>
+<?php echo $this->template->contentEnd(); ?>
 
-<?php echo $this->template->contentEnd(); ?> 
+

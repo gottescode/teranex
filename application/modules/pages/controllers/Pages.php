@@ -432,7 +432,7 @@ class Pages extends FRONTEND_Controller {
          */
         //redirect(site_url() . "ecommerce/wp-content/themes/nikado/ci_wp_logout.php");
         // redirect to login method
-        redirect("pages/signIn");
+        redirect("/");
     }
 
     public function logout_success() {

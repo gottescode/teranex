@@ -1,90 +1,92 @@
-<div class="container-fluid t-footer-bars">
-    
+<section>
     <div class="container">
-        
-        <div class="footer-col link">
-            <h4>About Us</h4>
-            <a target="" href="<?php echo site_url() . "pages/about"; ?>">About Stelmac</a>
-            <a target="" href="<?php echo site_url() . "pages/teranex_team"; ?>">Team</a>
-            <a target="" href="<?php echo site_url() . "helpcenter"; ?>">Help Center</a>
-            <a target="" href="<?php echo site_url() . "pages/contact"; ?>">Contact Us</a>
+        <div class="bottom-menu">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="child_menu_btm">
+                        <h4 class="basic-head">About Us</h4>
+                        <ul>
+                            <li><a href="<?php echo site_url() . "pages/about"; ?>">About Stelmac</a></li>
+                            <li><a  href="<?php echo site_url() . "pages/teranex_team"; ?>">Team</a></li>
+                            <li><a href="<?php echo site_url() . "helpcenter"; ?>">Help Center</a></li>
+                            <li><a href="<?php echo site_url() . "pages/contact"; ?>">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="child_menu_btm">
+                        <h4 class="basic-head">Policies & Rules</h4>
+                        <ul>
+                            <li><a href="<?php echo site_url() . "pages/returnscancellations"; ?>">Refund Policy</a></li>
+                            <li><a href="<?php echo site_url() . "pages/privacystatement"; ?>">Privacy Statement</a></li>
+                            <li><a href="<?php echo site_url() . "pages/termsconditions"; ?>">Terms & Conditions of Service</a></li>
+                            <li><a href="<?php echo site_url() . "pages/termsuse"; ?>">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-        </div>
-        
-        <div class="footer-col link" style="padding-left: 0;">
-            <h4>Policies & Rules</h4>
-            <a target="" href="<?php echo site_url() . "pages/returnscancellations"; ?>">Refund Policy</a>
-            <a target="" href="<?php echo site_url() . "pages/privacystatement"; ?>">Privacy Statement</a>
-            <a target="" href="<?php echo site_url() . "pages/termsconditions"; ?>">Terms & Conditions of Service</a>
-            <a target="" href="<?php echo site_url() . "pages/termsuse"; ?>">Terms of Use</a>
-        </div>
-        <div class="footer-col link" style="padding-left: 0;">
-            <h4>Trade Services</h4>
-            <a target="" href="<?php echo site_url() . "footer/tradeAssurance"; ?>">Buyer Protection</a>
-            <a target="" href="<?php echo site_url() . "footer/submitAdispute"; ?>">Dispute Resolution</a>
-            <a target="" href="<?php echo site_url() . "footer/payLater"; ?>">Machine Finance</a>
-            <a target="" href="<?php echo site_url() . "footer/inspectionService"; ?>">Inspection Service</a>
-           <!--
-				<a target="" href="<?php echo site_url() . "footer/businessIdentity"; ?>">Business Identity</a>
-		   --> 
-		   
-        </div>
-        <div class="" style="padding-top: 15px;">
-            <h4 style="text-align:center;margin-top: 5px;">Newsletter</h4>
-            <p class="" style="padding: 0;float: ;">Intelligence Alert - Delivering the latest
- product</br> trends & industry news to your inbox.</p>
-            <div class="">
-                <form style="display: block;" id="subscribe_form" name="subscribe_form" class="text-center mob-center-form" method="post" action="" >
-                    <input type="text" placeholder="Your email" id="email_id" name= "email_id"class="footer-search-text" value="" required>
-                    <input type="submit" id="subscribe" value="Subscribe">
-                </form>
-                <div class="tips">
-                    <p>We’ll never share your email address with a third-party.</p>
+
+
+                <div class="col-md-3">
+                    <div class="child_menu_btm">
+                        <h4 class="basic-head">Trade Services</h4>
+                        <ul>
+                            <li><a href="<?php echo site_url() . "footer/tradeAssurance"; ?>">Buyer Protection</a></li>
+                            <li><a href="<?php echo site_url() . "footer/submitAdispute"; ?>">Dispute Resolution</a></li>
+                            <li><a href="<?php echo site_url() . "footer/payLater"; ?>">Machine Finance</a></li>
+                            <li><a href="<?php echo site_url() . "footer/inspectionService"; ?>">Inspection Service</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <hr/>
-    </div>
-    <div class="container" style="padding: 20px 0;">
-        <div class="col-sm-12 padd-0">
-            <div class="col-sm-4 padd-0">
-                <div class="text-right mob-center">
-                    <span class="ui-footer-sociality-text">Download:</span>
-                    <a target="" title="Available on the App Store" href="#" class="app-store">
-                        <img src="<?php echo $theme_url ?>/images/apple.png" class="">
-                    </a>
-                    <a target="" title="Available on Android" href="#" class="app-store">
-                        <img src="<?php echo $theme_url ?>/images/playStore.png" class="">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="text-center mob-center">
-                    <p>
-                        <span class="links"><a target="" href="<?php echo site_url() . "pages/feedback"; ?>">Feedback</a>  |  <a target="" href="<?php echo site_url() . "pages/disclaimer"; ?>">Disclaimer</a>  |  <a target="" href="<?php echo site_url() . "footer/siteMap"; ?>">Sitemap</a>  
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="soc-media_footer mob-center">
-                    <span class="ui-footer-sociality-text">Follow us:</span>
-                    <a target="" href="" aria-haspopup="true" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a target="" href="https://twitter.com/TeranexRA" aria-haspopup="true" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"> </i> </a>
-                    <a target="" href="https://www.linkedin.com/company/teranex-research-and-applications" aria-haspopup="true" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a target="" href="https://www.youtube.com/channel/UCNaXBz5Nz7bqYmNnIrUJVTw" aria-haspopup="true" title="YouTube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+
+                <div class="col-md-3">
+                    <div class="child_menu_btm">
+                        <h4 class="basic-head">Newsletter</h4>
+                        <ul>
+                            <li>Delivering the latest product trends & industry news to your inbox!</li>
+                            <form style="display: block;" id="subscribe_form" name="subscribe_form" class="text-center mob-center-form" method="post" action="" >
+                                <li><input type="text" placeholder="Enter Your Email" id="email_id" name= "email_id" value="" class="bx-shdw" required></li>
+                                <li> <button type="submit"  id="subscribe" value="Subscribe" class="green-btn">Subscribe</button></li>
+                            </form>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    <!--<div class="container">
-                    <p>
-                        <span class="links"><a target="_blank" href="<?php echo site_url() . "pages/feedback"; ?>">Feedback</a>  |  <a target="_blank" href="<?php echo site_url() . "pages/disclaimer"; ?>">Disclaimer</a>  |  <a href="<?php echo site_url() . "footer/faq"; ?>">FAQs</a>  
-                    </span>
-                    </p>
-            </div> -->
+</section>
+
+<footer class="">
+    <div class="app_dwnld_links padd_tb_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="flx-prop">
+                        <div class="content">
+                            <h4 class="basic-head">Download our app!</h4>
+                            <a href="#"><img src="<?php echo $theme_url ?>/images/apple.png" alt="img"></a>
+                            <a href="#"><img src="<?php echo $theme_url ?>/images/playStore.png" alt="img"></a>
+                        </div>
+                        <div class="content">
+                            <h4 class="basic-head" >Follow Us!</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/teranex-research-and-applications"><i class="fa fa-linkedin-square" title="LinkedIn" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/TeranexRA"><i class="fa fa-twitter" title="Twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCNaXBz5Nz7bqYmNnIrUJVTw"><i class="fa fa-youtube-play" title="YouTube" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copright">
+        <p>Web Desgin Melbourne by SEO Company Xugar | @ Teranex | All Right Reserved</p>
+    </div>
+</footer>
+
     <?php if ($this->session->userdata('uid') == '') { ?>
         <div id="signinModal" class="modal fade" role="dialog">
             <div class="modal-dialog">

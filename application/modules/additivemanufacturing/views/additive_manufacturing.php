@@ -17,7 +17,7 @@ $this->template->contentBegin(POS_TOP);
         overflow: hidden;
         background: #fff;
     }
-    .top_spac{ 
+    .top_spac{
         margin: 20px 0 0;
     }
 
@@ -30,8 +30,8 @@ $this->template->contentBegin(POS_TOP);
         width: 60%; padding:
     }
     .headind_srch{
-        padding:10px 29px 10px 20px; 
-        overflow:hidden; 
+        padding:10px 29px 10px 20px;
+        overflow:hidden;
         border-bottom:1px solid #c4c4c4;
     }
     .recent_heading h4 {
@@ -40,9 +40,9 @@ $this->template->contentBegin(POS_TOP);
         margin: auto;
     }
     .srch_bar input{
-        border:1px solid #cdcdcd; 
+        border:1px solid #cdcdcd;
         /* border-width:0 0 1px 0;
-          width:80%; 
+          width:80%;
           padding:2px 0 4px 6px; */
         width: 85%;
         padding: 6px;
@@ -386,351 +386,355 @@ h3.vconf {
     display: none;
 }*/
 </style>
-<?php $this->template->contentEnd();  ?> 
-
-<section class="header-container1" style="background-image: url('<?php echo $theme_url?>/images/additive_banner.jpg');height: 100%;width: 100%;background-size: cover;">
-	<div class="" style="width: 100%;background-color: #000000c4; height: 450px; position: relative;padding:125px 0 ;">
-		<center>
-			<h2 style="font-size: 40px;">Additive Manufacturing</h2>
-			<p style="font-size: 16px;">Discover the principles and benefits of using additive<br/> manufacturing to create amazing products from 1 to 10,000 units.</p><br/>
-                <form action="<?php echo base_url();  ?>additivemanufacturing/manufacturing_import" method="post" enctype="multipart/form-data">
-                    <!-- <input type="file" name="file" class="btn btn_orange btn-lg" style="padding: 10px 20px;" id="file"> -->
-                    <div class="image-upload " aria-haspopup="true" title="Please select your file">
-						<label for="file-input" style="margin-bottom: 0;">
-							<img src="<?php echo theme_url()."/images/attachment.png"?>">
-						</label>
-						<input id="file-input" type="file" name="file" >
-					</div>
-					<!-- <div class="image-upload" style="display: inline-block;">
-						<label for="file-input">
-							<img src="<?php echo theme_url()."/images/attachment.png"?>"/>
-						</label>
-						<input id="file-input" type="file"  name="file"  />
-					</div> -->
-                    <input type="submit" name="import" class="btn btn_orange" style="padding: 10px 20px;"  value="Upload Your File" name="submit">
-                </form>
-		</center>
-		<div class="clearfix"></div>
-	</div>
+<?php $this->template->contentEnd();  ?>
+<section class="banner banner_image course_2_banner align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="banner_text">
+                    <p>Discover the benefits of</p>
+                    <h1 class="basic-head white-color">additive manufacturing</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<div class="clearfix"></div>
-<div class="container">
-	<div class="col-sm-12 padd-0">
-		<div class="row">
-			 <?php foreach($additive_manufacturing_list as $additive_manufacturing) { ?>
-			<div class="col-sm-6 manu_intro">
-				<h2><?php echo $additive_manufacturing['additive_manufacturing_name'] ?></h2><br/>
-				<img src="<?=base_url().'uploads/digitalmanufacturing/'.$additive_manufacturing['additive_manufacturing_image']?>" class="img-responsive" style="height: 300px;width: 100%;"><br/>
-			</div>
-			<div class="col-sm-6 manu_intro">
-				<p style="margin-top: 85px;"><?php echo $additive_manufacturing['additive_manufacturing_description'] ?></p>
-			</div>
-			<?php } ?>
-		</div>
-		<hr/>
-		<div class="">
-			<center><h2>Additive Manufacturing <!-- Benefits -->Advantages</h2></center>
-			<div class="col-sm-12 padd-0">
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-					<div class="process1">
-						<h3>Low Cost </h3>
-						<p>It enables reduction of lead times and lowers costs significantly while ensuring added functionalities, improved performance and reduced overall weight.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-					<div class="process1">
-						<h3>Design Flexibility</h3>
-						<p>Lighter and complex designs are possible with additive manufacturing which provides the designer with creative freedom. </p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-					<div class="process1">
-						<h3>Increased Efficiency</h3>
-						<p>Reduced energy consumption can be achieved by using less material while eliminating steps in the production process. Multiple designs can be tested in a cost effective manner with the help of this technology.<!--  Additive manufacturing has tremendous potential and could prove to be a key differentiator for companies to remain competitive while striving for innovation at the same time. --></p>
-					</div>
-				</div>
-				
-			 
-			</div>
-		</div>
-		<!-- <hr/> -->
-		<div class="row">
-			<div class="col-sm-12">
-				<center><h2>The most common <b>Additive Manufacturing</b> processes</h2>
-				<p style="text-align: justify;"><b>Additive Manufacturing</b> always starts with a 3D model generated by a CAD software (Computer Aided Design). This file will serve as a blueprint for the machine, by setting perimeters and guides for the material as it lays down layer upon layer. The 3D printer uses the information of the 3D file to create very thin layers of material, often thinner than 150 microns. Once all the successive layers have been created, the Additive Manufacturing process is considered done. Depending on the technology itself, the form of the raw material can vary from solid filaments, powder, to liquid.</p></center>
-				<div class="manu_process">
-					<!-- <?php foreach($additive_manufacturing_processes_list as $additive_manufacturing_processes) { ?>
-					<div class="col-sm-4 col-xs-12 process">
-						<img src="<?=base_url().'uploads/digitalmanufacturing/'.$additive_manufacturing_processes['additive_manufacturing_process_image']?>" class="img-responsive" style="width: 100%; height: 200px;">
-						<h3><?php echo $additive_manufacturing_processes['additive_manufacturing_process_name'] ?></h3>
-						<p><?php echo $additive_manufacturing_processes['additive_manufacturing_process_description'] ?></p>
-						<a href="" class="btn btn_orange">Learn More</a>
-					</div>
-					<?php } ?> -->
-			
-				<ul class="cadcam">
-					<?php foreach($additive_manufacturing_processes_list as $additive_manufacturing_processes) { ?>
-						<li>
-							<div class="col-sm-12 col-xs-12 process">
-								<img src="<?=base_url().'uploads/digitalmanufacturing/'.$additive_manufacturing_processes['additive_manufacturing_process_image']?>" class="img-responsive" style="width: 100%; height: 200px;">
-								<h3><?php echo $additive_manufacturing_processes['additive_manufacturing_process_name'] ?></h3>
-								<p><?php echo $additive_manufacturing_processes['additive_manufacturing_process_description'] ?></p>
-								<center><a href="" class="btn btn_orange">Learn More</a></center>
-							</div>
-						</li>
-					<?php } ?>
-			  	</ul>
-			  	</div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-		<div class="printing_materials">
-			<center><h2>3D Printing Materials</h2></center><br/>
-			<ul class="cadcam1">
-				<?php foreach($printing_materials3D_list as $printing_materials3D) { ?>
-					<li>
-						<div class="col-sm-12 material">
-							<h3><?php echo $printing_materials3D['printing_material_name'] ?></h3>
-							<p><?php echo $printing_materials3D['printing_material_description'] ?></p>
-						</div>
-					</li>
-				<?php } ?>
-			</ul>
-		</div>
-		<div class="clearfix"></div><br/>
-		<div class="manu_application">
-			<center><h2>Top 3D Printing Applications</h2></center><br/>
-			<!-- <?php foreach($additive_manufacturing_printing_application as $printing_application) { ?>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class=" dad">
-				  	<div class="son-1" style="background-image: url('<?=base_url().'uploads/digitalmanufacturing/'.$printing_application['printing_application_image']?>');"></div>
-			    	<div class="son-text">
-						<h3><?php echo $printing_application['printing_application_name'] ?></h3>
-						<p><?php echo $printing_application['printing_application_description'] ?></p>
-						<a href="" class="btn btn_orange">Learn More</a>
-					</div>
-				</div>
-			</div>
-			<?php } ?> -->
-			<ul class="cadcam2">
-					<?php foreach($additive_manufacturing_printing_application as $printing_application) { ?>
-						<li>
-							<div class=" col-sm-12 col-xs-12">
-								<div class=" dad">
-								  	<div class="son-1" style="background-image: url('<?=base_url().'uploads/digitalmanufacturing/'.$printing_application['printing_application_image']?>');"></div>
-							    	<div class="son-text">
-										<h3><?php echo $printing_application['printing_application_name'] ?></h3>
-										<p><?php echo $printing_application['printing_application_description'] ?></p>
-										<a href="" class="btn btn_orange">Learn More</a>
-									</div>
-								</div>
-							</div>
-						</li>
-					<?php } ?>
-			  	</ul>
-		</div>
-		<div class="clearfix"></div><hr/>
-		<div class="container">
-			<div class="col-sm-12 padd-0">
-				<div class="intro">
-					<center><h2>Why do you need Stelmac 3D Printing Services to create your prototype</h2>
-						<h3>4 reasons to reconsider your rapid prototyping strategy</h3></center>
-						
-					<div class="col-sm-6 manu_intro" style="background: #f1f1f1;">
-						<h2>Experience Flexibility Of Design</h2><br>
-						<p>3D Printing provides you with access to geometries that were earlier not possible with other manufacturing technologies. Stelmac’s Rapid Prototyping 3D Printing service is both fast and reliable and with over 33 file formats accepted, we let you focus on your schedule and your design. Thanks to our fast turn-around, you get the exact product of your imagination in your hands in just a few days, giving you the possibility to iterate. Your product design process becomes more efficient.</p>
-					</div>
-						
-					<div class="col-sm-6 manu_intro" style="background: #f1f1f1;">
-						<h2>Speed Up Your Product Development</h2><br>
-						<p>3D software can be used to design and develop any product you can think of. 3D Printing is the shortest way between your ideas, your 3D file and getting your prototype in your hands. And that's a crucial part of your product development. The good news is that you can make it fast and at an affordable price with Stelmac’s Rapid Prototyping Service. </p>
-					</div>
-						
-					<div class="col-sm-6 manu_intro" style="background: #f1f1f1;">
-						<h2>Create Prototypes And Functional Parts</h2><br>
-						<p>3D Printing materials that include polyamide, alumide and metal are well suited for your prototyping test of mechanical and functional parts. Tearing, assembly or stress tests become affordable as well as easy to implement. Our exhaustive selection of professional-grade 3D-printers can produce 3D objects in various dimensions, from as thin as 0.8mm to as thick as 70 cm. You can also choose the layer thickness in our interface depending on the quality you are looking for. Stelmac’s Batch 3D Printing Service enables you to use the full potential of additive manufacturing and produce pre-series or even first series at a reasonable cost.</p>
-					</div>
-						
-					<div class="col-sm-6 manu_intro" style="background: #f1f1f1;">
-						<h2>Think Outside Of The Box</h2><br>
-						<p>Traditional manufacturing processes (such as injection molding) dictate how to build a shape - 3D Printing technology doesn't. 3D Printing offers the advantage of being able to make a different product for each of your customers: mass-customization & on-demand production are new markets that you can consider with 3D Printing. Some Stelmac customers have chosen 3D Printing for production because of our quality obsession and our consistency right from the first unit up to 10,000th and beyond.</p>
-					</div>
-				</div>
-				
-				<div class="clearfix"></div><hr>
-				<div class="container">
-			  		<h2 style="margin-top: 4px;"><center>Request for Quotation</center></h2>
-					<div class="col-sm-12 rfq-bg row-flex">
-						<div class="col-sm-8 col-xs-12" style="padding-left: 0;">
-							<div class="gray-bg1 collaboration-sec1">
-								<img src="<?php echo $theme_url?>/images/used-machines.jpg" class="img-responsive" style="height:350px;">
-								<div class="sec-collaboration1">
-									<h2 class="h2-tag">An Easy Way to Send buying request to suppliers &amp; get quotes quickly.
-										<ul>
-											<li>Get quote sfoe your custom request</li>
-											<li>Let the right suppliesrs find you</li>
-											<li>Close deals with one click</li>
-										</ul>
-									</h2>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4" style="background: #fff;">
-			        <!-- <form class="form-horizontal" name="#" id="#" method="post" action="">
-						<br><br>
-						<a href="#" type="submit" data-toggle="modal" data-target="#signinModal" class="btn btn_orange">Request for Quote</a>
-	 				</form> -->
-	 				<form class="form-horizontal" name="#" id="#" method="post" action="">
-					  <br/><br/>
-						<?php if($this->session->userdata('uid') && $this->session->userdata('user_type')){ ?>
-						<a href="<?php echo site_url()."additivemanufacturing/additive_manufacturingRFQ"?>" type="submit" class="btn btn_orange">Request for Quote</a>
-						 <?php }else{?>
-						<a href='#' type="submit" data-toggle='modal' data-target='#signinModal' class="btn btn_orange">Request for Quote</a>
-						 <?php }?>
-					</form>
-				</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-				
-				<div class="clearfix"></div><hr>
-				
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-		
-	</div>
-</div>
+<section class=" bx-shdw downld-app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 white">
+                <div class="padd-left">
+                    <div class="down-cntnt  our-app-txt ">
+                        <p>are you interested in additive manufaturing for your custom project?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 commut">
+                <div class="down-cntnt app-box_child">
+                    <h3 class="basic-head white-color">request a quote</h3>
+                    <h3 class="basic-head white-color">today!</h3>
+                    <button class="green-btn mrgn-top">Get A Quote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="clearfix"></div>
-	    <div style="background: #f9f9f9;">
+<section class="additive_manufacturing">
+    <div class="container">
+        <div class="white bx-shdw mrgn-top">
+            <div class="row">
+                <?php foreach($additive_manufacturing_list as $additive_manufacturing) { ?>
+                <div class="col-md-6">
+                    <div class="padd_all_50">
+                        <h3 class="basic-head"><?php echo $additive_manufacturing['additive_manufacturing_name'] ?></h3>
+                        <p class="mrgn-top"><?php echo $additive_manufacturing['additive_manufacturing_description'] ?></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c_info_im">
+                        <img src="<?=base_url().'uploads/digitalmanufacturing/'.$additive_manufacturing['additive_manufacturing_image']?>" alt="img">
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mrgn-top addvantage-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_tb_50">
+                    <h3 class="basic-head">Advantages of additive manufacturing</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Cost<br> Efficient</h3>
+                    <p class=" ">It enables reduction of lead times and lowers costs significantly while ensuring added functionalities, improved performance and reduced overall weight.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Desgin<br> Flexibilty</h3>
+                    <p class=" ">Lighter and complex designs are possible with additive manufacturing which provides the designer with creative freedom.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Increased<br>Flexibilty</h3>
+                    <p class=" ">Reduced energy consumption can be achieved by using less material while eliminating steps in the production process. Multiple designs can be tested in a cost effective manner with the help of this technology.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mrgn-top bx-shdw downld-app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 white">
+                <div class="padd-left ">
+                    <div class="down-cntnt  our-app-txt loan-require ">
+                        <p>Need Help?</p>
+                        <p>chat with taranex support!</p>
+                        <button class="green-btn mar-25">Click Here</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 commut">
+                <div class="down-cntnt padd_all_50 app-box_child loan-require">
+                    <h3 class="basic-head white-color">prefer to talk?</h3>
+                    <h3 class="basic-head white-color">video call now! </h3>
+                    <button class="green-btn mar-25">Click Here</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="mrgn-top our-engn_head ">
+                    <h2 class="basic-head">common additive manufacturing processes</h2>
+                </div>
+
+                <div class="sort-catg mrgn-top bx-shdw padd_all_50 white">
+                    <div class="sort-text">
+                        <p>Additive Manufacturing always starts with a 3D model generated by a CAD software (Computer Aided Design). This file will serve as a blueprint for the machine, by setting perimeters and guides for the material as it lays down layer upon layer. The 3D printer uses the information of the 3D file to create very thin layers of material, often thinner than 150 microns. Once all the successive layers have been created, the Additive Manufacturing process is considered done. Depending on the technology itself, the form of the raw material can vary from solid filaments, powder, to liquid.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section class="mrgn-top demand-slider" id="first-manu-add">
         <div class="container">
-        <center><h2 style="margin: 0;">Chat with Us </h2></center>
-        <div class="col-xs-12 bg_white" style="padding-top: 0;">  
-            <div class="">
-                <h3 class=" text-center"></h3>
-                <div class="messaging">
-                    <div class="inbox_msg">
-                        <div class="col-sm-4 padd-0 inbox_people">
-                            <div class="headind_srch">
-                                <div class="recent_heading">
-                                    <h4>Recent</h4>
-                                </div>
-                             <div class="form-group">
-                                <div class="srch_bar">
-                                    <div class="stylish-input-group">
-                                        <input type="text" class="search-bar"  placeholder="Search" >
-                                        <!-- <span class="input-group-addon"> -->
-                                        <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                                        <!-- </span>  -->
-<!--                                        <br>    
-                                        <br> 
-                                         <a href="" class="btn btn_orange" data-toggle="modal" data-target="#Chatgroupmodal"><i class="fa fa-users" aria-hidden="true"></i></a>
--->
-
-                                    </div>
-
-                                </div>
-                             </div>
-                 
-                            <ul class="nav nav-tabs inbox_chat" id="msglisthistory">
-                            </ul>
-
-
-                            </div>
-                        </div>
-                        <div class="col-sm-8 padd-8">
-                            <div class="full-width pull-left mar-tb-20" id="chatWithus">
-                                <div class="pull-left full-width">
-                                    <!-- <center><h2 style="margin-top: 0;">Chat with Us </h2></center> -->
-                                    <div class="col-sm-12 padd-0">   
-                                        <form role="form" action="" id="videoconference" method="post" enctype="multipart/form-data">
-                                            <h3 class="vconf" style="margin-top: 0">What would you like to do?</h3>
-                                            <div class="form-group" style="margin-bottom:;">
-                                                <span class="col-sm-3 fg_span" ><input type="radio" value="T" name="video_chat" checked> Text chat</span>
-                                                <span class="col-sm-3 fg_span" ><input type="radio" value="V" name="video_chat"> Video chat </span>
-                                                <span class="col-sm-3 fg_span" ><input type="radio" value="B" name="video_chat"> Book a live demo</span>
-                                            </div> 
-                                            <div class="videobtn">
-                                                <?php if ($user_id == '') { ?>
-                                                    <input type="button"  data-toggle="modal" data-target="#signinModal" class="btn btn_orange pull-left" value="Submit"/> 
-                                                <?php } else { ?>
-                                                    <input type="submit" name="btnMachineVideo" class="btn btn_orange pull-left" value="Submit"/> 
-                                                <?php } ?> 
+            <div class="row">
+                <div class="col-12">
+                    <div class=" slider_one_top">
+                        <div class="silider_box bx-shdw ">
+                            <div id="owl-one" class="owl-carousel owl-theme">
+                                <?php foreach($additive_manufacturing_processes_list as $additive_manufacturing_processes) { ?>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="rt-cntnt">
+                                                <h3 class="basic-head sub-line"><?php echo $additive_manufacturing_processes['additive_manufacturing_process_name'] ?></h3>
+                                                <p ><?php echo $additive_manufacturing_processes['additive_manufacturing_process_description'] ?></p>
                                             </div>
-                                        </form><div class="clearfix"></div><br/>
-                                    </div>
-                                </div>
-                                <div class="tab-content col-sm-12 padd-0">
-                                    <div id="home" class="tab-pane fade in active">
-                                        <div class="T chatbox" style="margin-top: 8px;">
-                                            <div class="messaging">
-                                                <div class="inbox_msg">
-                                                    <div class="mesgs">
-                                                        <div class="msg_history">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <img src="<?=base_url().'uploads/digitalmanufacturing/'.$additive_manufacturing_processes['additive_manufacturing_process_image']?>" alt="img">
                                             </div>
-
-                                            
-                                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                        <input type="text" class="write_msg"placeholder="Type a message" />
-                                      
-                                        <?php
-                                        if ($user_id == '' || $user_id == null) {
-                                            ?>
-                                            <button class="msg_send_btn" type="button" data-toggle="modal" data-target="#signinModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                        <?php } else { ?>
-                                            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                      <?php } ?>
-                                    </div>
-
-                                </div>
-                                            
                                         </div>
-                                        <div class="V chatbox" style="display: none;">
-                                            <!--                                            <video controls class="pull-right videosize">
-                                                                                            <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                                                                            <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                                                                            Your browser does not support the video tag.
-                                                                                        </video>-->
-                                        </div>
-                                        <div class="B chatbox" style="display: none;">
-                                            <!--                                            <video controls class="pull-right videosize">
-                                                                                            <source src="<?php echo site_url() . "uploads/machine/" . $machineDetails['machine_video'] ?>" type="video/mp4">
-                                                                                            <source src="<?php echo $theme_url ?>/images/sample-video.ogg" type="video/ogg">
-                                                                                            Your browser does not support the video tag.
-                                                                                        </video>-->
-                                        </div>
-                                    </div>
-                                    <div id="menu1" class="tab-pane fade">
-                                        <div class="T chatbox" style="margin-top: 8px;">
-                                            <div class="messaging">
-                                                <div class="inbox_msg">
-                                                    <div class="mesgs">
-                                                        <div class="msg_history">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                          
-                                        </div>
-                                 
                                     </div>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="clearfix"></div><br/>
+        </div>
+    </section>
+
+
+
+<!--<section class="mrgn-top demand-slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class=" slider_one_top">
+                    <div class="silider_box bx-shdw ">
+                        <div id="sla" class="owl-carousel owl-theme">
+                            <?php /*foreach($additive_manufacturing_processes_list as $additive_manufacturing_processes) { */?>
+                            <div class="item">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="rt-cntnt">
+                                            <h3 class="basic-head sub-line"><?php /*echo $additive_manufacturing_processes['additive_manufacturing_process_name'] */?></h3>
+                                            <p ><?php /*echo $additive_manufacturing_processes['additive_manufacturing_process_description'] */?></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <img src="<?/*=base_url().'uploads/digitalmanufacturing/'.$additive_manufacturing_processes['additive_manufacturing_process_image']*/?>" alt="img">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <?php /*} */?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>-->
+
+<section class="two-divine">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class=" our-engn_head padd_tb_50">
+                    <h2 class="basic-head">Common Additive Manufacturing Materials</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class=" slider_one_top">
+                    <div class="silider_box ">
+                        <div id="two-dvine" class="owl-carousel owl-theme">
+                            <?php foreach($printing_materials3D_list as $printing_materials3D) { ?>
+                            <div class="item bx-shdw">
+                                <div class="padd_all_50   white">
+                                    <h3 class="basic-head sub-line"><?php echo $printing_materials3D['printing_material_name'] ?></h3>
+                                    <p class="mrgn-top"><?php echo $printing_materials3D['printing_material_description'] ?></p>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class=" our-engn_head padd_tb_50">
+                    <h2 class="basic-head">Top Additive manufacturing applications</h2>
+                </div>
+
+                <div class="sort-catg  bx-shdw padd_all_50 white">
+                    <div class="sort-text">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="mrgn-top demand-slider" id="first-manu-add-two">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class=" slider_one_top">
+                    <div class="silider_box bx-shdw ">
+                        <div id="go-add" class="owl-carousel owl-theme">
+                            <?php foreach($additive_manufacturing_printing_application as $printing_application) { ?>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="rt-cntnt">
+                                                <h3 class="basic-head sub-line"><?php echo $printing_application['printing_application_name'] ?></h3>
+                                                <p ><?php echo $printing_application['printing_application_description'] ?></p>
+                                                <button class="green-btn mrgn-top">Learn More</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <img src="<?=base_url().'uploads/digitalmanufacturing/'.$printing_application['printing_application_image']?>" alt="img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="choose-ternex">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_tb_50 ">
+                    <h3 class="basic-head">Why Choose Teranex</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="bx-shdw padd_all_50 mar-25 jumper white">
+                    <h3 class="basic-head">Experience Flexibilty Of Desgin</h3>
+                    <p class="mrgn-top">3D Printing provides you with access to geometries that were earlier not possible with other manufacturing technologies. Stelmac’s Rapid Prototyping 3D Printing service is both fast and reliable and with over 33 file formats accepted, we let you focus on your schedule and your design. Thanks to our fast turn-around, you get the exact product of your imagination in your hands in just a few days, giving you the possibility to iterate. Your product design process becomes more efficient.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bx-shdw padd_all_50 mar-25 jumper white">
+                    <h3 class="basic-head">Speed Up Your Product Development</h3>
+                    <p class="mrgn-top">3D software can be used to design and develop any product you can think of. 3D Printing is the shortest way between your ideas, your 3D file and getting your prototype in your hands. And that's a crucial part of your product development. The good news is that you can make it fast and at an affordable price with Stelmac’s Rapid Prototyping Service.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bx-shdw padd_all_50 mar-25 jumper white">
+                    <h3 class="basic-head">Create Prototypes and functional parts</h3>
+                    <p class="mrgn-top">3D Printing materials that include polyamide, alumide and metal are well suited for your prototyping test of mechanical and functional parts. Tearing, assembly or stress tests become affordable as well as easy to implement. Our exhaustive selection of professional-grade 3D-printers can produce 3D objects in various dimensions, from as thin as 0.8mm to as thick as 70 cm. You can also choose the layer thickness in our interface depending on the quality you are looking for. Stelmac’s Batch 3D Printing Service enables you to use the full potential of additive manufacturing and produce pre-series or even first series at a reasonable cost.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bx-shdw padd_all_50 mar-25 jumper white">
+                    <h3 class="basic-head">Think oustside of the box</h3>
+                    <p class="mrgn-top">Traditional manufacturing processes (such as injection molding) dictate how to build a shape - 3D Printing technology doesn't. 3D Printing offers the advantage of being able to make a different product for each of your customers: mass-customization & on-demand production are new markets that you can consider with 3D Printing. Some Stelmac customers have chosen 3D Printing for production because of our quality obsession and our consistency right from the first unit up to 10,000th and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mrgn-top bx-shdw downld-app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 white">
+                <div class="padd-left">
+                    <div class="down-cntnt  our-app-txt ">
+                        <p>need an instant quote for your custom additive manufacturing project?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 commut">
+                <div class="down-cntnt app-box_child">
+                    <h3 class="basic-head white-color">request a quote</h3>
+                    <h3 class="basic-head white-color">today!</h3>
+
+                    <form class="form-horizontal" name="#" id="#" method="post" action="">
+                        <br/><br/>
+                        <?php if($this->session->userdata('uid') && $this->session->userdata('user_type')){ ?>
+                            <a href="<?php echo site_url()."additivemanufacturing/additive_manufacturingRFQ"?>" type="submit" class="btn btn_orange">Request for Quote</a>
+                        <?php }else{?>
+                            <a href='#' type="submit" data-toggle='modal' data-target='#signinModal' class="a-green-btn">Get A Quote</a>
+                        <?php }?>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <div class="clearfix"></div><br/>
 <?php $this->template->contentBegin(POS_BOTTOM);?>
 <script type="text/javascript">
@@ -751,90 +755,90 @@ h3.vconf {
 $('.cadcam').each(function(){
 	$(this).flexisel({
 		visibleItems: 3,
-		itemsToScroll: 1,  
+		itemsToScroll: 1,
 		autoPlay: {
 			enable: false,
 			interval: 5000,
 			pauseOnHover: true
 		},
-		responsiveBreakpoints: { 
-			portrait: { 
+		responsiveBreakpoints: {
+			portrait: {
 				changePoint:480,
 				visibleItems: 1,
 				itemsToScroll: 1
-			}, 
-			landscape: { 
+			},
+			landscape: {
 				changePoint:639,
 				visibleItems: 3,
 				itemsToScroll: 3
 			},
-			tablet: { 
+			tablet: {
 				changePoint:769,
 				visibleItems: 4,
 				itemsToScroll: 4
 			}
-		}				
+		}
 	});
-}); 
+});
 
 
 $('.cadcam1').each(function(){
 	$(this).flexisel({
 		visibleItems: 5,
-		itemsToScroll: 1,  
+		itemsToScroll: 1,
 		autoPlay: {
 			enable: false,
 			interval: 5000,
 			pauseOnHover: true
 		},
-		responsiveBreakpoints: { 
-			portrait: { 
+		responsiveBreakpoints: {
+			portrait: {
 				changePoint:480,
 				visibleItems: 1,
 				itemsToScroll: 1
-			}, 
-			landscape: { 
+			},
+			landscape: {
 				changePoint:639,
 				visibleItems: 3,
 				itemsToScroll: 3
 			},
-			tablet: { 
+			tablet: {
 				changePoint:769,
 				visibleItems: 4,
 				itemsToScroll: 4
 			}
-		}				
+		}
 	});
-}); 
+});
 
 $('.cadcam2').each(function(){
 	$(this).flexisel({
 		visibleItems: 3,
-		itemsToScroll: 1,  
+		itemsToScroll: 1,
 		autoPlay: {
 			enable: false,
 			interval: 5000,
 			pauseOnHover: true
 		},
-		responsiveBreakpoints: { 
-			portrait: { 
+		responsiveBreakpoints: {
+			portrait: {
 				changePoint:480,
 				visibleItems: 1,
 				itemsToScroll: 1
-			}, 
-			landscape: { 
+			},
+			landscape: {
 				changePoint:639,
 				visibleItems: 3,
 				itemsToScroll: 3
 			},
-			tablet: { 
+			tablet: {
 				changePoint:769,
 				visibleItems: 4,
 				itemsToScroll: 4
 			}
-		}				
+		}
 	});
-}); 
+});
 </script>
 
 <script type="text/javascript">
@@ -850,4 +854,4 @@ $('.cadcam2').each(function(){
 
 </script>
 
-<?php echo $this->template->contentEnd(); ?> 
+<?php echo $this->template->contentEnd(); ?>

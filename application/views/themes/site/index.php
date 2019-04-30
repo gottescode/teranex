@@ -33,19 +33,22 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="shortcut icon" href="<?php echo $theme_url;?>/assets/images/icon/favicon.png" type="image/x-icon">
-    <link href="<?php echo $theme_url;?>/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="<?php /*echo $theme_url;*/?>/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">-->
     <link href="<?php echo $theme_url?>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $theme_url?>/css/style.css" rel="stylesheet" type="text/css">
     <!-- <link href="<?php echo $theme_url?>/css/customcss.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $theme_url?>/css/custom.css" rel="stylesheet" type="text/css"> -->
-    <link href="<?php echo $theme_url?>/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="<?php /*echo $theme_url*/?>/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">-->
     <link href="<?php echo $theme_url?>/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $theme_url?>/css/style.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/custom.css" rel="stylesheet" type="text/css">
+    <!--<link href="<?php /*echo $theme_url*/?>/css/style.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="<?php /*echo $theme_url*/?>/css/custom.css" rel="stylesheet" type="text/css">-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link href="<?php echo $theme_url?>/css/customcss.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/custom_new.css" rel="stylesheet" type="text/css">
+    <!--<link href="<?php /*echo $theme_url*/?>/css/customcss.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="<?php /*echo $theme_url*/?>/css/custom_new.css" rel="stylesheet" type="text/css">-->
     <link href="<?php echo $theme_url?>/css/headerfooter.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $theme_url?>/css/style_new.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $theme_url?>/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $theme_url?>/css/fonts.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $theme_url?>/slider/css/slider.css" rel="stylesheet" type="text/css">
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -107,14 +110,36 @@ if (isset($content_buffer[POS_PAGE_LEVEL])) {
     }
 }
 ?>
+<script src="<?php echo $theme_url;?>/js/jquery.js"></script>
+<script src="<?php echo $theme_url;?>/js/owl.carousel.min.js"></script>
+<script src="<?php echo $theme_url;?>/js/popper.min.js"></script>
+<script src="<?php echo $theme_url;?>/js/bootstrap.min.js"></script>
+<script src="<?php echo $theme_url;?>/js/custom.js"></script>
+
 <script src="<?php echo $theme_url;?>/js/nanobar.js"></script>
-<script src="<?php echo $theme_url;?>/js/jquery.min.js"></script>
 <script>
+    $(document).ready(function(){
+        $('.cmn').mouseover(function(){
+            $(this).css('width' , '25%');
+            $(this).addClass('active');
+            $('.npm-acoord>div:first-child').css('width' , '55%');
+        });
+        $('.cmn').mouseout(function(){
+            $(this).css('width' , '10%');
+            $(this).removeClass('active');
+            $('.npm-acoord>div:first-child').css('width' , '70%');
+        });
+
+    });
+</script>
+<!--<script>
     $(window).load(function() {
         //		$(".loader").fadeOut("slow");
     });
-</script>
-<script src="<?php echo $theme_url;?>/js/bootstrap.min.js?ver=<?=date('Ymd')?>"></script>
+</script>-->
+<!--<script src="<?php /*echo $theme_url;*/?>/js/jquery.js?>"></script>
+-->
+
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
@@ -178,6 +203,11 @@ s0.parentNode.insertBefore(s1,s0);
             var chat_js = document.createElement('link'); chat_js.type = 'text/javascript'; chat_js.src = 'https://fast.cometondemand.net/'+chat_appid+'x_xchat.js';
             var chat_script = document.getElementsByTagName('script')[0]; chat_script.parentNode.insertBefore(chat_js, chat_script);
         })();
+    </script>
+    <script>
+        $(document).ready(function(){
+
+        });
     </script>
 </footer>
 

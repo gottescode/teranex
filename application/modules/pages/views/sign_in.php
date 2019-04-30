@@ -111,8 +111,6 @@ margin: 5px 0;
                     <div class="form-group ">
                         <input type="email" id="s_email" name="s_email"  class="form_bor_bot code_email" placeholder="Email ID" >
                         <span class="compulsary">*</span><br>
-<!--                       <span class="error_msg" style="color:red;"></span>
-                       -->
                     </div>
                     <div class="form-group">
                         <input type="text" class="form_bor_bot numbersOnly"  id="s_mobileno" name="s_mobileno" minlength="10" maxlength="10" placeholder="Mobile Number"><span class="compulsary">*</span>
@@ -136,16 +134,6 @@ margin: 5px 0;
                         </select><span class="compulsary">*</span>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <select class="form_bor_bot required" id="SignupType" name="SignupType">
-                            <option value="">Select Type</option>
-                            <option value="C">Customer</option>
-                            <option value="S">Supplier</option>
-                            <option value="T">Trainer</option>
-                            <option value="P">Programmer</option>
-                            <option value="CN">Consultant</option>
-                        </select><span class="compulsary">*</span>
-                    </div> -->
                     <div class="form-group">
                         <img src="" alt="Random letters" id="captcha" style="margin-top:5px; "/>
                         <span style="float: right;font-size: 25px;padding: 25px 50px 0 0"><a href='javascript: captcha_refresh(); ajaxCaptcha();' data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh" aria-hidden="true"></i></a></span>
@@ -195,12 +183,6 @@ margin: 5px 0;
         <div class="col-sm-6 sign-in">
             <div class="border_bot col-sm-offset-2 col-sm-8 " style="background-color: #fff;padding:10px 40px;box-shadow: 0px 0px 10px #dfdcdc;">
                 <form class="form-signin" name="login" id="login" method="post" action="<?php echo site_url() . "pages/login" ?>">
-                    <!-- <?php if (hasFlash("ErrorLoginMsg")) { ?>
-                                                                        <div class="alert alert-warning alert-dismissible" role="alert">
-                                                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 0;"><span aria-hidden="true">&times;</span></button>
-                        <?php echo getFlash("ErrorLoginMsg"); ?>
-                                                                        </div>
-<?php } ?> -->
                     <h2 class="form-signin-heading">Sign in</h2>
                     <div class="form-group">
                         <input type="text" name="u_email" id="u_email" class="form_bor_bot" placeholder="Email ID" ><span class="compulsary">*</span>
@@ -259,13 +241,9 @@ margin: 5px 0;
                 ?>
             </div>
         </div>
-        <!--  <div class="col-sm-6 sign-in-forms">
-             <div class="border_bot col-sm-offset-2 col-sm-8 " style="">
- 
-             </div>
-         </div> -->
 
-    </div><!-- container -->
+
+    </div>
 </div> 
 
 <div id="otp_modal"  role="dialog"  class="modal fade" data-backdrop="static"> 

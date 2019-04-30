@@ -1,14 +1,40 @@
- 
+<section class="banner banner_image aboutus_banner align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="banner_text">
+                    <p>About Us</p>
+                    <h1 class="basic-head">Teranex</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="padd-top">
-  <div class=""><img class="img-responsive bnr-images" src="<?php echo $theme_url?>/images/aboutus-bnr.jpg"></div>
-</div>
-<div class="container section-pad">
-  <center>
-    <h1> About Us </h1>  
-  </center>
-    <?php echo strhtmldecode($aboutList['page_content']);?>
-</div>
+<section class="em_sect mrgn-top" id="about-us-pa">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_all_50 bx-shdw white">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="em-cnt">
+                                <?php echo strhtmldecode($aboutList['page_content']);?>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class=" em_mont">
+                                <img src="<?php echo $theme_url?>/images/logo.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <script language="javascript" type="text/javascript">
 $(document).ready(function() {
 $("#register").submit(function(){

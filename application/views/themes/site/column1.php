@@ -5,6 +5,6 @@
 ?>
 <?php $this->load->view($theme_view . '/common/header'); ?>
 <!--=== Content Part ===-->
-<div  class="header-bradcome top-70"><?=$content;?><div class="clearfix"></div></div>
+<div  class=""><?=$content;?><div class="clearfix"></div></div>
 <!-- End Content Part --> 
 <?php $this->load->view($theme_view . '/common/footer'); ?>

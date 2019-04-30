@@ -26,7 +26,8 @@
                     <h4>Newsletter</h4>
                     <form class="form-inline" name="footernews" id="footernews" method="post" action="">
                         <div class="form-group">
-                            <input type="text" class="form-control newsl" style="width:60%" id="NewsletterEmail" name="NewsletterEmail" placeholder="Enter your email...">
+                            <input type="text" class="form-co
+                            ntrol newsl" style="width:60%" id="NewsletterEmail" name="NewsletterEmail" placeholder="Enter your email...">
                             <input type="submit" name="newsletter" id="newsletter" class="btn btn-default newsl-btn" value="Submit" />
                         </div>
                     </form>
@@ -46,7 +47,7 @@
     <script language="javascript" type="text/javascript">
         $(document).ready(function() {
          	$("#footernews").submit(function(e){
-         		e.preventDefault();		
+         		e.preventDefault();
          		if($("#NewsletterEmail").val() == "")
          		{
          			alert("Email is required");
@@ -78,7 +79,7 @@
          						}
          						else
          						{
-         							alert ("There was problem while subscribing. Please try again later.");						
+         							alert ("There was problem while subscribing. Please try again later.");
          						}
          				}
          			});
@@ -117,5 +118,5 @@ $(window).scroll(function() {
 	  $(".logo-hide").hide();
      }
  });
- 
+
 </script>
