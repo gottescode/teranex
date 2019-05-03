@@ -1,5 +1,5 @@
 <header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-2">
                 <div class="logo">

@@ -1,5 +1,5 @@
 <section>
-    <div class="container">
+    <div class="container-fluid">
         <div class="bottom-menu">
             <div class="row">
                 <div class="col-md-3">
@@ -58,7 +58,7 @@
 
 <footer class="">
     <div class="app_dwnld_links padd_tb_50">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="flx-prop">

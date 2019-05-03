@@ -202,8 +202,8 @@ $uid = $this->session->userdata('uid');
         </div>
         <div class="padd_all_50 bx-shdw white">
             <div id="owl-three" class="owl-carousel owl-theme ">
-                <div class="item ">
-                    <div class="bx-shdw profile_one text-center">
+                <div class="item" id="">
+                    <div class="bx-shdw profile_one text-center" >
                         <img src="<?php echo $theme_url?>/images/machine_img.jpg" alt="">
                         <div class="enginr scrol-inner">
                             <h4 class="basic-head">TRUMPF V 230</h4>

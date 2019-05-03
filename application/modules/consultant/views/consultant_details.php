@@ -3,217 +3,310 @@
 $uid = $this->session->userdata('uid');
 
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $theme_url;?>/css/consultant.css"/>
 
-<style>
-	video {
-    display: inline-block;
-    vertical-align: baseline;
-    object-fit: unset;
-    width: 396px;
-    height: 271px;
-    /* object-fit: cover; */
-}
-@media screen and (max-width: 1024px){
-	video{
-		width: 100%;
-	}
-}
-@media only screen and (max-width: 1024px) and (min-width: 769px)  {
-	.container{
-		padding: 0;
-	}
-}
-#slideshow li {
-    list-style-type: none;
-}
-.bx-viewport, .bx-viewport img {
-    min-height: 250px;
-}
-.bx-viewport{
-    width: auto!important;
-    height: auto!important;
-    min-height: 200px;
-}
-.bx-pager { text-align: center; }
-.bx-pager-item { display: inline-block; margin: 0 10px; }
-.bx-pager-item .active { color: #F08A22; }
-.bx-prev { float: left; }
-.bx-next { float: right; }
-/*.bx-prev:before{content: '\f101';} */
-#slide-counter {
-	/*margin: 15px 0 0 0;*/
-	text-align: center;
-	font-size: 14px;
-	color: #a5c049;
-}
-.consu-table>.table>tbody>tr>td, .consu-table>.table>tbody>tr>th, .consu-table>.table>tfoot>tr>td, .consu-table>.table>tfoot>tr>th, .consu-table>.table>thead>tr>td, .consu-table>.table>thead>tr>th {
-    border-top: 1px solid #ddd0;
-    padding-top: 0;
-    line-height: 22px;
-    padding-bottom: 27px;
-	padding-left: 0;
-}
-</style>
  <?php echo $this->template->contentEnd();	?>
-<div class="cons-details">
-	<div class="myprofile-bg dahboard-bg">
-	  	<div class="container">
-		  	<div class="col-xs-12 col-sm-12 padd-0">
-				<!-- <img src="<?=site_url().'/uploads/consultantFile/'.$consultant_data['c_pictures']?>" class="img-responsive pull-left" style="margin-right: 20px;"> -->
-				<span class="col-xs-3 col-sm-1 padd-0">
-					<?php if($consultant_data['u_avatar']){ ?>
-						<img src="<?php echo site_url()."/uploads/customer/".$consultant_data['u_avatar']?>"  class="img-rounded img-responsive"/>
-					<?php   }else{?>
-							<img src="<?php echo theme_url()."/images/PersonPlaceholder.png"?>"  class="img-rounded img-responsive"/>
-						<?php }?> 
-				</span>
-				<span class="col-xs-9 col-sm-11 padd-0 couns-heading pad-l-25">
-						<h2><?php echo $consultant_data['u_name']?></h2>
-						<p>NYU Senior Lecturer | Management Consultant</p>
-				</span>
-			</div>
-	  	</div>
-  	</div>
-  <!-- /.container --> 
-<!-- /.myprofile-bg -->
-	<div class="container-fluid used-machines-nav">
-	 	<div class="container m-padd-0">
-		  	<div class=" col-sm-12 padd-0">
-				<div class=" col-sm-12 padd-0">
-					<ul class="tab_h tab_h2">
-						<li><a href="#c_description">Overview</a></li> 
-						<li>|</li> 
-						<li><a href="#c_glance">At a Glance</a> </li>
-						<li>|</li>
-						<li><a href="#t_wrkexp"> Work Experience</a></li>
-						<li>|</li>
-						<li><a href="#c_speciality">Consultant Specialties</a></li>
-						<li>|</li> 
-						<li><a href="#c_review">Reviews</a></li>
-						<li>|</li>  
-						<li style="padding: 0;"><a href="#c_book">Book Appointment</a></li>
-						<li>|</li>  
-					</ul>
-				</div>
-		    </div>
-		    <div class="clearfix"></div>
-		    	<hr/>
-	  	</div>
-	  <!-- /.container --> 
-	</div>
+
+<section class="employee_box padd_all_50">
+    <div class="container employee_box_child">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="em_img">
+                    <?php if($consultant_data['u_avatar']){ ?>
+                    <img src="<?php echo base_url()."/uploads/customer/".$consultant_data['u_avatar']?>" alt="img">
+                    <?php   }else{?>
+                        <img src="<?php echo theme_url()."/images/PersonPlaceholder.png"?>" alt="img">
+                    <?php }?>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="em_text padd_rl_50">
+                    <h1 class="basic-head "><?php echo $consultant_data['u_name']?></h1>
+                    <p>NYU Senior Lecturer</p>
+                    <h3 class="ht-35">$80/hour</h3>
+                    <p class="ht-35 country">Melbourne,Australia </p>
+                    <?php if($uid){
+                    ?>
+                        <a data-toggle="modal" data-target="#book_appointment_modal" class="a-green-btn" onclick="open_modal();">Book Now</a>
+                    <? }else{ ?>
+                        <a href="" class="a-green-btn" data-toggle="modal" data-target="#signinModal">Book Now</a>
+                    <?php }
+                    ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div  class="feature-this-month-bg" id="c_description">
+    <div class="container m-padd-0">
+        <div class="clearfix"></div>
+        <?php 	// display messages
+        if(hasFlash("dataMsgSuccess"))	{	?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <?php echo getFlash("dataMsgSuccess"); ?>
+            </div>
+        <?php	}	?>
+        <div class="clearfix"></div>
+        <div class=" col-sm-12 padd-0">
+            <p class="rcomment readmore"><?php echo $consultant_data['profile_summary'];?></p>
+        </div>
+    </div>
+</div>
+
+<section class="mrgn-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="booking_box bx-shdw padd_all_50 white">
+                    <div class="child_menu_btm country_area">
+                        <h4 class="basic-head"><?php echo $consultant_data['u_name']?> - Senior Engineer</h4>
+                        <p>Melbourne Australia</p>
+                    </div>
+                    <div class="child_menu_btm em_payrs ">
+                        <h4 class="basic-head mar-lt-rt">$68.50/hour</h4>
+                        <?php if($uid){
+                            ?>
+                            <a data-toggle="modal" data-target="#book_appointment_modal" class="a-green-btn" onclick="open_modal();">Book Now!</a>
+                        <? }else{ ?>
+                            <a href="" class="a-green-btn" data-toggle="modal" data-target="#signinModal">Book Now!</a>
+                        <?php }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="padd_tb_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="padd_all_50 bx-shdw glance white according-height">
+                    <h2 class="basic-head">At a Glance</h2>
+                    <div class="be_table mrgn-top">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Qualification</td>
+                                <td>BE</td>
+                            </tr>
+                            <tr>
+                                <td>MBA<br>(Strategy)</td>
+                                <td>Cambridge<br> University</td>
+                            </tr>
+                            <tr>
+                                <td>Language(s)</td>
+                                <td>English,Spanish,<br>German</td>
+                            </tr>
+                            <tr>
+                                <td>Location</td>
+                                <td>Melbourne,Australia</td>
+                            </tr>
+                            <tr>
+                                <td>Rate</td>
+                                <td>$68.50/hour</td>
+                            </tr>
+                            <tr>
+                                <td>CV/Resume</td>
+                                <td><?php  if($consultant_data['user_resume']!=''){ echo "<a href='".site_url()."uploads/customer/".$consultant_data['user_resume']."' target='_blank'>Click Here</a>";} else{ echo "Resume not available";}?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="padd_all_50 bx-shdw strngth white according-height">
+                    <h2 class="basic-head">Experience &amp; Strengths</h2>
+                    <div class="ex-strngth mrgn-top">
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
+                    </div>
+                    <div class="row">
+                        <?php if($workList){
+                            foreach($workList as $rowWork){?>
+                        <div class="col-md-6">
+
+                            <div class="strnght_box">
+                                <p><?php echo $rowWork['title'];?></p>
+                                <p><?php echo $rowWork['exp_details'];?></p>
+                                <p>Strength 3</p>
+                                <p>Strength 4</p>
+                                <p>Strength 5</p>
+                                <p>Strength 6</p>
+
+                        </div>
+                        </div>
+                        <?php }}?>
+                        <div class="col-md-6">
+                            <div class="strnght_box">
+                                <p>Strength 1</p>
+                                <p>Strength 2</p>
+                                <p>Strength 3</p>
+                                <p>Strength 4</p>
+                                <p>Strength 5</p>
+                                <p>Strength 6</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="em_sect section_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <div class=" ">
+                    <h3 class="basic-head">Reviews</h3>
+                </div>
+            </div>
+            <div class="col-12 ">
+                <div class="mrgn-top bx-shdw white">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 slider_row">
+                            <div class="">
+                                <div class="padd_rl_50 slider_one_top">
+                                    <div class="silider_box ">
+                                        <div id="owl-one" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+                                            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-4050px, 0px, 0px); transition: all 0.25s ease 0s; width: 9450px;"><div class="owl-item cloned" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p><span class="coma">&#34;</span> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div><div class="owl-item cloned" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p> <span class="coma">&#34;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div><div class="owl-item" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p> <span class="coma">&#34;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div><div class="owl-item active" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p> <span class="coma">&#34;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div><div class="owl-item" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p><span class="coma">&#34;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div><div class="owl-item cloned" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p> <span class="coma">&#34;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div><div class="owl-item cloned" style="width: 1340px; margin-right: 10px;"><div class="item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="rt-cntnt">
+                                                                        <p> <span class="coma">&#34;</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature<span class="coma">&#34;</span></p>
+                                                                        <h5 class="compny">justin Donaldson <span>-Company Name</span></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class=" em_mont">
+                                <img src="<?php echo theme_url()."/images/profile.jpg" ?>" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+<section class="mrgn-top">
+    <div class="container">
+        <div class="padd_all_50 bx-shdw white appointment">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="child">
+                        <div class="col-12">
+                            <h3 class="basic-head">Book Appointments With Our App!</h3>
+                            <p class="mrgn-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                            <div class="lisitng mrgn-top">
+                                <ul>
+                                    <li>Machine Breakdown</li>
+                                    <li>Machine Maintenance</li>
+                                </ul>
+                                <ul>
+                                    <li>Application Support</li>
+                                    <li>Spare Parts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content mrgn-top">
+                        <h4 class="basic-head mar-rt-25">Get it now!</h4>
+                        <a href="#" class="mar-rt-25"><img src="<?php echo theme_url()."/images/apple.png" ?> " alt="img"></a>
+                        <a href="#" class="mar-rt-25"><img src="<?php echo theme_url()."/images/google.png" ?>"  alt="img"></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="child center_lcs">
+                        <img src="<?php echo theme_url()."/images/single_mobile.jpg" ?> " alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- /.myprofile-bg -->
 						
-	<div  class="feature-this-month-bg" id="c_description">
-		<div class="container m-padd-0">
-			<div class="clearfix"></div>
-								<?php 	// display messages
-								if(hasFlash("dataMsgSuccess"))	{	?>
-									<div class="alert alert-success alert-dismissible" role="alert">
-									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									  <?php echo getFlash("dataMsgSuccess"); ?>
-									</div>
-									<?php	}	?>
-						 <div class="clearfix"></div>
-		  	<div class=" col-sm-12 padd-0">
-				<p class="rcomment readmore"><?php echo $consultant_data['profile_summary'];?></p>
-			</div>
-		</div>
-	</div>
+
 <div class="clearfix"></div>
 	<div class="detail_heading ">
 
-		<div id="c_glance">
-			<div class="container">
+
+		
 
 			
-			  	<div class="col-sm-4 padd-8 consu-table" style="padding-left: 0;">
-					<h2 class="padd-l-r-15" style="margin-top:12px; margin-bottom: 15px;">At a Glance</h2>
-					<table class="table tbl-responsive">
-						<tr>
-							<td>Qualification(s)<span class="pull-right">:</span></td>
-							<td><?php //echo $consultant_data['qualification'];?>BE</td>
-						</tr>
-						<tr>
-							<td>MBA(Strategy) <span class="pull-right">:</span></td>
-							<td>Cambridge University</td>
-						</tr>
-						<tr>
-							<td>Language(s)<span class="pull-right">:</span></td>
-							<td><?php //echo $consultant_data['language'];?>English, Spanish, German</td>
-						</tr>
-						<tr>
-							<td>Location<span class="pull-right">:</span></td>
-							<td><?php //echo $consultant_data['current_location'];?>India</td>
-						</tr>
-						<tr>
-							<td>Rate<span class="pull-right">:</span></td>
-							<td> $<?php //echo $consultant_data['c_per_hour_cost'];?> 20 / hour</td>
-						</tr>
-						<tr>
-							<td style="padding-bottom:0; line-height: 26px;">CV / Resume<span class="pull-right">:</span></td>
-							<td style="padding-bottom:0; line-height: 26px;"><?php  if($consultant_data['user_resume']!=''){ echo "<a href='".site_url()."uploads/customer/".$consultant_data['user_resume']."' target='_blank'>Click Here</a>";} else{ echo "Resume not available";}?></td>
-						</tr>
-					</table>
-				</div>
-				
-			  	<div class="col-sm-4 padd-8 consu-table" style="padding-top:0">
-			  		<h2>Photos</h2>
-						<div>
-						<ul id="slideshow">
-						  <li><img src="<?php echo $theme_url?>/images/123.jpg" width="100%" style="min-height: 187px; height:240px; margin-bottom: 10px;"/></li>
-							<li><img src="<?php echo $theme_url?>/images/Application_support.jpg" width="100%" style="min-height: 187px; height:240px; margin-bottom: 10px;"/></li>
-						</ul> 
-						<div id="slide-counter"></div>
-			  		</div>
-			  	</div>
-			  	<div class="col-sm-4 padd-8 consu-table" style="padding-top:0">
-			  		<h2>Video</h2>
-					<video width="100%" height="auto" controls>
-					  	<source src="<?php echo $theme_url?>/images/sample-video.mp4" type="video/mp4">
-					  	<source src="<?php echo $theme_url?>/images/sample-video.ogg" type="video/ogg">
-					  	Your browser does not support the video tag.
-					</video>
-			  	</div>
-				<div class="clearfix"></div><hr/>
-			</div>
-		</div>
-		
-		<div id="t_wrkexp">
-			<div class="container">
-				<div class=" col-sm-12 padd-0 work_experience">
-					<h2>Work Experience</h2>
-					<?php if($workList){
-						foreach($workList as $rowWork){?>	
-					<div class="lern">
-						<h3><?php echo $rowWork['title'];?></h3>
-						<p><?php echo $rowWork['exp_details'];?></p>
-					</div>
-					<?php }}?> 
-				</div>
-				<div class="clearfix"></div><hr/>
-			</div>
-		</div>
-			
-		<div id="c_speciality">
-			<div class="container">
-				<div class=" col-sm-12 padd-0 consultant_speclti">
-					<h2>Consultant  Specialties</h2>
-					<h3><a>MAY 2017 – CURRENT</a></h3>
-					<p>
-					<span>Business Development</span>
-					Joshua has extensive experience with Stelmac as a consultant for business development and has worked for companies such as Microsoft and Oracle as a freelance specialist.
-					</p>
-					<h3><a>MAY 2017 – CURRENT</a></h3>
-					<p>
-					<span>Business Development
-					</span>
-					Joshua has extensive experience with Stelmac as a consultant for business development and has worked for companies such as Microsoft and Oracle as a freelance specialist.
-					</p>
-				</div>
-				<div class="clearfix"></div><hr/>
-			</div>
-		</div>
+
 		<div id="c_review">
 			<div class="container">
 				<div class="col-sm-12 padd-0">
@@ -253,23 +346,7 @@ $uid = $this->session->userdata('uid');
 				
 			</div>
 		</div>
-		<div class="row mar-20" id="c_book">
-			<center>
-				<!-- <a href="<?php echo site_url()."consultant/bookAppointment/".$consultant_data['consultant_id'];?>"><button class="btn adv-search">Book Appointment</button></a> 
-				<a data-toggle="modal" data-target="#book_appointment_modal" class="btn btn_orange" onclick="open_modal();">Book Appointment</a>-->
-				<?php if($uid){
-				?>
-				
-					<a data-toggle="modal" data-target="#book_appointment_modal" class="btn btn_orange" onclick="open_modal();">Book Appointment</a>
-			
-			<? }else{ ?>
-				<center>
-					<a href="" class="btn btn_orange" data-toggle="modal" data-target="#signinModal">Book Appointment</a>
-				</center>
-			<?php }
-			?>
-			</center>
-		</div>
+
 	</div>
 </div> 
 <?php 
