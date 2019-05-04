@@ -1,128 +1,98 @@
 <?php $this->template->contentBegin(POS_TOP);?>
-<link rel="stylesheet" href="<?=$theme_url?>/smallimap/css/contrib/jquery.smallipop-0.3.0.min.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<?=$theme_url?>/smallimap/css/contrib/animate.min.css" type="text/css" media="all" />
-<?php $this->template->contentEnd();  ?> 
-<div class="" style="margin-top: 80px;">
- <img src="<?php echo $theme_url?>/images/contactusbanner1.png" width="100%" class="img-responsive bnr-images">
- </div>
-<div class="container">
-  <center><h1>Contact Us</h1></center>
-   <?php	// display messages
-			if(hasFlash("ErrorMsg"))	{	?>
-				<div class="alert alert-warning alert-dismissible" role="alert">
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				  <?php echo getFlash("ErrorMsg"); ?>
-				</div>
-			<?php	}		// display messages
-			if(hasFlash("dataMsgSuccessSign"))	{	?>
-				<div class="alert alert-success alert-dismissible" role="alert">
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				  <?php echo getFlash("dataMsgSuccessSign"); ?>
-				</div>
-			<?php	}	?>
-  <div class="col-sm-8 padd-0">
-      <div class="border_bot col-md-12 col-sm-12 col-xs-12" style="background-color: #fff;padding:40px 40px;box-shadow: 0px 0px 10px #dfdcdc;height:;">
-          <form class="form-horizontal" name="contact" id="contact" method="post" action="" enctype="multipart/form-data">
-		  <!-- 
-		  
-		      <div class="form-group ">
-                <div class="col-sm-6">
-                  <input type="text" class="form_bor_bot alphaSpace" id="Name" name="person_name" placeholder="Full Name"><span class="compulsary">*</span>
+
+<?php $this->template->contentEnd();  ?>
+<section class="banner banner_image contact_us_banner align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="banner_text">
+                    <p>Contact Us</p>
+                    <h1 class="basic-head"> Teranex</h1>
                 </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form_bor_bot" id="Company" name="company_name" placeholder="Company Name"><span class="compulsary">*</span>
-                </div>
-              </div>
-          <div class="col-sm-6">
-                  <input type="text" class="form_bor_bot" id="country_name" name="country_name" placeholder="Country Name"><span class="compulsary">*</span>
-                </div>
-		  -->
-              <div class="form-group">
-			   <div class="col-sm-6">
-                  <input type="email" class="form_bor_bot" id="email_id" name="email_id" placeholder="Email"><span class="compulsary">*</span>
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form_bor_bot numbersOnly" id="Phone" name="phone_no" minlength="10" maxlength="10" placeholder="Phone Number"><span class="compulsary">*</span>
-                </div>
-				
-				
-               </div>
-           
-              <div class="form-group">
-               
-                <div class="col-sm-6">
-                  <select name="subject" id="Subject" class="form_bor_bot">
-                    <option value="">Select Subject</option>
-                    <option value="General Enquiry">General Enquiry</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Service">Service</option>
-                  </select><span class="compulsary">*</span>
-                </div>
-              </div>
-              <div class="form-group">
-                 <div class="col-sm-12">
-                   <textarea rows="4" cols="50" name="message" id="message" class="form_bor_bot" placeholder="Message"></textarea><span class="compulsary">*</span>
-                 </div>
-              </div>
-			  
-			  <div class="form-group">
-				  <div class="col-sm-6">
-					<img src="" alt="Random letters" id="captcha" style="margin-top:5px; "/>
-					<span style="float: right;font-size: 25px;padding: 25px 50px 0 0"><a href='javascript: captcha_refresh();' data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh" aria-hidden="true"></i></a></span>
-					</div>
-					<div class="col-sm-6">
-					<input id="captcha_image" name="captcha" placeholder="Enter Captcha Code" class="form_bor_bot" type="text"><span class="compulsary">*</span>
-								<!-- Can't read the image? click <a href='javascript: captcha_refresh();'>here</a> to refresh. -->
-				   </div>
-		       </div>
-					<div class="clearfix"></div>
-              <div class="form-group col-sm-12 text-center">
-            	  <center><input type="submit" name="btnSubmit" id="submit" class="btn input-form contact-submit btn_orange" value="Submit" /></center>
-              </div>
-          </form>
-      </div>
-      <div class="clearfix"></div><br/>
-  </div>
-  <div class="col-sm-3 col-sm-offset-1 padd-0">
-    <div class="contact-right-text">
-      <h3>Corporate Office</h3>
-      <p> 
-      <span>B-Wing, 4th Floor, </span>
-      <span>Statesman House, Barakhamba Road, </span>
-      <span>Connaught Place, </span>
-      <span>New Delhi, Delhi - 110 001</span>
-      </p>
+            </div>
+        </div>
     </div>
-    <div class="contact-right-text">
-      <h3>Corporate Office</h3>
-      <p> 
-      <span> Office No. 2K8, </span>
-      <span>1st Floor, Kumar Cerebrum IT Park,</span>
-      <span> Opposite Cybage, </span>
-      <span>Kalyani Nagar, Pune</span>
-      <span>India, 411023</span></p>
+</section>
+
+<?php	// display messages
+if(hasFlash("ErrorMsg"))	{	?>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php echo getFlash("ErrorMsg"); ?>
     </div>
-    <div class="contact-right-text">
-    	<h3>Corporate Office</h3>
-    	<p> 
-    	<span>Level 27,</span>
-    	<span> Collins Street,  </span>
-    	<span>Melbourne, VIC 3000, </span>
-    	<span>Australia</span>
-    	</p>
+<?php	}		// display messages
+if(hasFlash("dataMsgSuccessSign"))	{	?>
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php echo getFlash("dataMsgSuccessSign"); ?>
     </div>
-    <!-- <div class="contact-right-text">
-    	<h3>Corporate Office</h3>
-    	<p> 
-    	<span>258/258, </span>
-    	<span>Neshvilla Road,</span>
-    	<span> Near Viverly School,</span>
-    	<span> Dehradun - </span>
-    	<span>India, 248 001</span>
-    	</p>
-    </div> -->
-  </div>
-</div>
+<?php	}	?>
+
+
+<section class="mrgn-top ">
+    <div class="container">
+        <div class="bx-shdw padd_all_50 white">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="formalty_form">
+                        <form class="form-horizontal" name="contact" id="contact" method="post" action="" enctype="multipart/form-data">
+                            <!--<input type="text" placeholder="Full Name *" class="bx-shdw">-->
+                            <input type="email" class="bx-shdw mrgn-top" id="email_id" name="email_id" placeholder="Email *">
+                            <input type="text" class="bx-shdw mrgn-top" id="Phone" name="phone_no" minlength="10" maxlength="10" placeholder="Phone Number *">
+                            <div class="col-md-12 subject_drpdwn padd_tb_50 ">
+                                <div class="selct-box get_start contazt">
+                                    <div class="arrow">
+                                        <select name="subject" id="Subject" class="dropdow" >
+                                            <option value="New">Getting Started</option>
+                                            <option value="General Enquiry">General Enquiry</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Service">Service</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea name="message" id="message" cols="30" rows="3" placeholder="Message *" class="bx-shdw "></textarea>
+                            <div class="row mrgn-top cpt_box">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="cptcha">
+                                        <img src="" alt="Random letters" id="captcha" style="margin-top:5px; width: inherit; "/>
+<!--                                        <span style="float: right;font-size: 25px;padding: 25px 50px 0 0"><a href='javascript: captcha_refresh();' data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh" aria-hidden="true"></i></a></span>
+-->                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <input type="text" id="captcha_image" name="captcha" placeholder="Enter Captcha Code *" class="bx-shdw capdtcha">
+                                </div>
+                            </div>
+                            <div class="mrgn-top">
+                                <button type="submit" name="btnSubmit" id="submit"  value="Submit" class="green-btn mrgn-top">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="padd_rl_50">
+                        <div class="office_addres">
+                            <ul class="adress ">
+                                <li class="basic-head">Coporate Office</li>
+                                <li><p>B-Win,4th Floor<br>statesman House,Barakhamba Road,<br>connaught Place,New Delgi,Delhi-110001</p></li>
+                            </ul>
+                            <ul class="adress mrgn-top">
+                                <li class="basic-head">Coporate Office</li>
+                                <li><p>B-Win,4th Floor<br>statesman House,Barakhamba Road,<br>connaught Place,New Delgi,Delhi-110001</p></li>
+                            </ul>
+                            <ul class="adress mrgn-top">
+                                <li class="basic-head">Coporate Office</li>
+                                <li><p>B-Win,4th Floor<br>statesman House,Barakhamba Road,<br>connaught Place,New Delgi,Delhi-110001</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
  
 <?php $this->template->contentBegin(POS_BOTTOM);?>
 <script src="<?=$theme_url?>/js/jquery.validate.min.js"></script>  

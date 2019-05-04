@@ -1,82 +1,83 @@
 <?php $this->template->contentBegin(POS_TOP);?>
-<style type="text/css">
- 
-.other-section-10 .tab-widget li>a:hover {
-    background-color: #00000070;
-    color: #a5c049;
-    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.15);
-}
-.explore-marketplace .tab-widget li>a:hover ~ h3{
-	color: #a5c049;
-}
-.other-section-10 .tab-widget li>a {
-    border-radius: 0;
-    border-bottom: 1px solid #a5c049;
-}
-.other-section-10 .tab-widget li>a {
-    width: 120px;
-    height: 120px;
-    color: #fff;
-    font-size: 60px;
-    /*border-radius: 80px;*/
-    background-color: #00000070;
-    box-shadow: 0 7px 22px rgba(19, 19, 19, 0.5);
-}
-</style>
-<?php echo $this->template->contentEnd();	?> 
- <!--<div class="" style="margin-top: 80px;">-->
-	<!--	<img class="img-responsive bnr-images" src="<?php echo $theme_url?>/images/macademy2-min.png" alt=" ">-->
- <!--</div>-->
-<section class="other-section other-section-10 dark">
-	<!-- <div class=" padd-0 paralax-section1 " style="background-image: url('<? echo $theme_url?>/images/machineindex.jpg');height: 100%;width: 100%;background-size: cover;"> -->
-	<div class=" padd-0 paralax-section1 " style="background-image: url('<? echo $theme_url?>/images/onlinecourse-macademy-min.jpg');height: 100%;width: 100%;background-size: cover;">
-		<div style="width: 100%;background-color: #0000007d">
-			<div class="col-sm-12" style="padding: 30px 0;">
-				<center>
-					<h1 class="white-text"> Trade services</h1>
-					<p class="white-text" style="padding: 20px 0;">Stelmac offers a range of market intelligence reports to help customers make well-informed purchase and sales decisions.Our revenue impact consulting <br/>undertakes proactive collaboration with clients to identify new opportunities, new customers and sources of incremental revenues.</p>
-				</center>
-				<div>
-					<ul class="tab-widget icon-tab tab-pd">
-						<li>
-							<a target="" href="<?php echo site_url()."footer/tradeAssurance";?>" data-tb="#service-tab-1" class="flex-cc">
-							<i class="fa fa-usd" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Trade Assurance</h3>
-						</li>
-						<li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
-						<li>
-							<a target="" href="<?php echo site_url()."footer/businessIdentity";?>" data-tb="#service-tab-2" class="flex-cc">
-							<i class="fa fa-id-card-o" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Business Identity</h3>
-						</li>
-						<li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
-						<!-- <li>
-							<a target="_blank" href="<?php echo site_url()."macademy/unified_contents";?>" data-tb="#service-tab-3" class="flex-cc">
-							<i class="fa fa-tasks" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Unified Contents</h3>
-						</li>
-						<li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li> -->
-						<li>
-							<a target="" href="<?php echo site_url()."footer/inspectionService";?>" data-tb="#service-tab-5" class="flex-cc">
-							<i class="fa fa-search" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Inspection Service</h3>
-						</li>
-						<!-- <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
-						<li>
-							<a target="" href="<?php echo site_url()."footer/securePayment";?>" data-tb="#service-tab-6" class="flex-cc">
-							<i class="fa fa-lock" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Secure Payment</h3>
-						</li> -->
-					</ul>
-				</div>
-			</div><div class="clearfix"></div>
-		</div><div class="clearfix"></div>
-	</div>
+
+<?php echo $this->template->contentEnd();	?>
+
+
+<section class="banner banner_image help_banner align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="banner_text">
+                    <p>Trade Services</p>
+                    <h1 class="basic-head white-color">Page Name</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<div class="clearfix"></div><br/>
+<section class="mrgn-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Section Heading</h3>
+                    <p class="mrgn-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<?php $this->template->contentBegin(POS_BOTTOM);?>
-	
-	
-<?php echo $this->template->contentEnd();	?> 
+<section class="mrgn-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+               <a href="<?php echo site_url()."footer/tradeAssurance";?>"><div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Trade <br> Assurance</h3>
+                    <p class="mrgn-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                </div></a>
+            </div>
+            <div class="col-md-4">
+                <a href="<?php echo site_url()."footer/businessIdentity";?>"><div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Business<br>Identity</h3>
+                    <p class="mrgn-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    </div></a>
+            </div>
+            <div class="col-md-4">
+                <a href="<?php echo site_url()."footer/inspectionService";?>"><div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Inspection<br> Service</h3>
+                    <p class="mrgn-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    </div></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row ">
+            <div class="col-12">
+                <div class="padd_tb_50 ">
+                    <h3 class="basic-head">Quick Links</h3>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="padd_all_50 bx-shdw trd-link white">
+                    <ul>
+                        <li><a href="<?php echo site_url()."footer/tradeAssurance";?>">Buyer Protection</a></li>
+                        <li><a href="<?php echo site_url()."footer/businessIdentity";?>">Business Identity</a></li>
+                        <li><a href="<?php echo site_url()."footer/submitAdispute";?>">Dispute Resolution</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="<?php echo site_url()."pages/getPaidForYourFeedback";?>">Get Paid For Feedback</a></li>
+                        <li><a href="<?php echo site_url()."footer/inspectionService";?>">Inspection Service</a></li>
+                        <li><a href="<?php echo site_url()."pages/ReportAbuse";?>">Report Abuse</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

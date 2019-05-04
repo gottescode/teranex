@@ -75,7 +75,7 @@ class Admin extends BACKEND_Controller {
 	} 
 		
 /* =====================MACHINE DETAILS======================= */
-	public function machineList() {  
+	public function machineList() {
 		$url= site_url()."machine/api/machineDetailsMultiple";
 		$machineCatList = apiCall($url,"get");
 		$arrayData = [

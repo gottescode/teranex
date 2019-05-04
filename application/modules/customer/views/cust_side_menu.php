@@ -8,7 +8,6 @@
 	//print_r($arrayData);exit;
 	$url = site_url()."pages/adminapi/menuListByuserRoleType"; 
 		$menuList =  apiCall($url, "post",$arrayData);
-		
 		$comment = array();
 		foreach ($menuList['result'] as $old_key => $asset)
 		{	
@@ -16,8 +15,8 @@
 			 $comment[ $new_key ] = $asset;
 		}
 		$menuList = $comment;
-		
-		// now loop your menuList list, and everytime you find a child, push it 
+
+// now loop your menuList list, and everytime you find a child, push it
 		//   into its parent
 		foreach ($menuList as $k => &$v) {
 		  if ($v['parent_id'] != 0) {
@@ -45,13 +44,15 @@
 		<?
 			if (!empty($info['childs'])) {
 			?>
+
+
 			<ul>
 				<?	display_menuList($info['childs'], $level +1); ?>
 			</ul>
 		<?
 			}
 		?>		
-		<?php if (!empty($info['childs'])) { ?></li> 
+		<li><?php if (!empty($info['childs'])) { ?></li>
 			<? } ?>
 		<?
 	  }
@@ -123,6 +124,10 @@
 		</ul>  
       	</div>
     </div>
-    <!-- /.col-sm-3 col-md-2 -->
 
-					
+
+
+
+<!-- /.col-sm-3 col-md-2 -->
+
+

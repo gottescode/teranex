@@ -1,436 +1,263 @@
 <?php $this->template->contentBegin(POS_TOP);?>
-<!-- <link rel="stylesheet" type="text/css" href="<?php echo $theme_url;?>/css/Landingpage.css"/> -->
-<style type="text/css">
-.service{
-	margin-bottom: 40px;
-	box-shadow: 0 7px 22px rgba(19,19,19,.24);
-}
-.service_info{
-padding: 20px;
-}
-.service img{
-	min-height: 200px;
-}
-.service p{
-	text-align: justify;
-	min-height: 75px;
-}
-.process{
-	text-align: center;
-    padding: 10px;
-    margin-bottom: 30px;
-    box-shadow:  0 0px 10px rgba(19, 19, 19, 0.10);
-}
-.process-img {
-    padding-bottom: 10px;
-    margin: 0 auto;
-    width: 70%;
-    filter: grayscale(100%);
-}
-@media (max-width: 1199px){
-	.process h3{
-	min-height: 56px;
-}
-}
-.explore-marketplace .tab-widget li {
-    padding: 15px 30px;
-}
-.explore-marketplace .tab-widget li>a {
-    margin: 0 auto;
-    border-radius: 0;
-    background: #00000070;
-    /* box-shadow: none; */
-    border-bottom: 1px solid #a5c049;
-}
-/*css new*/
-.rapid_features {
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 7px 22px rgba(19,19,19,.24);
-}
-.feature_icon i {
-    color: #a5c049;
-    font-size: 50px;
-}
-.rapid_features h3 {
-    text-align: center;
-}
-.rapid_features p {
-    text-align: justify;
-    min-height: 125px;
-}
-.feature li:nth-child(odd) {
-    color: #fff;
-}
-
-</style>
 <?php echo $this->template->contentEnd();?>
-<section class="other-section other-section-10 dark explore-marketplace">
-	<div class=" padd-0 paralax-section1 " style="background-image: url('<? echo $theme_url?>/images/factory-make1-min.jpg');height: 100%;width: 100%;background-size: cover;">
-		<div style="width: 100%;background-color: #000000ad">
-			<div class="col-sm-12" style="padding: 30px 0;">
-				<center>
-					<h1 class="white-text">On-Demand Manufacturing Platform</h1>
-					<!-- 
-					<h1 class="white-text">Digital Manufacturing</h1>
-					
-					-->
-					<!-- <p class="white-text" style="padding: 20px 0;">A one-stop-shop for all your manufacturing needs. We provide you with support to design your products and help you select the best option.</p>
-					
-					
-<ul class="list-inline white-text"  style="color: #fff;margin-bottom: 24px;"><li class="white-text">Upload Your Drawings</li><li>|</li><li style="color: #fff;"> Create Your Program </li><li>|</li><li>Make Your Product</li></ul>-->
-<ul class="list-inline white-text"  style="color: #fff;margin-bottom: 24px;"><li class="white-text"><!-- Design Your Product-->Upload Your Drawings</li><li>|</li><li style="color: #fff;"> Create Your RFQ</li><li>|</li><li>Make Your Products</li></ul>
-				</center>
-				<div>
-					<ul class="tab-widget icon-tab tab-pd ">
-						<li class="">
-							<a target="" href="<?php echo site_url();?>additivemanufacturing/additive_manufacturing/" data-tb="#service-tab-2" class="flex-cc">
-							<i class="fa fa-cubes" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Additive Manufacturing</h3>
-						</li> 
-						<li class="">
-							<a target="" href="<?php echo site_url();?>laserprocessing/sheetmetal_processing" data-tb="#service-tab-3" class="flex-cc">
-							<i class="fa fa-download" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">Sheet Metal Fabrication</h3>
-						</li>
-						<li class="">
-							<a target="" href="<?php echo site_url();?>rapidprototyping/cnc_machining" data-tb="#service-tab-2" class="flex-cc">
-							<i class="fa fa-cube" aria-hidden="true"></i></a>
-							<h3 class="fs16 bold-2 mr-t-10">CNC Machining</h3>
-						</li>
-					</ul>
-				</div>
-			</div><div class="clearfix"></div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
+<section class="banner banner_image course_2_banner align-items-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="banner_text">
+                    <p>control your product quality,you lead time</p>
+                    <p>and your price while benefiting from superior 3D Tools</p>
+                    <h1 class="basic-head white-color">made by our software development team</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<div class="clearfix"></div>
-<!-- <section>
-	<div class="container">
-		<center><h2>Welcome to Stelmac</h2>
-		<p>At Stelmac, we provide manufacturing solutions in the fields of machine tools, laser technology and electronics</p></center>
-		<center><h2>Services</h2></center>
-		<div class="col-sm-12 padd-0 services">
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<div class="service">
-					<img src="<?php echo $theme_url?>/images/about.jpg" class="img-responsive">
-					<div class="service_info">
-						<h3>Additive Manufacturing</h3>
-						<p>Discover the principles and benefits of using additive manufacturing to create amazing products from 1 to 10,000 units.</p>
-						<a href="<?php echo site_url()."additivemanufacturing/additive_manufacturing";?>" class="btn btn_orange">Learn More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<div class="service">
-					<img src="<?php echo $theme_url?>/images/laser_processing.jpg" class="img-responsive">
-					<div class="service_info">
-						<h3>Laser Processing</h3>
-						<p>Discover the principles and advantages of laser processing for models, prototypes or production</p>
-						<a href="<?php echo site_url()."laserprocessing/laser_processing";?>" class="btn btn_orange">Learn More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<div class="service">
-					<img src="<?php echo $theme_url?>/images/rapid_pro_banner.jpg" class="img-responsive">
-					<div class="service_info">
-						<h3>Rapid Prototyping</h3>
-						<p>From concept model to functional assembly, TERANEX 3D prints your prototype in 2 or 3 days.</p>
-						<a href="<?php echo site_url()."rapidprototyping/rapid_prototyping";?>" class="btn btn_orange">Learn More</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-<div class="clearfix"></div>
 
-<div class="clearfix"></div>
-<!-- <section>
-	<div class="container">
-		<center><h2>Processes</h2></center>
-		<div class="col-sm-12 padd-0">
-			<?php foreach($process_list as $process) { ?> 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3><?php echo $process['process_name'];?></h3>
-					<p><?php echo $process['process_description'];?></p>
-				</div>
-			</div>
-		<?php } ?>
-		</div>
-	</div>
-</section> -->
-<!-- <section>
-	<div class="container">
-		<center><h2>Processes</h2></center>
-		<div class="col-sm-12 padd-0">
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>3D CAD Modeling </h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>CNC Punching</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>MIG Welding</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>CNC Bending</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>CNC Water Jet</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>Nesting &amp; CNC Programming</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>CNC Laser Cutting</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>Laser Marking</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>Powder Coating</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>CNC Plasma Cutting</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>Laser Welding</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-		 
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="process">
-					<h3>TIG Welding</h3>
-					<p>Plastic, Alumide, Metals, Resins are available with tens of finishing options on our professional-grade 3D printers</p>
-				</div>
-			</div>
-				</div>
-	</div>
-</section> -->
-<section>
-	<div class="container">
-		<div class="online_features">
-			<center><h2>Stelmac Exclusive Online Features</h2>
-			<p>CONTROL YOUR PRODUCT QUALITY, YOUR LEAD TIME AND YOUR PRICE WHILE BENEFITING FROM SUPERIOR 3D TOOLS MADE BY OUR SOFTWARE DEVELOPMENT TEAM</p></center><br>
-				
-			<div class="col-sm-4 col-xs-12 ">
-				<div class="rapid_features">
-					<div class="feature_icon">
-	                    <i class="fa fa-align-justify"></i>
-	                </div>
-	                <h3>Choice of Materials</h3>
-	                <p>You can choose from our vast range of materials with different finishing options with our 3D printers. We have a solution for all your ideas and prototypes.</p>
-	            </div>
-			</div>
-				
-			<div class="col-sm-4 col-xs-12 ">
-				<div class="rapid_features">
-					<div class="feature_icon">
-	                    <i class="fa fa-align-justify"></i>
-	                </div>
-	                <h3>Best-in-Class 3D Analysis Tools</h3>
-	                <p>You can upload your 3D files in over 33 file formats. Our best-in-class algorithms can automatically detect flaws and make corrections on your 3D file and give you feedback in seconds. We can work with multiple CAD file uploads and assembly with ease.</p>
-	            </div>
-			</div>
-				
-			<div class="col-sm-4 col-xs-12 ">
-				<div class="rapid_features">
-					<div class="feature_icon">
-	                    <i class="fa fa-align-justify"></i>
-	                </div>
-	                <h3>Instant Quotations</h3>
-	                <p>You can benefit from our rapidity in responding to RFQs. You can receive a quote, our price and turnaround instantly. We can help in saving time and help focus on the more important aspects such as your product design. </p>
-	            </div>
-			</div>
-				<div class="clearfix"></div>
-			<div class="col-sm-4 col-xs-12 ">
-				<div class="rapid_features">
-					<div class="feature_icon">
-	                    <i class="fa fa-align-justify"></i>
-	                </div>
-	                <h3>Economy Plan</h3>
-	                <p>With fast turn around time, express shipping options, quantity flexibility and file optimization, we assure you that we will work out the best and most economical plan for you.</p>
-	            </div>
-			</div>
-				
-			<div class="col-sm-4 col-xs-12 ">
-				<div class="rapid_features">
-					<div class="feature_icon">
-	                    <i class="fa fa-align-justify"></i>
-	                </div>
-	                <h3>Mass Production</h3>
-	                <p>We provide a guarantee of every unit that is fabricated.</p>
-	            </div>
-			</div>
-				
-			<div class="col-sm-4 col-xs-12 ">
-				<div class="rapid_features">
-					<div class="feature_icon">
-	                    <i class="fa fa-align-justify"></i>
-	                </div>
-	                <h3>Control Our 3D Printers</h3>
-	                <p>You get to control the printing by choosing the material, resolution and even the orientation. </p>
-	            </div>
-			</div>
-					</div>
-	</div>
+<section class="mrgn-top digitlmanuf">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Additive<br>Manufacturing</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and  industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><br   >
+                    <a target="" href="<?php echo site_url();?>additivemanufacturing/additive_manufacturing/" data-tb="#service-tab-2" class="a-green-btn">
+                        View More</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Sheet Metal<br> Fabrication</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and  industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><br>
+                    <a target="" href="<?php echo site_url();?>laserprocessing/sheetmetal_processing" data-tb="#service-tab-3" class="a-green-btn">
+                        View More</i></a>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">CNC<br> Machining</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and  industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><br>
+                    <a target="" href="<?php echo site_url();?>rapidprototyping/cnc_machining" data-tb="#service-tab-2" class="a-green-btn">
+                        View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<div class="clearfix"></div>
-<style> .counter_mainrow{text-align:center; }
-.counter_main_inner i {
-vertical-align: middle;
-font-size: 40px!important;
-color: #505050;
-}
-.counter_mainrow .counter_main_inner{
-		padding-top: 2px;
-		padding-bottom: 4px;
 
-}
-.counter_main_innerh1.counter {
-font-size: 40px;
-padding: 0;
-font-weight: bold;
-}
-.counter_main_inner h1 span{
-font-weight:500;
-color:#2b343f;
+<section class="mrgn-top bx-shdw downld-app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 white">
+                <div class="padd-left ">
+                    <div class="down-cntnt  our-app-txt loan-require ">
+                        <p>Request A Quote Now</p>
+                        <p>For Your Custom Project!</p>
+                        <button class="green-btn mar-25">Click Here</button>
 
-}
-.counter{
-font-size:28px;
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 commut">
+                <div class="down-cntnt padd_all_50 app-box_child loan-require">
+                    <h3 class="basic-head white-color">Book A Live Demo</h3>
+                    <h3 class="basic-head white-color">To See It For Yourself! </h3>
+                    <button class="green-btn mar-25">Click Here</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-}
-.counter_main_inner:hover
-{background-color:#ffffff}
-.counter_main_inner:hover i
-{color:#333;}
+<section class="mrgn-top addvantage-box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Choice of<br>Materials</h3>
+                    <p class=" ">You can choose from our vast range of materials with different finishing options with our 3D printers. We have a solution for all your ideas and prototypes.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">The Best 3D<br>Analysis Tools</h3>
+                    <p class=" ">You can upload your 3D files in over 33 file formats. Our best-in-class file formats. Our best-in-class algorithms can automatically detect flaws and make corrections flaws and make corrections on your 3D file and give you feedback in seconds. We can work with multiple CAD file uploads and assembly with ease.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Instant<br>Quotations</h3>
+                    <p class=" ">You can benefit from our rapidity in responding to RFQs. You can receive a quote, our price and turnaround instantly. We can help in saving time and help focus on the more important aspects such as your product design.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mrgn-top">
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Economy Plan</h3>
+                    <p class=" ">With fast turn around time, express shipping options, quantity flexibility and file optimization, we assure you that we will work out the best and most economical plan for you.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Mass Production</h3>
+                    <p class=" ">We provide a guarantee of every unit that is fabricated.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Control Our<br>3D Printers</h3>
+                    <p class=" ">You get to control the printing by choosing the material, resolution and even the orientation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class=" bx-shdw downld-app mrgn-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 white">
+                <div class="padd-left">
+                    <div class="down-cntnt  our-app-txt ">
+                        <p>are you interested in geeting custom on demand coding?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 commut commutondemd">
+                <div class="down-cntnt app-box_child">
+                    <h3 class="basic-head white-color">On Demand</h3>
+                    <h3 class="basic-head white-color mrgn-top">Programming</h3>
+                    <button class="green-btn mrgn-top">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="addvantage-box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_tb_50"><h2 class="basic-head">Our Presence</h2></div>
+            </div>
+        </div>
+        <div class="row" id="hundered">
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">100+<br>CNCs</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">100+<br>Services</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">100+<br>Sectors</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">100+<br>Cities</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="padd_tb_50"><h2 class="basic-head">The Easy And Fast Way to Start Manufacturing</h2></div>
+            </div>
+        </div>
+        <div class="row" id="hundered">
 
-.counter_main_inner h3{color:#2b343f;font-size:23px;}
- 
-.counter_main_inner:hover  h1 span{
-font-weight: 700;
-color: #333;
- 
-}  
-.newcp_title{color:#2b343f!Important;}
-.sw-grid-flex__cell-1-3 {
-    /*flex: 0 0 33.33%;*/
-    height: 375px;
-   
-}.industrysection
-{background:#f9f9f9;padding-bottom: 45px;}
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Raise Your<br> Quote</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">Confirm<br> Your Order</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">we<br>Produce</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text_cnt bx-shdw padd_all_50 white">
+                    <h3 class="basic-head">We<br>Deliver</h3>
+                    <p class=" ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-@media (min-width: 1800px){
-.carousel-inner {
-    height: 385px!important;
-}}
 
-.topM{
-	margin-top:2px;
-	margin-bottom:2px;
-}
-.topM1{
-	margin-top:0px;
-	margin-bottom:2px;
-}
-</style>
+<section class="top caroselSet">
+    <div class="container-fluid">
+        <h2 class="basic-head padd_tb_50">What The Expert Say</h2>
+        <div class="slider_one_top main">
+            <div class="silider_box bx-shdw">
+                <div id="owl-home" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="CaroitemOuter">
+                            <div class="TextOuterWrap">
+                                <p class="sub-line"><q>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.</q></p>
+                                <p class="signature-line"><strong>Jane Doe </strong> <span class="compname">Company</span></p>
+                            </div>
+                            <div class="SideImg">
+                                <img src="<? echo $theme_url?>/images/ex-img.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="CaroitemOuter">
+                            <div class="TextOuterWrap">
+                                <p class="sub-line"><q>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.</q></p>
+                                <p class="signature-line"><strong>Jane Doe </strong> <span class="compname">Company</span></p>
+                            </div>
+                            <div class="SideImg">
+                                <img src="<? echo $theme_url?>/images/ex-img.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="CaroitemOuter">
+                            <div class="TextOuterWrap">
+                                <p class="sub-line"><q>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.</q></p>
+                                <p class="signature-line"><strong>Jane Doe </strong> <span class="compname">Company</span></p>
+                            </div>
+                            <div class="SideImg">
+                                <img src="<? echo $theme_url?>/images/ex-img.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="counter_mainrow" style="">
-  	<center>
-		<h1 style="text-transform: inherit; margin-top: 0px;margin-bottom:7px;">Our Presence</h1>
-	</center>
- 
-  	<div class="container">
-	    <div class="col-md-2 counter_main_inner"  >
-			<i class="fa fa-industry"></i>		  
-	  		<h1 class="topM"><span class="counter">110</span><span>+</span></h1>
-	        <h3 class="topM1">CNCs</h3>
-	    </div>
-	    <div class="col-md-2 counter_main_inner" >
-			<i class="fa fa-dashboard"></i>		  
-	      	<h1 class="topM"><span class="counter">25</span><span>+</span></h1>
-	        <h3 class="topM1">CMMs</h3>
-	    </div>
-	    <div class="col-md-2 counter_main_inner" >
-			<i class="fa fa-list-ul"></i>		  
-	      	<h1 class="topM"><span class="counter">25</span><span>+</span></h1>
-	        <h3 class="topM1">CAD/CAM</h3>
-	    </div>
-	    <div class="col-md-2 counter_main_inner" >
-			<i class="fa fa-cog"></i>		  
-	      	<h1 class="topM"><span class="counter">12</span><span>+</span></h1>
-	        <h3 class="topM1">Services</h3>
-	    </div>
-	    <div class="col-md-2 counter_main_inner" >
-			<i class="fa fa-compass"></i>		  
-	      	<h1 class="topM"><span class="counter">14</span><span>+</span></h1>
-	        <h3 class="topM1">Sectors</h3>
-	    </div>
-	    <div class="col-md-2 counter_main_inner" >
-			<i class="fa fa-globe"></i>		  
-	      	<h1 class="topM"><span class="counter">10</span><span>+</span></h1>
-	        <h3 class="topM1">Cities</h3>
-	    </div>
-    </div> 
-</div> 
-<div class="clearfix"></div>
 
-  
-
-<div class="col-sm-12 feature-grey-bg" style="margin-top: 18px;margin-top: 28px;">
-    <center>
-      <h2>Easy and Fast Way to Start Manufacturing</h2>
-    </center>
-	<img style="padding-bottom:10px;" src="<?php echo $theme_url?>/images/process0.png" class="img-responsive process-img">
-</div>
 <br/>
 <?php $this->template->contentBegin(POS_BOTTOM);?>
  <script src='http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js'></script>
@@ -441,11 +268,10 @@ delay: 10,
 time: 2000
 });
 $('.counter').addClass('animated fadeInDownBig');
-$('h3').addClass('animated fadeIn');</script> 
+$('h3').addClass('animated fadeIn');</script>
 <script src="<?php echo $theme_url;?>/js/scrollheader.js"></script>
-<!-- <script src="<?php echo $theme_url;?>/js/scrollheader.js"></script> -->
-<script src="<?php echo $theme_url;?>/slider/js/slider.js"></script> 
-<script src="<?php echo $theme_url;?>/js/jquery.flexisel.js"></script>	
+<script src="<?php echo $theme_url;?>/slider/js/slider.js"></script>
+<script src="<?php echo $theme_url;?>/js/jquery.flexisel.js"></script>
 <script type='text/javascript'>
  var a = 0;
 $(window).scroll(function() {
@@ -481,4 +307,4 @@ $(window).scroll(function() {
 });
 </script>
 
-<?php echo $this->template->contentEnd(); ?> 
+<?php echo $this->template->contentEnd(); ?>

@@ -12,21 +12,20 @@ class Login_model extends CI_Model
 		
 /*	-------------------- Begin Application Specific functions ------------------------------	*/	
 	// login method which interacts with database
-	public function logincheck()
-	{
-		//	get form values
-		$username = $this->input->post("username", true);
-		$password = $this->input->post("password", true);
+    public function logincheck()
+    {
+        //	get form values
+        $username = $this->input->post("username", true);
+        $password = $this->input->post("password", true);
+        $password = md5($password);
         //$username= mysql_real_escape_string( $username ) ;
-		$password= md5($password);
         //	prepare query data
-		$strwhere = "a_email = '$username' AND BINARY a_password = BINARY '$password' ";
-		$select = "id, a_name,a_email,role_id,updated_at_password";
-		//	execute query
-		$user = $this->db_lib->fetchSingle('administrator', $strwhere, $select);
-        return $user;
-	}
-
+        $strwhere = "a_email = '$username' AND BINARY a_password = BINARY '$password' ";
+        $select = "id, a_name,a_email,role_id,updated_at_password,login_status";
+        $user = $this->db_lib->fetchSingle('administrator', $strwhere, $select);
+        $data = array($username, $user);
+        return $data;
+    }
 
     /**
      * @param $userId
