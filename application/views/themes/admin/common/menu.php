@@ -55,7 +55,12 @@ ul.admin_sidebar li.cust1 a span{
 					<li><a href="<?=site_url()?>machine/admin/machineList"><i class="fa fa-angle-right"></i><span>Machine List</span></a></li>
 					<li><a href="<?=site_url()?>machine/admin/machineFinaceRequest"><i class="fa fa-angle-right"></i><span>Machine Finance Request </span></a></li>
 					<li><a href="<?=site_url()?>machine/admin/machineInsuranceRequest"><i class="fa fa-user"></i><span>Machine Insurance Request </span></a></li>
+					<li><a href="<?=site_url()?>machine/admin/machineTimeStudyRequestAll"><i class="fa fa-angle-right"></i><span>Machine Time study Request </span></a></li>
+					<!-- 
+					
 					<li><a href="<?=site_url()?>machine/admin/machineTimeStudyRequest"><i class="fa fa-angle-right"></i><span>Machine Time study Request </span></a></li>
+					-->
+					
 					<li><a href="<?=site_url()?>machine/admin/machineFinaceComment"><i class="fa fa-angle-right"></i><span>Machine Comment Request </span></a></li>
 					<li><a href="<?=site_url()?>machine/admin/machineRequest"><i class="fa fa-angle-right"></i><span>Machine Enquiry</span> </a></li>
 					<li><a href="<?=site_url()?>machine/admin/videoRequests"><i class="fa fa-angle-right"></i><span>Machine Video Request</span></a></li>

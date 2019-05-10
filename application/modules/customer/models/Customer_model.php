@@ -15,6 +15,8 @@ class Customer_model extends CI_Model {
         $this->customer_details = "customer_details";
         $this->machine_path = "uploads/machine/";
         $this->machine_order_path = "uploads/machine_order/";
+        $this->supplier_quote_time_study_path = "uploads/supplier_quote_time_study/";
+        $this->supplier_quote_finance = "uploads/supplier_quote_finance/";
         $this->machine_category = "machine_category";
         define('RESIZEWIDTH', '1600');
         define('RESIZEHIGHT', '900');
@@ -4205,6 +4207,7 @@ class Customer_model extends CI_Model {
         return $result;
     }
 	
+	
 	public function requestFreelancerRequest($data) {
 
 		$result = $this->db_lib->insert("freelancer_request_tokbox", $data);
@@ -4236,6 +4239,58 @@ class Customer_model extends CI_Model {
 		}
 
     }
-}
+/* Time Study Request List */	
+	public function machinTimeStudyCList($id) { 
+        $result = $this->db_lib->fetchMultiple("request_for_time_stud as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
+        return $result;
+    }
+	public function machinTimeStudySList($id) { 
+        $result = $this->db_lib->fetchMultiple("request_for_time_stud as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu on MTR.customer_id = mu.uid", "supplier_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name,mu.u_name as cust_name"); 
+        return $result;
+    }
+	public function machinTimeStudyRequestDetails($rfq_id) {
+		$result = $this->db_lib->fetchMultiple(" request_for_time_study_part_data ", " rfq_id= $rfq_id ", "");
 
-?>
+        return $result;
+    }
+	public function sendQuoteToCustomer($data) {
+		$data1 = $this->file_manager->upload('supplier_quote',$this->supplier_quote_time_study_path, MIX_FORMAT, "");
+		if ($data1[0]) {
+			$arrData["supplier_quote"] = $data1[1];
+			$arrData["status"] = 'QS';
+			return $result = $this->db_lib->update("request_for_time_stud", $arrData, " id = " . $data['rfq_id']);
+		}
+		return false;
+    }
+	public function acceptQuote($data) {
+		return $result = $this->db_lib->update("request_for_time_stud", $data, " id = " . $data['rfq_id']);
+
+	}
+/* Finance Request List */
+	public function machinFinanceCList($id) { 
+        $result = $this->db_lib->fetchMultiple("fintech as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
+        return $result;
+    }
+	public function machineFinanceSList($id) { 
+        $result = $this->db_lib->fetchMultiple("fintech as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu on MTR.customer_id = mu.uid", "supplier_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name,mu.u_name as cust_name"); 
+        return $result;
+    }
+	public function machinFinanceRequestDetails($rfq_id) {
+		$result = $this->db_lib->fetchMultiple(" request_for_time_study_part_data ", " rfq_id= $rfq_id ", "");
+
+        return $result;
+    }
+	public function sendFinanceQuoteToCustomer($data) {
+		$data1 = $this->file_manager->upload('supplier_quote',$this->supplier_quote_finance, MIX_FORMAT, "");
+		if ($data1[0]) {
+			$arrData["supplier_quote"] = $data1[1];
+			$arrData["status"] = 'QS';
+			return $result = $this->db_lib->update("fintech", $arrData, " id = " . $data['rfq_id']);
+		}
+		return false;
+    }
+	public function acceptQuoteFinance($data) {
+		return $result = $this->db_lib->update("fintech", $data, " id = " . $data['rfq_id']);
+	}
+
+}

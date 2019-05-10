@@ -53,7 +53,7 @@ $config['socket_local_conf_ssl']=[
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php/';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

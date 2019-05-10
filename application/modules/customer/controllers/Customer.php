@@ -8045,6 +8045,185 @@ class Customer extends FRONTEND_Controller {
             }
         }
     }
+	
+	/* Request For Time Study */
+	public function machinTimeStudyCList() {
+        //$userType = $this->session->userdata('user_type');
+        $userId = $this->session->userdata('uid');
 
+        $url = site_url() . "/customer/api/machinTimeStudyCList/$userId";
+        $timeStudyReqList = apiCall($url, "get");
+		// print_r($timeStudyReqList);exit;
+		
+		$arrayData = array(
+            "timeStudyReqList" => $timeStudyReqList['result'],
+        );
+        $this->template->load("machineTimestudyRequestNew", $arrayData);
+    }
+	public function machinTimeStudySList() {
+        $userId = $this->session->userdata('uid');
+        $userType = $this->session->userdata('user_type');
+        $url = site_url() . "/customer/api/machinTimeStudySList/$userId";
+        $timeStudyReqList = apiCall($url, "get");
+		$arrayData = array(
+            "timeStudyReqList" => $timeStudyReqList['result'],
+        );
+        $this->template->load("machineTimestudyRequestNewSupplier", $arrayData);
+    }
+	public function ViewTimeStudyRequestDetails($id) {
+        $url = site_url() . "/customer/api/machinTimeStudyRequestDetails/$id";
+        $timeStudyReqDetails = apiCall($url, "get");
+		$arrayData = array(
+            "timeStudyReqDetails" => $timeStudyReqDetails['result'],
+            "rfqID" => $id
+        );
+        $this->template->load("machineTimestudyRequestDetails", $arrayData);
+    }
+	public function ViewTimeStudyRequestDetailsCustomer($id) {
+        $url = site_url() . "/customer/api/machinTimeStudyRequestDetails/$id";
+        $timeStudyReqDetails = apiCall($url, "get");
+		$arrayData = array(
+            "timeStudyReqDetails" => $timeStudyReqDetails['result'],
+            "rfqID" => $id
+        );
+        $this->template->load("machineTimestudyRequestDetailsCustomer", $arrayData);
+    }
+	public function sendQuoteToCustomer($rfqID){
+		if (isset($_POST['submit'])) {
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $rfqID;
+			$url = site_url() . "/customer/api/sendQuoteToCustomer/";
+			$timeStudyReqDetails = apiCall($url, "POST",$pageData);
+			 if ($response['result']) {
+				setFlash("dataMsgMachSuccess", $response['message']);
+				redirect(site_url() . "customer/machinTimeStudySList/$rfqID");
+            } else {
+				setFlash("dataMsgMachError", $response['message']);
+				redirect(site_url() . "customer/machinTimeStudySList/$rfqID");
+            }
+	    }
+		$this->template->load("sendQuoteToCustomer", $arrayData);
+	}
+	public function acceptQuoteFromSupplier($rfqID){
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $rfqID;
+			$pageData["status"] = 'CA';
+			$pageData["customer_status"] = 'A';
+			$url = site_url() . "/customer/api/acceptQuote/";
+			$quoteResponse = apiCall($url, "POST",$pageData);
+			 if ($response['result']) {
+				setFlash("dataMsgMachSuccess", $response['message']);
+				redirect(site_url() . "customer/machinTimeStudyCList/");
+            } else {
+				setFlash("dataMsgMachError", $response['message']);
+				redirect(site_url() . "customer/machinTimeStudyCList/");
+            }
+	    $this->template->load("sendQuoteToCustomer", $arrayData);
+	}
+	public function rejectQuoteFromSupplier($rfqID){
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $rfqID;
+			$pageData["customer_status"] = 'CR';
+			$pageData["status"] = 'R';
+			$url = site_url() . "/customer/api/acceptQuote/";
+			$quoteResponse = apiCall($url, "POST",$pageData);
+			 if ($response['result']) {
+				setFlash("dataMsgMachSuccess", $response['message']);
+				redirect(site_url() . "customer/machinTimeStudyCList/");
+            } else {
+				setFlash("dataMsgMachError", $response['message']);
+				redirect(site_url() . "customer/machinTimeStudyCList/");
+            }
+	    $this->template->load("sendQuoteToCustomer", $arrayData);
+	}
+	/* Request For Finance */
+	public function machinFinanceCList() {
+        //$userType = $this->session->userdata('user_type');
+        $userId = $this->session->userdata('uid');
+
+        $url = site_url() . "/customer/api/machinFinanceCList/$userId";
+        $FinanceReqList = apiCall($url, "get");
+		
+		$arrayData = array(
+            "FinanceReqList" => $FinanceReqList['result'],
+        );
+        $this->template->load("machineFinanceCustomer", $arrayData);
+    }
+	public function machinFinanceSList() {
+        $userId = $this->session->userdata('uid');
+        $userType = $this->session->userdata('user_type');
+        $url = site_url() . "/customer/api/machineFinanceSList/$userId";
+        $FinanceReqList = apiCall($url, "get");
+		$arrayData = array(
+            "FinanceReqList" => $FinanceReqList['result'],
+        );
+        $this->template->load("machineFinanceRequestNewSupplier", $arrayData);
+    }
+	public function ViewFinanceRequestDetails($id) {
+        $url = site_url() . "/customer/api/machinTimeStudyRequestDetails/$id";
+        $timeStudyReqDetails = apiCall($url, "get");
+		$arrayData = array(
+            "timeStudyReqDetails" => $timeStudyReqDetails['result'],
+            "rfqID" => $id
+        );
+        $this->template->load("machineTimestudyRequestDetails", $arrayData);
+    }
+	public function ViewFinanceRequestDetailsCustomer($id) {
+        $url = site_url() . "/customer/api/machinTimeStudyRequestDetails/$id";
+        $timeStudyReqDetails = apiCall($url, "get");
+		$arrayData = array(
+            "timeStudyReqDetails" => $timeStudyReqDetails['result'],
+            "rfqID" => $id
+        );
+        $this->template->load("machineTimestudyRequestDetailsCustomer", $arrayData);
+    }
+	public function sendFinanceQuoteToCustomer($rfqID){
+		if (isset($_POST['submit'])) {
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $rfqID;
+			$url = site_url() . "/customer/api/sendFinanceQuoteToCustomer/";
+			$response = apiCall($url, "POST",$pageData);
+			if ($response['result']) {
+				setFlash("dataMsgMachSuccess", $response['message']);
+				redirect(site_url() . "customer/machinFinanceSList/$rfqID");
+            } else {
+				setFlash("dataMsgMachError", $response['message']);
+				redirect(site_url() . "customer/machinFinanceSList/$rfqID");
+            }
+	    }
+		$this->template->load("sendQuoteToCustomer", $arrayData);
+	}
+	public function acceptFinanceQuoteFromSupplier($rfqID){
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $rfqID;
+			$pageData["status"] = 'CA';
+			$url = site_url() . "/customer/api/acceptQuoteFinance/";
+			$quoteResponse = apiCall($url, "POST",$pageData);
+			 
+			if ($response['result']) {
+				setFlash("dataMsgMachSuccess", $response['message']);
+				redirect(site_url() . "customer/machinFinanceCList/");
+            } else {
+				setFlash("dataMsgMachError", $response['message']);
+				redirect(site_url() . "customer/machinFinanceCList/");
+            }
+	    $this->template->load("sendQuoteToCustomer", $arrayData);
+	}
+	public function rejectFinanceQuoteFromSupplier($rfqID){
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $rfqID;
+			$pageData["customer_status"] = 'CR';
+			$pageData["status"] = 'CR';
+			$url = site_url() . "/customer/api/acceptQuoteFinance/";
+			$quoteResponse = apiCall($url, "POST",$pageData);
+			 if ($response['result']) {
+				setFlash("dataMsgMachSuccess", $response['message']);
+				redirect(site_url() . "customer/machinFinanceCList/");
+            } else {
+				setFlash("dataMsgMachError", $response['message']);
+				redirect(site_url() . "customer/machinFinanceCList/");
+            }
+	    $this->template->load("sendQuoteToCustomer", $arrayData);
+	}
 	
 }

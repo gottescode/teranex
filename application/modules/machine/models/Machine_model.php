@@ -6,7 +6,9 @@ class Machine_model extends CI_Model {
     function __construct() {
         // call parent constructor
 			$this->machine_path="uploads/machine/";
-			$this->timestudy_path="uploads/machine_drawing_upload";
+			$this->timestudy_path="uploads/time_study_request";
+			$this->finance_path="uploads/finance_request";
+			$this->drawing_path="uploads/machine_video_drawings";
 			$this->machine_category="machine_category";
 			$this->load->library("file_manager");
 			define('RESIZEWIDTH', '1600');
@@ -689,6 +691,92 @@ class Machine_model extends CI_Model {
 		$result=$this->db_lib->fetchMultiple("master_user"," user_type=1 AND user_role=4", ""); 
 		return $result;
 	}
-	 
+	
+	/* NEW Model */
+	public function createTimeStudyRequest($data) { 
+		$data['created_on']=date('Y-m-d H:i:s');
+		//Insert into RFQ
+		$id = $this->db_lib->insert("request_for_time_stud",$data);
+		//Insert other info into another table
+		if($id){
+			$data2 = $this->file_manager->multi_upload('drawing_upload', $this->timestudy_path, IMG_FORMAT,"",1);
+			for($i=0;$i<count($data['material_type']);$i++){
+						$arraData['rfq_id'] = $id;
+						$arraData['drawing_file'] = $data2[$i][1];
+						$arraData['part_name'] = $data['part_name'][$i];
+						$arraData['material_type'] = $data['material_type'][$i];
+						$arraData['application_name'] = $data['application_name'][$i];
+						$arraData['description'] = $data['description'][$i];
+						$arraData['created_on'] = date('Y-m-d H:i:s');
+						if($arraData['part_name']!=''){
+							$result = $this->db_lib->insert('request_for_time_study_part_data',$arraData);
+						}
+			}
+		}	
+		
+		
+		return $result;
+    }
+	
+	public function machineTimeStudyRequestAll() { 
+		$result = $this->db_lib->fetchMultiple("request_for_time_stud MTR JOIN machine_details MD ON MTR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MTR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MTR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_on","MTR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
+        return $result;
+    }
+	
+	
+	public function createFinanceRequest($data) { 
+		$arrData=array();
+		$arrData['created_on']=date('Y-m-d H:i:s');
+		$arrData['created_by']=$data['created_by'];
+		$arrData['customer_id']=$data['customer_id'];
+		$arrData['fin_type']=$data['fin_type'];
+		$arrData['supplier_id']=$data['supplier_id'];
+		$arrData['machine_id']=$data['machine_id'];
+		$data1 = $this->file_manager->upload('personal_adhar_card', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["personal_adhar_card"] = $data1[1];
+		$data1 = $this->file_manager->upload('personal_pan_card', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["personal_pan_card"] = $data1[1];
+		$data1 = $this->file_manager->upload('personal_address_proof', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["personal_address_proof"] = $data1[1];
+		$data1 = $this->file_manager->upload('business_pan_card', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["business_pan_card"] = $data1[1];
+		$data1 = $this->file_manager->upload('business_address_proof', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["business_address_proof"] = $data1[1];
+		$data1 = $this->file_manager->upload('company_bank_statement', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["company_bank_statement"] = $data1[1];
+		$data1 = $this->file_manager->upload('company_balance_sheet', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["company_balance_sheet"] = $data1[1];
+		$data1 = $this->file_manager->upload('company_invoice_sheet', $this->finance_path, MIX_FORMAT,"");
+		if($data1[0])
+			$arrData["company_invoice_sheet"] = $data1[1];
+	
+		$id = $this->db_lib->insert("fintech",$arrData);
+		return $id;
+    }
+	
+	public function machineFinanceRequestAll() { 
+		$result = $this->db_lib->fetchMultiple("fintech MTR JOIN machine_details MD ON MTR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MTR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MTR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_on","MTR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
+        return $result;
+    }
+	
+	public function machineVideoRequestInsertNew($data) { 
+
+		$data['enquiry_date']=date('Y-m-d H:i:s');
+		$data1 = $this->file_manager->upload('attach_drawing', $this->drawing_path, MIX_FORMAT,"");
+		
+		if($data1[0])
+			$data["attach_drawing"] = $data1[1];
+		
+		$result = $this->db_lib->insert("machine_video_request",$data); 
+        return $result;
+    }
+	
 }
 ?>
