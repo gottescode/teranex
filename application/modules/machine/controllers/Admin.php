@@ -560,5 +560,34 @@ class Admin extends BACKEND_Controller {
 		setFlash("dataMsgSuccess",$response['message']);
 		redirect(site_url()."machine/admin/machineSoftwareList");		
 	} 
+	/* Machine Time Study Request List */
+	public function machineTimeStudyRequestAll() { 
+		$url = site_url()."machine/api/machineTimeStudyRequestAll"; 
+		$machineTimeStudy =  apiCall($url, "get"); 
+		$arrayData = [ 
+			"machineTimeStudy" => $machineTimeStudy['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineTimeStudyRequestAll',$arrayData);
+	}
+	public function ViewTimeStudyRequestDetails($id) {
+        $url = site_url() . "/customer/api/machinTimeStudyRequestDetails/$id";
+        $timeStudyReqDetails = apiCall($url, "get");
+		$arrayData = array(
+            "timeStudyReqDetails" => $timeStudyReqDetails['result'],
+            "rfqID" => $id
+        );
+		$this->template->load('admin/machine/machineTimeStudyRequestDetails',$arrayData);
+    }
+	
+	/* Machine Finance Request List */
+	public function machineFinanceRequestAll() { 
+		$url = site_url()."machine/api/machineFinanceRequestAll"; 
+		$machineFinance =  apiCall($url, "get"); 
+		$arrayData = [ 
+			"machineFinance" => $machineFinance['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineFinanceRequestAll',$arrayData);
+	}
+
 }
 ?>

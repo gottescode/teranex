@@ -356,5 +356,79 @@ class Machine extends FRONTEND_Controller {
         $response = apiCall($url, "post", $pageData);
         //print_r($response);die;
     }
+	
+	/* New Code AT*/
+    public function time_study_request() {
+		if(isset($_POST['submit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$url = site_url()."machine/api/createTimeStudyRequest";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+			}
+		}
+        $this->template->load("time_study_request");
+	}
 
+	public function finance_request($machine_id,$supplier_id) {
+		if(isset($_POST['submit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$pageData['machine_id'] = $machine_id;
+			$pageData['supplier_id'] = $supplier_id;
+			$pageData['created_by'] = $user_id;
+			$url = site_url()."machine/api/createFinanceRequest";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/finance_request/$machine_id/$supplier_id");
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/finance_request/$machine_id/$supplier_id");
+			}
+		}
+        $this->template->load("finance_request");
+	}
+	public function machine_video_request_demo($mid,$supplier_id){
+		if (isset($_POST['submit'])) {
+             $user_id = $this->session->userdata('uid');
+			 $user_id = $this->session->userdata('uid');
+            if ($user_id) {
+                $pageData = $this->input->post();
+                $url = site_url() . "machine/api/machineVideoRequestInsertNew/";
+                $pageData['user_id'] = $user_id;
+                $pageData['machine_id'] = $mid;
+                $pageData['supplier_id'] =  $supplier_id;
+				/* if($supplier_id){
+					$uid = $supplier_id;
+					$emailData = $this->db_lib->fetchSingle('master_user',' uid = '.$uid,'');
+					$to = $emailData['u_email'];
+					$body = '<p>Hello '.$emailData['u_name'] . ',</p> ';
+					$body .= 'You Have New Request for Machine Demo.Please check the Dashboard..!!';
+					$email_content = $body;
+					$this->load->library('Email_PHPMailer'); 
+					$subject = 'Book Live Demo';
+					$mailresponse = email_Send($subject, $to, $email_content,'');
+				} */
+                $response = apiCall($url, "post", $pageData,1);
+				print_r($response);exit;
+				if ($response['result']) {
+                    setFlash("dataMsgEnquirySuccess", $response['message']);
+					redirect("machine/machine_video_request_demo/$mid/$supplier_id");
+                } else {
+                    setFlash("dataMsgEnquirySuccess", $response['message']);
+					redirect("machine/machine_video_request_demo/$mid/$supplier_id");
+                }
+            } else {
+                redirect("pages/signIn");
+            }
+      
+		}
+				$this->template->load("machine_video_request");
+	}
 }

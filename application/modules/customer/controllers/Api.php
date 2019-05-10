@@ -7450,6 +7450,153 @@ class Api extends API_Controller {
 
         $this->response($response, REST_Controller::HTTP_OK);
     }
+	/* NEW API's May19 */
+	public function machinTimeStudyCList_get($id=0) { 
+     
+            $response = [
+                "result" => $this->customer_model->machinTimeStudyCList($id)
+            ];
+            
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machinTimeStudySList_get($id=0) { 
+     
+            $response = [
+                "result" => $this->customer_model->machinTimeStudySList($id)
+            ];
+            
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machinTimeStudyRequestDetails_get($id=0) { 
+     
+            $response = [
+                "result" => $this->customer_model->machinTimeStudyRequestDetails($id)
+            ];
+            
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function sendQuoteToCustomer_post() {
+        $this->form_validation->set_rules('rfq_id', 'rfq_id Required', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+            $data = $this->post();
+            $page_id = $this->customer_model->sendQuoteToCustomer($data);
+            if ($page_id) {
+
+                $response = ["result" => $page_id, "message" => "Quote Sumitted successfully."];
+            } else {
+                $response = [
+                    "result" => false,
+                    'message' => "Faild to insert record."
+                ];
+            }
+        }
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function acceptQuote_post() {
+        $this->form_validation->set_rules('rfq_id', 'rfq_id Required', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+            $data = $this->post();
+            $page_id = $this->customer_model->acceptQuote($data);
+            if ($page_id) {
+
+                $response = ["result" => $page_id, "message" => "Quote Accepted successfully."];
+            } else {
+                $response = [
+                    "result" => false,
+                    'message' => "Failed to Accept Quote."
+                ];
+            }
+        }
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+
+	public function machinFinanceCList_get($id=0) { 
+     
+            $response = [
+                "result" => $this->customer_model->machinFinanceCList($id)
+            ];
+            
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machineFinanceSList_get($id=0) { 
+     
+            $response = [
+                "result" => $this->customer_model->machineFinanceSList($id)
+            ];
+            
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machinFinanceRequestDetails_get($id=0) { 
+     
+            $response = [
+                "result" => $this->customer_model->machinTimeStudyRequestDetails($id)
+            ];
+            
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function sendFinanceQuoteToCustomer_post() {
+        $this->form_validation->set_rules('rfq_id', 'rfq_id Required', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+            $data = $this->post();
+            $page_id = $this->customer_model->sendFinanceQuoteToCustomer($data);
+            if ($page_id) {
+
+                $response = ["result" => $page_id, "message" => "Quote Sumitted successfully."];
+            } else {
+                $response = [
+                    "result" => false,
+                    'message' => "Faild to insert record."
+                ];
+            }
+        }
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function acceptQuoteFinance_post() {
+        $this->form_validation->set_rules('rfq_id', 'rfq_id Required', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+            $data = $this->post();
+            $page_id = $this->customer_model->acceptQuoteFinance($data);
+            if ($page_id) {
+
+                $response = ["result" => $page_id, "message" => "Quote Accepted successfully."];
+            } else {
+                $response = [
+                    "result" => false,
+                    'message' => "Failed to Accept Quote."
+                ];
+            }
+        }
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+
 
 }
 

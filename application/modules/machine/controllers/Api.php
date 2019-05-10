@@ -1231,6 +1231,31 @@ class Api extends API_Controller {
 		}	
 		$this->response($response, REST_Controller::HTTP_OK);
     }
+	public function machineVideoRequestInsertNew_post() {
+		  
+		$this->form_validation->set_rules('machine_id', 'Video Chat Required', 'trim|required');
+         if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->machine_model->machineVideoRequestInsertNew($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine video request added successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to add request."
+				];
+			}
+		}	
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
 	/* machine Contact Request Admin
 			19/4/2018
 	 * @access public
@@ -1441,6 +1466,97 @@ class Api extends API_Controller {
 			];
 		 	
 		$this->response($response, REST_Controller::HTTP_OK);
+
 	}
+	
+	/* NEW API's */
+	public function createTimeStudyRequest_post() {
+	    $this->form_validation->set_rules('machine_id', 'Machine Id ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$id = $this->machine_model->createTimeStudyRequest($data);
+			if($id){
+				$response = [ "result" => $id, "message" => "Time Study Request has been submitted successfully..!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	/* Time Study Request List */
+	public function machineTimeStudyRequestAll_get() {
+		  
+		    // get input data
+		 
+			$result = $this->machine_model->machineTimeStudyRequestAll();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine data get.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function createFinanceRequest_post() {
+	    $this->form_validation->set_rules('machine_id', 'Machine Id ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$id = $this->machine_model->createFinanceRequest($data);
+			if($id){
+				$response = [ "result" => $id, "message" => "Finance Request has been submitted successfully..!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function machineFinanceRequestAll_get() {
+		  
+		    // get input data
+		 
+			$result = $this->machine_model->machineFinanceRequestAll();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine data get.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
 }
 ?>
