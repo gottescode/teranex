@@ -8,6 +8,12 @@ class Machine_model extends CI_Model {
 			$this->machine_path="uploads/machine/";
 			$this->timestudy_path="uploads/time_study_request";
 			$this->finance_path="uploads/finance_request";
+			$this->on_demand_manufacturing_path="uploads/on_demand_manufacturing_drawing_upload";
+			$this->on_demand_manufacturing_finance_path="uploads/on_demand_manufacturing_finance";
+			$this->on_demand_programming_path="uploads/on_demand_programming_drawing_upload";
+			$this->on_demand_programming_finance_path="uploads/on_demand_programming_finance";
+			$this->on_demand_manufacturing_nda_path="uploads/on_demand_manufacturing_nda";
+			$this->on_demand_programming_nda_path="uploads/on_demand_programming_nda";
 			$this->drawing_path="uploads/machine_video_drawings";
 			$this->machine_category="machine_category";
 			$this->load->library("file_manager");
@@ -722,8 +728,6 @@ class Machine_model extends CI_Model {
 		$result = $this->db_lib->fetchMultiple("request_for_time_stud MTR JOIN machine_details MD ON MTR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MTR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MTR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_on","MTR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
         return $result;
     }
-	
-	
 	public function createFinanceRequest($data) { 
 		$arrData=array();
 		$arrData['created_on']=date('Y-m-d H:i:s');
@@ -760,12 +764,10 @@ class Machine_model extends CI_Model {
 		$id = $this->db_lib->insert("fintech",$arrData);
 		return $id;
     }
-	
 	public function machineFinanceRequestAll() { 
 		$result = $this->db_lib->fetchMultiple("fintech MTR JOIN machine_details MD ON MTR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MTR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MTR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_on","MTR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
         return $result;
     }
-	
 	public function machineVideoRequestInsertNew($data) { 
 
 		$data['enquiry_date']=date('Y-m-d H:i:s');
@@ -777,6 +779,188 @@ class Machine_model extends CI_Model {
 		$result = $this->db_lib->insert("machine_video_request",$data); 
         return $result;
     }
+	public function createMachineRfqRequest($data) { 
+		$data['created_date']=date('Y-m-d H:i:s');
+		$data['preferred_date'] = date_ymd($data['preferred_date']);
+		$data['delivery_preferred_date'] = date_ymd($data['delivery_preferred_date']);
+		//Insert into RFQ
+		$id = $this->db_lib->insert("machine_rfq",$data);		
+		return $id;
+    }
 	
+	/* Machine RFQ */
+	public function machineRfqAll() { 
+		$result = $this->db_lib->fetchMultiple("machine_rfq MR JOIN machine_details MD ON MR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_date","MR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
+        return $result;
+    }
+	
+	public function onDemandManufacturingRfq() { 
+		$result = $this->db_lib->fetchMultiple("rfq_on_demand_manufacturing MR JOIN machine_details MD ON MR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_date","MR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
+        return $result;
+    }
+	public function onDemandProgrammingRfq	() { 
+		$result = $this->db_lib->fetchMultiple("rfq_on_demand_programming MR JOIN machine_details MD ON MR.machine_id=MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu ON MR.customer_id = mu.uid LEFT JOIN master_user as mu2 ON MR.supplier_id = mu2.uid ", "	id <>0 ORDER BY created_date","MR.*, MD.model_no,MD.category_id,MD.brand_name,MC.category_name,MD.machine_unique_id,MB.brand_name,MBM.model_name,mu.u_name as customer_name,mu2.u_name as supplier_name"); 
+        return $result;
+    }
+	
+	public function createonDemandManufacturingRequest($data) { 
+		//create RFQ
+			$rfqData=array();
+			$rfqData['created_on']=date('Y-m-d H:i:s');
+			$rfqData['created_by']=$data['created_by'];
+			$rfqData['customer_id']=$data['customer_id'];
+			$rfqData['fin_type']=$data['fin_type'];
+			$rfqData['supplier_id']=$data['supplier_id'];
+			$rfqData['nda']=$data['nda'];
+			$rfqData['quote_needed_preferred_date']=date_ymd($data['quote_needed_preferred_date']);
+			$rfqData['currency']=$data['currency'];
+			$rfqData['work_awarded_by_preferred_date']=date_ymd($data['work_awarded_by_preferred_date']);
+			$rfqData['delivery_needed_date']=date_ymd($data['delivery_needed_date']);
+			$rfqData['part_needed_date']=date_ymd($data['part_needed_date']);
+			$rfqData['quote_quantity']=date_ymd($data['quote_quantity']);
+			$rfqData['invite_suppliers']=date_ymd($data['invite_suppliers']);
+			$rfqData['paid_by']=date_ymd($data['paid_by']);
+			$rfqData['delivery_address']=date_ymd($data['delivery_address']);
+			$rfqData['finance_status']=date_ymd($data['finance_status']);
+			$ndadata = $this->file_manager->upload('nda_file', $this->on_demand_manufacturing_nda_path, MIX_FORMAT,"");
+			if($ndadata[0])
+			$rfqData["nda_file"] = $ndadata[1];
+			$rfq_id = $this->db_lib->insert("rfq_on_demand_manufacturing",$arrData);
+			
+			if($rfq_id){
+				//Finance
+					$finData=array();
+					$finData['rfq_id']=$rfq_id;
+					$finData['created_by']=$data['created_by'];
+					$finData['customer_id']=$data['customer_id'];
+					$finData['fin_type']=$data['fin_type'];
+					$finData['supplier_id']=$data['supplier_id'];
+					$finData['machine_id']=$data['machine_id'];
+					$data1 = $this->file_manager->upload('personal_adhar_card', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_adhar_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('personal_pan_card', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_pan_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('personal_address_proof', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_address_proof"] = $data1[1];
+					$data1 = $this->file_manager->upload('business_pan_card', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["business_pan_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('business_address_proof', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["business_address_proof"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_bank_statement', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_bank_statement"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_balance_sheet', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_balance_sheet"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_invoice_sheet', $this->on_demand_manufacturing_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_invoice_sheet"] = $data1[1];
+				
+					$id = $this->db_lib->insert("rfq_manufacturing_finance",$arrData);
+						
+
+					$data2 = $this->file_manager->multi_upload('drawing_upload', $this->on_demand_manufacturing_path, IMG_FORMAT,"",1);
+					for($i=0;$i<count($data['material_type']);$i++){
+						$arraData['rfq_id'] = $rfq_id;
+						$arraData['drawing_file'] = $data2[$i][1];
+						$arraData['part_name'] = $data['part_name'][$i];
+						$arraData['material_type'] = $data['material_type'][$i];
+						$arraData['application_name'] = $data['application_name'][$i];
+						$arraData['description'] = $data['description'][$i];
+						$arraData['created_on'] = date('Y-m-d H:i:s');
+						if($arraData['part_name']!=''){
+							$result = $this->db_lib->insert('ondemand_manufacturing_part_data',$arraData);
+						}
+					}
+			}else{
+				return 0;
+			}
+		return $id;
+    }
+	public function createonDemandProgrammingRequest($data) { 
+		//create RFQ
+			$rfqData=array();
+			$rfqData['created_on']=date('Y-m-d H:i:s');
+			$rfqData['created_by']=$data['created_by'];
+			$rfqData['customer_id']=$data['customer_id'];
+			$rfqData['fin_type']=$data['fin_type'];
+			$rfqData['supplier_id']=$data['supplier_id'];
+			$rfqData['nda']=$data['nda'];
+			$rfqData['quote_needed_preferred_date']=date_ymd($data['quote_needed_preferred_date']);
+			$rfqData['currency']=$data['currency'];
+			$rfqData['work_awarded_by_preferred_date']=date_ymd($data['work_awarded_by_preferred_date']);
+			$rfqData['delivery_needed_date']=date_ymd($data['delivery_needed_date']);
+			$rfqData['part_needed_date']=date_ymd($data['part_needed_date']);
+			$rfqData['quote_quantity']=date_ymd($data['quote_quantity']);
+			$rfqData['invite_suppliers']=date_ymd($data['invite_suppliers']);
+			$rfqData['paid_by']=date_ymd($data['paid_by']);
+			$rfqData['delivery_address']=date_ymd($data['delivery_address']);
+			$rfqData['finance_status']=date_ymd($data['finance_status']);
+			$ndadata = $this->file_manager->upload('nda_file', $this->on_demand_programming_nda_path, MIX_FORMAT,"");
+			if($ndadata[0])
+			$rfqData["nda_file"] = $ndadata[1];
+			$rfq_id = $this->db_lib->insert("rfq_on_demand_programming",$arrData);
+			
+			if($rfq_id){
+				//Finance Data
+					$finData=array();
+					$finData['rfq_id']=$rfq_id;
+					$finData['created_by']=$data['created_by'];
+					$finData['customer_id']=$data['customer_id'];
+					$finData['fin_type']=$data['fin_type'];
+					$finData['supplier_id']=$data['supplier_id'];
+					$finData['machine_id']=$data['machine_id'];
+					$data1 = $this->file_manager->upload('personal_adhar_card', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_adhar_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('personal_pan_card', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_pan_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('personal_address_proof', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_address_proof"] = $data1[1];
+					$data1 = $this->file_manager->upload('business_pan_card', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["business_pan_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('business_address_proof', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["business_address_proof"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_bank_statement', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_bank_statement"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_balance_sheet', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_balance_sheet"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_invoice_sheet', $this->on_demand_programming_finance_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_invoice_sheet"] = $data1[1];
+				
+					$id = $this->db_lib->insert("rfq_programming_finance",$arrData);
+						
+				//Part Information Data
+					$data2 = $this->file_manager->multi_upload('drawing_upload', $this->on_demand_programming_path, IMG_FORMAT,"",1);
+					for($i=0;$i<count($data['material_type']);$i++){
+						$arraData['rfq_id'] = $rfq_id;
+						$arraData['drawing_file'] = $data2[$i][1];
+						$arraData['part_name'] = $data['part_name'][$i];
+						$arraData['material_type'] = $data['material_type'][$i];
+						$arraData['application_name'] = $data['application_name'][$i];
+						$arraData['description'] = $data['description'][$i];
+						$arraData['created_on'] = date('Y-m-d H:i:s');
+						if($arraData['part_name']!=''){
+							$result = $this->db_lib->insert('ondemand_programming_part_data',$arraData);
+						}
+					}
+			}else{
+				return 0;
+			}
+		return $id;
+    }
+
 }
 ?>

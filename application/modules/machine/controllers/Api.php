@@ -1558,5 +1558,107 @@ class Api extends API_Controller {
 		 
 		$this->response($response, REST_Controller::HTTP_OK);
     }
+
+	public function createMachineRfqRequest_post() {
+	    $this->form_validation->set_rules('machine_id', 'Machine Id ', 'trim|required');
+	    $this->form_validation->set_rules('supplier_id', 'Supplier Id ', 'trim|required');
+	    $this->form_validation->set_rules('customer_id', 'Customer Id ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$id = $this->machine_model->createMachineRfqRequest($data);
+			if($id){
+				$response = [ "result" => $id, "message" => "Request Quote for machine has been submitted successfully..!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function machineRfqAll_get() {
+			// get input data
+			$result = $this->machine_model->machineRfqAll();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine RFQ Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function onDemandManufacturingRfq_get() {
+			// get input data
+			$result = $this->machine_model->onDemandManufacturingRfq();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine RFQ Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function onDemandProgrammingRfq_get() {
+			// get input data
+			$result = $this->machine_model->onDemandProgrammingRfq();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine RFQ Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	
+	public function createonDemandManufacturingRequest_post() {
+	    $this->form_validation->set_rules('machine_id', 'Machine Id ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$id = $this->machine_model->createonDemandManufacturingRequest($data);
+			if($id){
+				$response = [ "result" => $id, "message" => "Finance Request has been submitted successfully..!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
 }
 ?>

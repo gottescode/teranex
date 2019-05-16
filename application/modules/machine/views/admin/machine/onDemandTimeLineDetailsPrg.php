@@ -4,11 +4,11 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
 		<section class="content-header">
-		  <span style="font-size: 24px;padding: 10px;">Machine Time study Request List</span>
+		  <span style="font-size: 24px;padding: 10px;">OnDemand Programming Request List</span>
 		  <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class=""><a href="#">Machine Time Study Request List </a></li>
-			
+			<li><a href="<?=site_url()."machine/admin/onDemandProgrammingRfq"?>"><i class="fa fa-dashboard"></i> OnDemand Rfq</a></li>
+			<li><a href="#"><i class="fa fa-dashboard"></i> OnDemand Timeline Details</a></li>
 		  </ol>
 		</section>
 	 <!-- Main content -->
@@ -33,57 +33,43 @@
 						 
 						<div class="box-body"> 
 						 
-						<form id="" name="" class="form-horizontal" enctype="multipart/form-data" method="post">
 								<div class="table-responsive">
-						
-									<table class="table table-bordered table-striped" id="community_table">
+											<table class="table table-bordered table-striped" id="community_table">
 										<thead>
 											<tr>
 												<th>Sr.No.</th>
-												<th>Machine</th> 
-												<th>Brand</th> 
-												<th>Model</th>
-												<th>Description</th>  
-												<th>Enquiry Dates</th>
-												<th>Download Drawing</th> 
-												<!-- 
-												<th>Status</th> -->
+												<th>Quote Needed by</th> 
+												<th>Work Will Be Awarded by</th> 
+												<th>Part needed by</th>
+												<th>Quote Quantity</th>  
+												<th>Invite Suppliers I Know</th>  
+												<th>Delivery Needed by</th>
 											</tr>
 										</thead>
 										<tbody>
 										<?php 
 										$i=1;
-											foreach($machineTimeStudy as $row){ ?>
+$row = $manufacturingRequestData;
+//											foreach($manufacturingRequestData as $row){ ?>
 											<tr>
 												<td><?=$i++;?></td> 
-												<!--<td><?=$row['model_no'].", ".$row['brand_name'];?>--></td>
-												<td><?=$row['category_name'];?></td>
-												<td><?=$row['brand_name'];?></td>
-												<td><?=$row['model_name'];?></td>
-												<td><?=$row['description'];?></td>
-												<td><?=$row['enquiry_date'];?></td> 
-												<td><?php
-                                    if ($row['drawing_upload'] != '') {
-                                        echo "<a href='" . site_url() . "uploads/machine_drawing_upload/" . $row['drawing_upload'] . "' target='_blank'>Click Here</a>";
-                                    }
-                                    ?></td>
-                            <!--         <td><?php if($row['request_status'] == 'A'){ ?>Accepted<?php }
-						      elseif($row['request_status'] == 'R') { ?>Rejected<?php }
-							  elseif($row['request_status'] == 'H') { ?>On Hold<?php } 
-							  elseif($row['request_status'] == 'R') { ?>Rejected<?php }
-							  elseif($row['request_status'] == 'P') { ?>Processing<?php }  
-							  elseif($row['request_status'] == 'QS'){ ?>Quote Submitted<?php }
-							  elseif($row['request_status'] == 'QG') { ?>Quote Genrated<?php } 
-							  elseif($row['request_status'] == 'D') { ?>Delivered  <?php } 
-							  elseif($row['request_status'] == 'C') { ?>Completed  <?php } 
-							  else { ?>Requested<?php } ?>	</td>
-								-->			</tr>
-											<? } ?>
+												<td>
+													<p>Preferred Date: <?=$row['quote_needed_preferred_date'];?></p>
+													<p>Currency: <?=$row['currency'];?></p>
+												</td>
+												<td><p>Preferred Date: <?=$row['work_awarded_by_preferred_date'];?></p></td>
+												<td><p>Preferred Date: <?=$row['part_needed_date'];?></p></td>
+												<td><?=$row['quote_quantity'];?></td>
+												<td><?=$row['invite_suppliers'];?></td>
+												<td><p>Paid By: <?=$row['paid_by'];?></p>
+												<p>Delivery Address: <?=$row['delivery_address'];?></p></td>
+											</tr>
+											<?// } ?>
 										</tbody>
 									</table>  
+							
 								</div>
-							</form>
-						</div>
+							</div>
 					</div>
 				</div>
 			</div>			
