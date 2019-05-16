@@ -4,11 +4,11 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
 		<section class="content-header">
-		  <span style="font-size: 24px;padding: 10px;">Machine Time study Request List</span>
+		  <span style="font-size: 24px;padding: 10px;">OnDemand Manufacturing Request List</span>
 		  <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class=""><a href="#">Machine Time Study Request List </a></li>
-			
+			<li><a href="<?=site_url()."machine/admin/onDemandManufacturingRfq"?>"><i class="fa fa-dashboard"></i> OnDemand Rfq</a></li>
+			<li><a href="#"><i class="fa fa-dashboard"></i> OnDemand Rfq Details</a></li>
 		  </ol>
 		</section>
 	 <!-- Main content -->
@@ -40,44 +40,26 @@
 										<thead>
 											<tr>
 												<th>Sr.No.</th>
-												<th>Machine</th> 
-												<th>Brand</th> 
-												<th>Model</th>
-												<th>Description</th>  
-												<th>Enquiry Dates</th>
-												<th>Download Drawing</th> 
-												<!-- 
-												<th>Status</th> -->
+												<th>Part Name</th> 
+												<th>Material Type</th> 
+												<th>Application Name</th>
+												<th>Drawing File</th>  
+												<th>Description</th>
 											</tr>
 										</thead>
 										<tbody>
 										<?php 
 										$i=1;
-											foreach($machineTimeStudy as $row){ ?>
+
+											foreach($rfqDetails as $row){ ?>
 											<tr>
 												<td><?=$i++;?></td> 
-												<!--<td><?=$row['model_no'].", ".$row['brand_name'];?>--></td>
-												<td><?=$row['category_name'];?></td>
-												<td><?=$row['brand_name'];?></td>
-												<td><?=$row['model_name'];?></td>
-												<td><?=$row['description'];?></td>
-												<td><?=$row['enquiry_date'];?></td> 
-												<td><?php
-                                    if ($row['drawing_upload'] != '') {
-                                        echo "<a href='" . site_url() . "uploads/machine_drawing_upload/" . $row['drawing_upload'] . "' target='_blank'>Click Here</a>";
-                                    }
-                                    ?></td>
-                            <!--         <td><?php if($row['request_status'] == 'A'){ ?>Accepted<?php }
-						      elseif($row['request_status'] == 'R') { ?>Rejected<?php }
-							  elseif($row['request_status'] == 'H') { ?>On Hold<?php } 
-							  elseif($row['request_status'] == 'R') { ?>Rejected<?php }
-							  elseif($row['request_status'] == 'P') { ?>Processing<?php }  
-							  elseif($row['request_status'] == 'QS'){ ?>Quote Submitted<?php }
-							  elseif($row['request_status'] == 'QG') { ?>Quote Genrated<?php } 
-							  elseif($row['request_status'] == 'D') { ?>Delivered  <?php } 
-							  elseif($row['request_status'] == 'C') { ?>Completed  <?php } 
-							  else { ?>Requested<?php } ?>	</td>
-								-->			</tr>
+												<td><?=$row['part_name'];?></td>
+												<td><?=$row['material_type'];?></td>
+												<td><?=$row['application_name'];?></td>
+												<td><? echo "<a href='" . site_url() . "uploads/on_demand_manufacturing_drawing_upload/" . $row['drawing_file'] . "' target='_blank'>Click Here</a>"; ?></td>
+												<td><?=$row['description'];?></td> 
+											</tr>
 											<? } ?>
 										</tbody>
 									</table>  

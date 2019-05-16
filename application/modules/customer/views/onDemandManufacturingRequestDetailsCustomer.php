@@ -53,69 +53,33 @@
 			<thead>
 				<tr bgcolor="#CCCCCC">
 					<th>Sr.No.</th>
-					<th>Customer Name</th>
-					<th>Machine ID</th>
-					<th>Machine Name</th>
-					<th>Brand</th>
-					<th>Model</th>
-					<th>Request Date</th>
-				<!-- 
-				<th>Quote</th>
-					<th>Status</th>   
-					
-				-->	<th>Action</th>
+					<th>Part Name</th>
+					<th>Material Type</th>
+					<th>Application Name</th>
+					<th>Drawing File</th>
+					<th>Description</th>
 				</tr>
 				</thead>
 				<tbody>
 						<?php
-						if($timeStudyReqList >0){ $i=1;
-							foreach($timeStudyReqList  as $rowData){
+						if($timeStudyReqDetails  >0){ $i=1;
+							foreach($timeStudyReqDetails as $rowData){
 							?>
 							<tr>
 								<td><?=$i?></td>
-								<td><?=$rowData['cust_name']?></td>   
-								<td><?=$rowData['machine_unique_id']?></td>   
-								<td><?=$rowData['category_name']?></td>   
-								<td><?=$rowData['brand_name']?></td> 
-								<td><?=$rowData['model_name']?></td>
-								<td><?=$rowData['created_on']?></td>  
-						<!-- 		<td><? if($rowData['supplier_quote']!=''){ ?>
-                                  	<a target="_blank" href="<?=site_url()."uploads/supplier_quote_time_study/".$rowData['supplier_quote'];?>" class="btn btn-xs btn-primary"> View Quote</a>
-									<a href = "<?php echo site_url()."uploads/machine_drawing_upload/".$rowData['supplier_quote']?>">
-								<?	}else{	?>
-									-
-								<?	}	?></td>
-								<td>
-								<?php 
-								if($rowData['status'] == 'A'){ ?>Accepted<?php }
-								elseif($rowData['status'] == 'H') { ?>Waiting<?php } 
-								elseif($rowData['status'] == 'QS'){ ?>Quote Submitted<?php }
-								else { ?>Requested<?php } ?>	
-								</td>  
-							-->	<td>  
-									<a href="<?php echo site_url()."customer/viewManufacturingRequestDetails/".$rowData['id']?>" class="btn btn-xs btn-primary"> Details </a>
- 								</td> 
-
+								<td><?=$rowData['part_name']?></td>   
+								<td><?=$rowData['material_type']?></td>   
+								<td><?=$rowData['application_name']?></td> 
+								<td><a target="_blank"href = "<?php echo site_url()."uploads/time_study_request/".$rowData['drawing_file']?>">Drawing File</a></td>
+								<td><?=$rowData['description']?></td> 
 							</tr>
-
-						
-
 						<?php $i++; }
-
 							echo "";
-
 						}else{
-
 							echo "<tr><td colspan='4'>Record not found</td></tr>";
-
 						}?>
-
 				</tbody>
-
 			</table>
-
-		 
-
 		</div> 
 
 		<div class="clearfix"></div>

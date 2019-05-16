@@ -107,7 +107,7 @@
 												</td>
 												<td>
 									<? if($row['supplier_quote']!=''){ ?>
-										<a target="_blank" href="<?=site_url()."uploads/supplier_quote_time_study/".$row['supplier_quote'];?>" class="btn btn-xs btn-primary"> View Quote</a>
+										<a target="_blank" href="<?=site_url()."uploads/supplier_quote_finance/".$row['supplier_quote'];?>" class="btn btn-xs btn-primary"> View Quote</a>
 									<?	}else{	?>
 										-
 									<?	}	?>

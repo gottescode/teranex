@@ -1,14 +1,15 @@
- <link rel="stylesheet" href="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.css">
+
+<link rel="stylesheet" href="<?=$theme_url;?>/plugins/datatables/dataTables.bootstrap.css">
   <link rel="stylesheet" href="<?=$theme_url;?>/css/toastr.css">
   <!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
 		<section class="content-header">
-		  <span style="font-size: 24px;padding: 10px;">Machine Time study Request List</span>
+		  <span style="font-size: 24px;padding: 10px;">OnDemand Manufacturing Request List</span>
 		  <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class=""><a href="#">Machine Time Study Request List </a></li>
-			
+			<li><a href="<?=site_url()."machine/admin/onDemandManufacturingRfq"?>"><i class="fa fa-dashboard"></i> OnDemand Rfq</a></li>
+			<li><a href="#"><i class="fa fa-dashboard"></i> OnDemand Finance </a></li>
 		  </ol>
 		</section>
 	 <!-- Main content -->
@@ -40,43 +41,38 @@
 										<thead>
 											<tr>
 												<th>Sr.No.</th>
-												<th>Machine ID</th> 
-												<th>Customer</th> 
-												<th>Supplier</th> 
-												<th>Brand</th> 
-												<th>Model</th>
-												<th>Enquiry Date</th>
-												<th>Action</th>
-												<!-- 
-													<th>Status</th> 
-												<th>Supplier Quote</th>
-												--> 
+												<th>Personal KYC</th> 
+												<th>Business KYC</th> 
+												<th>Bank Documents</th>
 											</tr>
 										</thead>
 										<tbody>
-										<?php 
-										$i=1;
-											foreach($machineTimeStudy as $row){ ?>
 											<tr>
-												<td><?=$i++;?></td> 
-												<td><?=$row['machine_unique_id'];?></td>
-												<td><?=$row['customer_name'];?></td>
-												<td><?=$row['supplier_name'];?></td>
-												<td><?=$row['brand_name'];?></td>
-												<td><?=$row['model_name'];?></td>
-												<td><?=$row['created_on'];?></td> 
-											<!-- 	<td><?php 
-														if($row['status'] == 'CA'){ ?>Accepted<?php }
-														elseif($row['status'] == 'CR') { ?>Rejected<?php }
-														elseif($row['status'] == 'H') { ?>Requested<?php } 
-														elseif($row['status'] == 'QS'){ ?>Quote Submitted<?php }
-													?>	
-												</td>-->
+												<td>1</td> 
 												<td>
-													<a target="_blank" href="<?php echo site_url()."machine/admin/ViewTimeStudyRequestDetails/".$row['id']?>" class="btn btn-xs btn-primary"> Details </a>
-												</td> 
+												<p>	<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['personal_adhar_card']?>" target="_blank">Aadhar Card</a>
+												</p>
+												<p>
+													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['personal_pan_card']?>" target="_blank">PAN Card</a>
+												</p>
+												<p>
+													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['personal_address_proof']?>" target="_blank">Address</a>
+												</p>
+												</td>
+												<td>
+												<p>
+													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['business_pan_card']?>" target="_blank">PAN Card</a>
+													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['business_address_proof']?>"target="_blank">Business Address</a>
+												</p>
+												</td>
+												<td>
+													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['company_bank_statement']?>" target="_blank">Bank Statement</a>
+												<p>	<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['company_balance_sheet']?>" target="_blank">Balance Sheet</a>
+													</p><a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$financeRfqDetails['company_invoice_sheet']?>" target="_blank">Invoice</a>
+												</td>
+												
 											</tr>
-											<? } ?>
+										
 										</tbody>
 									</table>  
 								</div>

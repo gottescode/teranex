@@ -373,7 +373,6 @@ class Machine extends FRONTEND_Controller {
 		}
         $this->template->load("time_study_request");
 	}
-
 	public function finance_request($machine_id,$supplier_id) {
 		if(isset($_POST['submit'])) {
 			$user_id = $this->session->userdata('uid');
@@ -415,8 +414,7 @@ class Machine extends FRONTEND_Controller {
 					$subject = 'Book Live Demo';
 					$mailresponse = email_Send($subject, $to, $email_content,'');
 				} */
-                $response = apiCall($url, "post", $pageData,1);
-				print_r($response);exit;
+                $response = apiCall($url, "post", $pageData);
 				if ($response['result']) {
                     setFlash("dataMsgEnquirySuccess", $response['message']);
 					redirect("machine/machine_video_request_demo/$mid/$supplier_id");
@@ -431,4 +429,25 @@ class Machine extends FRONTEND_Controller {
 		}
 				$this->template->load("machine_video_request");
 	}
+	public function machine_rfq($machine_id,$supplier_id) {
+		if(isset($_POST['submit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$pageData['created_by'] = $user_id;
+			$pageData['machine_id'] = $machine_id;
+			$pageData['supplier_id'] = $supplier_id;
+			$url = site_url()."machine/api/createMachineRfqRequest";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/machine_rfq/$machine_id/$supplier_id");
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/machine_rfq/$machine_id/$supplier_id");
+			}
+		}
+        $this->template->load("machine_rfq_request_form");
+	}
+	
 }

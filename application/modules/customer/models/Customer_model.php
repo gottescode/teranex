@@ -16,6 +16,9 @@ class Customer_model extends CI_Model {
         $this->machine_path = "uploads/machine/";
         $this->machine_order_path = "uploads/machine_order/";
         $this->supplier_quote_time_study_path = "uploads/supplier_quote_time_study/";
+        $this->supplier_quote_on_manufacturing_path = "uploads/supplier_quote_on_demand_manufacturing/";
+        $this->supplier_quote_on_programming_path = "uploads/supplier_quote_on_demand_programming/";
+        $this->supplier_quote_machine_rfq = "uploads/supplier_quote_machine_rfq/";
         $this->supplier_quote_finance = "uploads/supplier_quote_finance/";
         $this->machine_category = "machine_category";
         define('RESIZEWIDTH', '1600');
@@ -4239,7 +4242,7 @@ class Customer_model extends CI_Model {
 		}
 
     }
-/* Time Study Request List */	
+/*Time Study Request List */	
 	public function machinTimeStudyCList($id) { 
         $result = $this->db_lib->fetchMultiple("request_for_time_stud as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
         return $result;
@@ -4266,7 +4269,8 @@ class Customer_model extends CI_Model {
 		return $result = $this->db_lib->update("request_for_time_stud", $data, " id = " . $data['rfq_id']);
 
 	}
-/* Finance Request List */
+
+/*Finance Request List */
 	public function machinFinanceCList($id) { 
         $result = $this->db_lib->fetchMultiple("fintech as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
         return $result;
@@ -4291,6 +4295,113 @@ class Customer_model extends CI_Model {
     }
 	public function acceptQuoteFinance($data) {
 		return $result = $this->db_lib->update("fintech", $data, " id = " . $data['rfq_id']);
+	}
+
+/*Machine RFQ  */
+	public function machineRfqCList($id) { 
+        $result = $this->db_lib->fetchMultiple("machine_rfq as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
+        return $result;
+    }
+	public function machineRfqSList($id) { 
+        $result = $this->db_lib->fetchMultiple("machine_rfq as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu on MTR.customer_id = mu.uid", "supplier_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name,mu.u_name as cust_name"); 
+        return $result;
+    }
+	public function machineRfqDetails($rfq_id) {
+		$result = $this->db_lib->fetchMultiple(" request_for_time_study_part_data ", " rfq_id= $rfq_id ", "");
+
+        return $result;
+    }
+	public function sendRfqToCustomer($data) {
+		$data1 = $this->file_manager->upload('supplier_quote',$this->supplier_quote_machine_rfq, MIX_FORMAT, "");
+		if ($data1[0]) {
+			$arrData["supplier_quote"] = $data1[1];
+			$arrData["status"] = 'QS';
+			return $result = $this->db_lib->update("machine_rfq", $arrData, " id = " . $data['rfq_id']);
+		}
+		return false;
+    }
+	public function acceptQuoteRfq($data) {
+		return $result = $this->db_lib->update("machine_rfq", $data, " id = " . $data['rfq_id']);
+	}
+
+/*On Demand Manufacturing RFQ */	
+	public function onDemandManRfqCList($id) { 
+        $result = $this->db_lib->fetchMultiple("rfq_on_demand_manufacturing as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
+        return $result;
+    }
+	public function financeRequestForMaufacturing($rfq_id) { 
+		$result = $this->db_lib->fetchSingle("rfq_manufacturing_finance", " rfq_id= $rfq_id ");
+        return $result;
+    }
+	public function manufacturingRequestDetails($rfq_id) { 
+		$result = $this->db_lib->fetchMultiple("ondemand_manufacturing_part_data", " rfq_id= $rfq_id ");
+        return $result;
+    }
+	public function manufacturingTimeLineDetails($rfq_id) { 
+		$result = $this->db_lib->fetchSingle("rfq_on_demand_manufacturing", " id= $rfq_id ");
+        return $result;
+    }
+	public function onDemandManRfqSList($id) { 
+        $result = $this->db_lib->fetchMultiple("rfq_on_demand_manufacturing as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu on MTR.customer_id = mu.uid", "supplier_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name,mu.u_name as cust_name"); 
+        return $result;
+    }
+	public function onDemandManRfqDetails($rfq_id) {
+		$result = $this->db_lib->fetchMultiple("ondemand_manufacturing_part_data", " rfq_id= $rfq_id ", "");
+
+        return $result;
+    }
+	public function sendQuoteToCustomerOnDemandManufacturing($data) {
+		$data1 = $this->file_manager->upload('supplier_quote',$this->supplier_quote_on_manufacturing_path, MIX_FORMAT, "");
+		if ($data1[0]) {
+			$arrData["supplier_quote"] = $data1[1];
+			$arrData["status"] = 'QS';
+			return $result = $this->db_lib->update("rfq_on_demand_manufacturing", $arrData, " id = " . $data['rfq_id']);
+		}
+		return false;
+    }
+	public function acceptQuoteOnDemandManfacturing($data) {
+		return $result = $this->db_lib->update("rfq_on_demand_manufacturing", $data, " id = " . $data['rfq_id']);
+
+	}
+
+/*On Demand Programming RFQ */	
+	public function onDemandPrgRfqCList($id) { 
+        $result = $this->db_lib->fetchMultiple("rfq_on_demand_programming as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id", "customer_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name"); 
+        return $result;
+    }
+	public function financeRequestForProgramming($rfq_id) { 
+		$result = $this->db_lib->fetchSingle("rfq_programming_finance", " rfq_id= $rfq_id ");
+        return $result;
+    }
+	public function prgrammingRequestDetails($rfq_id) { 
+		$result = $this->db_lib->fetchMultiple("ondemand_programming_part_data", " rfq_id= $rfq_id ");
+        return $result;
+    }
+	public function programmingTimeLineDetails($rfq_id) { 
+		$result = $this->db_lib->fetchSingle("rfq_on_demand_programming", " id= $rfq_id ");
+        return $result;
+    }
+	public function onDemandPrgRfqSList($id) { 
+        $result = $this->db_lib->fetchMultiple("rfq_on_demand_programming as MTR LEFT JOIN machine_details MD ON MTR.machine_id= MD.md_id LEFT JOIN machine_category MC ON MD.category_id=MC.mc_id LEFT JOIN machine_brand MB ON MD.brand_name=MB.mb_id LEFT JOIN machine_brand_model MBM ON MD.model_no=MBM.md_id LEFT JOIN master_user as mu on MTR.customer_id = mu.uid", "supplier_id=".$id ,"MTR.*, MD.model_no,MD.machine_unique_id,MD.category_id,MD.brand_name,MC.category_name,MB.brand_name,MBM.model_name,mu.u_name as cust_name"); 
+        return $result;
+    }
+	public function onDemandPrgRfqDetails($rfq_id) {
+		$result = $this->db_lib->fetchMultiple("ondemand_manufacturing_part_data", " rfq_id= $rfq_id ", "");
+
+        return $result;
+    }
+	public function sendQuoteToCustomerOnDemandProgramming($data) {
+		$data1 = $this->file_manager->upload('supplier_quote',$this->supplier_quote_on_programming_path, MIX_FORMAT, "");
+		if ($data1[0]) {
+			$arrData["supplier_quote"] = $data1[1];
+			$arrData["status"] = 'QS';
+			return $result = $this->db_lib->update("rfq_on_demand_programming", $arrData, " id = " . $data['rfq_id']);
+		}
+		return false;
+    }
+	public function acceptQuoteOnDemandProgramming($data) {
+		return $result = $this->db_lib->update("rfq_on_demand_programming", $data, " id = " . $data['rfq_id']);
+
 	}
 
 }

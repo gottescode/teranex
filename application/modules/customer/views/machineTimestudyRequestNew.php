@@ -58,8 +58,9 @@
 					<th>Brand</th>
 					<th>Model</th>
 					<th>Request Date</th>
-					<th>Supplier Quote</th>
+					<!-- <th>Supplier Quote</th>
 					<th>Status</th>   
+					-->
 					<th>Action</th>
 				</tr>
 				</thead>
@@ -76,7 +77,7 @@
 								<td><?=$rowData['brand_name']?></td> 
 								<td><?=$rowData['model_name']?></td>
 								<td><?=$rowData['created_on']?></td>  
-								<td>
+							<!--	<td>
 									<? if($rowData['supplier_quote']!=''){ ?>
 										<a target="_blank" href="<?=site_url()."uploads/supplier_quote_time_study/".$rowData['supplier_quote'];?>" class="btn btn-xs btn-primary"> View Quote</a>
 									<?	}else{	?>
@@ -90,14 +91,14 @@
 									elseif($rowData['status'] == 'QS'){ ?>Quote Submitted<?php }
 									else { ?>Requested<?php } ?>	
 									
-								</td>  
+								</td>  -->
 								<td>  
 									<a href="<?php echo site_url()."customer/ViewTimeStudyRequestDetailsCustomer/".$rowData['id']?>" class="btn btn-xs btn-primary"> Details </a>
-									<?	if($rowData['status'] == 'QS'){ ?>
+								<!--	<?	if($rowData['status'] == 'QS'){ ?>
 									<a href="<?php echo site_url()."customer/acceptQuoteFromSupplier/".$rowData['id']?>" class="btn btn-xs btn-primary" onclick="return confirm('Are You Sure To Accept This Quote?')"> Accept Quote</a>
 									<a href="<?php echo site_url()."customer/rejectQuoteFromSupplier/".$rowData['id']?>" class="btn btn-xs btn-primary" onclick="return confirm('Are You Sure To Reject This Quote?')" > Reject Quote</a>
 										
-									<?	} ?>
+									<?	} ?> -->
 								</td> 
 
 							</tr>

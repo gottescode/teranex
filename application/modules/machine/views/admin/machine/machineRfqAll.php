@@ -4,10 +4,10 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
 		<section class="content-header">
-		  <span style="font-size: 24px;padding: 10px;">Machine Finance Request List</span>
+		  <span style="font-size: 24px;padding: 10px;">Machine RFQ List</span>
 		  <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class=""><a href="#">Machine Finance Request List </a></li>
+			<li class=""><a href="#">Machine Machine RFQ List</a></li>
 			
 		  </ol>
 		</section>
@@ -43,49 +43,43 @@
 												<th>Machine</th> 
 												<th>Customer</th> 
 												<th>Supplier</th> 
-												<th>Personal KYC</th>
-												<th>Business eKYC</th>
-												<th>Company Document</th>
+												<th>Quote Needed by</th> 
+												<th>Delivery Needed by</th> 
+												<th>Mode Of Payment</th> 
 												<th>Enquiry Date</th>
-												<th>Status</th> 
+												<th>RFQ Status</th> 
 												<th>Supplier Quote</th> 
 											</tr>
 										</thead>
 										<tbody>
 										<?php 
 										$i=1;
-											foreach($machineFinance as $row){ ?>
+											foreach($machineRfqAll as $row){ ?>
 											<tr>
 												<td><?=$i++;?></td> 
 												<td>
-													<p>Machine ID:<?php echo $row['machine_unique_id']?></p>
-													<p>Brand:<?php echo $row['brand_name']?></p>
-													<p>Model:<?php echo $row['model_name']?></p>
+													<p><b>Machine ID:</b> <?php echo $row['machine_unique_id']?></p>
+													<p><b>Brand: </b><?php echo $row['brand_name']?></p>
+													<p><b>Model: </b><?php echo $row['model_name']?></p>
 												</td>
 												<td><?=$row['customer_name'];?></td>
 												<td><?=$row['supplier_name'];?></td>
 												<td>
-												<p>	<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['personal_adhar_card']?>" target="_blank">Aadhar Card</a>
-												</p>
-												<p>
-													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['personal_pan_card']?>" target="_blank">PAN Card</a>
-												</p>
-												<p>
-													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['personal_address_proof']?>" target="_blank">Address</a>
-												</p>
-												</td>
+													<p><b>Preferred Date: </b><?=date_dmy($row['preferred_date']);?></p>
+													<p><b>Currency	: </b><?=$row['currency'];?></p>
+												</td> 
 												<td>
-												<p>
-													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['business_pan_card']?>" target="_blank">PAN Card</a>
-													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['business_address_proof']?>"target="_blank">Business Address</a>
-												</p>
-												</td>
+													<p><b>Preferred Date: </b><?=date_dmy($row['delivery_preferred_date']);?></p>
+													<p><b>Paid By	: </b><?=$row['paid_by'];?></p>
+													<?php if($row['delivery_address']!=''){ ?>
+													<p><b>Delivery Address	: </b><?=$row['delivery_address'];?></p>
+													<?	} ?>
+												</td> 
 												<td>
-													<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['company_bank_statement']?>" target="_blank">Bank Statement</a>
-												<p>	<a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['company_balance_sheet']?>" target="_blank">Balance Sheet</a>
-													</p><a class="btn-xs btn-primary" href="<?php echo site_url()."uploads/finance_request/".$row['company_invoice_sheet']?>" target="_blank">Invoice</a>
-												</td>
-												<td><?=$row['created_on'];?></td> 
+													<p><b>Advance Payment: </b><?=$row['mode_of_advance_payment'];?></p>
+													<p><b>Remaining Payment: </b><?=$row['remaining_payment'];?></p>
+												</td> 
+												<td><?=$row['created_date'];?></td> 
 												<td><?php 
 														if($row['status'] == 'CA'){ ?>Accepted<?php }
 														elseif($row['status'] == 'CR') { ?>Rejected<?php }
@@ -94,12 +88,13 @@
 													?>	
 												</td>
 												<td>
-												<?php if($row['supplier_quote']!= ''){
+													<?php if($row['supplier_quote']){
+														?>
+														
+													<a target="_blank" href="<?php echo site_url()."uploads/supplier_quote_machine_rfq/".$row['supplier_quote']?>" class="btn btn-xs btn-primary"> Quote </a>
+													<?
+														}
 													?>
-													<a target="_blank" href="<?php echo site_url()."uploads/supplier_quote_time_study/".$row['supplier_quote']?>" class="btn btn-xs btn-primary"> Quote </a>
-												<?	}else{	?>
-												-
-												<?	}	?>
 												</td> 
 											</tr>
 											<? } ?>

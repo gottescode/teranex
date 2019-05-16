@@ -59,11 +59,9 @@
 					<th>Brand</th>
 					<th>Model</th>
 					<th>Request Date</th>
-				<!-- 
-				<th>Quote</th>
+					<th>Quote</th>
 					<th>Status</th>   
-					
-				-->	<th>Action</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -79,7 +77,7 @@
 								<td><?=$rowData['brand_name']?></td> 
 								<td><?=$rowData['model_name']?></td>
 								<td><?=$rowData['created_on']?></td>  
-						<!-- 		<td><? if($rowData['supplier_quote']!=''){ ?>
+								<td><? if($rowData['supplier_quote']!=''){ ?>
                                   	<a target="_blank" href="<?=site_url()."uploads/supplier_quote_time_study/".$rowData['supplier_quote'];?>" class="btn btn-xs btn-primary"> View Quote</a>
 									<a href = "<?php echo site_url()."uploads/machine_drawing_upload/".$rowData['supplier_quote']?>">
 								<?	}else{	?>
@@ -92,7 +90,7 @@
 								elseif($rowData['status'] == 'QS'){ ?>Quote Submitted<?php }
 								else { ?>Requested<?php } ?>	
 								</td>  
-							-->	<td>  
+								<td>  
 									<a href="<?php echo site_url()."customer/viewManufacturingRequestDetails/".$rowData['id']?>" class="btn btn-xs btn-primary"> Details </a>
  								</td> 
 

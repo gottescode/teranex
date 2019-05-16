@@ -561,6 +561,8 @@ class Admin extends BACKEND_Controller {
 		redirect(site_url()."machine/admin/machineSoftwareList");		
 	} 
 	/* Machine Time Study Request List */
+
+/* Time Study Request */
 	public function machineTimeStudyRequestAll() { 
 		$url = site_url()."machine/api/machineTimeStudyRequestAll"; 
 		$machineTimeStudy =  apiCall($url, "get"); 
@@ -579,7 +581,7 @@ class Admin extends BACKEND_Controller {
 		$this->template->load('admin/machine/machineTimeStudyRequestDetails',$arrayData);
     }
 	
-	/* Machine Finance Request List */
+/* Machine Finance Request List */
 	public function machineFinanceRequestAll() { 
 		$url = site_url()."machine/api/machineFinanceRequestAll"; 
 		$machineFinance =  apiCall($url, "get"); 
@@ -588,6 +590,94 @@ class Admin extends BACKEND_Controller {
 		]; 					
 		$this->template->load('admin/machine/machineFinanceRequestAll',$arrayData);
 	}
+/* Machine RFQ */
+	public function machineRfq() { 
+		$url = site_url()."machine/api/machineRfqAll"; 
+		$machineRfqAll =  apiCall($url, "get"); 
+		$arrayData = [ 
+			"machineRfqAll" => $machineRfqAll['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineRfqAll',$arrayData);
+	}
+/* On Demand Man RFQ  */
+	public function onDemandManufacturingRfq() { 
+		$url = site_url()."machine/api/onDemandManufacturingRfq"; 
+		$data =  apiCall($url, "get"); 
+		$arrayData = [ 
+			"data" => $data['result'] , 
+		]; 					
+		$this->template->load('admin/machine/onDemandManufacturing',$arrayData);
+	}
+	public function viewOnDemandManufacturingDetails($id) {
+        $url = site_url() . "/customer/api/onDemandManRfqDetails/$id";
+        $rfqDetails = apiCall($url, "get");
+	
+		$arrayData = array(
+            "rfqDetails" => $rfqDetails['result'],
+            "rfqID" => $id
+        );
+		$this->template->load('admin/machine/onDemandDetails',$arrayData);
+    }
+	public function financeRequestForMaufacturing($rfq_id) {
+        $url = site_url() . "/customer/api/financeRequestForMaufacturing/$rfq_id";
+        $financeRfqDetails = apiCall($url, "get");
+		$data = array(
+            "financeRfqDetails" => $financeRfqDetails['result'],
+            "rfqID" => $rfq_id
+        );
+		$this->template->load('admin/machine/onDemandRfqFinance',$data);
+    }
+	public function timeLineDetailsForMaufacturing($id) {
+         $url = site_url() . "/customer/api/manufacturingTimeLineDetails/$id";
+        $manufacturingRequestData = apiCall($url, "get");
+		$arrayData = array(
+            "manufacturingRequestData" => $manufacturingRequestData['result'],
+            "rfqID" => $id
+        );
+        $this->template->load("admin/machine/onDemandTimeLineDetails", $arrayData);
+		
+    }
+	
+/* On Demand Man RFQ  */
+	public function onDemandProgrammingRfq() { 
+		$url = site_url()."machine/api/onDemandProgrammingRfq"; 
+		$data =  apiCall($url, "get"); 
+		
+		$arrayData = [ 
+			"data" => $data['result'] , 
+		]; 					
+		$this->template->load('admin/machine/onDemandProgrammings',$arrayData);
+	}
+	public function viewOnDemandProgrammingDetails($id) {
+        $url = site_url() . "/customer/api/onDemandPrgRfqDetails/$id";
+        $rfqDetails = apiCall($url, "get");
+	
+		$arrayData = array(
+            "rfqDetails" => $rfqDetails['result'],
+            "rfqID" => $id
+        );
+		$this->template->load('admin/machine/onDemandDetailsPrg',$arrayData);
+    }
+	public function financeRequestForProgramming($rfq_id) {
+        $url = site_url() . "/customer/api/financeRequestForProgramming/$rfq_id";
+        $financeRfqDetails = apiCall($url, "get");
+		$data = array(
+            "financeRfqDetails" => $financeRfqDetails['result'],
+            "rfqID" => $rfq_id
+        );
+		$this->template->load('admin/machine/onDemandRfqFinancePrg',$data);
+    }
+	public function timeLineDetailsForProgramming($id) {
+         $url = site_url() . "/customer/api/programmingTimeLineDetails/$id";
+        $manufacturingRequestData = apiCall($url, "get");
+		
+		$arrayData = array(
+            "manufacturingRequestData" => $manufacturingRequestData['result'],
+            "rfqID" => $id
+        );
+        $this->template->load("admin/machine/onDemandTimeLineDetailsPrg", $arrayData);
+		
+    }
 
 }
 ?>
