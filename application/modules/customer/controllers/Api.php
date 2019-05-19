@@ -7864,7 +7864,55 @@ class Api extends API_Controller {
         $this->response($response, REST_Controller::HTTP_OK);
     }
 
+	public function sendQuoteToCustomerOnRent_post() {
+        $this->form_validation->set_rules('rfq_id', 'rfq_id Required', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+            $data = $this->post();
+            $page_id = $this->customer_model->sendQuoteToCustomerOnRent($data);
+            if ($page_id) {
 
+                $response = ["result" => $page_id, "message" => "Quote Sumitted successfully."];
+            } else {
+                $response = [
+                    "result" => false,
+                    'message' => "Faild to insert record."
+                ];
+            }
+        }
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function acceptQuoteOnRent_post() {
+        $this->form_validation->set_rules('rfq_id', 'rfq_id Required', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+            $data = $this->post();
+            $page_id = $this->customer_model->acceptQuoteOnRent($data);
+            if ($page_id) {
+
+                $response = ["result" => $page_id, "message" => "Quote Accepted successfully."];
+            } else {
+                $response = [
+                    "result" => false,
+                    'message' => "Failed to Accept Quote."
+                ];
+            }
+        }
+        $this->response($response, REST_Controller::HTTP_OK);
+    }
+	
 }
 
 ?>

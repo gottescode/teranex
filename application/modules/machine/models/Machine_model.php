@@ -962,5 +962,33 @@ class Machine_model extends CI_Model {
 		return $id;
     }
 
+	public function machineOnRentRfqAll() { 
+		$result = $this->db_lib->fetchMultiple("machine_on_rent_rfq as morr LEFT JOIN master_user as mu ON morr.customer_id = mu.uid  ", "	id <>0 ORDER BY created_date","morr.*, mu.u_name as customer_name"); 
+        return $result;
+    }
+	public function machineOnRentRequestListSingle($id) { 
+		$result = $this->db_lib->fetchSingle("machine_on_rent_rfq as morr LEFT JOIN master_user as mu ON morr.customer_id = mu.uid  ", "	id = $id ","morr.*, mu.u_name as customer_name"); 
+        return $result;
+    }
+	public function machineOnRentRequestListCustomer($customer_id) { 
+		$result = $this->db_lib->fetchMultiple("machine_on_rent_rfq", "	customer_id = $customer_id ",""); 
+        return $result;
+    }
+	public function machineOnRentFinanceDetails($rfq_id) { 
+		$result = $this->db_lib->fetchMultiple(" machine_onrent_finance ", " rfq_id= $rfq_id ", "");
+
+        return $result;
+    }
+	public function insuranceDetailsOnRent($rfq_id) { 
+		$result = $this->db_lib->fetchMultiple(" machine_onrent_insurance ", " rfq_id= $rfq_id ", "");
+
+        return $result;
+    }
+	public function insuranceMachineDetailsOnRent($rfq_id) { 
+		$result = $this->db_lib->fetchMultiple(" machine_on_rent_insurance_machine_details morimd LEFT JOIN on_rent_machine_master as ormm ON morimd.machine_id = ormm.id ", " rfq_id= $rfq_id ", "morimd.*,ormm.* ");
+
+        return $result;
+    }
+	
 }
 ?>
