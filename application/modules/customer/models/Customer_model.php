@@ -21,6 +21,7 @@ class Customer_model extends CI_Model {
         $this->supplier_quote_machine_rfq = "uploads/supplier_quote_machine_rfq/";
         $this->supplier_quote_finance = "uploads/supplier_quote_finance/";
         $this->machine_category = "machine_category";
+        $this->admin_quote_on_rent_path = "uploads/on_rent_documents/";
         define('RESIZEWIDTH', '1600');
         define('RESIZEHIGHT', '900');
         parent::__construct();
@@ -4403,5 +4404,22 @@ class Customer_model extends CI_Model {
 		return $result = $this->db_lib->update("rfq_on_demand_programming", $data, " id = " . $data['rfq_id']);
 
 	}
+	
+	
+/* Machine On Rent */
+	public function sendQuoteToCustomerOnRent($data) {
+		$data1 = $this->file_manager->upload('quote',$this->admin_quote_on_rent_path, MIX_FORMAT, "");
+		if ($data1[0]) {
+			$arrData["quote"] = $data1[1];
+			$arrData["status"] = 'QS';
+			return $result = $this->db_lib->update("machine_on_rent_rfq", $arrData, " id = " . $data['rfq_id']);
+		}
+		return false;
+    }
+	
+	public function acceptQuoteOnRent($data) {
+		return $result = $this->db_lib->update("machine_on_rent_rfq", $data, " id = " . $data['rfq_id']);
+
+	}	
 
 }

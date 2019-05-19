@@ -1659,6 +1659,124 @@ class Api extends API_Controller {
 		}
 		$this->response($response, REST_Controller::HTTP_OK);
     }
+	public function createonDemandProgrammingRequest_post() {
+	    $this->form_validation->set_rules('machine_id', 'Machine Id ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$id = $this->machine_model->createonDemandProgrammingRequest($data);
+			if($id){
+				$response = [ "result" => $id, "message" => "Finance Request has been submitted successfully..!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
 	
+	public function machineOnRentRequestList_get() {
+			// get input data
+			$result = $this->machine_model->machineOnRentRfqAll();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine RFQ Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machineOnRentRequestListCustomer_get($customer_id) {
+			// get input data
+			$result = $this->machine_model->machineOnRentRequestListCustomer($customer_id);
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine RFQ Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machineOnRentRequestListSingle_get($id) {
+			// get input data
+			$result = $this->machine_model->machineOnRentRequestListSingle($id);
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine RFQ Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function machineOnRentFinanceDetails_get($rfq_id=0) {
+		  
+		    // get input data
+		 
+			$result = $this->machine_model->machineOnRentFinanceDetails($rfq_id);
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine data get.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function insuranceDetailsOnRent_get($rfq_id=0) {
+		  
+		    // get input data
+		 
+			$result = $this->machine_model->insuranceDetailsOnRent($rfq_id);
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine data get.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function insuranceMachineDetailsOnRent_get($rfq_id=0) {
+		  
+		    // get input data
+		 
+			$result = $this->machine_model->insuranceMachineDetailsOnRent($rfq_id);
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine data get.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+
 }
 ?>

@@ -638,7 +638,7 @@ class Admin extends BACKEND_Controller {
 		
     }
 	
-/* On Demand Man RFQ  */
+/* On Demand Prg RFQ  */
 	public function onDemandProgrammingRfq() { 
 		$url = site_url()."machine/api/onDemandProgrammingRfq"; 
 		$data =  apiCall($url, "get"); 
@@ -678,6 +678,64 @@ class Admin extends BACKEND_Controller {
         $this->template->load("admin/machine/onDemandTimeLineDetailsPrg", $arrayData);
 		
     }
-
+/* On Rent */
+	public function machineOnRentRequestList() { 
+		$url = site_url()."machine/api/machineOnRentRequestList"; 
+		$machineOnRentRequestList =  apiCall($url, "get"); 
+		// print_r($machineOnRentRequestList);exit;
+		$arrayData = [ 
+			"machineOnRentRequestList" => $machineOnRentRequestList['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineOnRentRequestAll',$arrayData);
+	}
+	public function machineOnRentFinanceDetails($rfq_id) { 
+		$url = site_url()."machine/api/machineOnRentFinanceDetails/$rfq_id"; 
+		$machineFinance =  apiCall($url, "get");
+		$arrayData = [ 
+			"machineFinance" => $machineFinance['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineOnRentFinanceDetails',$arrayData);
+	}
+	public function insuranceDetailsOnRent($rfq_id) { 
+		$url = site_url()."machine/api/insuranceDetailsOnRent/$rfq_id"; 
+		$machineInsurance =  apiCall($url, "get");
+		
+		$url = site_url()."machine/api/insuranceMachineDetailsOnRent/$rfq_id"; 
+		$machineDetailsInsurance =  apiCall($url, "get");
+		
+		$arrayData = [ 
+			"machineInsurance" => $machineInsurance['result'] , 
+			"machineDetailsInsurance" => $machineDetailsInsurance['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineOnRentInsuranceDetails',$arrayData);
+	}
+	public function timeLineDetailsOnRent($id) { 
+		$url = site_url()."machine/api/machineOnRentRequestListSingle/$id"; 
+		$machineOnRentRequestList =  apiCall($url, "get"); 
+		$arrayData = [ 
+			"machineOnRentRequestList" => $machineOnRentRequestList['result'] , 
+		]; 					
+		$this->template->load('admin/machine/machineOnRentRequestAllTimeline',$arrayData);
+	}
+	public function sendQuoteToCustomer($id) { 
+	
+	if (isset($_POST['btnSubmit'])) {
+			$pageData = $this->input->post();
+			$pageData['rfq_id'] = $id;
+			$url = site_url() . "/customer/api/sendQuoteToCustomerOnRent/";
+			$response = apiCall($url, "POST",$pageData);
+			if ($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url() . "machine/admin/machineOnRentRequestList/$rfqID");
+            } else {
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url() . "machine/admin/machineOnRentRequestList/$rfqID");
+			 }
+	    }
+	
+						
+		$this->template->load('admin/machine/machineOnRentSendQuote',$arrayData);
+	}
+	
 }
 ?>
