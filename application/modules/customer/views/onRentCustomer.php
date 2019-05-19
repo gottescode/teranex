@@ -77,7 +77,7 @@
 											<td>
 												<a target="_blank" href="<?=site_url()."customer/timeLineDetailsOnRent/".$row['id'];?>" class="btn btn-xs btn-primary">TimeLine Details</a>
 											</td> 
-											<td><?=$row['created_date'];?></td> 
+											<td><?=$row['created_date'];?></td>  
 											<td>
 												<?  if($row['quote']){	?>
 													<a target="_blank" href="<?=site_url()."uploads/on_rent_documents/".$row['quote'];?>" class="btn btn-xs btn-primary">View Quote</a>
