@@ -1003,6 +1003,9 @@ class Machine_model extends CI_Model {
 			$rfqData['is_finance']=$data['is_finance'];
 			$rfqData['is_insurance']=$data['is_insurance'];
 			
+			$rfqData['machine_type'] = implode(', ', $data['machine_type']);
+			$rfqData['service_type'] = implode(', ', $data['service_type']);
+			$rfqData['infra_type'] = implode(', ', $data['infra_type']);
 			$rfqData['quote_needed_pref_date']=date_ymd($data['quote_needed_pref_date']);
 			$rfqData['currency']=$data['currency'];
 			
