@@ -357,7 +357,7 @@ class Machine extends FRONTEND_Controller {
         //print_r($response);die;
     }
 	
-	/* New Code AT*/
+	/* New Code May2019*/
     public function time_study_request() {
 		if(isset($_POST['submit'])) {
 			$user_id = $this->session->userdata('uid');
@@ -448,6 +448,78 @@ class Machine extends FRONTEND_Controller {
 			}
 		}
         $this->template->load("machine_rfq_request_form");
+	}
+	public function createonDemandManufacturingRequest($machine_id,$supplier_id) {
+	
+		
+		if(isset($_POST['submit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$pageData['created_by'] = $user_id;
+			$pageData['machine_id'] = $machine_id;
+			$pageData['supplier_id'] = $supplier_id;
+			$url = site_url()."machine/api/createonDemandManufacturingRequest";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/createonDemandManufacturingRequest/$machine_id/$supplier_id");
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/createonDemandManufacturingRequest/$machine_id/$supplier_id");
+			}
+		}
+        $this->template->load("onDemandManufacturingRequest",$arrayData);
+	}
+	public function createonDemandProgrammingRequest($machine_id,$supplier_id) {
+		if(isset($_POST['submit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$pageData['created_by'] = $user_id;
+			$pageData['machine_id'] = $machine_id;
+			$pageData['supplier_id'] = $supplier_id;
+			$url = site_url()."machine/api/createonDemandProgrammingRequest";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/createonDemandProgrammingRequest/$machine_id/$supplier_id");
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/createonDemandProgrammingRequest/$machine_id/$supplier_id");
+			}
+		}
+        $this->template->load("createonDemandProgrammingRequest",$arrayData);
+	}
+	public function createonRentRequest() {
+		$url = site_url() . "/machine/api/machineTypeData";
+        $machineTypeData = apiCall($url, "get");
+		$url = site_url() . "/machine/api/serviceTypeData";
+        $serviceData = apiCall($url, "get");
+		$url = site_url() . "/machine/api/infrasturctureData";
+        $infrastructureData = apiCall($url, "get");
+		
+		if(isset($_POST['submit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$pageData['created_by'] = $user_id;
+			$url = site_url()."machine/api/createonRentRequest";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/createonRentRequest/$machine_id");
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/createonRentRequest/$machine_id");
+			}
+		}
+		$arrayData = [
+            "machineTypeData" => $machineTypeData['result'],
+            "serviceData" => $serviceData['result'],
+            "infrastructureData" => $infrastructureData['result']
+        ];
+        $this->template->load("createonRentRequest",$arrayData);
 	}
 	
 }

@@ -14,6 +14,7 @@ class Machine_model extends CI_Model {
 			$this->on_demand_programming_finance_path="uploads/on_demand_programming_finance";
 			$this->on_demand_manufacturing_nda_path="uploads/on_demand_manufacturing_nda";
 			$this->on_demand_programming_nda_path="uploads/on_demand_programming_nda";
+			$this->on_rent_path="uploads/on_rent_documents";
 			$this->drawing_path="uploads/machine_video_drawings";
 			$this->machine_category="machine_category";
 			$this->load->library("file_manager");
@@ -961,7 +962,7 @@ class Machine_model extends CI_Model {
 			}
 		return $id;
     }
-
+	
 	public function machineOnRentRfqAll() { 
 		$result = $this->db_lib->fetchMultiple("machine_on_rent_rfq as morr LEFT JOIN master_user as mu ON morr.customer_id = mu.uid  ", "	id <>0 ORDER BY created_date","morr.*, mu.u_name as customer_name"); 
         return $result;
@@ -987,6 +988,124 @@ class Machine_model extends CI_Model {
 	public function insuranceMachineDetailsOnRent($rfq_id) { 
 		$result = $this->db_lib->fetchMultiple(" machine_on_rent_insurance_machine_details morimd LEFT JOIN on_rent_machine_master as ormm ON morimd.machine_id = ormm.id ", " rfq_id= $rfq_id ", "morimd.*,ormm.* ");
 
+        return $result;
+    }
+	
+	public function createonRentRequest($data) { 
+		//create RFQ
+			$rfqData=array();
+			$rfqData['created_date']=date('Y-m-d H:i:s');
+			$rfqData['created_by']=$data['created_by'];
+			$rfqData['customer_id']=$data['customer_id'];
+			$rfqData['fin_type']=$data['fin_type'];
+			$rfqData['is_competition']=$data['is_competition'];
+			$rfqData['is_nda']=$data['is_nda'];
+			$rfqData['is_finance']=$data['is_finance'];
+			$rfqData['is_insurance']=$data['is_insurance'];
+			
+			$rfqData['machine_type'] = implode(', ', $data['machine_type']);
+			$rfqData['service_type'] = implode(', ', $data['service_type']);
+			$rfqData['infra_type'] = implode(', ', $data['infra_type']);
+			$rfqData['quote_needed_pref_date']=date_ymd($data['quote_needed_pref_date']);
+			$rfqData['currency']=$data['currency'];
+			
+			$rfqData['set_up_form_pref_date']=date_ymd($data['set_up_form_pref_date']);
+			$rfqData['set_up_to_date']=date_ymd($data['set_up_to_date']);
+			$rfqData['weekdays_pref_date_from']=date_ymd($data['weekdays_pref_date_from']);
+			$rfqData['weekdays_pref_date_to']=date_ymd($data['weekdays_pref_date_to']);
+			$rfqData['shift_from']=date_ymd($data['shift_from']);
+			$rfqData['shift_to']=date_ymd($data['shift_to']);
+			
+			
+			$rfqData['work_awarded_date']=date_ymd($data['work_awarded_date']);
+			
+			$ndadata = $this->file_manager->upload('nda_file', $this->on_rent_path, MIX_FORMAT,"");
+			if($ndadata[0])
+			$rfqData["nda_file"] = $ndadata[1];
+			$ndadata = $this->file_manager->upload('competition_file', $this->on_rent_path, MIX_FORMAT,"");
+			if($ndadata[0])
+			$rfqData["competition_file"] = $ndadata[1];
+			
+			$rfq_id = $this->db_lib->insert("machine_on_rent_rfq",$rfqData);
+			
+			if($rfq_id){
+				//Finance Data
+					$finData=array();
+					$finData['rfq_id']=$rfq_id;
+					$finData['created_by']=$data['created_by'];
+					$finData['customer_id']=$data['customer_id'];
+					$finData['finance_type']=$data['finance_type'];
+					$data1 = $this->file_manager->upload('personal_adhar_card', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_adhar_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('personal_pan_card', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_pan_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('personal_address_proof', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["personal_address_proof"] = $data1[1];
+					$data1 = $this->file_manager->upload('business_pan_card', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["business_pan_card"] = $data1[1];
+					$data1 = $this->file_manager->upload('business_address_proof', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["business_address_proof"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_bank_statement', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_bank_statement"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_balance_sheet', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_balance_sheet"] = $data1[1];
+					$data1 = $this->file_manager->upload('company_invoice_sheet', $this->on_rent_path, MIX_FORMAT,"");
+					if($data1[0])
+						$arrData["company_invoice_sheet"] = $data1[1];
+				
+					$id = $this->db_lib->insert("machine_onrent_finance",$arrData);
+						
+				//Insurance Data
+					$insuranceData['rfq_id']=$rfq_id;
+					$insuranceData['customer_id']=$data['customer_id'];
+					$insuranceData['insurance_type']=$data['insurance_type'];
+					$insuranceData['first_name']=$data['first_name'];
+					$insuranceData['last_name']=$data['last_name'];
+					$insuranceData['business_name']=$data['business_name'];
+					$insuranceData['is_insurance']=$data['is_insurance'];
+					$insuranceData['business_address']=$data['business_address'];
+					$insuranceData['city']=$data['city'];
+					$insuranceData['pincode']=$data['pincode'];
+					$insuranceData['email_id']=$data['email_id'];
+					$insuranceData['phone_no']=$data['phone_no'];
+					$insuranceId = $this->db_lib->insert("machine_onrent_insurance",$insuranceData);
+				//Insurance Machine Cover Details	
+					if($insuranceId){
+						for($i=0;$i<count($data['machine_id']);$i++){
+							$insuranceData['insurance_id']=$insuranceId;
+							$insuranceData['rfq_id']=$rfq_id;
+							$insuranceData['machine_id']=$data['machine_id'][$i];
+							$insuranceData['qty']=$data['qty'][$i];
+							$insuranceData['cover_amount']=$data['cover_amount'][$i];
+							$insuranceData['cover_start_date']=$data['cover_start_date'][$i];
+							$insuranceData['cover_end_date']=$data['cover_end_date'][$i];
+							$arraData['created_date'] = date('Y-m-d H:i:s');
+							$result = $this->db_lib->insert('machine_on_rent_insurance_machine_details',$insuranceData);
+						}	
+					}
+					
+			}else{
+				return 0;
+			}
+		return $rfq_id;
+    }
+	public function machineTypeData() { 
+		$result = $this->db_lib->fetchMultiple("on_rent_machine_master ","",""); 
+        return $result;
+    }
+	public function serviceTypeData() { 
+		$result = $this->db_lib->fetchMultiple("on_rent_service_master ","",""); 
+        return $result;
+    }
+	public function infrasturctureData() { 
+		$result = $this->db_lib->fetchMultiple("on_rent_infrastructure_data","",""); 
         return $result;
     }
 	
