@@ -1777,6 +1777,74 @@ class Api extends API_Controller {
 		 
 		$this->response($response, REST_Controller::HTTP_OK);
     }
+	public function createonRentRequest_post() {
+	    $this->form_validation->set_rules('customer_id', 'Customer Id ', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
 
+            // get input data
+			$data = $this->post(); 
+		 
+			$id = $this->machine_model->createonRentRequest($data);
+			if($id){
+				$response = [ "result" => $id, "message" => "On Rent Request has been submitted successfully..!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function machineTypeData_get() {
+			// get input data
+			$result = $this->machine_model->machineTypeData();
+			if($result){
+				$response = [ "result" => $result, "message" => "Machine Type Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function serviceTypeData_get() {
+			// get input data
+			$result = $this->machine_model->serviceTypeData();
+			if($result){
+				$response = [ "result" => $result, "message" => "Service Type Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	public function infrasturctureData_get() {
+			// get input data
+			$result = $this->machine_model->infrasturctureData();
+			if($result){
+				$response = [ "result" => $result, "message" => "Service Type Data.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to retrive data."
+				];
+			}
+		 
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
 }
 ?>
