@@ -560,8 +560,7 @@ class Admin extends BACKEND_Controller {
 		setFlash("dataMsgSuccess",$response['message']);
 		redirect(site_url()."machine/admin/machineSoftwareList");		
 	} 
-	/* Machine Time Study Request List */
-
+	
 /* Time Study Request */
 	public function machineTimeStudyRequestAll() { 
 		$url = site_url()."machine/api/machineTimeStudyRequestAll"; 

@@ -48,23 +48,13 @@ ul.admin_sidebar li.cust1 a span{
 				</ul>
 			</li>
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Machine </span><i class="fa fa-chevron-left pull-right-container"></i></a>
+			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>RFQ </span><i class="fa fa-chevron-left pull-right-container"></i></a>
 				<ul class="treeview-menu">
-					<li><a href="<?=site_url()?>machine/admin/"><i class="fa fa-angle-right"></i><span>Machine Category </span></a></li>					
-					<li><a href="<?=site_url()?>machine/admin/machine_brand"><i class="fa fa-angle-right"></i><span>Machine Brand</span></a></li>					
-					<li><a href="<?=site_url()?>machine/admin/machine_brand_model"><i class="fa fa-angle-right"></i><span>Machine Brand Model</span></a></li>					
-					<li><a href="<?=site_url()?>machine/admin/machineList"><i class="fa fa-angle-right"></i><span>Machine List</span></a></li>
-					<li><a href="<?=site_url()?>machine/admin/machineFinaceRequest"><i class="fa fa-angle-right"></i><span>Machine Finance Request </span></a></li>
-					<li><a href="<?=site_url()?>machine/admin/machineInsuranceRequest"><i class="fa fa-user"></i><span>Machine Insurance Request </span></a></li>
-					<li><a href="<?=site_url()?>machine/admin/machineTimeStudyRequestAll"><i class="fa fa-angle-right"></i><span>Machine Time study Request </span></a></li>
-					<!-- 
-					
-					<li><a href="<?=site_url()?>machine/admin/machineTimeStudyRequest"><i class="fa fa-angle-right"></i><span>Machine Time study Request </span></a></li>
-					-->
-					
-					<li><a href="<?=site_url()?>machine/admin/machineFinaceComment"><i class="fa fa-angle-right"></i><span>Machine Comment Request </span></a></li>
-					<li><a href="<?=site_url()?>machine/admin/machineRequest"><i class="fa fa-angle-right"></i><span>Machine Enquiry</span> </a></li>
-					<li><a href="<?=site_url()?>machine/admin/videoRequests"><i class="fa fa-angle-right"></i><span>Machine Video Request</span></a></li>
-					<li><a href="<?=site_url()?>machine/admin/machineSoftwareList"><i class="fa fa-angle-right"></i><span>Machine Software List</span></a></li>
+					<li><a href="<?=site_url()?>machine/admin/machineTimeStudyRequestAll"><i class="fa fa-angle-right"></i><span>Machine Time Study </span></a></li>					
+					<li><a href="<?=site_url()?>machine/admin/machineFinanceRequestAll"><i class="fa fa-angle-right"></i><span>Machine Finance</span></a></li>					
+					<li><a href="<?=site_url()?>machine/admin/onDemandManufacturingRfq"><i class="fa fa-angle-right"></i><span>On Demand Manufacturing </span></a></li>					
+					<li><a href="<?=site_url()?>machine/admin/onDemandProgrammingRfq"><i class="fa fa-angle-right"></i><span>On Demand Programming </span></a></li>					
+					<li><a href="<?=site_url()?>machine/admin/machineOnRentRequestList"><i class="fa fa-angle-right"></i><span>Machine On-Rent </span></a></li>
 				</ul>
 			</li>
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Automation </span><i class="fa fa-chevron-left pull-right-container"></i></a>
