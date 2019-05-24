@@ -1,30 +1,28 @@
-<section class="banner banner_image aboutus_banner align-items-center">
+
+<div class="home-page-container banner-without-overlay height-550 mb-0" style="background: url(<?php echo $theme_url ?>/images/1-teranex-desktop-aboutus-bg.jpg)">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="banner_text">
-                    <p>About Us</p>
-                    <h1 class="basic-head">Teranex</h1>
-                </div>
-            </div>
+        <div class="banner-content-text">
+            <span>About Us</span>
+            <b>Teranex</b>
         </div>
     </div>
-</section>
-
-<section class="em_sect mrgn-top" id="about-us-pa">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="padd_all_50 bx-shdw white">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="em-cnt">
+</div>
+<!-- Body container start -->
+<div class="home-page-body-container">
+    <!-- About Teranex Block -->
+    <div class="home-inner-block-set pb-80 pt-80">
+        <div class="container">
+            <div class="full-width">
+                <div class="teranex-card-set-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                            <p>
                                 <?php echo strhtmldecode($aboutList['page_content']);?>
-                            </div>
+                            </p>
                         </div>
-                        <div class="col-md-6">
-                            <div class=" em_mont">
-                                <img src="<?php echo $theme_url?>/images/logo.png" alt="img">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-7 col-xl-7 text-center">
+                            <div class="teranex-card-set">
+                                <img class="img-fluid" src="<?php echo $theme_url?>/images/about-logo.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -32,13 +30,20 @@
             </div>
         </div>
     </div>
-</section>
+    <!-- About Teranex Block -->
+</div>
+
+
+
+
+<!-- Body Container End -->
+
 
 
 <script language="javascript" type="text/javascript">
 $(document).ready(function() {
 $("#register").submit(function(){
-			
+
 	if($("#Email").val() == "" && $("#MobileNo").val() == "")
 	{
 		alert("Email or Mobile No. is required");
@@ -70,13 +75,13 @@ $("#register").submit(function(){
 		alert("Password cannot be empty");
 		return false;
 	}
-		
+
 	if($("#CustomerType").val() == "")
 	{
 		alert("Customer Type is required");
 		return false;
 	}
-	
+
 	var yesno = confirm("Are you sure to register");
 	return yesno;
 	});

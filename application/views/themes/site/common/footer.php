@@ -1,4 +1,4 @@
-<section>
+<!--<section>
     <div class="container-fluid">
         <div class="bottom-menu">
             <div class="row">
@@ -6,10 +6,10 @@
                     <div class="child_menu_btm">
                         <h4 class="basic-head">About Us</h4>
                         <ul>
-                            <li><a href="<?php echo site_url() . "pages/about"; ?>">About Stelmac</a></li>
-                            <li><a  href="<?php echo site_url() . "pages/teranex_team"; ?>">Team</a></li>
-                            <li><a href="<?php echo site_url() . "helpcenter"; ?>">Help Center</a></li>
-                            <li><a href="<?php echo site_url() . "pages/contact"; ?>">Contact Us</a></li>
+                            <li><a href="<?php /*echo site_url() . "pages/about"; */?>">About Stelmac</a></li>
+                            <li><a  href="<?php /*echo site_url() . "pages/teranex_team"; */?>">Team</a></li>
+                            <li><a href="<?php /*echo site_url() . "helpcenter"; */?>">Help Center</a></li>
+                            <li><a href="<?php /*echo site_url() . "pages/contact"; */?>">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -17,10 +17,10 @@
                     <div class="child_menu_btm">
                         <h4 class="basic-head">Policies & Rules</h4>
                         <ul>
-                            <li><a href="<?php echo site_url() . "pages/returnscancellations"; ?>">Refund Policy</a></li>
-                            <li><a href="<?php echo site_url() . "pages/privacystatement"; ?>">Privacy Statement</a></li>
-                            <li><a href="<?php echo site_url() . "pages/termsconditions"; ?>">Terms & Conditions of Service</a></li>
-                            <li><a href="<?php echo site_url() . "pages/termsuse"; ?>">Terms of Use</a></li>
+                            <li><a href="<?php /*echo site_url() . "pages/returnscancellations"; */?>">Refund Policy</a></li>
+                            <li><a href="<?php /*echo site_url() . "pages/privacystatement"; */?>">Privacy Statement</a></li>
+                            <li><a href="<?php /*echo site_url() . "pages/termsconditions"; */?>">Terms & Conditions of Service</a></li>
+                            <li><a href="<?php /*echo site_url() . "pages/termsuse"; */?>">Terms of Use</a></li>
                         </ul>
                     </div>
                 </div>
@@ -31,10 +31,10 @@
                     <div class="child_menu_btm">
                         <h4 class="basic-head">Trade Services</h4>
                         <ul>
-                            <li><a href="<?php echo site_url() . "footer/tradeAssurance"; ?>">Buyer Protection</a></li>
-                            <li><a href="<?php echo site_url() . "footer/submitAdispute"; ?>">Dispute Resolution</a></li>
-                            <li><a href="<?php echo site_url() . "footer/payLater"; ?>">Machine Finance</a></li>
-                            <li><a href="<?php echo site_url() . "footer/inspectionService"; ?>">Inspection Service</a></li>
+                            <li><a href="<?php /*echo site_url() . "footer/tradeAssurance"; */?>">Buyer Protection</a></li>
+                            <li><a href="<?php /*echo site_url() . "footer/submitAdispute"; */?>">Dispute Resolution</a></li>
+                            <li><a href="<?php /*echo site_url() . "footer/payLater"; */?>">Machine Finance</a></li>
+                            <li><a href="<?php /*echo site_url() . "footer/inspectionService"; */?>">Inspection Service</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,36 +54,78 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 
-<footer class="">
-    <div class="app_dwnld_links padd_tb_50">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="flx-prop">
-                        <div class="content">
-                            <h4 class="basic-head">Download our app!</h4>
-                            <a href="#"><img src="<?php echo $theme_url ?>/images/apple.png" alt="img"></a>
-                            <a href="#"><img src="<?php echo $theme_url ?>/images/playStore.png" alt="img"></a>
+<footer>
+    <div class="footer-top-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6 col-sm-6 col-md-3 col-lg-2">
+                    <ul class="footer-menu-container">
+                        <li><a href="javascript:;">About Teranex</a></li>
+                        <li><a href="<?php echo site_url() . "pages/about"; ?>">About Us</a></li>
+                        <li><a href="<?php echo site_url() . "pages/teranex_team"; ?>">Team</a></li>
+                        <li><a href="<?php echo site_url() . "helpcenter"; ?>">Help Center</a></li>
+                        <li><a href="<?php echo site_url() . "pages/contact"; ?>">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-2">
+                    <ul class="footer-menu-container">
+                        <li><a href="javascript:;">Policies & Rules</a></li>
+                        <li><a href="<?php echo site_url() . "pages/returnscancellations"; ?>">Refund Policy</a></li>
+                        <li><a href="<?php echo site_url() . "pages/privacystatement"; ?>">Privacy Statement</a></li>
+                        <li><a href="<?php echo site_url() . "pages/termsconditions"; ?>">Terms & Conditions</a></li>
+                        <li><a href="<?php echo site_url() . "pages/termsuse"; ?>">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-2">
+                    <ul class="footer-menu-container">
+                        <li><a href="javascript:;">Trade Service</a></li>
+                        <li><a href="<?php echo site_url() . "footer/tradeAssurance"; ?>">Buyer Protection</a></li>
+                        <li><a href="<?php echo site_url() . "footer/submitAdispute"; ?>">Dispute Resolution</a></li>
+                        <li><a href="<?php echo site_url() . "footer/payLater"; ?>">Machine Finance</a></li>
+                        <li><a href="<?php echo site_url() . "footer/inspectionService"; ?>">Inspection Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="footer-news-letter-container">
+                        <div class="footer-news-letter-title">Newsletter</div> 
+                        <div class="footer-news-letter-content">
+                            Delivering the latest production trends & industry news to your inbox!
                         </div>
-                        <div class="content">
-                            <h4 class="basic-head" >Follow Us!</h4>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.linkedin.com/company/teranex-research-and-applications"><i class="fa fa-linkedin-square" title="LinkedIn" aria-hidden="true"></i></a></li>
-                                <li><a href="https://twitter.com/TeranexRA"><i class="fa fa-twitter" title="Twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.youtube.com/channel/UCNaXBz5Nz7bqYmNnIrUJVTw"><i class="fa fa-youtube-play" title="YouTube" aria-hidden="true"></i></a></li>
-                            </ul>
+                        <div class="footer-news-letter-form form-group">
+                            <input class="input-control form-control" type="email" placeholder="Enter Your Email">
+                            <button class="btn submit-btn">Subscribe</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="copright">
-        <p>Web Desgin Melbourne by SEO Company Xugar | @ Teranex | All Right Reserved</p>
+    <div class="footer-bottom-container">
+        <div class="container">
+            <div class="footer-bottom-social-set-container">
+                <div class="footer-bottom-social-set">
+                    <span class="social-set-info">Download Our App!</span>
+                    <a href="javascript:;"><img src="<?php echo $theme_url ?>/images/apps-store-badges.png" class="social-set-info" alt=""></a>
+                    <a href="javascript:;"><img src="<?php echo $theme_url ?>/images/google-play-badges.png" class="social-set-info" alt=""></a>
+                </div>
+                <div class="footer-bottom-social-set">
+                    <span class="social-set-info">Follow Us!</span>
+                    <a href="javascript:;"><i class="fa fa-facebook-square social-set-info"></i></a>
+                    <a href="javascript:;"><i class="fa fa-instagram social-set-info"></i></a>
+                    <a href="https://www.linkedin.com/company/teranex-research-and-applications"><i class="fa fa-linkedin-square social-set-info"></i></a>
+                    <a href="https://twitter.com/TeranexRA"><i class="fa fa-twitter social-set-info"></i></a>
+                    <a href="https://www.youtube.com/channel/UCNaXBz5Nz7bqYmNnIrUJVTw"><i class="fa fa-youtube-play social-set-info"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="border-white">
+        <div class="container">
+            <div class="copyrights-container">
+                Web Design Melbourne by SEO Company Xugar | &#9400; Teranex | All Rights Reserved
+            </div>
+        </div>
     </div>
 </footer>
 

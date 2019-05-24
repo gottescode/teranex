@@ -1,10 +1,10 @@
 <header>
-    <div class="container-fluid">
+    <!--<div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-2">
                 <div class="logo">
-                    <a href="<?php echo site_url()?>">
-                    <img src="<?php echo $theme_url?>/images/logo.png" alt="logo">
+                    <a href="<?php /*echo site_url()*/?>">
+                    <img src="<?php /*echo $theme_url*/?>/images/logo.png" alt="logo">
                     </a>
                 </div>
             </div>
@@ -35,32 +35,32 @@
                                             <div class="col-md-3" >
                                                 <div class=" mini-child" aria-labelledby="navbarDropdown">
                                                     <h5>Collaborate</h5>
-                                                    <a class="dropdown-item" href="<?php echo site_url() ?>community/forum">User Communities</a>
-                                                    <a class="dropdown-item" href="<?php echo site_url() ?>groupbuying">Collective Buyers</a>
-                                                    <a class="dropdown-item" href="<?php echo site_url() ?>exchangegroups">Exchanges Groups</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url() */?>community/forum">User Communities</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url() */?>groupbuying">Collective Buyers</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url() */?>exchangegroups">Exchanges Groups</a>
                                                 </div>
                                             </div>
                                             <div class="col-md-3" >
                                                 <div class="mini-child" aria-labelledby="navbarDropdown">
                                                     <h5>Source</h5>
-                                                    <a class="dropdown-item" href="<?php echo site_url() ?>machine/machineListNew/machineList/machines">Machines</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url() */?>machine/machineListNew/machineList/machines">Machines</a>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-3" >
                                                 <div class="mini-child" aria-labelledby="navbarDropdown">
                                                     <h5>Connect</h5>
-                                                    <a class="dropdown-item" href="<?php echo site_url(); ?>remoteapplication">Machines Services</a>
-                                                    <a class="dropdown-item" href="<?php echo site_url() ?>remoteapplication">Application Support</a>
-                                                    <a class="dropdown-item" href="<?php echo site_url(); ?>remotetraining">Training Courses</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url(); */?>remoteapplication">Machines Services</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url() */?>remoteapplication">Application Support</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url(); */?>remotetraining">Training Courses</a>
                                                 </div>
                                             </div>
                                             <div class="col-md-3" >
                                                 <div class="mini-child" aria-labelledby="navbarDropdown">
                                                     <h5>Trust</h5>
-                                                    <a class="dropdown-item" href="<?php echo site_url(); ?>pages/market_intelligence">Market Intelligence</a>
-                                                    <a class="dropdown-item" href="<?php echo site_url() ?>pages/tradeServices">Trade Services</a>
-                                                    <a class="dropdown-item" href="<?php echo site_url(); ?>pages/customerServices">Customer Services</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url(); */?>pages/market_intelligence">Market Intelligence</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url() */?>pages/tradeServices">Trade Services</a>
+                                                    <a class="dropdown-item" href="<?php /*echo site_url(); */?>pages/customerServices">Customer Services</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,34 +71,34 @@
                                        Learning Platform
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="<?php echo site_url() ?>remotetraining/online_courses">Learn</a>
-                                        <a class="dropdown-item" href="<?php echo site_url() ?>pages/efactory_design">Design</a>
-                                        <a class="dropdown-item" href="<?php echo site_url() ?>digitalmanufacturing">Produce</a>
+                                        <a class="dropdown-item" href="<?php /*echo site_url() */?>remotetraining/online_courses">Learn</a>
+                                        <a class="dropdown-item" href="<?php /*echo site_url() */?>pages/efactory_design">Design</a>
+                                        <a class="dropdown-item" href="<?php /*echo site_url() */?>digitalmanufacturing">Produce</a>
                                     </div>
                                 </li>
 
 
-                                <?php if ($this->session->userdata('uid')) { ?>
-                                <?php } else { ?>
+                                <?php /*if ($this->session->userdata('uid')) { */?>
+                                <?php /*} else { */?>
                                     <li class="nav-item">
-                                        <a class="nav-link user_icon" href="#" data-toggle="modal" data-target="#login_form"><img src="<?php echo $theme_url?>/images/baseline_person_black_18dp.png" alt=""></a>
+                                        <a class="nav-link user_icon" href="#" data-toggle="modal" data-target="#login_form"><img src="<?php /*echo $theme_url*/?>/images/baseline_person_black_18dp.png" alt=""></a>
                                     </li>
-                                <?php } ?>
+                                <?php /*} */?>
 
-                                <?php if ($this->session->userdata('uid')) { ?>
+                                <?php /*if ($this->session->userdata('uid')) { */?>
                                     <li class="dropdown" >
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="My Stelmac">
-                                            <img src="<?php echo $theme_url ?>/images/house-black-silhouette-without-door.png" class="non-trans" style="width: 18px;">
+                                            <img src="<?php /*echo $theme_url */?>/images/house-black-silhouette-without-door.png" class="non-trans" style="width: 18px;">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right ddl-user">
-                                            <li><a href="<?php echo site_url() . "customer/dashboard"; ?>">Dashboard</a></li>
-                                            <li><a href="<?php echo site_url() . "customer/profile"; ?>">My Profile</a></li>
-                                            <li><a href="<?php echo base_url(); ?>customer/machineServices">My Machines</a></li>
-                                            <li><a href="<?php  echo base_url();?>/customer/eventsList">My Events</a></li>
+                                            <li><a href="<?php /*echo site_url() . "customer/dashboard"; */?>">Dashboard</a></li>
+                                            <li><a href="<?php /*echo site_url() . "customer/profile"; */?>">My Profile</a></li>
+                                            <li><a href="<?php /*echo base_url(); */?>customer/machineServices">My Machines</a></li>
+                                            <li><a href="<?php /* echo base_url();*/?>/customer/eventsList">My Events</a></li>
                                             <li class="nav-item">
-                                                <form action="<?php echo site_url(); ?>pages/logout" method="POST">
+                                                <form action="<?php /*echo site_url(); */?>pages/logout" method="POST">
                                                     <p id="countdown" style="display:none;" ></p>
-                                                    <input type="hidden" class="form-control" placeholder="" value="<?php  echo $_SERVER['REMOTE_ADDR']; ?>" />
+                                                    <input type="hidden" class="form-control" placeholder="" value="<?php /* echo $_SERVER['REMOTE_ADDR']; */?>" />
 
                                                     <input type="hidden" id="myValue"  name="countdown" class="form-control"/>
                                                     <button type="submit" class="btn btn-sm btn-default full-width"> Sign Out  </button>
@@ -106,27 +106,90 @@
                                             </li>
                                         </ul>
                                     </li>
-                                <?php } else { ?>
+                                <?php /*} else { */?>
 
                                     <li class="dropdown" style="display: none;">
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="My Stelmac">
-                                            <img src="<?php echo $theme_url ?>/images/house-black-silhouette-without-door.png" class="non-trans" style="width: 18px;">
+                                            <img src="<?php /*echo $theme_url */?>/images/house-black-silhouette-without-door.png" class="non-trans" style="width: 18px;">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right ddl-user">
-                                            <li><a href="<?php echo site_url() . "customer/dashboard"; ?>">Dashboard</a></li>
-                                            <li><a href="<?php echo site_url() . "customer/profile"; ?>">My Profile</a></li>
+                                            <li><a href="<?php /*echo site_url() . "customer/dashboard"; */?>">Dashboard</a></li>
+                                            <li><a href="<?php /*echo site_url() . "customer/profile"; */?>">My Profile</a></li>
                                             <li><a href="#">My Machines</a></li>
                                             <li><a href="#">My Orders</a></li>
                                             <li><a href="#">My Events</a></li>
                                         </ul>
                                     </li>
-                                <?php } ?>
+                                <?php /*} */?>
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
+    </div>-->
+
+    <div class="container example2">
+        <nav class="navbar navbar-expand-lg navbar-default no-padding">
+            <div class="container-fluid no-padding">
+                <div class="navbar-header">
+                    <div class="mobile-menu-overlay"></div>
+                    <a class="navbar-brand" href="<?php echo site_url()?>">
+                        <img src="<?php echo $theme_url ?>/images/logo.jpg" alt="Dispute Bills">
+                    </a>
+                </div>
+                <div class="headerbar-search">
+                    <input type="text" class="input-control">
+                    <i class="fa fa-search header-search-icon"></i>
+                    <i class="fa fa-close header-Msearch-close"></i>
+                </div>
+                <div class="navbar-menus">
+                    <a class="navbar-brand mobile-brand-logo" href="java">
+
+                        <img src="images/logo.jpg" alt="Dispute Bills">
+                    </a>
+                    <div class="navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Machine Market
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Option 1</a>
+                                    <a class="dropdown-item" href="#">Option 2</a>
+                                    <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Community Platform
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Option 1</a>
+                                    <a class="dropdown-item" href="#">Option 2</a>
+                                    <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MobileMenuRight">
+                    <i class="fa fa-search MobileSearch"></i>
+                    <span class="dropdown HeaderUserProfile">
+                            <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo $theme_url ?>/images/user-icon.svg" alt="User image" class="header-user-icon"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Option 1</a>
+                                <a class="dropdown-item" href="#">Option 2</a>
+                                <a class="dropdown-item" href="#">Option 3</a>
+                            </div>
+                        </span>
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="ion-android-menu"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
     </div>
 </header>
 
@@ -139,10 +202,35 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
             </div>
             <div class="modal-body padd_rl_50">
                 <div class="formalty_form">
-                    <form class="form-signin" name="login" id="login" method="post" action="<?php echo site_url() . "pages/login" ?>">
+                    <form class="form-signin" name="login" id="login" method="post" action="">
+                        <?php
+                        // display messages
+                        if (hasFlash("ErrorMsg")) {
+                            ?>
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+                                <?php echo getFlash("ErrorMsg"); ?>
+                            </div>
+                            <?php
+                        }  // display messages
+                        if (hasFlash("dataMsgSuccessSign")) {
+                            ?>
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <?php echo getFlash("dataMsgSuccessSign"); ?>
+                            </div>
+                        <?php } ?>
+                        <!-- SIGN IN FORM FLASH MSG -->
+                        <?php if (hasFlash("ErrorLoginMsg")) { ?>
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 0;"><span aria-hidden="true">&times;</span></button>
+                                <?php echo getFlash("ErrorLoginMsg"); ?>
+                            </div>
+                        <?php } ?>
                     <input type="text" name="u_email" id="u_email" class="bx-shdw" placeholder="Email *" >
                         <input type="password" name="u_password" id="u_password" class="bx-shdw mrgn-top" placeholder="Password" >
                         <div class="mrgn-top log-in_btn">

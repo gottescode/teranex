@@ -13,50 +13,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $theme_url;?>/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $theme_url;?>/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $theme_url;?>/images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $theme_url;?>/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $theme_url;?>/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $theme_url;?>/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $theme_url;?>/images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $theme_url;?>/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $theme_url;?>/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $theme_url;?>/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $theme_url;?>/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $theme_url;?>/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $theme_url;?>/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="<?php echo $theme_url;?>/images/favicon/manifest.json">
+
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/fonts/ionicons/ionicons.css">
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/bootstrap/css/bootstrap.min.css">
+    <!-- owl-carousel -->
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/owl-carousel/css/owl.theme.default.min.css">
+    <!-- Flexbox Accordion -->
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/horizontal-accordion/css/style.css">
+    <!-- Flexbox Accordion -->
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/css/style_new.css">
+    <link rel="stylesheet" href="<?php echo $theme_url;?>/teranex-web-pages.css">
+
 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?php echo $theme_url;?>/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="shortcut icon" href="<?php echo $theme_url;?>/assets/images/icon/favicon.png" type="image/x-icon">
-    <!--<link href="<?php /*echo $theme_url;*/?>/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">-->
-    <link href="<?php echo $theme_url?>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/style.css" rel="stylesheet" type="text/css">
-    <!-- <link href="<?php echo $theme_url?>/css/customcss.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/custom.css" rel="stylesheet" type="text/css"> -->
-    <!--<link href="<?php /*echo $theme_url*/?>/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">-->
-    <link href="<?php echo $theme_url?>/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="<?php /*echo $theme_url*/?>/css/style.css" rel="stylesheet" type="text/css">-->
-    <!--<link href="<?php /*echo $theme_url*/?>/css/custom.css" rel="stylesheet" type="text/css">-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!--<link href="<?php /*echo $theme_url*/?>/css/customcss.css" rel="stylesheet" type="text/css">-->
-    <!--<link href="<?php /*echo $theme_url*/?>/css/custom_new.css" rel="stylesheet" type="text/css">-->
-    <link href="<?php echo $theme_url?>/css/headerfooter.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/style_new.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $theme_url?>/slider/css/slider.css" rel="stylesheet" type="text/css">
-
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
     <script>
         var current_url="<?php echo site_url();?>";
         var site_url = "<?php echo site_url();?>";
+        var base_url = "<?php echo base_url();?>";
 
     </script>
     <?php
@@ -110,13 +90,15 @@ if (isset($content_buffer[POS_PAGE_LEVEL])) {
     }
 }
 ?>
-<script src="<?php echo $theme_url;?>/js/jquery.js"></script>
-<script src="<?php echo $theme_url;?>/js/owl.carousel.min.js"></script>
-<script src="<?php echo $theme_url;?>/js/popper.min.js"></script>
-<script src="<?php echo $theme_url;?>/js/bootstrap.min.js"></script>
-<script src="<?php echo $theme_url;?>/js/custom.js"></script>
+<script type="text/javascript" src="<?php echo $theme_url;?>/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="<?php echo $theme_url;?>/bootstrap/js/bootstrap.min.js"></script>
+<!-- Flexbox Accordion -->
+<script type="text/javascript" src="<?php echo $theme_url;?>/horizontal-accordion/horizontal-accordion.js"></script>
+<!-- owl-carousel -->
+<script type="text/javascript" src="<?php echo $theme_url;?>/owl-carousel/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="<?php echo $theme_url;?>/js/main.js"></script>
 
-<script src="<?php echo $theme_url;?>/js/nanobar.js"></script>
+
 <script>
     $(document).ready(function(){
         $('.cmn').mouseover(function(){
@@ -131,6 +113,106 @@ if (isset($content_buffer[POS_PAGE_LEVEL])) {
         });
 
     });
+</script>
+<script>
+    $(document).ready(function() {
+        $("#sla_carousel").owlCarousel({
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+            loop: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                600: {
+                    items: 1,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+        $("#material_carousel").owlCarousel({
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+            loop: true,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                600: {
+                    items: 2,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                1000: {
+                    items: 2
+                }
+            }
+        });
+        $("#industrial_carousel").owlCarousel({
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+            loop: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                600: {
+                    items: 2,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+        $("#experts_say").owlCarousel({
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+            loop: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                600: {
+                    items: 2,
+                    nav: false,
+                    dots: true,
+                    loop: true
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    })
 </script>
 <!--<script>
     $(window).load(function() {
@@ -158,22 +240,7 @@ if (isset($content_buffer[POS_BOTTOM])) {
     <script src="<?php echo $theme_url;?>/js/login.js"></script>
 
 <?php }?>
-<!--Start of Tawk.to Script-->
 
-<!--<script type="text/javascript">
-	var simplebar = new Nanobar();
-			simplebar.go(100);
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5ae95eba227d3d7edc24e12f/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>-->
-<!--End of Tawk.to Script-->
 <footer align="center" style="position:fixed;bottom:0">
     <div class="container-fluid">
         copyright&copy;2018

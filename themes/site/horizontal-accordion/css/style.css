@@ -1,0 +1,80 @@
+.horizon-slider-container ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.horizon-slider-container li {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    padding: 20px;
+    background: #afbdc5;
+    cursor: pointer;
+    transition: all .5s ease;
+    box-shadow: inset 8px 0 9px -3px rgba(0, 0, 0, 0.4);
+}
+
+.horizon-slider-container li.active {
+    box-shadow: inset -15px -12px 35px -33px rgba(0, 0, 0, 0.4);
+}
+
+.horizon-slider-container li:hover {
+    background: #afbdc5;
+}
+
+.horizon-slider-container li.active {
+    flex: 10;
+    background: #fff;
+    cursor: default;
+}
+
+.horizon-slider-container li.active h2 {
+    color: #000000;
+}
+
+.horizon-slider-container li.active .section-content {
+    flex: 4;
+    opacity: 1;
+    transform: scaleX(1);
+    color: #000000;
+}
+
+.horizon-slider-container li .section-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+}
+
+.horizon-slider-container li .section-title h2 {
+    margin: 0;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    align-self: flex-end;
+    padding-left: 32px;
+    width: 100px;
+}
+
+.horizon-slider-container li .section-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: all .25s .1s ease-out;
+}
+
+.slide-text-center {
+    width: 33.77%;
+    margin: 0 auto;
+    float: left;
+    display: flex;
+}

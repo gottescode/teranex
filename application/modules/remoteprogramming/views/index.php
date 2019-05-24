@@ -6,139 +6,133 @@ $this->template->contentBegin(POS_TOP); ?>
 
 
 <?php echo $this->template->contentEnd(); ?>
-
-    <section class="banner banner_image help_banner on-dmnd align-items-center">
+    <div class="home-page-container banner-without-overlay height-550" style="background: url(<?php echo $theme_url ?>/images/web-2a-bg.jpg)">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="banner_text">
-                        <p>At Teranex, We Provide</p>
-                        <h1 class="basic-head white-color">All Your Remote Programming Needs</h1>
+            <div class="banner-content-text">
+                <span>At Teranex, We Provide</span>
+                <b>All Your Remote Programming Needs</b>
+            </div>
+        </div>
+    </div>
+    <div class="home-page-body-container get-an-instant-quote-page">
+    <div class="home-inner-block-set">
+        <div class="container">
+            <div class="full-width">
+                <div class="row">
+                    <?php foreach ($remoteprogramming_list as $remoteprogrammings) { ?>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                        <div class="home-card-set ">
+                            <div class="card-title">
+                                <br> <?php echo $remoteprogrammings['cat_name'] ?></div>
+                            <p>
+                                <?php echo $remoteprogrammings['cat_description'] ?>
+                            </p>
+                        </div>
                     </div>
 
+                    <?php } ?>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="mrgn-top addvantage-box">
-        <div class="container">
-            <div class="row">
-                <?php foreach ($remoteprogramming_list as $remoteprogrammings) { ?>
-                    <div class="col-md-4">
-                        <div class="text_cnt bx-shdw padd_all_50 white">
-                            <h3 class="basic-head"><?php echo $remoteprogrammings['cat_name'] ?></h3>
-                            <p class=" "><?php echo $remoteprogrammings['cat_description'] ?></p>
+    </div>
+    </div>
+
+    <div class="strichy-center-margin">
+        <div class="support-now-card-container mt-3">
+            <div class="support-now-card-right-img" style="background: url(<?php echo $theme_url ?>/images/10-2.jpg)"></div>
+            <div class="container">
+                <div class="full-width">
+                    <div class="row align-items-center flex">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="support-now-card-left-content">
+                                An Easy Way To Send Buying <br>
+                                Requests To Suppliers & Get <br>
+                                Quotes Quickly
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-    <section class=" bx-shdw downld-app mrgn-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 white">
-                    <div class="padd-left">
-                        <div class="down-cntnt  our-app-txt ">
-                            <p>an easy way to send buying requests to suppliers & get qutoes quickly</p>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="support-now-card-right-content text-center">
+                                <?php if ($this->session->userdata('uid') && $this->session->userdata('user_type')) { ?>
+                                    <a href="<?php echo site_url() . "remoteprogramming/rfq" ?>" class="a-green-btn" type="submit">Click Here</a>
+
+                                <?php } else { ?>
+                                <div class="full-width">Get Your Quote Now!</div>
+                                <a href=""data-toggle="modal" data-target='#signinModal' class="btn submit-btn mt-15">Click Here</a>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 commut">
-                    <form class="form-horizontal" name="#" id="#" method="post" action="">
-                        <div class="down-cntnt app-box_child">
-                            <h3 class="basic-head white-color">get your quote Now!</h3>
-                            <?php if ($this->session->userdata('uid') && $this->session->userdata('user_type')) { ?>
-                                <a href="<?php echo site_url() . "remoteprogramming/rfq" ?>" class="a-green-btn" type="submit">Click Here</a>
-
-                            <?php } else { ?>
-                                <a href="" type="submit" data-toggle='modal' data-target='#signinModal' class="a-green-btn mrgn-top">Click Here</a>
-
-                            <?php } ?>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
-    </section>
-    <section class=" ">
+        <!-- support-now-card-container -->
+        <!-- Meet Our Programmers -->
+        <div class="home-inner-block-set">
+            <div class="container">
+                <div class="card-title pb-0">Meet Our Programmers</div>
+            </div>
+        </div>
+    </div>
+    <div class="home-inner-block-set get-an-instant-quote-batch">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="mrgn-top our-engn_head ">
-                        <h2 class="basic-head">meet our Programmers</h2>
-                    </div>
+            <div class="full-width">
+                <div class="additive-card align-items-center flex web-additive-card">
+                    <div class="full-width">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <div class="form-set-content d-lg-flex p-0">
+                                    <label class="mr-2 w-auto">
+                                        <span class="web-additive-card-title">Sort</span>
+                                    </label>
 
-                    <div class="sort-catg mrgn-top bx-shdw padd_all_50 white">
-                        <form action="" method="post" name="searchinglist" id="searchinglist">
-                            <div class="sort-text">
-                                <div class="languge-sel">
-                                    <p>Sort</p>
-
-                                    <div class="dropdown padd-left">
-                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                                            Language
-                                        </button>
+                                    <select class="form-select-box web-additive-card-title w-auto">
                                         <?php
                                         if ($language_list) {
 
-                                            foreach ($language_list as $rowLang) {
-                                                ?>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                       value="<?php echo $rowLang['lid']; ?>"><?php echo $rowLang['name']; ?></a>
-                                                    <a class="dropdown-item" href="#">Link 2</a>
-                                                    <a class="dropdown-item" href="#">Link 3</a>
-                                                </div>
-                                                <?php
-                                            }
+                                        foreach ($language_list as $rowLang) {
+                                        ?>
+                                        <option value="<?php echo $rowLang['lid']; ?>"><?php echo $rowLang['name']; ?></option>
+                                            <?php
+                                        }
                                         } ?>
-                                    </div>
-                                </div>
-                                <div class="search_sec">
-                                    <div class="parnt_serch  languge-sel parnt_serch_respn">
-                                        <p class="">Search</p>
-                                        <div class="serchbar mar-lt-rt bx-shdw">
-                                            <input type="text" placeholder="Enter your kewords..." name="programerName"
-                                                   value="<?php
-                                                   if ($this->session->userdata('programerName')) {
-
-                                                       $value = $this->session->userdata('programerName');
-                                                   } else {
-
-                                                       $value = '';
-                                                   }
-
-                                                   echo $value;
-                                                   ?>">
-                                            <i class="fa fa-search" id="programSearch" name="btnSearch"></i>
-                                        </div>
-                                        <div class="">
-                                            <a href="" class="a-green-btn" data-toggle="modal"
-                                               data-target="#advsearchmodal">Advanced</a>
-                                        </div>
-                                    </div>
+                                    </select>
 
                                 </div>
                             </div>
-                        </form>
-                        <div class="pagin-sort mrgn-top">
-                            <span>Showing <?php echo $pageintation['start'] ?> - <?php echo $pageintation['end'] ?>
-                                of <?php echo $pageintation['totalCount']; ?> Consultants</span>
+
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-7 col-xl-7">
+                                <div class="form-set-content p-0 flex">
+                                    <div class="mr-2 w-auto">
+                                        <span class="web-additive-card-title">Search</span>
+                                    </div>
+                                    <div class="headerbar-search mr-0">
+                                        <input type="text" class="input-control" placeholder="Enter your keywords...">
+                                        <i class="fa fa-search header-search-icon"></i>
+                                        <i class="fa fa-close header-Msearch-close"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 text-right">
+                                <a href=""  class="btn submit-btn" data-target="#advsearchmodal" data-toggle="modal">Advanced</a>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="web-additive-card-title">
+                                    Showing 1-6 of 99 Consultants
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="padd_tb_50">
-        <div class="container br-bt">
-            <div class="row">
-                <?php
-                if ($programmerList) {
-
-
+    <div class="home-inner-block-set">
+        <div class="container">
+            <div class="full-width">
+                <div class="row">
+                    <?php
+                    if ($programmerList) {
                     $url = site_url() . "xpertconnect/api/findFeaturedListRemoteProgramming/1";
 
                     $assigned_details = apiCall($url, "get");
@@ -147,148 +141,163 @@ $this->template->contentBegin(POS_TOP); ?>
                     $assigned_id = $assigned_details['result']['user_id'];
 
                     $assigned_text = $assigned_details['result']['description'];
-
-
                     foreach ($programmerList as $rowConsult) {
+                    if ($rowConsult['uid'] == $assigned_id) {
 
+                        $name = $rowConsult['u_name'];
 
-                        if ($rowConsult['uid'] == $assigned_id) {
-
-                            $name = $rowConsult['u_name'];
-
-                            $u_avatar = $rowConsult['u_avatar'];
-                        }
-                        ?>
-                        <div class="col-md-4">
-                            <div class="profile_enginer padd_all_50 bx-shdw white b-h-ourteam">
-
-                                <?php if ($rowConsult['u_avatar']) { ?>
-                                    <div class="profile_man">
-                                        <img src="<?= base_url() . '/uploads/customer/' . $rowConsult['u_avatar'] ?>" alt="img">
-                                    </div>
-                                <?php } else { ?>
-                                    <div class="profile_man">
-                                        <img src="<?= base_url() . '/uploads/customer/user-default.png' ?>" alt="img">
-                                    </div>
-                                <?php } ?>
-
-                                <div class="profile_cntnt">
-                                    <h3 class="mrgn-top"><?php echo $rowConsult['u_name']; ?></h3>
-                                    <p>Certified Public Bookkeeper</p>
-                                    <!-- <button class="green-btn mrgn-top"></button> -->
-                                    <a href="javascript:void(0)" class="link_in"> <i class="fa fa-linkedin-square"
-                                                                    aria-hidden="true"></i></a>
-                                </div>
-                            </div>
+                        $u_avatar = $rowConsult['u_avatar'];
+                    }
+                    ?>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                        <div class="home-card-set ">
+                        <?php if ($rowConsult['u_avatar']) { ?>
+                            <img class="thumb-img" src="<?= base_url() . '/uploads/customer/' . $rowConsult['u_avatar'] ?>" alt="Jane Doe">
+                        <?php }else { ?>
+                            <img class="thumb-img" src="<?= base_url() . '/uploads/customer/user-default.png' ?>" alt="Jane Doe">
+                        <?php } ?>
+                            <div class="programmer-name"><?php echo $rowConsult['u_name']; ?></div>
+                            <div class="programmer-desigination mb-2">Senior Programmer</div>
+                            <div class="programmer-hour mb-2">$80/hour</div>
+                            <div class="programmer-location mb-2">Melbourne, Australia</div>
+                            <a href="#" class="btn submit-btn mt-4">View Profile</a>
                         </div>
+                    </div>
                         <?php
                     }
-                } ?>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-center mrgn-top custom-paigntion">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination ">
-                                <li class="page-item disabled">
-                                    <?php echo pagination($pageintation['totalCount'], $pageintation['page'], $pageintation['show'], site_url() . "remoteprogramming/index/", ''); ?>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    } ?>
+
+                </div>
+                <div class="card-pagination">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;"><i class="ion-ios-arrow-back"></i></a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="javascript:;">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">5</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">6</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">7</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">8</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">9</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;">10</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;"><i class="ion-ios-arrow-forward"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="prgorma_demnd">
+    </div>
+
+    <div class="home-inner-block-set">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="padd_tb_50">
-                        <h3 class="basic-head">Recently Viewed</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="c padd_all_50 bx-shdw white">
-                <div id="owl-two" class="owl-carousel owl-theme">
-                    <div class="item ">
-                        <div class="padd_all_50  bx-shdw profile_one text-center">
-                            <img src="<?php echo $theme_url ?>/images/trainers-img1.jpg" alt="">
-                            <div class="enginr">
-                                <h4 class="basic-head">John Smith</h4>
-                                <p>Service Engineer</p>
+            <div class="card-title pb-4">Recently Viewed</div>
+            <div class="machines-recently-viewed">
+                <div id="recently_viewed_machine" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="home-card-set text-center">
+                            <div class="programmer-image mb-4">
+                                <img class="thumb-img box-shadow" src="<?php echo $theme_url ?>/images/trainers-img1.jpg" alt="Jane Doe">
                             </div>
-                            <button type="submit" class="green-btn"> View Profile</button>
+                            <div class="programmer-name text-16">John Smith</div>
+                            <div class="programmer-desigination mb-2 text-13">Service Programmer</div>
+                            <a href="#" class="btn small-btn mt-4">View Profile</a>
                         </div>
                     </div>
-                    <div class="item ">
-                        <div class="padd_all_50  bx-shdw profile_one text-center">
-                            <img src="<?php echo $theme_url ?>/images/profile.jpg" alt="">
-                            <div class="enginr">
-                                <h4 class="basic-head">John Smith</h4>
-                                <p>Service Engineer</p>
+                    <div class="item">
+                        <div class="home-card-set text-center">
+                            <div class="programmer-image mb-4">
+                                <img class="thumb-img box-shadow" src="<?php echo $theme_url ?>/images/profile.jpg" alt="Jane Doe">
                             </div>
-                            <button type="submit" class="green-btn"> View Profile</button>
+                            <div class="programmer-name text-16">John Smith</div>
+                            <div class="programmer-desigination mb-2 text-13">Service Programmer</div>
+                            <a href="#" class="btn small-btn mt-4">View Profile</a>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
         </div>
-    </section>
-    <section class="em_sect">
+    </div>
+
+
+    <div class="home-inner-block-set">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="padd_tb_50 ">
-                        <h3 class="basic-head">Programmer of the month</h3>
+            <div class="card-title">Programmer Of The Month</div>
+            <div class="programmer-card p-40">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <div class="programmer-card-image">
+                            <img src="<?php echo $theme_url ?>/images/profile.jpg" class="img-fluid" alt="Card image">
+                        </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="padd_all_50 bx-shdw white">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class=" em_mont">
-                                    <img src="<?php echo $theme_url ?>/images/profile.jpg" alt="img">
-                                </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        <div class="programmer-card-content">
+                            <div class="card-title">
+                                <span class="full-width">Jane Doe</span>
+                                <small class="full-width">Senier Programmer</small>
                             </div>
-                            <div class="col-md-8">
-                                <div class="em-cnt">
-                                    <h4 class="basic-head">Jane Doe</h4>
-                                    <span>Senior Engineer</span>
-                                    <p class="mrgn-top"><?php echo $assigned_text; ?></p>
-
-                                </div>
-                                <button type="submit" class="green-btn mrgn-top"> View Profile</button>
+                            <p class="text-dark"><?php echo $assigned_text; ?></p>
+                            <div class="bending-machine-card-footer">
+                                <button class="btn submit-btn">View Profile</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
-    <section class=" bx-shdw downld-app mrgn-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 white">
-                    <div class="padd-left">
-                        <div class="down-cntnt  our-app-txt ">
-                            <p> are you a job shop intrested in buying a machine?</p>
+    </div>
+    </div>
+</div>
+
+    <div class="support-now-card-container mt-3">
+        <div class="support-now-card-right-img" style="background: url(<?php echo $theme_url ?>/images/10-2.jpg)"></div>
+        <div class="container">
+            <div class="full-width">
+                <div class="row align-items-center flex">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="support-now-card-left-content">
+                            Are You Interested <br>
+                            In Outsourcing <br>
+                            Your Production?
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 commut">
-                    <div class="down-cntnt app-box_child">
-                        <h3 class="basic-head white-color">On Demand</h3>
-                        <h3 class="basic-head white-color">manufacturing</h3>
-                        <button class="green-btn mrgn-top">View More</button>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="support-now-card-right-content text-center">
+                            <div class="full-width">Manufacturing-on-Demand</div>
+                            <button class="btn submit-btn mt-15">View More</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-
+    </div>
+<!-- Footer Container end -->
     <!-- #//programmer_div -->
 
     <div id="advsearchmodal" class="modal fade" role="dialog">

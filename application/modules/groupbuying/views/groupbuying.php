@@ -3,21 +3,17 @@ $this->template->contentBegin(POS_TOP);
 
 // remote application
 ?>
-<section class="banner banner_image collectivebuyer_banner  align-items-center">
+<div class="home-page-container height-550" style="background: url(<?php echo $theme_url ?>/images/collective-buyer.jpg)">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="banner_text">
-                    <p>Teranex Community Platform</p>
-                    <h1 class="basic-head white-color">Collective Buyers</h1>
-                </div>
-            </div>
+        <div class="banner-content-text">
+            <span>Teranex Community Platform</span>
+            <b>Collective Buyers</b>
         </div>
     </div>
-</section>
-
-<section class="em_sect padd_all_50">
-    <div class="container">
+</div>
+<div class="home-page-body-container">
+    <div class="home-inner-block-set">
+        <div class="container">
             <?php 	// display messages
 
             if(hasFlash("dataMsgSuccess"))	{	?>
@@ -44,77 +40,57 @@ $this->template->contentBegin(POS_TOP);
                 </div>
 
             <?php }	?>
-        <div class="row">
-            <?php
-                $i = 1;
-            foreach($groupbuying_list as $groupbuyings) { ?>
-                <?php if($this->session->userdata('uid')==''){ ?>
-                    <div class="col-12">
-                        <div class="padd_all_50 bx-shdw mar-25 white">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="em-cnt">
-                                        <h4 class="basic-head"><?php echo $groupbuyings['groupbuying_cat_name']; ?></h4>
-                                        <p class="mrgn-top"><?php echo $groupbuyings['groupbuying_cat_description']; ?></p>
-                                    </div>
+            <div class="full-width">
+                <div class="row">
+                    <?php
+                    $i = 1;
+                    foreach($groupbuying_list as $groupbuyings) { ?>
+                    <?php if($this->session->userdata('uid')==''){ ?>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <div class="home-card-set">
+                            <div class="card-title"><?php echo $groupbuyings['groupbuying_cat_name']; ?></div>
+                            <p>
+                                <?php echo $groupbuyings['groupbuying_cat_description']; ?>
+                            </p>
+                            <div class="flex justify-content-between full-width mt-2">
+                                <button data-toggle="modal" class="btn submit-btn min-w-110" data-target="#new_modal_<?php echo $i;?>">Ask</button>
+                                <button data-toggle="modal"class="btn submit-btn min-w-110" data-target="#new_modal_<?php echo $i;?>_offer">Offer</button>
 
-                                </div>
-                                <div class="col-md-3">
-                                    <div class=" em_mont ask_btn">
-                                        <button type="submit" data-toggle="modal" class="green-btn" data-target="#new_modal_<?php echo $i;?>">Ask</button>
-                                        <button type="submit" data-toggle="modal"class="green-btn" data-target="#new_modal_<?php echo $i;?>_offer">Offer</button>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
-               <?php } else {?>
-                <div class="col-12">
-                    <div class="padd_all_50 bx-shdw mar-25 white">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="em-cnt">
-                                    <h4 class="basic-head"><?php echo $groupbuyings['groupbuying_cat_name']; ?></h4>
-                                    <p class="mrgn-top"><?php echo $groupbuyings['groupbuying_cat_description']; ?></p>
-                                </div>
-
-                            </div>
-                            <div class="col-md-3">
-                                <div class=" em_mont ask_btn">
-                                    <button type="submit" data-toggle="modal" class="green-btn" data-target="#new_modal_<?php echo $i;?>">Ask</button>
-                                    <button type="submit" data-toggle="modal" class="green-btn" data-target="#new_modal_<?php echo $i;?>_offer">Offer</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php }?>
-                <?php $i++; } ?>
-        </div>
-
-    </div>
-</section>
-
-<section class="mrgn-top bx-shdw downld-app white">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="padd-left">
-                    <div class="down-cntnt  our-app-txt ">
-                        <p style="line-height:inherit">are you looking to exchange spare parts or machines with other shops?</p>
-                    </div>
+                        <?php }?>
+                        <?php $i++; } ?>
                 </div>
             </div>
-            <div class="col-md-6 commut">
-                <div class="down-cntnt app-box_child">
-                    <h3 class="basic-head white-color">Teranex</h3>
-                    <h3 class="basic-head white-color">Xchange Communities</h3>
-                    <button class="green-btn mrgn-top">View Now</button>
+
+        </div>
+    </div>
+    <div class="support-now-card-container">
+        <div class="support-now-card-right-img" style="background: url(images/card-img.jpg)"></div>
+        <div class="container">
+            <div class="full-width">
+                <div class="row align-items-center flex">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="support-now-card-left-content">
+                            Are You Looking To <br>
+                            Exchange Spare Parts Or <br>
+                            Machines With Others Shops?
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="support-now-card-right-content text-center">
+                            <div class="full-width">Teranex<br> Exchange Communities</div>
+                            <button class="btn submit-btn mt-15">View Now</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
 
 
 <div id="new_modal_1" class="modal fade" role="dialog">
@@ -128,8 +104,8 @@ $this->template->contentBegin(POS_TOP);
       </div>
       <div class="modal-body">
         <div class="col-sm-12 border_bot padd-0">
-        
-          
+
+
           <div class="consumables reqDet">
             <div class="col-sm-12">
               <form class="" name="" id="consumablesform" method="post" enctype="multipart/form-data" action="#" >
@@ -147,7 +123,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($consumableTypeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['consumable_type']; ?></option>
                          <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="cons_brand_id" id="consumable_brand">
@@ -156,7 +132,7 @@ $this->template->contentBegin(POS_TOP);
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['consumable_brand']; ?></option>
                         <?php } ?>
                       </select><span class="compulsary">*</span>
-					 
+
                   </div>
                   <div class="form-group">
                        <select class="form_bor_bot consumable" name="cons_name_id"id="cons_name_id">
@@ -164,9 +140,9 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($consumableNameData as $row){ ?>
                           <option value="<?php echo $row['id']; ?>"  data-unit = "<?php echo $row['unit']; ?>"><?php echo $row['name']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
-					  
-					
+                      </select><span class="compulsary">*</span>
+
+
                   </div>
                   <div class="">
                     <div class="col-sm-8 padd-0">
@@ -177,7 +153,7 @@ $this->template->contentBegin(POS_TOP);
                     </div>
                     <div class="clearfix"></div>
                   </div>
-                  
+
                   <div class="form-group">
                       <select class="form_bor_bot" name="cons_freq" id="cons_freq">
                         <option value="">Select Consumable Frequency</option>
@@ -185,7 +161,7 @@ $this->template->contentBegin(POS_TOP);
                         <option value="Quarterly">Quarterly</option>
                         <option value="Half">Half Year</option>
                         <option value="Yearly">Yearly</option>
-                      </select> 
+                      </select>
                   </div><span class="compulsary">*</span>
                   <div class="form-group">
                       <input type="text" id="consumable_buying_price" name="consumable_buying_price" class="form_bor_bot " placeholder="Current Buying Price" ><span class="compulsary">*</span>
@@ -230,7 +206,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($serviceTypeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['servicepart_type']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="service_brand_id" id="servicepart_brand">
@@ -238,7 +214,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($serviceBrandData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['servicepart_brand']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
 					<select class="form_bor_bot servicePart" name="service_name_id" id="servicepart_name">
@@ -246,8 +222,8 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($serviceName as $row){ ?>
                           <option value="<?php echo $row['id'] ?>" data-unit = <?php echo $row['unit'];?>><?php echo $row['servicepart_name']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
-                   
+                      </select><span class="compulsary">*</span>
+
                   </div>
                   <div class="">
                     <div class="col-sm-8 padd-0">
@@ -265,7 +241,7 @@ $this->template->contentBegin(POS_TOP);
                         <option value="Quarterly">Quarterly</option>
                         <option value="Half">Half Year</option>
                         <option value="Yearly">Yearly</option>
-                      </select> 
+                      </select>
                   </div><span class="compulsary">*</span>
                   <div class="form-group">
                       <input type="text" id="servicepart_buying_price" name="servicepart_buying_price" class="form_bor_bot " placeholder="Current Buying Price" ><span class="compulsary">*</span>
@@ -293,9 +269,9 @@ $this->template->contentBegin(POS_TOP);
       </div>
       <div class="modal-body">
         <div class="col-sm-12 border_bot padd-0">
-           
+
             <div class="clearfix"></div><br/>
-          
+
          <div class="sheetmetals reqDet" >
             <div class="col-sm-12">
               <form class="" name="" id="sheetmetalform" method="post" enctype="multipart/form-data" action="#" >
@@ -313,7 +289,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($sheetMetalTypeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_type']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="sheet_brand_id" id="sheetmetal_brand">
@@ -321,7 +297,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($sheetMetalBrandData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_brand']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="sheetmetal_thickness" id="sheetmetal_thickness">
@@ -329,7 +305,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($SheetMetalThicknessData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_thickness']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="sheetmetal_size" id="sheetmetal_size">
@@ -337,7 +313,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($SheetMetalSizeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_size']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
 					<select class="form_bor_bot" name="sheet_name_id" id="sheet_name_id">
@@ -345,8 +321,8 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($SheetMetalName as $row){ ?>
                           <option value="<?php echo $row['id'] ?>" data-unit="<?php echo $row['unit'];?>"><?php echo $row['sheetmetal_name']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
-                    
+                      </select><span class="compulsary">*</span>
+
                   </div>
                   <div class="">
                     <div class="col-sm-8 padd-0">
@@ -364,7 +340,7 @@ $this->template->contentBegin(POS_TOP);
                         <option value="Quarterly">Quarterly</option>
                         <option value="Half">Half Year</option>
                         <option value="Yearly">Yearly</option>
-                      </select> 
+                      </select>
                   </div><span class="compulsary">*</span>
                   <div class="form-group">
                       <input type="text" id="sheetmetal_buying_price" name="sheetmetal_buying_price" class="form_bor_bot " placeholder="Current Buying Price" ><span class="compulsary">*</span>
@@ -393,8 +369,8 @@ $this->template->contentBegin(POS_TOP);
       </div>
       <div class="modal-body">
         <div class="col-sm-12 border_bot padd-0">
-        
-          
+
+
           <div class="consumables reqDet">
             <div class="col-sm-12">
               <form class="" name="" id="consumablesofferform" method="post" enctype="multipart/form-data" action="#" >
@@ -412,7 +388,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($consumableTypeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['consumable_type']; ?></option>
                          <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="cons_brand_id" id="consumable_brand_offer">
@@ -421,7 +397,7 @@ $this->template->contentBegin(POS_TOP);
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['consumable_brand']; ?></option>
                         <?php } ?>
                       </select><span class="compulsary">*</span>
-					 
+
                   </div>
                   <div class="form-group">
                        <select class="form_bor_bot consumable" name="cons_name_id"id="cons_name_id_offer">
@@ -429,9 +405,9 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($consumableNameData as $row){ ?>
                           <option value="<?php echo $row['id']; ?>"  data-unit = "<?php echo $row['unit']; ?>"><?php echo $row['name']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
-					  
-					
+                      </select><span class="compulsary">*</span>
+
+
                   </div>
                   <div class="">
                     <div class="col-sm-8 padd-0">
@@ -442,7 +418,7 @@ $this->template->contentBegin(POS_TOP);
                     </div>
                     <div class="clearfix"></div>
                   </div>
-                  
+
                   <div class="form-group">
                       <select class="form_bor_bot" name="cons_freq" id="cons_freq_offer">
                         <option value="">Select Consumable Frequency</option>
@@ -450,7 +426,7 @@ $this->template->contentBegin(POS_TOP);
                         <option value="Quarterly">Quarterly</option>
                         <option value="Half">Half Year</option>
                         <option value="Yearly">Yearly</option>
-                      </select> 
+                      </select>
                   </div><span class="compulsary">*</span>
                   <div class="form-group">
                       <input type="text" id="consumable_sale_price_offer" name="consumable_sale_price" class="form_bor_bot" placeholder="Sale Price" ><span class="compulsary">*</span>
@@ -495,7 +471,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($serviceTypeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['servicepart_type']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="service_brand_id" id="servicepart_brand_offer">
@@ -503,7 +479,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($serviceBrandData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['servicepart_brand']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
 					<select class="form_bor_bot servicePart" name="service_name_id" id="servicepart_name_offer">
@@ -511,8 +487,8 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($serviceName as $row){ ?>
                           <option value="<?php echo $row['id'] ?>" data-unit = <?php echo $row['unit'];?>><?php echo $row['servicepart_name']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
-                   
+                      </select><span class="compulsary">*</span>
+
                   </div>
                   <div class="">
                     <div class="col-sm-8 padd-0">
@@ -530,7 +506,7 @@ $this->template->contentBegin(POS_TOP);
                         <option value="Quarterly">Quarterly</option>
                         <option value="Half">Half Year</option>
                         <option value="Yearly">Yearly</option>
-                      </select> 
+                      </select>
                   </div><span class="compulsary">*</span>
                   <div class="form-group">
                       <input type="text" id="servicepart_buying_price_offer" name="servicepart_buying_price" class="form_bor_bot " placeholder="Current Buying Price" ><span class="compulsary">*</span>
@@ -558,9 +534,9 @@ $this->template->contentBegin(POS_TOP);
       </div>
       <div class="modal-body">
         <div class="col-sm-12 border_bot padd-0">
-           
+
             <div class="clearfix"></div><br/>
-          
+
          <div class="sheetmetals reqDet" >
             <div class="col-sm-12">
               <form class="" name="" id="sheetmetalform_offer" method="post" enctype="multipart/form-data" action="#" >
@@ -578,7 +554,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($sheetMetalTypeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_type']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="sheet_brand_id" id="sheetmetal_brand_offer">
@@ -586,7 +562,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($sheetMetalBrandData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_brand']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="sheetmetal_thickness" id="sheetmetal_thickness_offer">
@@ -594,7 +570,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($SheetMetalThicknessData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_thickness']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
                       <select class="form_bor_bot" name="sheetmetal_size" id="sheetmetal_size_offer">
@@ -602,7 +578,7 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($SheetMetalSizeData as $row){ ?>
                           <option value="<?php echo $row['id'] ?>"><?php echo $row['sheetmetal_size']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
+                      </select><span class="compulsary">*</span>
                   </div>
                   <div class="form-group">
 					<select class="form_bor_bot" name="sheet_name_id" id="sheet_name_id_offer">
@@ -610,8 +586,8 @@ $this->template->contentBegin(POS_TOP);
                         <?php foreach($SheetMetalName as $row){ ?>
                           <option value="<?php echo $row['id'] ?>" data-unit="<?php echo $row['unit'];?>"><?php echo $row['sheetmetal_name']; ?></option>
                         <?php } ?>
-                      </select><span class="compulsary">*</span> 
-                    
+                      </select><span class="compulsary">*</span>
+
                   </div>
                   <div class="">
                     <div class="col-sm-8 padd-0">
@@ -629,7 +605,7 @@ $this->template->contentBegin(POS_TOP);
                         <option value="Quarterly">Quarterly</option>
                         <option value="Half">Half Year</option>
                         <option value="Yearly">Yearly</option>
-                      </select> 
+                      </select>
                   </div><span class="compulsary">*</span>
                   <div class="form-group">
                       <input type="text" id="sheetmetal_sale_price" name="sheetmetal_sale_price" class="form_bor_bot " placeholder="Current Sale Price" ><span class="compulsary">*</span>
@@ -648,7 +624,7 @@ $this->template->contentBegin(POS_TOP);
 </div>
 
 <?php $this->template->contentBegin(POS_BOTTOM);?>
-<!-- <script src="<?=$theme_url?>/js/jquery.validate.min.js"></script> --> 
+<!-- <script src="<?=$theme_url?>/js/jquery.validate.min.js"></script> -->
 <script type="text/javascript">
   //FOR REQUEST DETAILS
   $(document).ready(function(){
@@ -668,12 +644,12 @@ $(document).ready(function(){
         $(targetBox).show();
     });
 });
-jQuery('.numbersOnly').keyup(function () { 
+jQuery('.numbersOnly').keyup(function () {
 this.value = this.value.replace(/[^0-9\.]/g,'');
 });
 $(".decimal").keyup(function() {
     var $this = $(this);
-    $this.val($this.val().replace(/[^\d.]/g, ''));        
+    $this.val($this.val().replace(/[^\d.]/g, ''));
 });
 
 
@@ -683,7 +659,7 @@ $('#groupbuyingmodal').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset');
 });
 $("#buyingrequest").validate({
-    rules: {  
+    rules: {
         product_cat:{
           required:true
         },
@@ -706,7 +682,7 @@ $("#buyingrequest").validate({
         	required:true
         },
       },
-    messages: { 
+    messages: {
       product_cat:{
         required:"Please select product category"
       },
@@ -729,33 +705,33 @@ $("#buyingrequest").validate({
         	required:"Please select product model"
         },
     }
-  }); 
+  });
   $('#prod_brandName').on('change', function() {
 	var prod_brandName = $("#prod_brandName").val();
 		 $.ajax({
 		  type: "GET",
 		  url: site_url+"/machine/api/machineBrandModelList/"+prod_brandName,
 		  data: {},
-			success: function(result){ 
+			success: function(result){
 				$('#prod_model').empty();
-				 if(result){ 	 
-						var state_list=result.result.result; 
+				 if(result){
+						var state_list=result.result.result;
 						$('#prod_model')
 							.append($("<option></option>")
 							.attr("value",'')
-							.text('Select Product Module'));	
-						$.each(state_list, function(key, value) { 
+							.text('Select Product Module'));
+						$.each(state_list, function(key, value) {
 							$('#prod_model')
 							.append($("<option></option>")
 							.attr("value",value.md_id)
 							.text(value.model_name));
-						});		
+						});
 					}
 				else if(result.error){
-				
-				} 
+
+				}
 			}
-			
+
 		});
 });
 
@@ -766,7 +742,7 @@ $('#consumablesmodal').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset');
 });
 $("#consumablesform").validate({
-    rules: {  
+    rules: {
         consumable_category:{
           required:true
         },
@@ -789,7 +765,7 @@ $("#consumablesform").validate({
           required:true
         },
       },
-    messages: { 
+    messages: {
       consumable_category:{
           required:"Please select category"
         },
@@ -812,7 +788,7 @@ $("#consumablesform").validate({
           required:"Please enter price"
         },
     }
-}); 
+});
 //servicepart
 $('#servicepartmodal').on('hidden.bs.modal', function () {
     $('#servicepartform').validate().resetForm();
@@ -820,7 +796,7 @@ $('#servicepartmodal').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset');
 });
 $("#servicepartform").validate({
-    rules: {  
+    rules: {
         servicepart_category:{
           required:true
         },
@@ -843,7 +819,7 @@ $("#servicepartform").validate({
           required:true
         },
       },
-    messages: { 
+    messages: {
       servicepart_category:{
           required:"Please select category"
         },
@@ -866,7 +842,7 @@ $("#servicepartform").validate({
           required:"Please enter price"
         },
     }
-}); 
+});
 //sheetmetal
 $('#sheetmetalmodal').on('hidden.bs.modal', function () {
     $('#sheetmetalform').validate().resetForm();
@@ -874,7 +850,7 @@ $('#sheetmetalmodal').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset');
 });
 $("#sheetmetalform").validate({
-    rules: {  
+    rules: {
         sheetmetal_category:{
           required:true
         },
@@ -903,7 +879,7 @@ $("#sheetmetalform").validate({
           required:true
         },
       },
-    messages: { 
+    messages: {
       sheetmetal_category:{
           required:"Please select category"
         },
@@ -932,7 +908,7 @@ $("#sheetmetalform").validate({
           required:"Please enter price"
         },
     }
-}); 
+});
 $(".consumable").change(function(){
 	debugger;
    var  consumable = $(this).data('unit');
@@ -956,9 +932,9 @@ $(".servicePart").change(function(){
 
 </script>
 <script type="text/javascript">
-                                            
-                                            
-                                           
+
+
+
                                             $(document).ready(function () {
                                                 // $(".chatbox").hide();
                                                 $('input[type="radio"]').click(function () {
@@ -972,4 +948,4 @@ $(".servicePart").change(function(){
 </script>
 
 
-<?php $this->template->contentEnd();  ?> 
+<?php $this->template->contentEnd();  ?>
