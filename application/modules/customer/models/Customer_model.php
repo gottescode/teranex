@@ -4387,7 +4387,7 @@ class Customer_model extends CI_Model {
         return $result;
     }
 	public function onDemandPrgRfqDetails($rfq_id) {
-		$result = $this->db_lib->fetchMultiple("ondemand_manufacturing_part_data", " rfq_id= $rfq_id ", "");
+		$result = $this->db_lib->fetchMultiple("ondemand_programming_part_data", " rfq_id= $rfq_id ", "");
 
         return $result;
     }

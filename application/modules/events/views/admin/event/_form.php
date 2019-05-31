@@ -65,23 +65,33 @@ $new_date = date('d-M-y', $timestamp); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="event_end_time">Event End Time::<span class="star">*</span></label>
+                        <label class="control-label col-sm-3" for="event_end_time">Event End Time:<span class="star">*</span></label>
                         <div class="col-sm-6">
                             <input type="text" name="event_end_time" id="timepicker1" class="form_bor_bot required" value="<?= $event_data['event_end_time'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="event_end_time">Event End Time::<span class="star">*</span></label>
+                        <label class="control-label col-sm-3" for="event_end_time">Community Name:<span class="star">*</span></label>
                         <div class="col-sm-6">
-                            <select class="form_bor_bot required" name="organizer_name">
-                                <option value="">Select Organizer Name</option>
-                                <?php foreach ($oragnizerList as $key) { ?>
-                              <option value="<?php echo  $key['u_email'];?>"<?php if ($key['u_email']==$event_data['organizer_name']) echo ' selected="selected"'; ?>><?php echo $key['u_email']; ?></option>
+                            <select class="form_bor_bot required" name="community_id" id="community">
+                                <option value="">Select Community</option>
+                                <?php foreach ($communityList as $row) { ?>
+								<option value="<?php echo  $row['id'];?>"<?php if ($row['id']==$event_data['community_id']) echo ' selected="selected"'; ?> admin-id="<?=$row['moderator_user']?>" modarator-id="<?=$row['admin_user']?>" ><?php echo $row['title']; ?></option>
 
                                     <?php } ?>
 
-                            </select>		</div>
+                            </select>	
+						</div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="event_end_time">Organizer Name:<span class="star">*</span></label>
+                        <div class="col-sm-6">
+                            <select id= "oragnizerList" class="form_bor_bot required" name="organizer_name">
+                               
+                            </select>		
+						</div>
+                    </div>
+					
                     <div class="form-group"> 
                         <div class="text-center">
                             <input type="submit" name="btnSubmit" value="Submit" class="btn btn-primary"> 
@@ -105,6 +115,42 @@ $new_date = date('d-M-y', $timestamp); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
 <script>
+$('#community').on('change', function() {
+	var community_id = $("#community").val();
+		var mod_id = $('option:selected', this).attr('modarator-id');
+		var admin_id = $('option:selected', this).attr('admin-id');
+		 $.ajax({
+		  type: "POST",
+		  url: site_url+"events/api/userData",
+		  data: {community_id:community_id,mod_id:mod_id,admin_id:admin_id},
+			success: function(result){ 
+				 if(result){ 				
+				$('#oragnizerList').empty();
+				 
+						var user_list=result; 
+						console.log(user_list);
+						$('#oragnizerList')
+							.append($("<option></option>")
+							.attr("value",'')
+							.text('Select Organizer'));	
+						$.each(user_list, function(key, value) { 
+							$('#oragnizerList')
+							.append($("<option></option>")
+							.attr("value",value.u_email)
+							.text(value.u_name));
+						});		
+					}
+				else if(result.error){
+				
+				} 
+			}
+			
+		});
+});
+
+
+
+
     $(function () {
         $("#datepicker,#datepicker1").datepicker({dateFormat: "dd-M-yy"}).val()
     });
@@ -179,5 +225,8 @@ $new_date = date('d-M-y', $timestamp); ?>
 
     CKEDITOR.replace('event_description');
     CKEDITOR.replace('key_features');
+	
+	
+
 </script> 
 <?php $this->template->contentEnd(); ?> 

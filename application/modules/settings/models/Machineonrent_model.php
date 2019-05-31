@@ -5,9 +5,12 @@ class Machineonrent_model extends CI_Model {
     // constructor of this class
     function __construct() {
         // call parent constructor 
+			$this->load->library("file_manager");
 			$this->on_rent_machine_master="on_rent_machine_master"; 
 			$this->on_rent_service_master="on_rent_service_master"; 
+			$this->frontend_machine_on_rent="frontend_machine_on_rent"; 
 			$this->on_rent_infra_master="on_rent_infrastructure_data"; 
+			$this->frontend_path="uploads/machine_on_rent_frontend_images"; 
 			parent::__construct();
     }
 
@@ -71,5 +74,41 @@ class Machineonrent_model extends CI_Model {
         return $result;
     } 
 
+	public function findSingleFront($strWhere = 1) {
+		return $this->db_lib->fetchSingle($this->frontend_machine_on_rent, $strWhere,'');
+	}
+	public function findMultipleFront($strWhere) {
+		$result=$this->db_lib->fetchMultiple($this->frontend_machine_on_rent, $strWhere."","");//exit; 
+		return $result;
+	}
+	public function findMultipleFrontEnd($from,$to) {
+		$result=$this->db_lib->fetchMultiple($this->frontend_machine_on_rent," id >=$from AND id <=$to ","");//exit; 
+		return $result;
+	}
+	public function createFront($arrData) {
+		 $data1 = $this->file_manager->upload('image', $this->frontend_path, IMG_FORMAT, "");
+		
+        if ($data1[0])
+            $arrData["image"] = $data1[1];
+            $arrData["text"] = $arrData["description"];
+
+	$page_id = $this->db_lib->insert("frontend_machine_on_rent",$arrData);
+		
+		return $page_id ;
+    }
+	public function updateFront($arrData) { 
+	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
+
+        if ($data[0])
+            $arrData["image"] = $data[1];
+
+	
+		$result = $this->db_lib->update($this->frontend_machine_on_rent, $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	public function deleteFront($id) {
+		$result = $this->db_lib->delete($this->frontend_machine_on_rent, "id = " . $id);
+        return $result;
+    } 
 
 }	?>

@@ -358,11 +358,12 @@ class Machine extends FRONTEND_Controller {
     }
 	
 	/* New Code May2019*/
-    public function time_study_request() {
+    public function time_study_request($machine_id,$supplier_id) {
 		if(isset($_POST['submit'])) {
 			$user_id = $this->session->userdata('uid');
             $pageData = $this->input->post();
 			$pageData['customer_id'] = $user_id;
+			$pageData['supplier_id'] = $supplier_id;
 			$url = site_url()."machine/api/createTimeStudyRequest";
 			$response =  apiCall($url, "post",$pageData);
 			if($response['result']) {

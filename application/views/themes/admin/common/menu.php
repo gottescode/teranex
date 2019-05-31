@@ -36,7 +36,10 @@ ul.admin_sidebar li.cust1 a span{
 					<li><a href="<?=site_url()?>remoteprogramming/admin/remoteprogrammingCategory"><i class="fa fa-angle-right"></i><span>Remote Programming Category List</span></a></li>
 				</ul>
 			</li>  
-			 <li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Xpert Connect</span>  <i class="fa fa-chevron-left pull-right-container"></i></a>
+		<!--  
+		
+		
+		<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Xpert Connect</span>  <i class="fa fa-chevron-left pull-right-container"></i></a>
 				<ul class="treeview-menu">
 					<li><a href="<?=site_url()?>xpertconnect/admin/xpertconnectCategory"><i class="fa fa-angle-right"></i><span>Xpert Connect Category List</span></a></li>
 				</ul>
@@ -47,6 +50,9 @@ ul.admin_sidebar li.cust1 a span{
 					<li><a href="<?=site_url()?>remoteapplication/admin/videoRequests"><i class="fa fa-angle-right"></i><span>Remote Video Request</span></a></li>					
 				</ul>
 			</li>
+		
+		-->	 
+		
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Machine </span><i class="fa fa-chevron-left pull-right-container"></i></a>
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>RFQ </span><i class="fa fa-chevron-left pull-right-container"></i></a>
 				<ul class="treeview-menu">
@@ -76,7 +82,7 @@ ul.admin_sidebar li.cust1 a span{
 					<li><a href="<?=site_url()?>groupbuying/admin/rfqList"><i class="fa fa-angle-right"></i><span>RFQ List</span></a></li>
 					<li><a href="<?=site_url()?>groupbuying/admin/groupbuyingCategory"><i class="fa fa-angle-right"></i><span>Group Buying Category List</span></a></li>
 				</ul>
-			</li>-->
+			</li>
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Collective buying Consumable</span><i class="fa fa-chevron-left pull-right-container"></i></a>
 				<ul class="treeview-menu">
 					<li><a href="<?=site_url()?>groupbuying/consumable"><i class="fa fa-user"></i><span>Customer RFQ Consumable</span></a></li>
@@ -97,7 +103,7 @@ ul.admin_sidebar li.cust1 a span{
 					<li><a href="<?=site_url()?>groupbuying/sheetmetal/adminRfqList"><i class="fa fa-user"></i><span>RFQ List</span></a></li>
 				
 				</ul>
-			</li>
+			</li>-->
 
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Digital Manufacturing</span>  <i class="fa fa-chevron-left pull-right-container"></i></a>
 				<ul class="treeview-menu">
@@ -111,7 +117,7 @@ ul.admin_sidebar li.cust1 a span{
 			<li><a href="<?=site_url()?>pages/admin/VideoChatRequestList"><i class="fa fa-list-ul"></i><span>Video Chat Request List</span></a></li>
 			<!-- <li><a href="#"><i class="fa fa-picture-o"></i> <span>RFQ's</span></a></li>
 			<li><a href="<?=site_url()?>pages/admin/contactList"><i class="fa fa-phone" aria-hidden="true"></i> <span>Forum</span></a></li> -->
-			<!-- <li><a href="<?=site_url()?>events/admin/index"><i class="fa fa-calendar"></i> <span>Event </span></a></li>  -->
+			<li><a href="<?=site_url()?>events/admin/index"><i class="fa fa-calendar"></i> <span>Event </span></a></li> <!--  -->
 			<li><a href="<?=site_url()?>exchangegroups/admin"><i class="fa fa-list-ul"></i> <span>Exchange Group List </span></a></li>  
 			<li class="treeview"><a href="#"><i class="fa fa-list-ul"></i> <span>Research</span><i class="fa fa-chevron-left pull-right-container"></i></a>
 				<ul class="treeview-menu">
@@ -242,7 +248,8 @@ ul.admin_sidebar li.cust1 a span{
 			
 			
 			
-				
+				<li><a href="<?=site_url()?>settings/machineonrentdata/frontEndData"><i class="fa fa-user"></i><span>Machine On-Rent FrontEndData</span></a></li>
+					
 					<li class="treeview"><a href="#"><i class="fa fa-users"></i> <span>Team</span><i class="fa fa-chevron-left pull-right-container"></i></a>
 						<ul class="treeview-menu">
 							<li><a href="<?=site_url()?>pages/team/"><i class="fa fa-user"></i><span>Team</span></a></li>

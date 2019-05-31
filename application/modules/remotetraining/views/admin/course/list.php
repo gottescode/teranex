@@ -70,6 +70,7 @@
 														<a onclick="return confirm('Are You Sure To Delete This Entry?')"  href="<?=site_url()."remotetraining/admin/deleteCourse/$cid/".$rowData['cid']?>" aria-haspopup="true" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>&nbsp; &nbsp;
 														 <a href="<?=site_url()."remotetraining/admin/contentList/".$rowData['cid']?>"  class="" role="button" aria-haspopup="true" title="Content List"><i class="fa fa-plus-square"></i></a> &nbsp; &nbsp;
 														 <a href="<?=site_url()."remotetraining/admin/faqList/".$rowData['cid']?>"  class="btn btn-xs btn-info" role="button">FAQ</a>
+														 <a href="<?=site_url()."remotetraining/admin/courseModuleList/".$rowData['cid']?>"  class="btn btn-xs btn-info" role="button">Modules</a>
 														<input  type="hidden" name="id[]" value="<?php echo $rowData["cid"]; ?>">
 													</td>
 												</tr>
