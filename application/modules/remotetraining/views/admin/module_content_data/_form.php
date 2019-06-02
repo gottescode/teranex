@@ -18,7 +18,7 @@
 				   <div class="form-group">
 					<label class="control-label col-sm-3" for="sub_title">Title:<span class="star">*</span> </label>
 					<div class="col-sm-6">
-					<input type="text" name="module_sub_titles" id="module_sub_titles" class="form_bor_bot	" value="<?=$content_data['module_sub_titles']?>">
+					<input type="text" name="title" id="title" class="form_bor_bot	" value="<?=$content_data['title']?>">
 					</div>
 				  </div> 
 				  

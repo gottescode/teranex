@@ -941,7 +941,7 @@ class Api extends API_Controller {
 
 	public function createModuleContent_post() {
 	 
-        $this->form_validation->set_rules('module_title_id', 'Required', 'trim|required');
+        $this->form_validation->set_rules('module_id', 'Required', 'trim|required');
          
 		 if ($this->form_validation->run() == FALSE) {
             $response = [
@@ -973,7 +973,7 @@ class Api extends API_Controller {
 		$strWhere = $this->get("strWhere");
 		if(!$strWhere) $strWhere = 1;
 		    if($id!=0){
-			$strWhere .= " and module_title = $id";
+			$strWhere .= " and module_id = $id";
 		    }
 			$response = [
 				"result" => $this->remotetraining_model->courseModuleListContent($strWhere)
@@ -1075,7 +1075,7 @@ class Api extends API_Controller {
 		$strWhere = $this->get("strWhere");
 		if(!$strWhere) $strWhere = 1;
 		    if($id!=0){
-			$strWhere .= " and module_title = $id";
+			$strWhere .= " and module_title_id = $id";
 		    }
 			$response = [
 				"result" => $this->remotetraining_model->courseModuleListContentSub($strWhere)

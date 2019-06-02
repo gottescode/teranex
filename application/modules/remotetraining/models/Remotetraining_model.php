@@ -461,25 +461,25 @@ class Remotetraining_model extends CI_Model {
         if ($data1[0])
             $arrData["data"] = $data1[1];
      
-		return  $this->db_lib->insert("course_module_title_data", $arrData); 
+		return  $this->db_lib->insert("course_modules_titles", $arrData); 
     }
 	public function courseModuleListContent($strWhere) {
-		$result=$this->db_lib->fetchMultiple("course_module_title_data", $strWhere,"");//exit; 
+		$result=$this->db_lib->fetchMultiple("course_modules_titles", $strWhere,"");//exit; 
 		return $result; 
     }
 	
 	public function findSingleCourseModuleContent($strWhere = 1) {
-		return $this->db_lib->fetchSingle('course_module_title_data', $strWhere,'');
+		return $this->db_lib->fetchSingle('course_modules_titles', $strWhere,'');
 	}
 	public function updateCourseModuleContent($arrData) {
 	 
-		$result = $this->db_lib->update("course_module_title_data", $arrData, "id = " . $arrData["id"]);
+		$result = $this->db_lib->update("course_modules_titles", $arrData, "id = " . $arrData["id"]);
         return $result;
     }
 	
 	public function deleteCourseModuleContent($id) {
 		 
-		$result = $this->db_lib->delete("course_module_title_data", "id = " . $id);
+		$result = $this->db_lib->delete("course_modules_titles", "id = " . $id);
         return $result;
     }
 	

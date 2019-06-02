@@ -204,19 +204,20 @@ class Admin extends BACKEND_Controller {
 		$this->template->load("admin/module_content/list",$arrData);
 	}
 	public function courseModuleListContentSub($id) { 
-		$url = site_url()."remotetraining/api/courseModuleListContent/$id"; 
+		$url = site_url()."remotetraining/api/courseModuleListContentSub/$id"; 
 		$module_content =  apiCall($url, "get");
+		
 		$arrData = array(
 					'id' =>$id ,
 					"module_content"=>$module_content['result'], 
 					);
-		$this->template->load("admin/module_content/list",$arrData);
+		$this->template->load("admin/module_content_data/list",$arrData);
 	}
 	
 	public function createModuleContent($id) { 
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();  
-			$pageData['module_title_id'] = $id;
+			$pageData['module_id'] = $id;
 			$url = site_url()."remotetraining/api/createModuleContent"; 
 			$response =  apiCall($url, "post",$pageData); 
 			if($response['result']){
@@ -281,7 +282,7 @@ class Admin extends BACKEND_Controller {
 					'catid' =>$cid ,
 					"traineeuData"=>$traineeuData['result'], 
 					);
-		$this->template->load("admin/module_content/create",$arrData);
+		$this->template->load("admin/module_content_data/create",$arrData);
 	}
 	public function updateCourseModuleContentSub($id) {  
 		$url = site_url()."remotetraining/api/findSingleCourseModuleContent/$id";
@@ -304,7 +305,7 @@ class Admin extends BACKEND_Controller {
 		$arrayData = [
 			"content_data"=>$content_data['result'], 
 			];
-		$this->template->load("admin/module_content/update",$arrayData);
+		$this->template->load("admin/module_content_data/update",$arrayData);
 	}
 	public function deleteCourseModuleContentSub($id) {  
 		$url = site_url()."remotetraining/api/deleteCourseModuleSub/$id";

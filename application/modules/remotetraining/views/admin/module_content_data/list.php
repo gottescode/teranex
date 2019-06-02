@@ -4,12 +4,12 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
 		<section class="content-header">
-		  <span style="font-size: 24px;padding: 10px;">Course Modules Content</span>
+		  <span style="font-size: 24px;padding: 10px;">Course Modules Title Sub Content</span>
 		  
 		  <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
 			<li class=""><a href="<?=site_url()."remotetraining/admin"?>">Remote Training Course List</a></li>
-			<li class=""><a href="#">Course Module Content</a></li>
+			<li class=""><a href="#">Course Modules Title Sub Content</a></li>
 			
 		  </ol>
 		</section>
@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="box">
-						<div class="padd-15"><a href="<?=site_url()."remotetraining/admin/createModuleContent/$id"?>" class="btn btn-info" role="button">Add Content</a></div>
+						<div class="padd-15"><a href="<?=site_url()."remotetraining/admin/createModuleContentSub/$id"?>" class="btn btn-info" role="button">Add Content</a></div>
 							<?php 	// display messages
 								if(hasFlash("dataMsgSuccess"))	{	?>
 									<div class="alert alert-success alert-dismissible" role="alert">
@@ -54,14 +54,13 @@
 												?>
 												<tr>
 													<td><?=$i++?></td>
-													<td><?=$rowData['module_sub_titles']?></td> 
+													<td><?=$rowData['title']?></td> 
 													<td>
 														<a href="<?=site_url()."uploads/course_data/".$rowData['data']?>" class="btn btn-xs" target="_blank">Data</a>
 													</td> 
-													<td><a href="<?=site_url()."remotetraining/admin/updateCourseModuleContent/".$rowData['id']?>" aria-haspopup="true" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp; &nbsp;
-														<a onclick="return confirm('Are You Sure To Delete This Entry?')"  href="<?=site_url()."remotetraining/admin/deleteCourseModuleContent/".$rowData['id']?>" aria-haspopup="true" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>&nbsp; &nbsp;
-													<a href="<?=site_url()."remotetraining/admin/courseModuleListContentSub/".$rowData['id']?>"  class="btn btn-xs btn-info" role="button">Contents  Subdata</a> 
-													</td>
+													<td><a href="<?=site_url()."remotetraining/admin/updateCourseModuleContentSub/".$rowData['id']?>" aria-haspopup="true" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp; &nbsp;
+														<a onclick="return confirm('Are You Sure To Delete This Entry?')"  href="<?=site_url()."remotetraining/admin/deleteCourseModuleContentSub/".$rowData['id']?>" aria-haspopup="true" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>&nbsp; &nbsp;
+													 </td>
 												</tr>
 											<?php }
 												echo "";
