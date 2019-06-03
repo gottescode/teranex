@@ -836,8 +836,312 @@ class Api extends API_Controller {
 		
 
 	}
+/* Course Modules */
+	public function createCourseModule_post() {
+	 
+        $this->form_validation->set_rules('course_id', 'Required', 'trim|required');
+         
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
 
+            // get input data
+			$data = $this->post(); 
+		 
+			$page_id = $this->remotetraining_model->createCourseModule($data);
+			if($page_id){
+				$response = [ "result" => $page_id, "message" => "Record inserted successfully." ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function courseModuleList_get($cid) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+			$strWhere .= " and course_id = $cid";
+		    }
+			$response = [
+				"result" => $this->remotetraining_model->courseModuleList($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
 
+	public function findSingleCourseModule_get( $id, $strWhere = 1) {
+		if( !(int)$id ){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$strWhere .= " AND id = $id ";
+			$response = [
+				"result" => $this->remotetraining_model->findSingleCourseModule($strWhere)
+			];
+		} 		
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function updateCourseModule_post() {
+		$this->form_validation->set_rules('id', 'Module  Required', 'trim|required');
+         
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->remotetraining_model->updateCourseModule($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Record updated successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to update record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function deleteCourseModule_get($id) {
+		if( !(int)$id){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$response = [
+				"result" => $this->remotetraining_model->deleteCourseModule($id),
+				"message" => "Record deleted successfully."
+			];
+		}		
+		$this->response($response, REST_Controller::HTTP_OK);
+		
+	}
+
+	public function createModuleContent_post() {
+	 
+        $this->form_validation->set_rules('module_id', 'Required', 'trim|required');
+         
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$page_id = $this->remotetraining_model->createModuleContent($data);
+			if($page_id){
+				$response = [ "result" => $page_id, "message" => "Record inserted successfully." ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function courseModuleListContent_get($id) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+			$strWhere .= " and module_id = $id";
+		    }
+			$response = [
+				"result" => $this->remotetraining_model->courseModuleListContent($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+
+	public function findSingleCourseModuleContent_get( $id, $strWhere = 1) {
+		if( !(int)$id ){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$strWhere .= " AND id = $id ";
+			$response = [
+				"result" => $this->remotetraining_model->findSingleCourseModuleContent($strWhere)
+			];
+		} 		
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function updateCourseModuleContent_post() {
+		$this->form_validation->set_rules('id', 'Module  Required', 'trim|required');
+         
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->remotetraining_model->updateCourseModuleContent($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Record updated successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to update record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function deleteCourseModuleContent_get($id) {
+		if( !(int)$id){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$response = [
+				"result" => $this->remotetraining_model->deleteCourseModuleContent($id),
+				"message" => "Record deleted successfully."
+			];
+		}		
+		$this->response($response, REST_Controller::HTTP_OK);
+		
+	}
+	
+	public function createModuleContentSub_post() {
+	 
+        $this->form_validation->set_rules('module_title_id', 'Required', 'trim|required');
+         
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$page_id = $this->remotetraining_model->createModuleContentSub($data);
+			if($page_id){
+				$response = [ "result" => $page_id, "message" => "Record inserted successfully." ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Failed to insert record."
+				];
+			}
+		}
+		
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function courseModuleListContentSub_get($id) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+			$strWhere .= " and module_title_id = $id";
+		    }
+			$response = [
+				"result" => $this->remotetraining_model->courseModuleListContentSub($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+
+	public function findSingleCourseModuleContentSub_get( $id, $strWhere = 1) {
+		if( !(int)$id ){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$strWhere .= " AND id = $id ";
+			$response = [
+				"result" => $this->remotetraining_model->findSingleCourseModuleContentSub($strWhere)
+			];
+		} 		
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function updateCourseModuleContentSub_post() {
+		$this->form_validation->set_rules('id', 'Module  Required', 'trim|required');
+         
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->remotetraining_model->updateCourseModuleContentSub($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Record updated successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to update record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function deleteCourseModuleContentSub_get($id) {
+		if( !(int)$id){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$response = [
+				"result" => $this->remotetraining_model->deleteCourseModuleContentSub($id),
+				"message" => "Record deleted successfully."
+			];
+		}		
+		$this->response($response, REST_Controller::HTTP_OK);
+		
+	}
 
 	
 }

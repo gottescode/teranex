@@ -44,8 +44,41 @@ class Api extends API_Controller {
 		 	
 		$this->response($response, REST_Controller::HTTP_OK);
 	}
+	public function findMultiplecommunityList_get($id=0) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+				//$strWhere .= " and event_cat_id <>$id and publish='Y' ";
+		    }else{
+				
+			$strWhere .= " AND	status = 'A' ";
+			}
+			$response = [
+				"result" => $this->event_model->findMultiplecommunityList($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
 
 	 
+	public function userData_post() {
+	 
+            // get input data
+			$data = $this->post(); 
+			$admin = $data['admin_id'];
+			$mod = $data['mod_id'];
+			$strWhere = " 1 "; 
+			if($admin){
+				$strWhere.= " AND uid = $admin  ";
+			}
+			if($mod){
+				$strWhere.= " AND uid = $mod  ";
+				
+			}
+			$userData = $this->event_model->userData($strWhere);
+		
+		$this->response($userData, REST_Controller::HTTP_OK);
+    }
 	public function createCategory_post() {
 	 
         $this->form_validation->set_rules('event_cat_name', 'Name Required', 'trim|required');
@@ -164,6 +197,17 @@ class Api extends API_Controller {
 			$strWhere .= " AND  event_start_date >  '".date('Y-m-d')."'";
 		    }
 			$response = [
+				"result" => $this->event_model->findMultipleEvent($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function findMultipleEventByCommunityID_get($community_id) { 
+	 
+		    $strWhere .= "  EV.community_id = $community_id";
+		    //$strWhere .= " AND  event_start_date >  '".date('Y-m-d')."'";
+		    $response = [
 				"result" => $this->event_model->findMultipleEvent($strWhere)
 			];
 		 	

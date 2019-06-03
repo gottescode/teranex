@@ -69,6 +69,12 @@ class Admin extends BACKEND_Controller {
 
 		$url = site_url()."events/api/findMultipleEvent/$eid";
 		$event_list =  apiCall($url, "get"); 
+		/* Front END API */
+			//$community_id = 2;
+			//$url = site_url()."events/api/findMultipleEventByCommunityID/$community_id";
+			//$event_list_by_community_id =  apiCall($url, "get"); 
+		/* Front END API */
+		
 		//print_r($result);exit;
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();
@@ -83,6 +89,10 @@ class Admin extends BACKEND_Controller {
 		$this->template->load("admin/event/list",$arrData);
 	}
 	public function createEvent($eid) {  
+			$url = site_url()."events/api/findMultiplecommunityList"; 
+			$communityList =  apiCall($url, "get");
+			
+			
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();
                         
@@ -95,7 +105,10 @@ class Admin extends BACKEND_Controller {
 			$url = site_url()."events/api/createEvent"; 
 			$response =  apiCall($url, "post",$pageData);
                         //print_r($response);die;
-			if($response){
+//Community List
+
+
+						if($response){
                             
                             
                     $to = $organizer_email;
@@ -131,6 +144,7 @@ class Admin extends BACKEND_Controller {
                 
 		$arrData = array(
                     'event_cat_id' =>$eid,
+                    'communityList' =>$communityList['result'],
                     'oragnizerList' =>$oragnizerList['result']
                         );
                 //print_r($oragnizerList);die;

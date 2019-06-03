@@ -129,10 +129,194 @@ class Admin extends BACKEND_Controller {
 		setFlash("dataMsgSuccess", $response['message']);
 		redirect(site_url()."remotetraining/admin/courseList/$cid");		
 	} 
+	/* Course Module */
+	public function createCourseModule($cid) { 
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post();  
+			$pageData['course_id'] = $cid;
+			$url = site_url()."remotetraining/api/createCourseModule"; 
+			$response =  apiCall($url, "post",$pageData); 
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleList/$cid");	
+			} else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleList/$cid");	
+			}
+		}  
+		$arrData = array(
+					'catid' =>$cid ,
+					"traineeuData"=>$traineeuData['result'], 
+					);
+		$this->template->load("admin/module/create",$arrData);
+	}
+	public function updateCourseModule($id) {  
+		$url = site_url()."remotetraining/api/findSingleCourseModule/$id";
+		$course_data =  apiCall($url, "get"); 
+		
+		
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$cid = $course_data['result']['course_id']; 
+			$url = site_url()."remotetraining/api/updateCourseModule";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleList/$cid");	
+			} else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleList/$cid");	
+			}		
+		}
+		
+		$arrayData = [
+			"course_data"=>$course_data['result'], 
+			];
+		$this->template->load("admin/module/update",$arrayData);
+	}
+	public function deleteCourseModule($id) {  
+		$url = site_url()."remotetraining/api/deleteCourseModule/$id";
+		$response =  apiCall($url, "get"); 
+		//print_r($response);exit;
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."remotetraining/admin/courseModuleList/$id");	
+		//redirect(site_url()."remotetraining/admin/courseList/$cid");		
+	} 
+	
+	
+	public function courseModuleList($cid) { 
+		$url = site_url()."remotetraining/api/courseModuleList/$cid"; 
+		$courseModule =  apiCall($url, "get"); 
+		  
+		$arrData = array(
+					'cid' =>$cid ,
+					"courseModule"=>$courseModule['result'], 
+					);
+		$this->template->load("admin/module/list",$arrData);
+	}
+	public function courseModuleListContent($id) { 
+		$url = site_url()."remotetraining/api/courseModuleListContent/$id"; 
+		$module_content =  apiCall($url, "get");
+		$arrData = array(
+					'id' =>$id ,
+					"module_content"=>$module_content['result'], 
+					);
+		$this->template->load("admin/module_content/list",$arrData);
+	}
+	public function courseModuleListContentSub($id) { 
+		$url = site_url()."remotetraining/api/courseModuleListContentSub/$id"; 
+		$module_content =  apiCall($url, "get");
+		
+		$arrData = array(
+					'id' =>$id ,
+					"module_content"=>$module_content['result'], 
+					);
+		$this->template->load("admin/module_content_data/list",$arrData);
+	}
+	
+	public function createModuleContent($id) { 
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post();  
+			$pageData['module_id'] = $id;
+			$url = site_url()."remotetraining/api/createModuleContent"; 
+			$response =  apiCall($url, "post",$pageData); 
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContent/$id");	
+			} else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContent/$id");	
+			}
+		}  
+		$arrData = array(
+					'catid' =>$cid ,
+					"traineeuData"=>$traineeuData['result'], 
+					);
+		$this->template->load("admin/module_content/create",$arrData);
+	}
+	public function updateCourseModuleContent($id) {  
+		$url = site_url()."remotetraining/api/findSingleCourseModuleContent/$id";
+		$content_data =  apiCall($url, "get");
+		
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			
+			$url = site_url()."remotetraining/api/updateCourseModuleContent";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContent/$id");	
+			} else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContent/$id");	
+			}		
+		}
+		
+		$arrayData = [
+			"content_data"=>$content_data['result'], 
+			];
+		$this->template->load("admin/module_content/update",$arrayData);
+	}
+	public function deleteCourseModuleContent($id) {  
+		$url = site_url()."remotetraining/api/deleteCourseModule/$id";
+		$response =  apiCall($url, "get"); 
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."remotetraining/admin/courseModuleList/$id");	
+	} 
+	
+	public function createModuleContentSub($id) { 
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post();  
+			$pageData['module_title_id'] = $id;
+			$url = site_url()."remotetraining/api/createModuleContentSub"; 
+			$response =  apiCall($url, "post",$pageData); 
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContentSub/$id");	
+			} else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContentSub/$id");	
+			}
+		}  
+		$arrData = array(
+					'catid' =>$cid ,
+					"traineeuData"=>$traineeuData['result'], 
+					);
+		$this->template->load("admin/module_content_data/create",$arrData);
+	}
+	public function updateCourseModuleContentSub($id) {  
+		$url = site_url()."remotetraining/api/findSingleCourseModuleContent/$id";
+		$content_data =  apiCall($url, "get");
+		
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			
+			$url = site_url()."remotetraining/api/updateCourseModuleContentSub";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContentSub/$id");	
+			} else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."remotetraining/admin/courseModuleListContentSub/$id");	
+			}		
+		}
+		
+		$arrayData = [
+			"content_data"=>$content_data['result'], 
+			];
+		$this->template->load("admin/module_content_data/update",$arrayData);
+	}
+	public function deleteCourseModuleContentSub($id) {  
+		$url = site_url()."remotetraining/api/deleteCourseModuleSub/$id";
+		$response =  apiCall($url, "get"); 
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."remotetraining/admin/courseModuleListSub/$id");	
+	} 
 	
 	/* content add as per course */
 	
-	public function contentList($courseid) {
+	public function contentList($id) {
 	 	$url = site_url()."remotetraining/api/findMultipleContent/$courseid";
 		$content_list =  apiCall($url, "get");  
 		if(isset($_POST['btnSubmit'])){
@@ -149,7 +333,7 @@ class Admin extends BACKEND_Controller {
 		$arrData = array('category_list' =>$content_list['result'] ,'courseid' =>$courseid,"course_data"=>$course_data['result'] );
 		$this->template->load("admin/content/list",$arrData);
 	}
-	public function createContent($course_id) {  
+	public function createContent($id) {  
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();  
 			$course_id = $pageData['course_id']; 
@@ -183,7 +367,7 @@ class Admin extends BACKEND_Controller {
 			];
 		$this->template->load("admin/content/update",$arrayData);
 	}
-	public function deleteContent($cid,$id) {  
+	public function deleteContent($id) {  
 		$url = site_url()."remotetraining/api/deleteContent/$id";
 		$response =  apiCall($url, "get"); 
 		setFlash("dataMsgSuccess", $response['message']);

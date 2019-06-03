@@ -6,6 +6,7 @@ class Remotetraining_model extends CI_Model {
     function __construct() {
         // call parent constructor
 			$this->course_path="uploads/remotetraining/"; 
+			$this->course_path_data="uploads/course_data/"; 
 			$this->load->library("file_manager"); 
 			define('RESIZEWIDTH', '800');
 			define('RESIZEHIGHT', '448');
@@ -428,7 +429,88 @@ class Remotetraining_model extends CI_Model {
         return $result;
 
     }
+	
+	public function createCourseModule($arrData) {
+		$arrData["created_date"] = date('Y-m-d h:i:s');
+		return  $this->db_lib->insert("course_modules", $arrData); 
+    }
+	public function courseModuleList($strWhere) {
+		$result=$this->db_lib->fetchMultiple("course_modules", $strWhere,"");//exit; 
+		return $result; 
+    }
+	
+	public function findSingleCourseModule($strWhere = 1) {
+		return $this->db_lib->fetchSingle('course_modules', $strWhere,'');
+	}
+	public function updateCourseModule($arrData) {
+	 
+		$result = $this->db_lib->update("course_modules", $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	
+	public function deleteCourseModule($id) {
+		 
+		$result = $this->db_lib->delete("course_modules", "id = " . $id);
+        return $result;
+    }
 
+	public function createModuleContent($arrData) {
+		$arrData["created_date"] = date('Y-m-d h:i:s');
+		$data1 = $this->file_manager->upload('data', $this->course_path_data, MIX_FORMAT, "");
+
+        if ($data1[0])
+            $arrData["data"] = $data1[1];
+     
+		return  $this->db_lib->insert("course_modules_titles", $arrData); 
+    }
+	public function courseModuleListContent($strWhere) {
+		$result=$this->db_lib->fetchMultiple("course_modules_titles", $strWhere,"");//exit; 
+		return $result; 
+    }
+	
+	public function findSingleCourseModuleContent($strWhere = 1) {
+		return $this->db_lib->fetchSingle('course_modules_titles', $strWhere,'');
+	}
+	public function updateCourseModuleContent($arrData) {
+	 
+		$result = $this->db_lib->update("course_modules_titles", $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	
+	public function deleteCourseModuleContent($id) {
+		 
+		$result = $this->db_lib->delete("course_modules_titles", "id = " . $id);
+        return $result;
+    }
+	
+	public function createModuleContentSub($arrData) {
+		$arrData["created_date"] = date('Y-m-d h:i:s');
+		$data1 = $this->file_manager->upload('data', $this->course_path_data, MIX_FORMAT, "");
+
+        if ($data1[0])
+            $arrData["data"] = $data1[1];
+     
+		return  $this->db_lib->insert("course_module_title_data", $arrData); 
+    }
+	public function courseModuleListContentSub($strWhere) {
+		$result=$this->db_lib->fetchMultiple("course_module_title_data", $strWhere,"");//exit; 
+		return $result; 
+    }
+	
+	public function findSingleCourseModuleContentSub($strWhere = 1) {
+		return $this->db_lib->fetchSingle('course_module_title_data', $strWhere,'');
+	}
+	public function updateCourseModuleContentSub($arrData) {
+	 
+		$result = $this->db_lib->update("course_module_title_data", $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	
+	public function deleteCourseModuleContentSub($id) {
+		 
+		$result = $this->db_lib->delete("course_module_title_data", "id = " . $id);
+        return $result;
+    }
 
 }
 

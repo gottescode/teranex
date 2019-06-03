@@ -42,6 +42,7 @@
 											<tr>
 												<th>Sr.No.</th>
 												<th>Name</th> 
+												<th>Community Name</th> 
 												<!--<th>Event Description</th>-->  
 												<th>Event User Limit</th> 
 												<th>Price</th> 
@@ -60,6 +61,7 @@
 												<tr>
 													<td><?=$i++?></td>
 													<td><?=$rowData['event_name']?></td> 
+													<td><?=$rowData['com_title']?></td> 
 													<!--<td><?=$rowData['event_description']?></td>-->
 													<td><?=$rowData['event_user_limit']?></td>
 													<td><?=$rowData['event_price']?></td>

@@ -21,6 +21,14 @@ class Event_model extends CI_Model {
 		$result=$this->db_lib->fetchMultiple("event_category", $strWhere,"");//exit; 
 		return $result;
 	}
+	public function userData($strWhere) {
+		$result=$this->db_lib->fetchMultiple("master_user", $strWhere,"");//exit; 
+		return $result;
+	}
+	public function findMultiplecommunityList($strWhere) {
+		$result=$this->db_lib->fetchMultiple("community", $strWhere,"");//exit; 
+		return $result;
+	}
 	 
 
     public function createCategory($arrData) {
@@ -77,7 +85,7 @@ class Event_model extends CI_Model {
 	}
 	 
 	public function findMultipleEvent($strWhere) {
-		$result=$this->db_lib->fetchMultiple("event EV JOIN event_category EC ON EV.event_cat_id=EC.event_cat_id", $strWhere." ORDER BY event_start_date DESC","EV.*,EC.event_cat_name");//exit; 
+		$result=$this->db_lib->fetchMultiple("event EV JOIN event_category EC ON EV.event_cat_id=EC.event_cat_id LEFT JOIN community as cm ON EV.community_id = cm.id", $strWhere." ORDER BY event_start_date DESC","EV.*,EC.event_cat_name,cm.id as com_id,cm.title as com_title");//exit; 
 		return $result;
 	} 
     public function createEvent($arrData) {
