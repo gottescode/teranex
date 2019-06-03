@@ -69,6 +69,12 @@ class Admin extends BACKEND_Controller {
 
 		$url = site_url()."events/api/findMultipleEvent/$eid";
 		$event_list =  apiCall($url, "get"); 
+		/* Front END API */
+			//$community_id = 2;
+			//$url = site_url()."events/api/findMultipleEventByCommunityID/$community_id";
+			//$event_list_by_community_id =  apiCall($url, "get"); 
+		/* Front END API */
+		
 		//print_r($result);exit;
 		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();
@@ -87,7 +93,7 @@ class Admin extends BACKEND_Controller {
 			$communityList =  apiCall($url, "get");
 			
 			
-	if(isset($_POST['btnSubmit'])){
+		if(isset($_POST['btnSubmit'])){
 			$pageData = $this->input->post();
                         
 			$eid = $pageData['event_cat_id']; 

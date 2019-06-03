@@ -202,6 +202,17 @@ class Api extends API_Controller {
 		 	
 		$this->response($response, REST_Controller::HTTP_OK);
 	}
+	
+	public function findMultipleEventByCommunityID_get($community_id) { 
+	 
+		    $strWhere .= "  EV.community_id = $community_id";
+		    //$strWhere .= " AND  event_start_date >  '".date('Y-m-d')."'";
+		    $response = [
+				"result" => $this->event_model->findMultipleEvent($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
 
 	 
 	public function createEvent_post() {
