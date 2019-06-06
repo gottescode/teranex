@@ -1,11 +1,11 @@
 
 <div class="content-wrapper">
     <section class="content-header">
-      <h1>Update Machine On Rent Data </h1>
+      <h1>Update Machine Software </h1>
      <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class=""><a href="<?=site_url()."machine/machineSoftwareList"?>">Machine On Rent Data</a></li>
-			<li class="active">Update Machine On Rent Data</li>
+			<li class=""><a href="<?=site_url()."machine/machineSoftwareList"?>">Machine Software List</a></li>
+			<li class="active">Update Machine Software List</li>
 		</ol>
     </section>
 

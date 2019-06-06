@@ -71,7 +71,7 @@ class Admin extends BACKEND_Controller {
 		$event_list =  apiCall($url, "get"); 
 		/* Front END API */
 			//$community_id = 2;
-			//$url = site_url()."events/api/findMultipleEventByCommunityID/$community_id";
+			echo $url = site_url()."events/api/findMultipleEventByCommunityID/$community_id";
 			//$event_list_by_community_id =  apiCall($url, "get"); 
 		/* Front END API */
 		
