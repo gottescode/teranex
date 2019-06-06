@@ -4,10 +4,10 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
 		<section class="content-header">
-		  <span style="font-size: 24px;padding: 10px;">Machine On Rent Front End Data</span>
+		  <span style="font-size: 24px;padding: 10px;">Machine On Rent Software</span>
 		  <ol class="breadcrumb">
 			<li><a href="<?=site_url()."dashboard"?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class=""><a href="#">Machine On Rent Front End Data</a></li>
+			<li class=""><a href="#">Machine On Rent Software</a></li>
 			
 		  </ol>
 		</section>
@@ -33,10 +33,10 @@
 						 
 						<div class="box-body"> 
 							<div class="padd-15">
-								<a href="<?php echo site_url()."settings/machineonrentdata/createfrontEndData"?>" class="btn btn-info">Add Data</a>
-								<a href="<?php echo site_url()."settings/machineonrentdata/createfrontEndDataSoftware"?>" class="btn btn-info">Add Software</a>
-							</div>
 							
+							<a href="<?php echo site_url()."settings/machineonrentdata/createfrontEndData"?>" class="btn btn-info">Add Data</a>
+							<a href="<?php echo site_url()."settings/machineonrentdata/createfrontEndDataSoftware"?>" class="btn btn-info">Add Software</a></br>
+							</div>	
 						<form id="" name="" class="form-horizontal" enctype="multipart/form-data" method="post">
 								<div class="table-responsive">
 						
@@ -45,7 +45,7 @@
 											<tr>
 												<th>Sr.No.</th>
 												<th>Title</th> 
-												<th>Subtitle</th> 
+												<th>Image</th> 
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -56,11 +56,11 @@
 											<tr>
 												<td><?=$i++;?></td>
 												<td><?=$row['title'];?></td>
-												<td><?=$row['subtitle'];?></td>
+												<td><img src="<?=site_url().'uploads/machine_on_rent_frontend_images/'.$row['image']?>" width="100px"></td>
 												<td>
-													<a href="<?=site_url()."settings/machineonrentdata/updatefrontEndData/".$row['id']; ?>" ><i class="fa fa-pencil" aria-hidden="true"></i></a>
+													<a href="<?=site_url()."settings/machineonrentdata/updatefrontEndDataSoftware/".$row['id']; ?>" ><i class="fa fa-pencil" aria-hidden="true"></i></a>
 													&nbsp;
-													<a onclick="return confirm('Are You Sure To Delete This Entry?')"  href="<?=site_url()."settings/machineonrentdata/deleteFront/".$row['id']; ?>" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+													<a onclick="return confirm('Are You Sure To Delete This Entry?')"  href="<?=site_url()."settings/machineonrentdata/deleteFrontSoftware/".$row['id']; ?>" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 												</td> 
 											</tr>
 											<? } ?>

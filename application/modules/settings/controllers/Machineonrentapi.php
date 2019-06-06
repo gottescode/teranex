@@ -319,7 +319,7 @@ class Machineonrentapi extends API_Controller {
 	 
 /* FrontEnd Data */
 
-public function findSingleFront_get( $id, $strWhere = 1) {
+	public function findSingleFront_get( $id, $strWhere = 1) {
 		if( !(int)$id ){
 			$response = [
 				"result" => false,
@@ -426,6 +426,120 @@ public function findSingleFront_get( $id, $strWhere = 1) {
 		else {
 			$response = [
 				"result" => $this->machineonrent_model->deleteFront($id),
+				"message" => "Record deleted successfully."
+			];
+		}		
+		$this->response($response, REST_Controller::HTTP_OK);
+		
+	}
+	
+	public function findSingleFrontSoftware_get( $id, $strWhere = 1) {
+		if( !(int)$id ){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$strWhere .= " AND id = $id ";
+			$response = [
+				"result" => $this->machineonrent_model->findSingleFrontSoftware($strWhere)
+			];
+		} 		
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	 
+	public function findMultipleFrontSoftware_get($id=0) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+			$strWhere .= " ";
+		    }
+			$response = [
+				"result" => $this->machineonrent_model->findMultipleFrontSoftware($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function findMultipleFrontEndSoftware_get($from,$to) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+			$strWhere .= " ";
+		    }
+			$response = [
+				"result" => $this->machineonrent_model->findMultipleFrontEnd($from,$to)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function createFrontSoftware_post() {
+	 
+        $this->form_validation->set_rules('title', 'name Required', 'trim|required');
+		 
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$type_id = $this->machineonrent_model->createFrontSoftware($data);
+			if($type_id){
+				$response = [ "result" => $type_id, "message" => "Record inserted successfully." ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to insert record."
+				];
+			}
+		}
+		
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function updateFrontSoftware_post() {
+		$this->form_validation->set_rules('title', 'title Required', 'trim|required');
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->machineonrent_model->updateFrontSoftware($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Record updated successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to update record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function deleteFrontSoftware_get($id) {
+		if( !(int)$id){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$response = [
+				"result" => $this->machineonrent_model->deleteFrontSoftware($id),
 				"message" => "Record deleted successfully."
 			];
 		}		

@@ -20,20 +20,7 @@
 							<input type="text"  name="title" id="title" class="form_bor_bot required" value="<?=$updateData['title']?>" >
 						</div>
 				  	</div>
-				   	<div class="form-group">
-						<label class="control-label col-sm-3" for="title">Sub Title:<span class="star">*</span></label>
-						<div class="col-sm-6">
-							<input type="text"  name="subtitle" id="subtitle" class="form_bor_bot required" value="<?=$updateData['subtitle']?>" >
-						</div>
-				  	</div>
-				   	<div class="form-group">
-						<label class="control-label col-sm-3" for="description"> Description:<span class="star">*</span></label>
-						<div class="col-sm-6">
-							<textarea name="text" id="text" class="form-control required" ><?=strhtmldecode($updateData['text'])?> </textarea>
 
-						</div>
-					</div> 
-					<!-- 
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="softwareimage">Image : </label>
 						<div class="col-sm-6">
@@ -45,7 +32,6 @@
 						</div>
 					</div> 			
 				  	
-					-->
 					<div class="form-group"> 
 						<div class="text-center">
 					 		<input type="submit" name="btnSubmit" value="Submit" class="btn btn-primary"> 

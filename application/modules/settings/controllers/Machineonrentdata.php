@@ -177,21 +177,15 @@ class Machineonrentdata extends BACKEND_Controller {
 		
 		/* Second */
 		$from = 7;
-		$to = 8;
+		$to = 10;
 		$url = site_url()."settings/machineonrentapi/findMultipleFrontEnd/$from/$to";
 		$secondBlockdata =  apiCall($url, "get"); 
 		
 		/* ThirdBlock */
-		$from = 9;
-		$to = 11;
+		$from = 11;
+		$to = 14;
 		$url = site_url()."settings/machineonrentapi/findMultipleFrontEnd/$from/$to";
 		$thirdBlockdata =  apiCall($url, "get"); 
-		
-		/* FourthBlock */
-		$from = 12;
-		$to = 15;
-		$url = site_url()."settings/machineonrentapi/findMultipleFrontEnd/$from/$to";
-		$fourthBlockdata =  apiCall($url, "get"); 
 		
 		$arrData = array('data' =>$data['result']);
 		$this->template->load("machineonrent/machineonrentfrontend/list",$arrData);
@@ -241,6 +235,69 @@ class Machineonrentdata extends BACKEND_Controller {
 		$response =  apiCall($url, "get"); 
 		setFlash("dataMsgSuccess", $response['message']);
 		redirect(site_url()."settings/machineonrentdata/frontEndData");		
+	}
+	
+	public function frontEndDataSoftware() {
+		
+		/* Front END API
+
+		$url = site_url()."settings/machineonrentapi/findMultipleFrontSoftware/";
+		$frontendSoftwaredata =  apiCall($url, "get"); 
+		
+
+		*/
+	 	$url = site_url()."settings/machineonrentapi/findMultipleFrontSoftware/";
+		$data =  apiCall($url, "get"); 
+		
+		$arrData = array('data' =>$data['result']);
+		$this->template->load("machineonrent/machineonrentfrontendSoftware/list",$arrData);
+	}
+	
+	public function createfrontEndDataSoftware() {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$url = site_url()."settings/machineonrentapi/createFrontSoftware"; 
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/frontEndDataSoftware");	
+			}
+			else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/machineonrentfrontend/frontEndDataSoftware");	
+			}	
+		} 
+		 
+	
+		$this->template->load("machineonrent/machineonrentfrontendSoftware/create");
+	}
+	public function updatefrontEndDataSoftware($id) {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$url = site_url()."settings/machineonrentapi/updateFrontSoftware";
+			$response =  apiCall($url, "post",$pageData);
+			
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/frontEndDataSoftware");	
+			}else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/machineonrentfrontend/frontEndDataSoftware");	
+			}
+		}
+		$url = site_url()."settings/machineonrentapi/findSingleFrontSoftware/$id";
+		$updateData =  apiCall($url, "get");
+		$arrayData = [
+			"updateData"=>$updateData['result'] 
+		];
+		$this->template->load("machineonrent/machineonrentfrontendSoftware/update",$arrayData);
+	}
+	
+	public function deleteFrontSoftware($id) {  
+		$url = site_url()."settings/machineonrentapi/deleteFrontSoftware/$id";
+		$response =  apiCall($url, "get"); 
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."settings/machineonrentdata/frontEndDataSoftware");		
 	}
 	
 }

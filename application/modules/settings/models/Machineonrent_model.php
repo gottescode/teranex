@@ -9,6 +9,8 @@ class Machineonrent_model extends CI_Model {
 			$this->on_rent_machine_master="on_rent_machine_master"; 
 			$this->on_rent_service_master="on_rent_service_master"; 
 			$this->frontend_machine_on_rent="frontend_machine_on_rent"; 
+			// $this->frontend_machine_on_rent_software="frontend_machine_onrent_software"; 
+			$this->frontend_machine_on_rent_software="frontend_machine_on_rent_software"; 
 			$this->on_rent_infra_master="on_rent_infrastructure_data"; 
 			$this->frontend_path="uploads/machine_on_rent_frontend_images"; 
 			parent::__construct();
@@ -86,10 +88,10 @@ class Machineonrent_model extends CI_Model {
 		return $result;
 	}
 	public function createFront($arrData) {
-		 $data1 = $this->file_manager->upload('image', $this->frontend_path, IMG_FORMAT, "");
+		//$data1 = $this->file_manager->upload('image', $this->frontend_path, IMG_FORMAT, "");
 		
-        if ($data1[0])
-            $arrData["image"] = $data1[1];
+        //if ($data1[0])
+          //  $arrData["image"] = $data1[1];
             $arrData["text"] = $arrData["description"];
 
 	$page_id = $this->db_lib->insert("frontend_machine_on_rent",$arrData);
@@ -99,8 +101,8 @@ class Machineonrent_model extends CI_Model {
 	public function updateFront($arrData) { 
 	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
 
-        if ($data[0])
-            $arrData["image"] = $data[1];
+        //if ($data[0])
+          //  $arrData["image"] = $data[1];
 
 	
 		$result = $this->db_lib->update($this->frontend_machine_on_rent, $arrData, "id = " . $arrData["id"]);
@@ -108,6 +110,43 @@ class Machineonrent_model extends CI_Model {
     }
 	public function deleteFront($id) {
 		$result = $this->db_lib->delete($this->frontend_machine_on_rent, "id = " . $id);
+        return $result;
+    } 
+	
+	public function findSingleFrontSoftware($strWhere = 1) {
+		return $this->db_lib->fetchSingle($this->frontend_machine_on_rent_software, $strWhere,'');
+	}
+	public function findMultipleFrontSoftware($strWhere) {
+		$result=$this->db_lib->fetchMultiple($this->frontend_machine_on_rent_software, $strWhere."","");//exit; 
+		return $result;
+	}
+	public function findMultipleFrontEndSoftware($from,$to) {
+		$result=$this->db_lib->fetchMultiple($this->frontend_machine_on_rent_software," id >=$from AND id <=$to ","");//exit; 
+		return $result;
+	}
+	public function createFrontSoftware($arrData) {
+		$data1 = $this->file_manager->upload('image', $this->frontend_path, IMG_FORMAT, "");
+		
+        if ($data1[0])
+			$arrData["image"] = $data1[1];
+            $arrData["text"] = $arrData["text"];
+
+	$page_id = $this->db_lib->insert("frontend_machine_on_rent_software",$arrData);
+		
+		return $page_id ;
+    }
+	public function updateFrontSoftware($arrData) { 
+	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
+
+        if ($data[0])
+            $arrData["image"] = $data[1];
+
+	
+		$result = $this->db_lib->update($this->frontend_machine_on_rent_software, $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	public function deleteFrontSoftware($id) {
+		$result = $this->db_lib->delete($this->frontend_machine_on_rent_software, "id = " . $id);
         return $result;
     } 
 
