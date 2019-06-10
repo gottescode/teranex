@@ -300,6 +300,127 @@ class Machineonrentdata extends BACKEND_Controller {
 		redirect(site_url()."settings/machineonrentdata/frontEndDataSoftware");		
 	}
 	
+/* Machine On rent Block data */
+	public function machineOnRentCatData() {
+		/* Front END Machine On Rent Category Data
+			$url = site_url()."settings/machineonrentapi/findMultipleMachineOnrentCat/";
+			$material_list =  apiCall($url, "get"); 
+		*/
+		
+		$url = site_url()."settings/machineonrentapi/findMultipleMachineOnrentCat/";
+		$material_list =  apiCall($url, "get");  
+		 
+		$arrData = array('material_list' =>$material_list['result'] , );
+		$this->template->load("machineonrent/machineMachineOnrentCat/list",$arrData);
+	}
+	public function createmachineOnRentCatData() {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$url = site_url()."settings/machineonrentapi/createMachineOnrentCat"; 
+			$response =  apiCall($url, "post",$pageData); 
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/machineOnRentCatData");	
+			}
+			else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/machineOnRentCatData");	
+			}	
+		} 
+		 
+	
+		$this->template->load("machineonrent/machineMachineOnrentCat/create");
+	}
+	public function updatemachineOnRentCatData($id) {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$url = site_url()."settings/machineonrentapi/updateMachineOnrentCat";
+			$response =  apiCall($url, "post",$pageData);
+			if($response){
+				setFlash("dataMsgSuccess", $response['message']);
+			}
+			redirect(site_url()."settings/machineonrentdata/machineOnRentCatData");			
+		}
+		$url = site_url()."settings/machineonrentapi/findSingleMachineOnrentCat/$id";
+		$type_data =  apiCall($url, "get");
+		$arrayData = [
+			"type_data"=>$type_data['result'], 
+			"type_list"=>$type_list['result'], 
+		];
+		$this->template->load("machineonrent/machineMachineOnrentCat/update",$arrayData);
+	}
+	public function deletemachineOnRentCatData($id) {  
+		$url = site_url()."settings/machineonrentapi/deleteMachineOnrentCat/$id";
+		$response =  apiCall($url, "get"); 
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."settings/machineonrentdata/machineOnRentCatData");		
+	} 
+
+	public function machineOnRentCatDataSub($cat_id) {
+		
+		/* Front End API Pass categoryid 
+			$url = site_url()."settings/machineonrentapi/findMultipleFrontSubCatrgory/$cat_id";
+			$sub_data =  apiCall($url, "get"); 
+		*/
+		
+		/* Machine Sucateogry Data */
+		$url = site_url()."settings/machineonrentapi/findMultipleFrontSubCatrgory/$cat_id";
+		$data =  apiCall($url, "get"); 
+		
+		$data['cat_id'] = $cat_id;
+		$arrData = array('data' =>$data['result'],"cat_id"=>$cat_id);
+		$this->template->load("machineonrent/machineonrentfrontendSubdata/list",$arrData);
+	}
+	public function createmachineOnRentCatDataSub($cat_id) {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$pageData['cat_id'] = $cat_id;
+			$url = site_url()."settings/machineonrentapi/createFrontSubCatrgory"; 
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/machineOnRentCatDataSub/$cat_id");	
+			}
+			else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/machineOnRentCatDataSub/$cat_id");	
+			}	
+		} 
+		 $arrayData = [
+				'cat_id' => $cat_id
+			];
+	
+		$this->template->load("machineonrent/machineonrentfrontendSubdata/create",$arrayData);
+	}
+	public function updatemachineOnRentCatDataSub($cat_id,$id) {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$url = site_url()."settings/machineonrentapi/updateFrontSubCatrgory";
+			$response =  apiCall($url, "post",$pageData);
+			
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/machineOnRentCatDataSub/$cat_id/$id");	
+			}else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/machineonrentdata/machineOnRentCatDataSub/$cat_id/$id");
+			}
+		}
+		$url = site_url()."settings/machineonrentapi/findSingleFrontSubCatrgory/$id";
+		$updateData =  apiCall($url, "get");
+		
+		$arrayData = [
+			"updateData"=>$updateData['result'] 
+		];
+		$this->template->load("machineonrent/machineonrentfrontendSubdata/update",$arrayData);
+	}
+	public function deletemachineOnRentCatDataSub($cat_id,$id) {  
+		$url = site_url()."settings/machineonrentapi/deleteFrontSubCatrgory/$id";
+		$response =  apiCall($url, "get"); 
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."settings/machineonrentdata/machineOnRentCatDataSub/$cat_id");
+	}
+	
 }
 
 ?>

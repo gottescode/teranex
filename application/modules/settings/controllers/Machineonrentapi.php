@@ -547,8 +547,214 @@ class Machineonrentapi extends API_Controller {
 		
 	}
 	
-	
+	/* Front Cat Data */
+	public function findSingleMachineOnrentCat_get( $id, $strWhere = 1) {
+		if( !(int)$id ){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$strWhere .= " AND id = $id ";
+			$response = [
+				"result" => $this->machineonrent_model->findSingleMachineOnrentCat($strWhere)
+			];
+		} 		
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
 	 
+	public function findMultipleMachineOnrentCat_get($id=0) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($id!=0){
+			$strWhere .= " ";
+		    }
+			$response = [
+				"result" => $this->machineonrent_model->findMultipleMachineOnrentCat($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function createMachineOnrentCat_post() {
+	 
+        $this->form_validation->set_rules('title', 'name Required', 'trim|required');
+		 
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$type_id = $this->machineonrent_model->createMachineOnrentCat($data);
+			if($type_id){
+				$response = [ "result" => $type_id, "message" => "Record inserted successfully." ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to insert record."
+				];
+			}
+		}
+		
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function updateMachineOnrentCat_post() {
+		$this->form_validation->set_rules('title', 'Type name Required', 'trim|required');
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->machineonrent_model->updateMachineOnrentCat($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Record updated successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to update record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function deleteMachineOnrentCat_get($id) {
+		if( !(int)$id){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$response = [
+				"result" => $this->machineonrent_model->deleteMachineOnrentCat($id),
+				"message" => "Record deleted successfully."
+			];
+		}		
+		$this->response($response, REST_Controller::HTTP_OK);
+		
+	}
+	
+	public function findSingleFrontSubCatrgory_get( $id, $strWhere = 1) {
+		if( !(int)$id ){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$strWhere .= " AND id = $id ";
+			$response = [
+				"result" => $this->machineonrent_model->findSingleFrontSubCatrgory($strWhere)
+			];
+		} 		
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function findMultipleFrontSubCatrgory_get($cat_id) { 
+		$strWhere = $this->get("strWhere");
+		if(!$strWhere) $strWhere = 1;
+		    if($cat_id!=0){
+			$strWhere .= " AND cat_id = $cat_id";
+		    }
+			$response = [
+				"result" => $this->machineonrent_model->findMultipleFrontSubCatrgory($strWhere)
+			];
+		 	
+		$this->response($response, REST_Controller::HTTP_OK);
+	}
+	
+	public function createFrontSubCatrgory_post() {
+	 
+        $this->form_validation->set_rules('sub_cat_main_title', 'name Required', 'trim|required');
+        $this->form_validation->set_rules('block_title', 'name Required', 'trim|required');
+        $this->form_validation->set_rules('description', 'name Required', 'trim|required');
+		 
+		 if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+
+            // get input data
+			$data = $this->post(); 
+		 
+			$type_id = $this->machineonrent_model->createFrontSubCatrgory($data);
+			if($type_id){
+				$response = [ "result" => $type_id, "message" => "Record inserted successfully." ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to insert record."
+				];
+			}
+		}
+		
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function updateFrontSubCatrgory_post() {
+		$this->form_validation->set_rules('sub_cat_main_title', 'name Required', 'trim|required');
+        $this->form_validation->set_rules('block_title', 'name Required', 'trim|required');
+        $this->form_validation->set_rules('description', 'name Required', 'trim|required');
+		
+		if ($this->form_validation->run() == FALSE) {
+            $response = [
+                "result" => false,
+                'message' => validation_errors()
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
+            return;
+        } else {
+		    // get input data
+			$data = $this->post();
+			$result = $this->machineonrent_model->updateFrontSubCatrgory($data);
+			if($result){
+				$response = [ "result" => $result, "message" => "Record updated successfully.!!!!" ];
+			} else {
+				$response = [
+					"result" => false,
+					'message' => "Faild to update record."
+				];
+			}
+		}
+		$this->response($response, REST_Controller::HTTP_OK);
+    }
+	
+	public function deleteFrontSubCatrgory_get($id) {
+		if( !(int)$id){
+			$response = [
+				"result" => false,
+				"message" => "Insufficient information provided.",
+			];
+		}
+		else {
+			$response = [
+				"result" => $this->machineonrent_model->deleteFrontSubCatrgory($id),
+				"message" => "Record deleted successfully."
+			];
+		}		
+		$this->response($response, REST_Controller::HTTP_OK);
+		
+	}
+	
 }
 
 ?>
