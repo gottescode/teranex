@@ -75,7 +75,7 @@ class Digitalmanufacturing extends FRONTEND_Controller {
 	public function additive_manufacturing($amid)	{	
 		$url = site_url()."digitalmanufacturing/api/findMultipleAdditiveManufacturing/$amid";
 		$additive_manufacturing_list =  apiCall($url, "get");
-		 //print_r($additive_manufacturing_list);exit;
+		 
 		$url = site_url()."digitalmanufacturing/api/findMultipleAdditiveManufacturingProcesses/$amid";
 		$additive_manufacturing_processes_list =  apiCall($url, "get");
 		//print_r($additive_manufacturing_processes_list);exit;

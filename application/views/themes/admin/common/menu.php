@@ -249,6 +249,7 @@ ul.admin_sidebar li.cust1 a span{
 			
 			
 				<li><a href="<?=site_url()?>settings/machineonrentdata/frontEndData"><i class="fa fa-user"></i><span>Machine On-Rent FrontEndData</span></a></li>
+				<li><a href="<?=site_url()?>settings/machineondemandmanudata/frontEndData"><i class="fa fa-user"></i><span>Machine On-Rent FrontEndData</span></a></li>
 					
 					<li class="treeview"><a href="#"><i class="fa fa-users"></i> <span>Team</span><i class="fa fa-chevron-left pull-right-container"></i></a>
 						<ul class="treeview-menu">

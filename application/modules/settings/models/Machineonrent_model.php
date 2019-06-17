@@ -12,6 +12,8 @@ class Machineonrent_model extends CI_Model {
 			// $this->frontend_machine_on_rent_software="frontend_machine_onrent_software"; 
 			$this->frontend_machine_on_rent_software="frontend_machine_on_rent_software"; 
 			$this->on_rent_infra_master="on_rent_infrastructure_data"; 
+			$this->on_rent_infra_master_cat="frontend_machnine_on_rent_main_category"; 
+			$this->frontend_machine_on_rent_sub ="frontend_machine_on_rent_subdata"; 
 			$this->frontend_path="uploads/machine_on_rent_frontend_images"; 
 			parent::__construct();
     }
@@ -99,12 +101,10 @@ class Machineonrent_model extends CI_Model {
 		return $page_id ;
     }
 	public function updateFront($arrData) { 
-	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
-
-        //if ($data[0])
-          //  $arrData["image"] = $data[1];
-
-	
+		$data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
+		if ($data[0])
+			$arrData["image"] = $data[1];
+		
 		$result = $this->db_lib->update($this->frontend_machine_on_rent, $arrData, "id = " . $arrData["id"]);
         return $result;
     }
@@ -149,5 +149,62 @@ class Machineonrent_model extends CI_Model {
 		$result = $this->db_lib->delete($this->frontend_machine_on_rent_software, "id = " . $id);
         return $result;
     } 
+	
+	public function findSingleMachineOnrentCat($strWhere = 1) {
+		return $this->db_lib->fetchSingle($this->on_rent_infra_master_cat, $strWhere,'');
+	}
+	public function findMultipleMachineOnrentCat($strWhere) {
+		$result=$this->db_lib->fetchMultiple($this->on_rent_infra_master_cat." ", $strWhere."","");//exit; 
+		return $result;
+	}
+	public function createMachineOnrentCat($arrData) {
+		$page_id = $this->db_lib->insert($this->on_rent_infra_master_cat, $arrData);
+		return $page_id ;
+    }
+	public function updateMachineOnrentCat($arrData) { 
+		$result = $this->db_lib->update($this->on_rent_infra_master_cat, $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	public function deleteMachineOnrentCat($id) {
+		$result = $this->db_lib->delete($this->on_rent_infra_master_cat, "id = " . $id);
+        return $result;
+    }
+
+	public function findSingleFrontSubCatrgory($strWhere = 1) {
+		return $this->db_lib->fetchSingle($this->frontend_machine_on_rent_sub, $strWhere,'');
+	}
+	public function findMultipleFrontSubCatrgory($strWhere) {
+
+		$result=$this->db_lib->fetchMultiple($this->frontend_machine_on_rent_sub, $strWhere."","");//exit; 
+		return $result;
+	}
+	public function createFrontSubCatrgory($arrData) {
+		$data1 = $this->file_manager->upload('image', $this->frontend_path, IMG_FORMAT, "");
+		
+        if ($data1[0])
+			$arrData["image"] = $data1[1];
+            $arrData["text"] = $arrData["text"];
+
+	$page_id = $this->db_lib->insert("frontend_machine_on_rent_subdata",$arrData);
+		
+		return $page_id ;
+    }
+	public function updateFrontSubCatrgory($arrData) { 
+		
+	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
+
+        if ($data[0])
+            $arrData["image"] = $data[1];
+
+	
+		$result = $this->db_lib->update($this->frontend_machine_on_rent_sub, $arrData, "id = " . $arrData["id"]);
+        return $result;
+    }
+	public function deleteFrontSubCatrgory($id) {
+		$result = $this->db_lib->delete($this->frontend_machine_on_rent_sub, "id = " . $id);
+        return $result;
+    } 
+		
+
 
 }	?>

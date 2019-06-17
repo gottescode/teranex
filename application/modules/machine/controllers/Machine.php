@@ -440,6 +440,7 @@ class Machine extends FRONTEND_Controller {
 			$pageData['supplier_id'] = $supplier_id;
 			$url = site_url()."machine/api/createMachineRfqRequest";
 			$response =  apiCall($url, "post",$pageData);
+			
 			if($response['result']) {
 				setFlash("dataMsgSuccess", $response['message']);
 				redirect("machine/machine_rfq/$machine_id/$supplier_id");
@@ -521,6 +522,27 @@ class Machine extends FRONTEND_Controller {
             "infrastructureData" => $infrastructureData['result']
         ];
         $this->template->load("createonRentRequest",$arrayData);
+	}
+	public function talkwithexpert() {
+		
+		if(isset($_POST['btnsubmit'])) {
+			$user_id = $this->session->userdata('uid');
+            $pageData = $this->input->post();
+			$pageData['customer_id'] = $user_id;
+			$pageData['created_by'] = $user_id;
+			$pageData['created_on'] = ;
+			$pageData['technology_intrest'] = implode(', ',$pageData['technology_intrest']);
+			$url = site_url()."settings/talkwithexpertapi/create";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']) {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/talkwithexpert");
+			} else {
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect("machine/talkwithexpert");
+			}
+		}
+		$this->template->load("talkwithexpert");
 	}
 	
 }
