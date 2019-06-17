@@ -196,6 +196,7 @@ class Machineonrentdata extends BACKEND_Controller {
 			$pageData = $this->input->post(); 
 			$url = site_url()."settings/machineonrentapi/createFront"; 
 			$response =  apiCall($url, "post",$pageData);
+			
 			if($response['result']){
 				setFlash("dataMsgSuccess", $response['message']);
 				redirect(site_url()."settings/machineonrentdata/frontEndData");	
@@ -211,7 +212,8 @@ class Machineonrentdata extends BACKEND_Controller {
 	}
 	public function updatefrontEndData($id) {  
 		if(isset($_POST['btnSubmit'])){
-			$pageData = $this->input->post(); 
+			$pageData = $this->input->post();
+ 
 			$url = site_url()."settings/machineonrentapi/updateFront";
 			$response =  apiCall($url, "post",$pageData);
 			if($response['result']){

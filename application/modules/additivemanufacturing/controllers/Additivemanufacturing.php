@@ -83,7 +83,7 @@ class Additivemanufacturing extends FRONTEND_Controller {
  
 		$url = site_url()."additivemanufacturing/api/findMultipleAdditiveManufacturing";
 		$additive_manufacturing_list =  apiCall($url, "get");
-		 //print_r($additive_manufacturing_list);exit;
+		//print_r($additive_manufacturing_list);exit;
 
 		$url = site_url()."additivemanufacturing/api/findMultipleAdditiveManufacturingProcesses";
 		$additive_manufacturing_processes_list =  apiCall($url, "get");

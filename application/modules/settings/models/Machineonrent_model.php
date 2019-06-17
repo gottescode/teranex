@@ -101,12 +101,10 @@ class Machineonrent_model extends CI_Model {
 		return $page_id ;
     }
 	public function updateFront($arrData) { 
-	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
-
-        //if ($data[0])
-          //  $arrData["image"] = $data[1];
-
-	
+		$data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
+		if ($data[0])
+			$arrData["image"] = $data[1];
+		
 		$result = $this->db_lib->update($this->frontend_machine_on_rent, $arrData, "id = " . $arrData["id"]);
         return $result;
     }
@@ -192,6 +190,7 @@ class Machineonrent_model extends CI_Model {
 		return $page_id ;
     }
 	public function updateFrontSubCatrgory($arrData) { 
+		
 	    $data = $this->file_manager->update('image', $this->frontend_path, IMG_FORMAT, $arrData["old_image"]);
 
         if ($data[0])

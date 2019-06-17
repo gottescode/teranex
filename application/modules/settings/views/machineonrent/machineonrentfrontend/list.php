@@ -34,7 +34,8 @@
 						<div class="box-body"> 
 							<div class="padd-15">
 								<a href="<?php echo site_url()."settings/machineonrentdata/createfrontEndData"?>" class="btn btn-info">Add Data</a>
-								<a href="<?php echo site_url()."settings/machineonrentdata/createfrontEndDataSoftware"?>" class="btn btn-info">Add Software</a>
+								<a href="<?php echo site_url()."settings/machineonrentdata/frontEndDataSoftware"?>" class="btn btn-info">Add Software</a>
+								<a href="<?php echo site_url()."settings/machineonrentdata/machineOnRentCatData"?>" class="btn btn-info">Add Category/Subcategory</a>
 							</div>
 							
 						<form id="" name="" class="form-horizontal" enctype="multipart/form-data" method="post">

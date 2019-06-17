@@ -58,6 +58,64 @@ class Programmertype extends BACKEND_Controller {
 		setFlash("dataMsgSuccess", $response['message']);
 		redirect(site_url()."settings/programmertype/");		
 	} 
+
+	/* Front End Data On Demand Programming*/
+	public function frontEndData() {
+	 	$url = site_url()."settings/programmertypeapi/findMultipleFront/";
+		$data =  apiCall($url, "get"); 
+		
+		$arrData = array('data' =>$data['result']);
+		$this->template->load("machineProgramming/list",$arrData);
+	}
+	
+	public function createfrontEndData() {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post(); 
+			$url = site_url()."settings/programmertypeapi/createFront"; 
+			$response =  apiCall($url, "post",$pageData);
+			
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/programmertype/frontEndData");	
+			}
+			else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/programmertype/frontEndData");	
+			}	
+		} 
+		 
+	
+		$this->template->load("machineProgramming/create");
+	}
+	public function updatefrontEndData($id) {  
+		if(isset($_POST['btnSubmit'])){
+			$pageData = $this->input->post();
+ 
+			$url = site_url()."settings/programmertypeapi/updateFront";
+			$response =  apiCall($url, "post",$pageData);
+			if($response['result']){
+				setFlash("dataMsgSuccess", $response['message']);
+				redirect(site_url()."settings/programmertype/frontEndData");	
+			}else{
+				setFlash("dataMsgError", $response['message']);
+				redirect(site_url()."settings/programmertype/frontEndData");	
+			}
+		}
+		$url = site_url()."settings/programmertypeapi/findSingleFront/$id";
+		$updateData =  apiCall($url, "get");
+		$arrayData = [
+			"updateData"=>$updateData['result'] 
+		];
+		$this->template->load("machineProgramming/update",$arrayData);
+	}
+	
+	public function deleteFront($id) {  
+		$url = site_url()."settings/programmertypeapi/deleteFront/$id";
+		$response =  apiCall($url, "get"); 
+		setFlash("dataMsgSuccess", $response['message']);
+		redirect(site_url()."settings/programmertype/frontEndData");		
+	}
+	
 }
 
 ?>
