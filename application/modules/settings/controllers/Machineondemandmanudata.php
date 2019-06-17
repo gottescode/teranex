@@ -33,6 +33,7 @@ class Machineondemandmanudata extends BACKEND_Controller {
 		$to = 13;
 		$url = site_url()."settings/machineondemandmanuapi/findMultipleFrontEnd/$from/$to";
 		$thirdBlockdata =  apiCall($url, "get"); 
+		//strhtmldecode($thirdBlockdata['description'])
 		
 		$arrData = array('data' =>$data['result']);
 		$this->template->load("machineondemandmanu/machineonrentfrontend/list",$arrData);

@@ -507,13 +507,14 @@ class Machine extends FRONTEND_Controller {
 			$pageData['customer_id'] = $user_id;
 			$pageData['created_by'] = $user_id;
 			$url = site_url()."machine/api/createonRentRequest";
-			$response =  apiCall($url, "post",$pageData);
+			$response =  apiCall($url, "post",$pageData,1);
+			print_r($response);exit;
 			if($response['result']) {
 				setFlash("dataMsgSuccess", $response['message']);
-				redirect("machine/createonRentRequest/$machine_id");
+				redirect("machine/createonRentRequest/");
 			} else {
 				setFlash("dataMsgSuccess", $response['message']);
-				redirect("machine/createonRentRequest/$machine_id");
+				redirect("machine/createonRentRequest/");
 			}
 		}
 		$arrayData = [
